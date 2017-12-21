@@ -18,7 +18,7 @@ echo "  Worker output:"
 while read LINE; do
 	NAME=$(basename $LINE)
 	echo "    building: $TESTFOLDER/$NAME.json"
-	r2 -Q -c "aaa; e asm.arch > $TMPFOLDER/arch.txt; agj > $TMPFOLDER/agj.json; isj > $TMPFOLDER/isj.json; izj > $TMPFOLDER/izj.json; s main; #!pipe r2dec > $TESTFOLDER/output_$NAME.txt" "$LINE" 2> $TMPFOLDER/stderr.txt
+	r2 -Q -c "aaa; e asm.arch > $TMPFOLDER/arch.txt; agj > $TMPFOLDER/agj.json; isj > $TMPFOLDER/isj.json; izj > $TMPFOLDER/izj.json; s main; #!pipe r2dec > $TESTFOLDER/$NAME.output.txt" "$LINE" 2> $TMPFOLDER/stderr.txt
 	ARCH=$(cat "$TMPFOLDER/arch.txt")
 	AGJ=$(cat "$TMPFOLDER/agj.json")
 	ISJ=$(cat "$TMPFOLDER/isj.json")

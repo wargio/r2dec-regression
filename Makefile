@@ -1,4 +1,7 @@
 all:
+	@bash ./testall.sh
+
+build:
 	@echo "bins"
 	@make --no-print-directory -C bins
 	@bash ./builder.sh bins/binaries.lst
