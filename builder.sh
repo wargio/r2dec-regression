@@ -1,7 +1,32 @@
 #!/bin/bash
 
 FILENAME="$1"
+TESTFOLDER=./tests
+TMPFOLDER=./tmp/
 
-echo "$FILENAME"
+echo "Builder:"
+echo "  Folders:"
+echo "   Temp:   $TMPFOLDER"
+echo "   Tests:  $TESTFOLDER"
+echo "  Files:"
+echo "   List:   $FILENAME"
 
-mkdir tests 2> /dev/null || echo "tests already created"
+mkdir "$TMPFOLDER"
+mkdir "$TESTFOLDER" 2> $TMPFOLDER/stderr.txt
+
+echo "  Worker output:"
+while read LINE; do
+	NAME=$(basename $LINE)
+	echo "    building: $TESTFOLDER/$NAME.json"
+	r2 -Q -c "aaa; e asm.arch > $TMPFOLDER/arch.txt; agj > $TMPFOLDER/agj.json; isj > $TMPFOLDER/isj.json; izj > $TMPFOLDER/izj.json; s main; #!pipe r2dec > $TESTFOLDER/output_$NAME.txt" "$LINE" 2> $TMPFOLDER/stderr.txt
+	ARCH=$(cat "$TMPFOLDER/arch.txt")
+	AGJ=$(cat "$TMPFOLDER/agj.json")
+	ISJ=$(cat "$TMPFOLDER/isj.json")
+	IZJ=$(cat "$TMPFOLDER/izj.json")
+	echo '{"name":"'$NAME'","arch":"'$ARCH'","agj":'$AGJ',"isj":'$ISJ',"izj":'$IZJ'}' > "$TESTFOLDER/$NAME.json"
+done < $FILENAME
+
+if [ ! "$TMPFOLDER" == "/tmp" ]; then
+	echo "cleaning working dir.."
+	rm -rf "$TMPFOLDER"
+fi
