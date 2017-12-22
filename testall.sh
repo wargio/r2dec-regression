@@ -13,11 +13,14 @@ mkdir "$TMPFOLDER"
 for ELEM in $TESTS; do
 	NAME=$(basename "$ELEM")
 	$NODE $R2DECFOLDER/main.js "$ELEM.json" > "$TMPFOLDER/output.txt" || break
-	DIFF=$(diff -u "$TMPFOLDER/output.txt" "$ELEM.output.txt")
+	DIFF=$(diff -u "$ELEM.output.txt" "$TMPFOLDER/output.txt")
 
 	if [ ! -z "$DIFF" ]; then
 		echo "[XX]: $NAME"
 		echo "$DIFF"
+		echo ""
+		echo ""
+		cat "$TMPFOLDER/output.txt"
 	else
 		echo "[OK]: $NAME"
 	fi

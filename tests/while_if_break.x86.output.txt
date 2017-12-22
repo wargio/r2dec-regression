@@ -1,0 +1,18 @@
+void main () {
+    *((int32_t*) local_14h) = edi;
+    *((int64_t*) local_20h) = rsi;
+    *((int32_t*) local_4h) = 0;
+    do {
+        if (*((int32_t*) local_4h) > 0x40) {
+            *((int32_t*) local_4h) += 7;
+            goto label_0;
+        }
+        else {
+            *((int32_t*) local_4h) += 0x10;
+        }
+    } while (*((int32_t*) local_4h) > 0x8f);
+label_0:
+    *((int32_t*) local_4h) += 0x15;
+    eax = 0;
+    return;
+}

@@ -9,6 +9,3 @@ build:
 
 clean:
 	@make clean --no-print-directory -C bins
-
-purge: clean
-	@rm -rf tests
