@@ -1,0 +1,8 @@
+void main () {
+    *((int32_t*) local_4h) = edi;
+    *((int64_t*) local_10h) = rsi;
+    edi = "hello world";
+    puts ();
+    eax = 0;
+    return eax;
+}

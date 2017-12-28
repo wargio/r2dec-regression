@@ -5,6 +5,11 @@ TESTFOLDER=./tests
 TMPFOLDER=./tmp
 TOOLS=./tools
 
+if [ -z "$FILENAME" ]; then
+	echo "usage: builder.sh bins/binaries.lst"
+	exit 1
+fi
+
 echo "Builder:"
 echo "  Folders:"
 echo "   Temp:   $TMPFOLDER"
