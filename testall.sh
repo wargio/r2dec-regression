@@ -6,6 +6,11 @@ R2DECFOLDER=$1
 
 NODE=$(which node)
 
+if [ -z "$R2DECFOLDER" ]; then
+	R2DECFOLDER=~/.config/radare2/r2pm/git/r2dec-js/
+fi
+
+
 TESTS=$(find "$TESTFOLDER" | grep ".json" | sed "s/.json//g")
 
 mkdir "$TMPFOLDER"
