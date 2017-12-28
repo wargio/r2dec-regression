@@ -18,9 +18,6 @@ for ELEM in $TESTS; do
 	if [ ! -z "$DIFF" ]; then
 		echo "[XX]: $NAME"
 		echo "$DIFF"
-		echo ""
-		echo ""
-		cat "$TMPFOLDER/output.txt"
 	else
 		echo "[OK]: $NAME"
 	fi
