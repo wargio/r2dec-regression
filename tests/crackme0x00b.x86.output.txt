@@ -1,0 +1,26 @@
+void main () {
+    do {
+        eax = "Enter password: ";
+        *((int32_t*) esp) = eax;
+        printf ();
+        eax = 0x80485e1;
+        edx = local_1ch;
+        *((int32_t*) local_4h) = edx;
+        *((int32_t*) esp) = eax;
+        __isoc99_scanf ();
+        eax = local_1ch;
+        *((int32_t*) local_4h) = eax;
+        /* pass.1964 */
+        esp = "w0wgreat";
+        wcscmp ();
+        if (eax == 0) {
+            esp = "Congrats!";
+            puts ();
+            /* nop */
+            eax = 0;
+            return eax;
+        }
+        esp = "Wrong!";
+        puts ();
+    } while (1);
+}
