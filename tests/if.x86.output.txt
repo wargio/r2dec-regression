@@ -7,5 +7,5 @@ void main () {
     }
     *((int32_t*) local_4h) += 0x10;
     eax = 0;
-    return;
+    return eax;
 }

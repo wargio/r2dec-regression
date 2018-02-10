@@ -1,8 +1,8 @@
+#include <stdio.h>
 void main () {
     *((int32_t*) local_4h) = edi;
     *((int64_t*) local_10h) = rsi;
-    edi = "hello world";
-    puts ();
+    puts ("hello world");
     eax = 0;
     return eax;
 }
