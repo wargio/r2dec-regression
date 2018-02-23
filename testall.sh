@@ -17,18 +17,20 @@ mkdir "$TMPFOLDER"
 
 for ELEM in $TESTS; do
 	NAME=$(basename "$ELEM")
-	$NODE $R2DECFOLDER/main.js "$ELEM.json" > "$TMPFOLDER/output.txt" || break
-	DIFF=$(diff -u "$ELEM.output.txt" "$TMPFOLDER/output.txt")
+	OUTPUTFILE="$TMPFOLDER/$NAME.output.txt"
+	$NODE $R2DECFOLDER/main.js "$ELEM.json" > "$OUTPUTFILE" || break
+	DIFF=$(diff -u "$ELEM.output.txt" "$OUTPUTFILE")
 
 	if [ ! -z "$DIFF" ]; then
 		echo "[XX]: $NAME"
 		echo "$DIFF"
 	else
 		echo "[OK]: $NAME"
+		rm "$OUTPUTFILE"
 	fi
 
 done
 
-if [ ! "$TMPFOLDER" == "/tmp" ]; then
-	rm -rf "$TMPFOLDER"
+if [ ! "$TMPFOLDER" == "/tmp" ] ; then
+	rmdir "$TMPFOLDER"
 fi
