@@ -1,18 +1,15 @@
 #include <stdio.h>
 #include <wchar.h>
 
-void main () {
+int32_t main () {
     do {
         eax = "Enter password: ";
         printf (eax);
         eax = 0x80485e1;
-        edx = local_1ch;
-        *((int32_t*) local_4h) = edx;
-        isoc99_scanf (eax);
+        isoc99_scanf (eax, edx, local_1ch);
         eax = local_1ch;
-        *((int32_t*) local_4h) = eax;
         /* pass.1964 */
-        wcscmp ("w0wgreat");
+        eax = wcscmp ("w0wgreat", eax);
         if (eax == 0) {
             puts ("Congrats!");
             eax = 0;
