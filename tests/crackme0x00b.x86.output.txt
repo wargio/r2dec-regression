@@ -4,12 +4,17 @@
 int32_t main () {
     do {
         eax = "Enter password: ";
-        printf (eax);
+        *((int32_t*) esp) = eax;
+        printf ((uint32_t*) esp);
         eax = 0x80485e1;
-        isoc99_scanf (eax, edx, local_1ch);
+        edx = local_1ch;
+        *((int32_t*) local_4h) = edx;
+        *((int32_t*) esp) = eax;
+        isoc99_scanf ((uint32_t*) esp, (uint32_t*) local_4h);
         eax = local_1ch;
+        *((int32_t*) local_4h) = eax;
         /* pass.1964 */
-        eax = wcscmp ("w0wgreat", eax);
+        eax = wcscmp ("w0wgreat", (uint32_t*) local_4h);
         if (eax == 0) {
             puts ("Congrats!");
             eax = 0;
