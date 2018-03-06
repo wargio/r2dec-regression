@@ -1,3 +1,18 @@
+#include <stdint.h>
+#define SPR_HID1 (0x3f1)
+#define SPR_HID4 (0x3f4)
+#define SPR_HID0 (0x3f0)
+#define SPR_HID5 (0x3f6)
+#define SPR_HID6 (0x3f9)
+#include <limits.h>
+
+uint64_t rotate_left64 (uint64_t value, uint32_t count) {
+    const uint64_t mask = (CHAR_BIT * sizeof (value)) - 1;
+    count &= mask;
+    return (value << count) | (value >> (-count & mask));
+}
+
+
 void boot () {
     r0 = 0;
     r4 = _mfpvr ();
@@ -5,10 +20,10 @@ void boot () {
     r5 |= 0xa48;
     do {
         r6 = *((int64_t*) r5);
-        if (((int64_t) r6) != ((int64_t) r4)) {
+        if ((uint64_t) r6 != (uint64_t) r4) {
             goto label_0;
         }
-        if (((int64_t) r6) != 0) {
+        if ((uint64_t) r6 != 0) {
             goto label_1;
         }
         r5 += 0x10;
@@ -18,77 +33,77 @@ label_1:
 label_0:
     r3 = *((int64_t*) 0xad0);
     /* SPR num: 318 */
-    _mtspr (0x13e, r3);
+    _mtspr (0x13e, (uint64_t) r3);
     _isync ();
     _slbia ();
-    r3 = *(((int64_t*) r5) + 1);
-    r4 = *(((int64_t*) r3) + 1);
+    r3 = *((int64_t*) r5 + 1);
+    r4 = *((int64_t*) r3 + 1);
     _lwsync ();
     /* SPR num: 1009 */
-    _mtspr (SPR_HID1, r4);
+    _mtspr (SPR_HID1, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 3);
+    r4 = *((int64_t*) r3 + 3);
     _lwsync ();
     /* SPR num: 1012 */
-    _mtspr (SPR_HID4, r4);
+    _mtspr (SPR_HID4, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 2);
+    r4 = *((int64_t*) r3 + 2);
     _lwsync ();
     /* SPR num: 1009 */
-    _mtspr (SPR_HID1, r4);
+    _mtspr (SPR_HID1, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 4);
+    r4 = *((int64_t*) r3 + 4);
     _lwsync ();
     /* SPR num: 1012 */
-    _mtspr (SPR_HID4, r4);
+    _mtspr (SPR_HID4, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 1);
+    r4 = *((int64_t*) r3 + 1);
     _lwsync ();
     /* SPR num: 1009 */
-    _mtspr (SPR_HID1, r4);
+    _mtspr (SPR_HID1, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 3);
+    r4 = *((int64_t*) r3 + 3);
     _lwsync ();
     /* SPR num: 1012 */
-    _mtspr (SPR_HID4, r4);
+    _mtspr (SPR_HID4, (uint64_t) r4);
     _lwsync ();
     _isync ();
     r4 = *((int64_t*) r3);
     _lwsync ();
     /* SPR num: 1008 */
-    _mtspr (SPR_HID0, r4);
+    _mtspr (SPR_HID0, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 5);
+    r4 = *((int64_t*) r3 + 5);
     _lwsync ();
     /* SPR num: 1014 */
-    _mtspr (SPR_HID5, r4);
+    _mtspr (SPR_HID5, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 6);
+    r4 = *((int64_t*) r3 + 6);
     _lwsync ();
     /* SPR num: 1017 */
-    _mtspr (SPR_HID6, r4);
+    _mtspr (SPR_HID6, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *(((int64_t*) r3) + 7);
+    r4 = *((int64_t*) r3 + 7);
     _lwsync ();
     _mtdccr (r4);
     _lwsync ();
     _isync ();
     r4 = *((uint32_t*) 0xad8);
     /* SPR num: 921 */
-    _mtspr (0x399, r4);
+    _mtspr (0x399, (uint64_t) r4);
     _isync ();
     r4 = 0;
     _isync ();
     /* SPR num: 319 */
-    _mtspr (0x13f, r4);
+    _mtspr (0x13f, (uint64_t) r4);
     _isync ();
     r3 = *((int64_t*) 0xac8);
     _mtmsrd (r3);
@@ -97,7 +112,8 @@ label_0:
     r4 = 0x80c0000;
     r4 |= 0xbd80;
     r4 -= r3;
-    r4 = rol64(r4, 0x39) & 7;
+    r4 = rotate_left64 (r4, 0x39);
+    r4 &= 7;
     ctr = r4;
     do {
         _dcbz (r3);
@@ -109,6 +125,5 @@ label_0:
     r2 |= 0xdde0;
     r3 = 0x8000000;
     r3 |= 0;
-    _mtlr (r3);
-    (*(void(*)()) lr) ();
+    (*(void(*)()) r3) ();
 }
