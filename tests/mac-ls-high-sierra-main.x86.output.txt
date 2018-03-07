@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <locale.h>
+#include <stdlib.h>
 
 void entry0 () {
     r15 = rsi;
