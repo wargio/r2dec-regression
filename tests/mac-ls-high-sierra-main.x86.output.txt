@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <locale.h>
 
-void main () {
+void entry0 () {
     r15 = rsi;
     r14d = edi;
     rax = local_240h;
@@ -9,16 +9,21 @@ void main () {
     if (r14d <= 0) {
         func_100004400 ();
     }
+    /* const char * locale */
     rsi = 0x100004af0;
+    /* int category */
     edi ^= *(edi);
     setlocale (edi, rsi);
+    /* int fd */
     edi = 1;
     eax = isatty (edi);
     if (eax != 0) {
         *((int32_t*) 0x1000054d0) = 0x50;
+        /* const char * name */
         rax = getenv ("COLUMNS");
         if (rax != 0) {
             if (*((int8_t*) rax) != 0) {
+                /* const char * str */
                 rdi = rax;
                 atoi (rdi);
             }
@@ -40,8 +45,10 @@ void main () {
     }
     else {
         *((int8_t*) 0x100005500) = 1;
+        /* const char * name */
         rax = getenv ("COLUMNS");
         if (rax != 0) {
+            /* const char * str */
             rdi = rax;
             eax = atoi (rdi);
             *((int32_t*) 0x1000054d0) = eax;
@@ -56,8 +63,11 @@ void main () {
     rbx = 0x100001a24;
     while (eax == 0xffffffffffffffff) {
         func_100004400 ();
+        /* int argc */
         edi = r14d;
+        /* const char * *argv */
         rsi = r15;
+        /* const char * optstring */
         rdx = r13;
         getopt (rdx, rsi, edi);
         ecx = rax - 0x31;
@@ -81,29 +91,29 @@ void main () {
                 rsi = rax;
                 tgetent (rsi, rdi);
                 if (eax == 1) {
-                    rdi = 0x100004b4e;
+                    rdi = str_AF;
                     rbx = local_30h;
                     rsi = rbx;
                     rax = tgetstr (rsi);
                     *((int64_t*) 0x1000055f0) = rax;
-                    rdi = 0x100004b51;
+                    rdi = str_AB;
                     rsi = rbx;
                     rax = tgetstr (rsi, rdi);
                     *((int64_t*) 0x1000055e0) = rax;
-                    rdi = 0x100004b54;
+                    rdi = str_me;
                     rsi = rbx;
                     rax = tgetstr (rsi, rdi);
                     *((int64_t*) 0x1000055f8) = rax;
-                    rdi = 0x100004b57;
+                    rdi = str_md;
                     rsi = rbx;
                     rax = tgetstr (rsi, rdi);
                     *((int64_t*) 0x100005608) = rax;
-                    rdi = 0x100004b5a;
+                    rdi = str_op;
                     rsi = rbx;
                     rax = tgetstr (rsi, rdi);
                     *((int64_t*) 0x1000055e8) = rax;
                     if (rax == 0) {
-                        rdi = 0x100004b5d;
+                        rdi = str_oc;
                         rsi = local_30h;
                         rax = tgetstr (rsi, rdi);
                         *((int64_t*) 0x1000055e8) = rax;
@@ -119,7 +129,7 @@ void main () {
                                 if (*((int32_t*) 0x10000561c) != 0) {
                                     *((int32_t*) 0x100005638) = 1;
                                     /* func.100003bd8 */
-                                    rbx = func_100003bd8;
+                                    rbx = tputs_bd8;
                                     edi = 2;
                                     rsi = rbx;
                                     signal (rsi, edi);
@@ -128,7 +138,7 @@ void main () {
                                     signal (rsi, edi);
                                     rax = getenv ("LSCOLORS");
                                     rdi = rax;
-                                    func_100003a5b (rdi);
+                                    strlen (rdi);
                                     r8d = *((int32_t*) 0x10000561c);
                                 }
                             }
@@ -254,19 +264,19 @@ void main () {
     r14d -= *(r13d);
     if (*((int8_t*) 0x100005500) == 1) {
         /* func.1000028c4 */
-        rax = func_1000028c4;
+        rax = printscol_8c4;
     }
     else {
         if (*((int32_t*) 0x100005630) == 0) {
             if (*((int32_t*) 0x100005660) == 0) {
                 /* func.100003745 */
-                rax = func_100003745;
+                rax = realloc_745;
             }
             else {
                 /* func.100002aad */
                 rax = func_100002aad;
                 /* func.100003674 */
-                rax = func_100003674;
+                rax = strlen_674;
             }
         }
     }
@@ -280,7 +290,7 @@ void main () {
         edi = r14d;
     }
     edx = ebx;
-    func_100001b44 (edx, edi, rsi);
+    fts_open_INODE64 (edx, edi, rsi);
     edi = 0x100005538;
     exit (edi);
 }
