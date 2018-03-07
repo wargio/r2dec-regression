@@ -70,7 +70,7 @@ void fcn_rip () {
         rdx = quoting_style_vals;
         rax = eax;
         edi ^= *(edi);
-        esi = *((int32_t*) rdx + rax*4);
+        esi = *((int32_t*) rdx + (rax * 4));
         fcn_564310a37c90 (esi, edi);
     }
     rdi = "COLUMNS";
@@ -120,7 +120,7 @@ void fcn_rip () {
     goto 0x564310a2b6e5;
     eax += *(0x83);
     goto 0x564310a2c43f;
-    rax = r13 + rax*4;
+    rax = r13 + (rax * 4);
     rax += *(r13);
     (*(void(*)()) rax) ();
 }

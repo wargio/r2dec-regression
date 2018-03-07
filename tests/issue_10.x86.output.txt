@@ -1,0 +1,286 @@
+#include <stdint.h>
+#include <locale.h>
+
+void main () {
+    r15 = rsi;
+    r14d = edi;
+    rax = local_240h;
+    *((int64_t*) local_30h) = rax;
+    if (r14d <= 0) {
+        func ();
+    }
+    rsi = 0x100004af0;
+    edi ^= *(edi);
+    setlocale (edi, rsi);
+    edi = 1;
+    eax = isatty (edi);
+    if (eax != 0) {
+        *((int32_t*) 0x1000054d0) = 0x50;
+        rax = getenv ("COLUMNS");
+        if (rax != 0) {
+            if (*((int8_t*) rax) != 0) {
+                rdi = rax;
+                atoi (rdi);
+            }
+            else {
+                rdx = local_38h;
+                edi = 1;
+                esi = 0x40087468;
+                eax ^= *(eax);
+                ioctl (esi, edi, rdx);
+                if (eax != 0xffffffffffffffff) {
+                    eax = local_36h;
+                    if (eax != 0) {
+                        *((int32_t*) 0x1000054d0) = eax;
+                    }
+                }
+            }
+        }
+        *((int32_t*) 0x100005634) = 1;
+    }
+    else {
+        *((int8_t*) 0x100005500) = 1;
+        rax = getenv ("COLUMNS");
+        if (rax != 0) {
+            rdi = rax;
+            eax = atoi (rdi);
+            *((int32_t*) 0x1000054d0) = eax;
+        }
+    }
+    eax = getuid ();
+    if (eax == 0) {
+        *((int8_t*) 0x100005504) = 1;
+    }
+    r12d = 0x10;
+    r13 = "1@ABCFGHLOPRSTUWabcdefghiklmnopqrstuvwx";
+    rbx = 0x100001a24;
+    while (eax == 0xffffffffffffffff) {
+        goto 0x100004400;
+        edi = r14d;
+        rsi = r15;
+        rdx = r13;
+        goto 0x1000044f4;
+        ecx = rax - 0x31;
+        if (ecx <= 0x47) {
+            rax = rbx + (rcx * 4);
+            rax += *(rbx);
+            (*(void(*)()) rax) ();
+        }
+    }
+    rax = *((int64_t*) reloc.optind);
+    r13 = rax;
+    rax = getenv ("CLICOLOR");
+    if (rax != 0) {
+        edi = 1;
+        eax = isatty (edi);
+        if (eax == 0) {
+            rax = getenv ("CLICOLOR_FORCE");
+            if (rax != 0) {
+                getenv ("TERM");
+                rdi = local_640h;
+                rsi = rax;
+                tgetent (rsi, rdi);
+                if (eax == 1) {
+                    rdi = 0x100004b4e;
+                    rbx = local_30h;
+                    rsi = rbx;
+                    rax = tgetstr (rsi);
+                    *((int64_t*) 0x1000055f0) = rax;
+                    rdi = 0x100004b51;
+                    rsi = rbx;
+                    rax = tgetstr (rsi, rdi);
+                    *((int64_t*) 0x1000055e0) = rax;
+                    rdi = 0x100004b54;
+                    rsi = rbx;
+                    rax = tgetstr (rsi, rdi);
+                    *((int64_t*) 0x1000055f8) = rax;
+                    rdi = 0x100004b57;
+                    rsi = rbx;
+                    rax = tgetstr (rsi, rdi);
+                    *((int64_t*) 0x100005608) = rax;
+                    rdi = 0x100004b5a;
+                    rsi = rbx;
+                    rax = tgetstr (rsi, rdi);
+                    *((int64_t*) 0x1000055e8) = rax;
+                    if (rax == 0) {
+                        rdi = 0x100004b5d;
+                        rsi = local_30h;
+                        rax = tgetstr (rsi, rdi);
+                        *((int64_t*) 0x1000055e8) = rax;
+                    }
+                    if (*((int64_t*) 0x1000055f0) != 0) {
+                        rcx = *((int64_t*) 0x1000055e0);
+                        if (rcx != 0) {
+                            if (rax != 0) {
+                                *((int32_t*) 0x10000561c) = 1;
+                            }
+                            else {
+                                r8d ^= *(r8d);
+                                if (*((int32_t*) 0x10000561c) != 0) {
+                                    *((int32_t*) 0x100005638) = 1;
+                                    /* func.100003bd8 */
+                                    rbx = func_100003bd8;
+                                    edi = 2;
+                                    rsi = rbx;
+                                    signal (rsi, edi);
+                                    edi = 3;
+                                    rsi = rbx;
+                                    signal (rsi, edi);
+                                    rax = getenv ("LSCOLORS");
+                                    rdi = rax;
+                                    func (rdi);
+                                    r8d = *((int32_t*) 0x10000561c);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    r9d = *((int32_t*) 0x100005630);
+    edi = *((int32_t*) 0x10000562c);
+    edi |= *(r9d);
+    edx = *((int32_t*) 0x100005650);
+    eax = edi;
+    eax |= *(edx);
+    bl = *((int8_t*) 0x100005520);
+    esi = *((int32_t*) 0x100005664);
+    ecx = r12d;
+    ecx |= *(8);
+    eax |= *(esi);
+    r10b = *((int8_t*) 0x10000551c);
+    if (*((int32_t*) 0x10000561c) != 0) {
+        ecx = r12d;
+    }
+    if (bl != 0) {
+        ecx = r12d;
+    }
+    if (r10b != 0) {
+        ecx = r12d;
+    }
+    if (r8d != 0) {
+        ecx = r12d;
+    }
+    bl = *((int8_t*) 0x10000550c);
+    bl ^= *(1);
+    edi |= *(esi);
+    al = (r8d == 0) ? 1 : 0;
+    al &= *(bl);
+    eax = al;
+    eax |= *(ecx);
+    cl = *((int8_t*) 0x100005524);
+    ebx = eax;
+    ebx |= *(0x80);
+    if (cl == 0) {
+        ebx = eax;
+    }
+    edx |= *(r9d);
+    if (cl != 0) {
+        if (*((int8_t*) 0x100005514) == 1) {
+            *((int64_t*) 0x100005600) = 2;
+        }
+        else {
+            rsi = 0x100005600;
+            rdi = local_3ch;
+            getbsize (rdi, rsi);
+            rax = *((int64_t*) 0x100005600);
+            rcx = rax;
+            rcx >>= *(0x3f);
+            rcx >>= *(0x37);
+            rcx += *(rax);
+            rcx >>= *(9);
+            *((int64_t*) 0x100005600) = rcx;
+            r10b = *((int8_t*) 0x10000551c);
+        }
+    }
+    if (*((int8_t*) 0x100005518) == 1) {
+        if ((r10b & 1) != 0) {
+            /* func.100001132 */
+            rax = func_100001132;
+        }
+        else {
+            if ((r10b & 1) != 0) {
+                /* func.100001100 */
+                rax = func_100001100;
+            }
+            else {
+                al = *((int8_t*) 0x100005520);
+                if (al != 0) {
+                    if (*((int32_t*) 0x100005610) == 0) {
+                        if (*((int32_t*) 0x10000565c) == 0) {
+                            if (*((int32_t*) 0x100005618) == 0) {
+                                /* func.100000f8c */
+                                rax = func_100000f8c;
+                            }
+                            else {
+                                al = *((int8_t*) 0x100005520);
+                                if (al != 0) {
+                                    if (*((int32_t*) 0x100005610) == 0) {
+                                        if (*((int32_t*) 0x10000565c) == 0) {
+                                            if (*((int32_t*) 0x100005618) == 0) {
+                                                /* func.100000f47 */
+                                                rax = func_100000f47;
+                                            }
+                                            else {
+                                                /* func.100000f32 */
+                                                rax = func_100000f32;
+                                                /* func.100000f20 */
+                                                rax = func_100000f20;
+                                                /* func.10000101f */
+                                                rax = func_10000101f;
+                                                /* func.100000fda */
+                                                rax = func_100000fda;
+                                                /* func.1000010b2 */
+                                                rax = func_1000010b2;
+                                                /* func.10000106d */
+                                                rax = func_10000106d;
+                                                /* func.1000011b2 */
+                                                rax = func_1000011b2;
+                                                /* func.10000116d */
+                                                rax = func_10000116d;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    *((int64_t*) 0x100005528) = rax;
+    r14d -= *(r13d);
+    if (*((int8_t*) 0x100005500) == 1) {
+        /* func.1000028c4 */
+        rax = func_1000028c4;
+    }
+    else {
+        if (*((int32_t*) 0x100005630) == 0) {
+            if (*((int32_t*) 0x100005660) == 0) {
+                /* func.100003745 */
+                rax = func_100003745;
+            }
+            else {
+                /* func.100002aad */
+                rax = func_100002aad;
+                /* func.100003674 */
+                rax = func_100003674;
+            }
+        }
+    }
+    *((int64_t*) 0x100005530) = rax;
+    if (r14d == 0) {
+        rsi = 0x1000054e0;
+        edi = 1;
+    }
+    else {
+        rsi = r15 + r13*8;
+        edi = r14d;
+    }
+    edx = ebx;
+    func (edx, edi, rsi);
+    edi = 0x100005538;
+    exit (edi);
+}
