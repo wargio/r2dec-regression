@@ -11,7 +11,7 @@ void main () {
         func_100004400 ();
     }
     rsi = 0x100004af0;
-    edi ^= *(edi);
+    edi = 0;
     setlocale (edi, rsi);
     edi = 1;
     eax = isatty (edi);
@@ -27,7 +27,7 @@ void main () {
                 rdx = local_38h;
                 edi = 1;
                 esi = 0x40087468;
-                eax ^= *(eax);
+                eax = 0;
                 ioctl (esi, edi, rdx);
                 if (eax != 0xffffffffffffffff) {
                     eax = local_36h;
@@ -64,7 +64,7 @@ void main () {
         ecx = rax - 0x31;
         if (ecx <= 0x47) {
             rax = rbx + (rcx * 4);
-            rax += *(rbx);
+            rax += rbx;
             (*(void(*)()) rax) ();
         }
     }
@@ -116,7 +116,7 @@ void main () {
                                 *((int32_t*) 0x10000561c) = 1;
                             }
                             else {
-                                r8d ^= *(r8d);
+                                r8d = 0;
                                 if (*((int32_t*) 0x10000561c) != 0) {
                                     *((int32_t*) 0x100005638) = 1;
                                     /* func.100003bd8 */
@@ -141,15 +141,15 @@ void main () {
     }
     r9d = *((int32_t*) 0x100005630);
     edi = *((int32_t*) 0x10000562c);
-    edi |= *(r9d);
+    edi |= r9d;
     edx = *((int32_t*) 0x100005650);
     eax = edi;
-    eax |= *(edx);
+    eax |= edx;
     bl = *((int8_t*) 0x100005520);
     esi = *((int32_t*) 0x100005664);
     ecx = r12d;
-    ecx |= *(8);
-    eax |= *(esi);
+    ecx |= 8;
+    eax |= esi;
     r10b = *((int8_t*) 0x10000551c);
     if (*((int32_t*) 0x10000561c) != 0) {
         ecx = r12d;
@@ -164,19 +164,19 @@ void main () {
         ecx = r12d;
     }
     bl = *((int8_t*) 0x10000550c);
-    bl ^= *(1);
-    edi |= *(esi);
+    bl ^= 1;
+    edi |= esi;
     al = (r8d == 0) ? 1 : 0;
-    al &= *(bl);
+    al &= bl;
     eax = al;
-    eax |= *(ecx);
+    eax |= ecx;
     cl = *((int8_t*) 0x100005524);
     ebx = eax;
-    ebx |= *(0x80);
+    ebx |= 0x80;
     if (cl == 0) {
         ebx = eax;
     }
-    edx |= *(r9d);
+    edx |= r9d;
     if (cl != 0) {
         if (*((int8_t*) 0x100005514) == 1) {
             *((int64_t*) 0x100005600) = 2;
@@ -187,10 +187,10 @@ void main () {
             getbsize (rdi, rsi);
             rax = *((int64_t*) 0x100005600);
             rcx = rax;
-            rcx >>= *(0x3f);
-            rcx >>= *(0x37);
-            rcx += *(rax);
-            rcx >>= *(9);
+            rcx >>= 0x3f;
+            rcx >>= 0x37;
+            rcx += rax;
+            rcx >>= 9;
             *((int64_t*) 0x100005600) = rcx;
             r10b = *((int8_t*) 0x10000551c);
         }
@@ -252,7 +252,7 @@ void main () {
         }
     }
     *((int64_t*) 0x100005528) = rax;
-    r14d -= *(r13d);
+    r14d -= r13d;
     if (*((int8_t*) 0x100005500) == 1) {
         /* func.1000028c4 */
         rax = func_1000028c4;
