@@ -36,38 +36,38 @@ label_0:
     _mtspr (0x13e, (uint64_t) r3);
     _isync ();
     _slbia ();
-    r3 = *((int64_t*) r5 + 1);
-    r4 = *((int64_t*) r3 + 1);
+    r3 = *((int64_t*) r5 + 0x1);
+    r4 = *((int64_t*) r3 + 0x1);
     _lwsync ();
     /* SPR num: 1009 */
     _mtspr (SPR_HID1, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 3);
+    r4 = *((int64_t*) r3 + 0x3);
     _lwsync ();
     /* SPR num: 1012 */
     _mtspr (SPR_HID4, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 2);
+    r4 = *((int64_t*) r3 + 0x2);
     _lwsync ();
     /* SPR num: 1009 */
     _mtspr (SPR_HID1, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 4);
+    r4 = *((int64_t*) r3 + 0x4);
     _lwsync ();
     /* SPR num: 1012 */
     _mtspr (SPR_HID4, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 1);
+    r4 = *((int64_t*) r3 + 0x1);
     _lwsync ();
     /* SPR num: 1009 */
     _mtspr (SPR_HID1, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 3);
+    r4 = *((int64_t*) r3 + 0x3);
     _lwsync ();
     /* SPR num: 1012 */
     _mtspr (SPR_HID4, (uint64_t) r4);
@@ -79,24 +79,24 @@ label_0:
     _mtspr (SPR_HID0, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 5);
+    r4 = *((int64_t*) r3 + 0x5);
     _lwsync ();
     /* SPR num: 1014 */
     _mtspr (SPR_HID5, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 6);
+    r4 = *((int64_t*) r3 + 0x6);
     _lwsync ();
     /* SPR num: 1017 */
     _mtspr (SPR_HID6, (uint64_t) r4);
     _lwsync ();
     _isync ();
-    r4 = *((int64_t*) r3 + 7);
+    r4 = *((int64_t*) r3 + 0x7);
     _lwsync ();
     _mtdccr (r4);
     _lwsync ();
     _isync ();
-    r4 = *((uint32_t*) 0xad8);
+    r4 = *((int32_t*) 0xad8);
     /* SPR num: 921 */
     _mtspr (0x399, (uint64_t) r4);
     _isync ();
