@@ -35,7 +35,7 @@ void entry0 () {
                 eax = 0;
                 ioctl (esi, edi, rdx);
                 if (eax != 0xffffffffffffffff) {
-                    eax = local_36h;
+                    eax = (int16_t) local_36h;
                     if (eax != 0) {
                         *((int32_t*) 0x1000054d0) = eax;
                     }
@@ -73,13 +73,13 @@ void entry0 () {
         getopt (rdx, rsi, edi);
         ecx = rax - 0x31;
         if (ecx <= 0x47) {
-            rax = rbx + (rcx * 4);
+            rax = (int32_t) rbx + (rcx * 4);
             rax += rbx;
             (*(void(*)()) rax) ();
         }
     }
     rax = *((int64_t*) reloc.optind);
-    r13 = rax;
+    r13 = (int32_t) rax;
     rax = getenv ("CLICOLOR");
     if (rax != 0) {
         edi = 1;
@@ -178,7 +178,7 @@ void entry0 () {
     edi |= esi;
     al = (r8d == 0) ? 1 : 0;
     al &= bl;
-    eax = al;
+    eax = (int32_t) al;
     eax |= ecx;
     cl = *((int8_t*) 0x100005524);
     ebx = eax;
@@ -292,6 +292,6 @@ void entry0 () {
     }
     edx = ebx;
     fts_open_INODE64 (edx, edi, rsi);
-    edi = 0x100005538;
+    edi = (int8_t) 0x100005538;
     exit (edi);
 }

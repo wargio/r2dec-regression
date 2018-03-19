@@ -16,7 +16,7 @@ void fcn_000106ac () {
         r0 ^= r3;
         r1 += 1; r3 = r1[0];
         r0 = rotate_right32 (r0, 27);
-        r0 = 0;
+        r0 ^= (r0 << 8);
     }
     return;
 }
