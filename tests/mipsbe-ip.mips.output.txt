@@ -54,12 +54,12 @@
     0x0040260c  lw gp, 0x10(sp)       |             gp = *((int32_t*) sp + 4);
     0x00402610  lw v1, 0x24(sp)       |             v1 = *((int32_t*) sp + 9);
     0x00402614  addiu v0, zero, 0x2d  |             v0 = 0x2d;
-                                      |             if (v0 != 0) {
+                                      |             if (v0 == 0) {
     0x00402618  beqz v0, 0x402944     |                 goto label_0;
                                       |             }
     0x0040261c  lb a0, (v1)           |             a0 = *((int8_t*) v1);
     0x00402620  addiu a2, v1, 1       |             a2 = v1 + 1;
-                                      |             if (a0 == v0) {
+                                      |             if (a0 != v0) {
     0x00402624  bne a0, v0, 0x40295c  |                 goto label_1;
                                       |             }
     0x00402628  lb v0, 1(v1)          |             v0 = *((int8_t*) v1 + 1);
@@ -72,13 +72,13 @@
                                       |         } while (v0 != 0);
                                       |     }
     0x0040263c  move a0, a2           |     a0 = a2;
-                                      |     if (a0 == v0) {
+                                      |     if (a0 != v0) {
     0x00402640  sw a2, 0x24(sp)       |         *((int32_t*) sp + 9) = a2;
     0x00402644  jalr t9               |         (*(void(*)()) t9) ();
     0x00402648  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x0040264c  lw a2, 0x24(sp)       |         a2 = *((int32_t*) sp + 9);
     0x00402650  move a0, a2           |         a0 = a2;
-                                      |         if (v0 == 0) {
+                                      |         if (v0 != 0) {
     0x00402654  bnez v0, 0x402768     |             goto label_2;
                                       |         }
                                       |     }
@@ -86,7 +86,7 @@
                                       |     do {
     0x0040265c  addiu v0, zero, 1     |         v0 = 1;
     0x00402660  addiu s0, s0, 4       |         s0 += 4;
-                                      |         if (s1 != v0) {
+                                      |         if (s1 == v0) {
     0x00402664  beq s1, v0, 0x402a2c  |             goto label_3;
                                       |         }
     0x00402668  lui a1, 0x42          |         a1 = 0x420000;
@@ -98,7 +98,7 @@
     0x00402680  jalr t9               |         (*(void(*)()) t9) ();
     0x00402684  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x00402688  addiu v1, zero, 2     |         v1 = 2;
-                                      |         if (v0 != 0) {
+                                      |         if (v0 == 0) {
     0x0040268c  beqz v0, 0x402804     |             goto label_4;
                                       |         }
     0x00402690  lw t9, -0x7ee0(gp)    |         t9 = *((int32_t*) gp - 8120);
@@ -108,7 +108,7 @@
     0x004026a0  jalr t9               |         (*(void(*)()) t9) ();
     0x004026a4  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x004026a8  addiu v1, zero, 0xa   |         v1 = 0xa;
-                                      |         if (v0 != 0) {
+                                      |         if (v0 == 0) {
     0x004026ac  beqz v0, 0x402810     |             goto label_5;
                                       |         }
     0x004026b0  lw t9, -0x7ee0(gp)    |         t9 = *((int32_t*) gp - 8120);
@@ -118,7 +118,7 @@
     0x004026c0  jalr t9               |         (*(void(*)()) t9) ();
     0x004026c4  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x004026c8  addiu v1, zero, 0xc   |         v1 = 0xc;
-                                      |         if (v0 != 0) {
+                                      |         if (v0 == 0) {
     0x004026cc  beqz v0, 0x402840     |             goto label_6;
                                       |         }
     0x004026d0  lw t9, -0x7ee0(gp)    |         t9 = *((int32_t*) gp - 8120);
@@ -128,7 +128,7 @@
     0x004026e0  jalr t9               |         (*(void(*)()) t9) ();
     0x004026e4  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x004026e8  addiu v1, zero, 0x11  |         v1 = 0x11;
-                                      |         if (v0 == 0) {
+                                      |         if (v0 != 0) {
     0x004026ec  bnez v0, 0x4028f0     |             goto label_7;
                                       |         }
                                       |     } while (v0 != 0);
@@ -176,7 +176,7 @@
     0x00402778  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x0040277c  lw a2, 0x24(sp)       |         a2 = *((int32_t*) sp + 9);
     0x00402780  addiu v1, zero, 2     |         v1 = 2;
-                                      |         if (v0 != 0) {
+                                      |         if (v0 == 0) {
     0x00402784  beqz v0, 0x402804     |             goto label_4;
                                       |         }
     0x00402788  lw t9, -0x7ee0(gp)    |         t9 = *((int32_t*) gp - 8120);
@@ -187,7 +187,7 @@
     0x0040279c  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x004027a0  lw a2, 0x24(sp)       |         a2 = *((int32_t*) sp + 9);
     0x004027a4  addiu v1, zero, 0xa   |         v1 = 0xa;
-                                      |         if (v0 != 0) {
+                                      |         if (v0 == 0) {
     0x004027a8  beqz v0, 0x402810     |             goto label_5;
                                       |         }
     0x004027ac  lw t9, -0x7ee0(gp)    |         t9 = *((int32_t*) gp - 8120);
@@ -260,11 +260,11 @@
     0x00402894  sltiu v0, v0, 3       |             v0 = ((uint32_t) v0 < (uint32_t) 3) ? 1 : 0;
     0x00402898  lw gp, 0x10(sp)       |             gp = *((int32_t*) sp + 4);
     0x0040289c  addiu a0, s6, 2       |             a0 = s6 + 2;
-                                      |             if (v0 != 0) {
+                                      |             if (v0 == 0) {
     0x004028a0  beqz v0, 0x4029b4     |                 goto label_14;
                                       |             }
     0x004028a4  slti v0, s1, 2        |             v0 = (s1 < 2) ? 1 : 0;
-                                      |             if (v0 == 0) {
+                                      |             if (v0 != 0) {
     0x004028a8  bnez v0, 0x402a20     |                 goto label_15;
                                       |             }
     0x004028ac  nop                   | 
@@ -480,7 +480,7 @@
     0x00402b84  lw gp, 0x10(sp)       |         gp = *((int32_t*) sp + 4);
     0x00402b88  lw a2, 0x24(sp)       |         a2 = *((int32_t*) sp + 9);
     0x00402b8c  addiu v0, zero, 1     |         v0 = 1;
-                                      |         if (v0 == 0) {
+                                      |         if (v0 != 0) {
     0x00402b90  bnez v0, 0x402bb0     |             goto label_21;
                                       |         }
     0x00402b94  addiu s1, s1, -1      |         s1 += -1;

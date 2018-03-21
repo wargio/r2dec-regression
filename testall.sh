@@ -23,7 +23,7 @@ for ELEM in $TESTS; do
 
 	if [ ! -z "$DIFF" ]; then
 		echo "[XX]: $NAME"
-		echo "$DIFF"
+		diff --color=always -u "$ELEM.output.txt" "$OUTPUTFILE"
 	else
 		echo "[OK]: $NAME"
 		rm "$OUTPUTFILE"

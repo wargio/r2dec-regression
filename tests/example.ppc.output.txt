@@ -22,11 +22,11 @@
                                        |     do {
     0x00000af8  ld r6, 0(r5)           |         r6 = *((int64_t*) r5);
     0x00000afc  cmpd r6, r4            | 
-                                       |         if ((uint64_t) r6 != (uint64_t) r4) {
+                                       |         if ((uint64_t) r6 == (uint64_t) r4) {
     0x00000b00  beq- 0xb18             |             goto label_0;
                                        |         }
     0x00000b04  cmpdi r6, 0            | 
-                                       |         if ((uint64_t) r6 != 0) {
+                                       |         if ((uint64_t) r6 == 0) {
     0x00000b08  beq- 0xb14             |             goto label_1;
                                        |         }
     0x00000b0c  addi r5, r5, 0x10      |         r5 += 0x10;
