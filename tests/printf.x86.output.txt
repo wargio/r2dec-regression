@@ -1,10 +1,16 @@
-#include <stdint.h>
-#include <stdio.h>
-
-int32_t main () {
-    *((int32_t*) local_4h) = edi;
-    *((int64_t*) local_10h) = rsi;
-    puts ("hello world");
-    eax = 0;
-    return eax;
-}
+    ; assembly                              | /* r2dec pseudo C output */
+                                            | #include <stdint.h>
+                                            | #include <stdio.h>
+                                            | 
+(fcn) sym.main                              | int32_t main () {
+    0x0000064a  push rbp                    | 
+    0x0000064b  mov rbp, rsp                | 
+    0x0000064e  sub rsp, 0x10               | 
+    0x00000652  mov dword [rbp - 4], edi    |     *((int32_t*) local_4h) = edi;
+    0x00000655  mov qword [rbp - 0x10], rsi |     *((int64_t*) local_10h) = rsi;
+    0x00000659  lea rdi, [rip + 0x94]       | 
+    0x00000660  call 0x530                  |     puts ("hello world");
+    0x00000665  mov eax, 0                  |     eax = 0;
+    0x0000066a  leave                       | 
+    0x0000066b  ret                         |     return eax;
+                                            | }

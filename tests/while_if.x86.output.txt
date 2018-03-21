@@ -1,15 +1,24 @@
-#include <stdint.h>
-
-int32_t main () {
-    *((int32_t*) local_14h) = edi;
-    *((int64_t*) local_20h) = rsi;
-    *((int32_t*) local_4h) = 0;
-    while (*((int32_t*) local_4h) > 0x8f) {
-        if (*((int32_t*) local_4h) <= 0xf) {
-            *((int32_t*) local_4h) += 0x50;
-        }
-        *((int32_t*) local_4h) += 0x10;
-    }
-    eax = 0;
-    return eax;
-}
+    ; assembly                              | /* r2dec pseudo C output */
+                                            | #include <stdint.h>
+                                            | 
+(fcn) main                                  | int32_t main () {
+    0x000005fa  push rbp                    | 
+    0x000005fb  mov rbp, rsp                | 
+    0x000005fe  mov dword [rbp - 0x14], edi |     *((int32_t*) local_14h) = edi;
+    0x00000601  mov qword [rbp - 0x20], rsi |     *((int64_t*) local_20h) = rsi;
+    0x00000605  mov dword [rbp - 4], 0      |     *((int32_t*) local_4h) = 0;
+    0x0000060c  jmp 0x61c                   | 
+                                            |     while (*((int32_t*) local_4h) > 0x8f) {
+    0x0000060e  cmp dword [rbp - 4], 0xf    | 
+                                            |         if (*((int32_t*) local_4h) <= 0xf) {
+    0x00000612  jg 0x618                    | 
+    0x00000614  add dword [rbp - 4], 0x50   |             *((int32_t*) local_4h) += 0x50;
+                                            |         }
+    0x00000618  add dword [rbp - 4], 0x10   |         *((int32_t*) local_4h) += 0x10;
+    0x0000061c  cmp dword [rbp - 4], 0x8f   | 
+                                            |     }
+    0x00000623  jle 0x60e                   | 
+    0x00000625  mov eax, 0                  |     eax = 0;
+    0x0000062a  pop rbp                     | 
+    0x0000062b  ret                         |     return eax;
+                                            | }

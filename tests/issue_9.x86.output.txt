@@ -1,127 +1,172 @@
-#include <stdint.h>
-#include <locale.h>
-#include <libintl.h>
-#include <stdlib.h>
-
-void fcn_rip () {
-    /* [14] --r-x section size 72505 named .text */
-    rbx = rsi;
-    rdi = *((int64_t*) rsi);
-    rax = *((int64_t*) fs:{#});
-    *((int64_t*) local_48h) = rax;
-    eax = 0;
-    fcn_564310a366b0 (*((uint64_t*) local_48h));
-    rsi = 0x564310a40fe9;
-    edi = 6;
-    setlocale (edi, rsi);
-    rdi = 0x564310a3e247;
-    bindtextdomain (rdi, "/usr/share/locale");
-    rdi = 0x564310a3e247;
-    textdomain (rdi);
-    rdi = 0x564310a32f50;
-    /* exit_failure */
-    *((int32_t*) exit_failure) = 2;
-    fcn_564310a3c850 ();
-    rax = 0x8000000000000000;
-    *((int32_t*) 0x564310c47110) = 0;
-    *((int8_t*) 0x564310c471b8) = 1;
-    *((int64_t*) 0x564310c47270) = rax;
-    /* ls_mode */
-    eax = *((int32_t*) ls_mode);
-    *((int64_t*) 0x564310c47280) = 0;
-    *((int64_t*) 0x564310c47278) = 0xffffffffffffffff;
-    *((int8_t*) 0x564310c471d8) = 0;
-    goto 0x564310a2ba4e;
-    if (eax != 3) {
-        eax -= 1;
-        goto 0x564310a2b694;
-        abort ();
-    }
-    esi = 7;
-    edi = 0;
-    *((int32_t*) 0x564310c47238) = 0;
-    fcn_564310a37c90 ();
-    rdi = "QUOTING_STYLE";
-    *((int32_t*) 0x564310c47234) = 0;
-    *((int32_t*) 0x564310c47230) = 0;
-    *((int8_t*) 0x564310c4722f) = 0;
-    *((int8_t*) 0x564310c4722d) = 0;
-    *((int8_t*) 0x564310c4722c) = 0;
-    *((int32_t*) 0x564310c47214) = 0;
-    *((int8_t*) 0x564310c471fc) = 0;
-    *((int32_t*) 0x564310c471f8) = 1;
-    *((int8_t*) 0x564310c471f6) = 0;
-    *((int8_t*) 0x564310c471f5) = 0;
-    *((int32_t*) 0x564310c471f0) = 0;
-    *((int64_t*) 0x564310c471e8) = 0;
-    *((int64_t*) 0x564310c471e0) = 0;
-    *((int8_t*) 0x564310c47265) = 0;
-    rax = getenv ();
-    r12 = rax;
-    if (rax != 0) {
-        /* quoting_style_vals */
-        rdx = quoting_style_vals;
-        /* quoting_style_args */
-        rsi = quoting_style_args;
-        ecx = 4;
-        rdi = rax;
-        eax = fcn_564310a32bb0 (rdi, ecx, rsi, rdx);
-        goto 0x564310a2ba69;
-        /* quoting_style_vals */
-        rdx = quoting_style_vals;
-        rax = (int64_t) eax;
-        edi = 0;
-        esi = *((int32_t*) rdx + (rax * 4));
-        fcn_564310a37c90 (esi, edi);
-    }
-    rdi = "COLUMNS";
-    *((int64_t*) 0x564310c471b0) = 0x50;
-    rax = getenv ();
-    r12 = rax;
-    if (rax != 0) {
-        goto 0x564310a2bba8;
-    }
-    r12 = local_30h;
-    eax = 0;
-    esi = 0x5413;
-    edi = 1;
-    rdx = r12;
-    ioctl (rdx, edi, esi);
-    if (eax != 0xffffffffffffffff) {
-        eax = (int16_t) local_32h;
-        if (ax != 0) {
-            *((int64_t*) 0x564310c471b0) = rax;
-        }
-    }
-    rax = getenv ("TABSIZE");
-    r13 = rax;
-    *((int64_t*) 0x564310c471c0) = 8;
-    if (rax != 0) {
-        r8d = 0;
-        edx = 0;
-        esi = 0;
-        rcx = r12;
-        rdi = rax;
-        eax = fcn_564310a3a7a0 (rdi);
-        goto 0x564310a2bfe1;
-        rax = *((int64_t*) local_30h);
-        *((int64_t*) 0x564310c471c0) = rax;
-    }
-    r13 = 0x564310a3cab8;
-    *((int8_t*) local_10h) = 0;
-    *((int8_t*) local_8h) = 0;
-    r14d = 0;
-    r15d = 1;
-    rcx = 0x564310c45320;
-    r8 = r12;
-    rsi = rbx;
-    edi = ebp;
-    *((int32_t*) local_30h) = 0xffffffff;
-    getopt_long (*((uint32_t*) local_30h), "abcdfghiklmnopqrstuvw:xABCDFGHI:LNQRST:UXZ1");
-    goto 0x564310a2b6e5;
-    eax += 0x83;
-    goto 0x564310a2c43f;
-    rax = (int32_t) r13 + (rax * 4);
-    rax += r13;
-    (*(void(*)()) rax) ();
-}
+    ; assembly                                                     | /* r2dec pseudo C output */
+                                                                   | #include <stdint.h>
+                                                                   | #include <locale.h>
+                                                                   | #include <libintl.h>
+                                                                   | #include <stdlib.h>
+                                                                   | 
+(fcn) fcn.rip                                                      | void fcn_rip () {
+                                                                   |     /* [14] --r-x section size 72505 named .text */
+    0x564310a2ad40  push r15                                       | 
+    0x564310a2ad42  push r14                                       | 
+    0x564310a2ad44  push r13                                       | 
+    0x564310a2ad46  push r12                                       | 
+    0x564310a2ad48  push rbp                                       | 
+    0x564310a2ad49  push rbx                                       | 
+    0x564310a2ad4a  mov ebp, edi                                   | 
+    0x564310a2ad4c  mov rbx, rsi                                   |     rbx = rsi;
+    0x564310a2ad4f  sub rsp, 0x58                                  | 
+    0x564310a2ad53  mov rdi, qword [rsi]                           |     rdi = *((int64_t*) rsi);
+    0x564310a2ad56  mov rax, qword fs:[0x28]                       |     rax = *((int64_t*) fs:{#});
+    0x564310a2ad5f  mov qword [rsp + 0x48], rax                    |     *((int64_t*) local_48h) = rax;
+    0x564310a2ad64  xor eax, eax                                   |     eax = 0;
+    0x564310a2ad66  call 0x564310a366b0                            |     fcn_564310a366b0 (*((uint64_t*) local_48h));
+    0x564310a2ad6b  lea rsi, [rip + 0x16277]                       |     rsi = 0x564310a40fe9;
+    0x564310a2ad72  mov edi, 6                                     |     edi = 6;
+    0x564310a2ad77  call 0x564310a2ab80                            |     setlocale (edi, rsi);
+    0x564310a2ad7c  lea rsi, [rip + 0x134de]                       | 
+    0x564310a2ad83  lea rdi, [rip + 0x134bd]                       |     rdi = 0x564310a3e247;
+    0x564310a2ad8a  call 0x564310a2a810                            |     bindtextdomain (rdi, "/usr/share/locale");
+    0x564310a2ad8f  lea rdi, [rip + 0x134b1]                       |     rdi = 0x564310a3e247;
+    0x564310a2ad96  call 0x564310a2a7d0                            |     textdomain (rdi);
+    0x564310a2ad9b  lea rdi, [rip + 0x81ae]                        |     rdi = 0x564310a32f50;
+                                                                   |     /* exit_failure */
+    0x564310a2ada2  mov dword [rip + 0x21b44c], 2                  |     *((int32_t*) exit_failure) = 2;
+    0x564310a2adac  call 0x564310a3c850                            |     fcn_564310a3c850 ();
+    0x564310a2adb1  movabs rax, 0x8000000000000000                 |     rax = 0x8000000000000000;
+    0x564310a2adbb  mov dword [rip + 0x21c34b], 0                  |     *((int32_t*) 0x564310c47110) = 0;
+    0x564310a2adc5  mov byte [rip + 0x21c3ec], 1                   |     *((int8_t*) 0x564310c471b8) = 1;
+    0x564310a2adcc  mov qword [rip + 0x21c49d], rax                |     *((int64_t*) 0x564310c47270) = rax;
+                                                                   |     /* ls_mode */
+    0x564310a2add3  mov eax, dword [rip + 0x21b407]                |     eax = *((int32_t*) ls_mode);
+    0x564310a2add9  mov qword [rip + 0x21c49c], 0                  |     *((int64_t*) 0x564310c47280) = 0;
+    0x564310a2ade4  mov qword [rip + 0x21c489], 0xffffffffffffffff |     *((int64_t*) 0x564310c47278) = 0xffffffffffffffff;
+    0x564310a2adef  mov byte [rip + 0x21c3e2], 0                   |     *((int8_t*) 0x564310c471d8) = 0;
+    0x564310a2adf6  cmp eax, 2                                     | 
+                                                                   |     if (eax == 2) {
+    0x564310a2adf9  je 0x564310a2ba4e                              |         goto 0x564310a2ba4e;
+                                                                   |     }
+    0x564310a2adff  cmp eax, 3                                     | 
+                                                                   |     if (eax != 3) {
+    0x564310a2ae02  je 0x564310a2ae12                              | 
+    0x564310a2ae04  sub eax, 1                                     |         eax -= 1;
+                                                                   |         if (eax == 3) {
+    0x564310a2ae07  je 0x564310a2b694                              |             goto 0x564310a2b694;
+                                                                   |         }
+    0x564310a2ae0d  call 0x564310a2a6e0                            |         abort ();
+                                                                   |     }
+    0x564310a2ae12  mov esi, 7                                     |     esi = 7;
+    0x564310a2ae17  xor edi, edi                                   |     edi = 0;
+    0x564310a2ae19  mov dword [rip + 0x21c415], 0                  |     *((int32_t*) 0x564310c47238) = 0;
+    0x564310a2ae23  call 0x564310a37c90                            |     fcn_564310a37c90 ();
+    0x564310a2ae28  lea rdi, [rip + 0x13444]                       |     rdi = "QUOTING_STYLE";
+    0x564310a2ae2f  mov dword [rip + 0x21c3fb], 0                  |     *((int32_t*) 0x564310c47234) = 0;
+    0x564310a2ae39  mov dword [rip + 0x21c3ed], 0                  |     *((int32_t*) 0x564310c47230) = 0;
+    0x564310a2ae43  mov byte [rip + 0x21c3e5], 0                   |     *((int8_t*) 0x564310c4722f) = 0;
+    0x564310a2ae4a  mov byte [rip + 0x21c3dc], 0                   |     *((int8_t*) 0x564310c4722d) = 0;
+    0x564310a2ae51  mov byte [rip + 0x21c3d4], 0                   |     *((int8_t*) 0x564310c4722c) = 0;
+    0x564310a2ae58  mov dword [rip + 0x21c3b2], 0                  |     *((int32_t*) 0x564310c47214) = 0;
+    0x564310a2ae62  mov byte [rip + 0x21c393], 0                   |     *((int8_t*) 0x564310c471fc) = 0;
+    0x564310a2ae69  mov dword [rip + 0x21c385], 1                  |     *((int32_t*) 0x564310c471f8) = 1;
+    0x564310a2ae73  mov byte [rip + 0x21c37c], 0                   |     *((int8_t*) 0x564310c471f6) = 0;
+    0x564310a2ae7a  mov byte [rip + 0x21c374], 0                   |     *((int8_t*) 0x564310c471f5) = 0;
+    0x564310a2ae81  mov dword [rip + 0x21c365], 0                  |     *((int32_t*) 0x564310c471f0) = 0;
+    0x564310a2ae8b  mov qword [rip + 0x21c352], 0                  |     *((int64_t*) 0x564310c471e8) = 0;
+    0x564310a2ae96  mov qword [rip + 0x21c33f], 0                  |     *((int64_t*) 0x564310c471e0) = 0;
+    0x564310a2aea1  mov byte [rip + 0x21c3bd], 0                   |     *((int8_t*) 0x564310c47265) = 0;
+    0x564310a2aea8  call 0x564310a2a6a0                            |     rax = getenv ();
+    0x564310a2aead  test rax, rax                                  | 
+    0x564310a2aeb0  mov r12, rax                                   |     r12 = rax;
+                                                                   |     if (rax != 0) {
+    0x564310a2aeb3  je 0x564310a2aeeb                              | 
+                                                                   |         /* quoting_style_vals */
+    0x564310a2aeb5  lea rdx, [rip + 0x15ea4]                       |         rdx = quoting_style_vals;
+                                                                   |         /* quoting_style_args */
+    0x564310a2aebc  lea rsi, [rip + 0x21ab3d]                      |         rsi = quoting_style_args;
+    0x564310a2aec3  mov ecx, 4                                     |         ecx = 4;
+    0x564310a2aec8  mov rdi, rax                                   |         rdi = rax;
+    0x564310a2aecb  call 0x564310a32bb0                            |         eax = fcn_564310a32bb0 (rdi, ecx, rsi, rdx);
+    0x564310a2aed0  test eax, eax                                  | 
+                                                                   |         if (eax >= 0) {
+    0x564310a2aed2  js 0x564310a2ba69                              |             goto 0x564310a2ba69;
+                                                                   |         }
+                                                                   |         /* quoting_style_vals */
+    0x564310a2aed8  lea rdx, [rip + 0x15e81]                       |         rdx = quoting_style_vals;
+    0x564310a2aedf  cdqe                                           |         rax = (int64_t) eax;
+    0x564310a2aee1  xor edi, edi                                   |         edi = 0;
+    0x564310a2aee3  mov esi, dword [rdx + rax*4]                   |         esi = *((int32_t*) rdx + (rax * 4));
+    0x564310a2aee6  call 0x564310a37c90                            |         fcn_564310a37c90 (esi, edi);
+                                                                   |     }
+    0x564310a2aeeb  lea rdi, [rip + 0x1338f]                       |     rdi = "COLUMNS";
+    0x564310a2aef2  mov qword [rip + 0x21c2b3], 0x50               |     *((int64_t*) 0x564310c471b0) = 0x50;
+    0x564310a2aefd  call 0x564310a2a6a0                            |     rax = getenv ();
+    0x564310a2af02  test rax, rax                                  | 
+    0x564310a2af05  mov r12, rax                                   |     r12 = rax;
+                                                                   |     if (rax != 0) {
+    0x564310a2af08  je 0x564310a2af13                              | 
+    0x564310a2af0a  cmp byte [rax], 0                              | 
+                                                                   |         if (*((int8_t*) rax) != 0) {
+    0x564310a2af0d  jne 0x564310a2bba8                             |             goto 0x564310a2bba8;
+                                                                   |         }
+                                                                   |     }
+    0x564310a2af13  lea r12, [rsp + 0x30]                          |     r12 = local_30h;
+    0x564310a2af18  xor eax, eax                                   |     eax = 0;
+    0x564310a2af1a  mov esi, 0x5413                                |     esi = 0x5413;
+    0x564310a2af1f  mov edi, 1                                     |     edi = 1;
+    0x564310a2af24  mov rdx, r12                                   |     rdx = r12;
+    0x564310a2af27  call 0x564310a2a970                            |     ioctl (rdx, edi, esi);
+    0x564310a2af2c  cmp eax, 0xffffffffffffffff                    | 
+                                                                   |     if (eax != 0xffffffffffffffff) {
+    0x564310a2af2f  je 0x564310a2af42                              | 
+    0x564310a2af31  movzx eax, word [rsp + 0x32]                   |         eax = (int16_t) local_32h;
+    0x564310a2af36  test ax, ax                                    | 
+                                                                   |         if (ax != 0) {
+    0x564310a2af39  je 0x564310a2af42                              | 
+    0x564310a2af3b  mov qword [rip + 0x21c26e], rax                |             *((int64_t*) 0x564310c471b0) = rax;
+                                                                   |         }
+                                                                   |     }
+    0x564310a2af42  lea rdi, [rip + 0x13340]                       | 
+    0x564310a2af49  call 0x564310a2a6a0                            |     rax = getenv ("TABSIZE");
+    0x564310a2af4e  test rax, rax                                  | 
+    0x564310a2af51  mov r13, rax                                   |     r13 = rax;
+    0x564310a2af54  mov qword [rip + 0x21c261], 8                  |     *((int64_t*) 0x564310c471c0) = 8;
+                                                                   |     if (rax != 0) {
+    0x564310a2af5f  je 0x564310a2af87                              | 
+    0x564310a2af61  xor r8d, r8d                                   |         r8d = 0;
+    0x564310a2af64  xor edx, edx                                   |         edx = 0;
+    0x564310a2af66  xor esi, esi                                   |         esi = 0;
+    0x564310a2af68  mov rcx, r12                                   |         rcx = r12;
+    0x564310a2af6b  mov rdi, rax                                   |         rdi = rax;
+    0x564310a2af6e  call 0x564310a3a7a0                            |         eax = fcn_564310a3a7a0 (rdi);
+    0x564310a2af73  test eax, eax                                  | 
+                                                                   |         if (eax != 0) {
+    0x564310a2af75  jne 0x564310a2bfe1                             |             goto 0x564310a2bfe1;
+                                                                   |         }
+    0x564310a2af7b  mov rax, qword [rsp + 0x30]                    |         rax = *((int64_t*) local_30h);
+    0x564310a2af80  mov qword [rip + 0x21c239], rax                |         *((int64_t*) 0x564310c471c0) = rax;
+                                                                   |     }
+    0x564310a2af87  lea r13, [rip + 0x11b2a]                       |     r13 = 0x564310a3cab8;
+    0x564310a2af8e  mov byte [rsp + 0x10], 0                       |     *((int8_t*) local_10h) = 0;
+    0x564310a2af93  mov byte [rsp + 8], 0                          |     *((int8_t*) local_8h) = 0;
+    0x564310a2af98  xor r14d, r14d                                 |     r14d = 0;
+    0x564310a2af9b  mov r15d, 1                                    |     r15d = 1;
+    0x564310a2afa1  nop dword [rax]                                | 
+    0x564310a2afa8  lea rcx, [rip + 0x21a371]                      |     rcx = 0x564310c45320;
+    0x564310a2afaf  lea rdx, [rip + 0x155ba]                       | 
+    0x564310a2afb6  mov r8, r12                                    |     r8 = r12;
+    0x564310a2afb9  mov rsi, rbx                                   |     rsi = rbx;
+    0x564310a2afbc  mov edi, ebp                                   |     edi = ebp;
+    0x564310a2afbe  mov dword [rsp + 0x30], 0xffffffff             |     *((int32_t*) local_30h) = 0xffffffff;
+    0x564310a2afc6  call 0x564310a2a870                            |     getopt_long (*((uint32_t*) local_30h), "abcdfghiklmnopqrstuvw:xABCDFGHI:LNQRST:UXZ1");
+    0x564310a2afcb  cmp eax, 0xffffffffffffffff                    | 
+                                                                   |     if (eax == 0xffffffffffffffff) {
+    0x564310a2afce  je 0x564310a2b6e5                              |         goto 0x564310a2b6e5;
+                                                                   |     }
+    0x564310a2afd4  add eax, 0x83                                  |     eax += 0x83;
+    0x564310a2afd9  cmp eax, 0x112                                 | 
+                                                                   |     if (eax > 0x112) {
+    0x564310a2afde  ja 0x564310a2c43f                              |         goto 0x564310a2c43f;
+                                                                   |     }
+    0x564310a2afe4  movsxd rax, dword [r13 + rax*4]                |     rax = (int32_t) r13 + (rax * 4);
+    0x564310a2afe9  add rax, r13                                   |     rax += r13;
+    0x564310a2afec  jmp rax                                        |     (*(void(*)()) rax) ();
+                                                                   | }
