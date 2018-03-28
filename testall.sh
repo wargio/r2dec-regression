@@ -7,9 +7,15 @@ R2DECFOLDER=$1
 NODE=$(which node)
 
 if [ -z "$R2DECFOLDER" ]; then
-	R2DECFOLDER=~/.config/radare2/r2pm/git/r2dec-js/
+	R2DECFOLDER=~/.config/radare2/r2pm/git/r2dec-js
 fi
 
+R2DECBINFLD=$R2DECFOLDER/p/
+
+if [ ! -f "$R2DECBINFLD/r2dec-test" ]; then
+	echo "building binary src"
+    make --no-print-directory testbin -C "$R2DECBINFLD"
+fi
 
 TESTS=$(find "$TESTFOLDER" | grep ".json" | sed "s/.json//g")
 
@@ -18,7 +24,7 @@ mkdir "$TMPFOLDER"
 for ELEM in $TESTS; do
 	NAME=$(basename "$ELEM")
 	OUTPUTFILE="$TMPFOLDER/$NAME.output.txt"
-	$NODE $R2DECFOLDER/main.js "$ELEM.json" > "$OUTPUTFILE" || break
+	$R2DECBINFLD/r2dec-test "$R2DECFOLDER" "$ELEM.json" > "$OUTPUTFILE" || break
 	DIFF=$(diff -u "$ELEM.output.txt" "$OUTPUTFILE")
 
 	if [ ! -z "$DIFF" ]; then
@@ -33,4 +39,9 @@ done
 
 if [ ! "$TMPFOLDER" == "/tmp" ] ; then
 	rmdir "$TMPFOLDER"
+fi
+
+if [ -f "$R2DECBINFLD/r2dec-test" ]; then
+	echo "cleaning binary folder"
+    make --no-print-directory clean -C "$R2DECBINFLD"
 fi
