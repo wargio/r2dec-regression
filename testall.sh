@@ -7,7 +7,7 @@ TRAVIS=$2
 RMCMD="rmdir"
 ERROR=false
 
-if [ -z "$TRAVIS" ]; then
+if [ ! -z "$TRAVIS" ]; then
 	RMCMD="rm -rf"
 fi
 
