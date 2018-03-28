@@ -85,7 +85,7 @@
     0x1000012e5  lea r13, [rip + 0x380d]         |     r13 = "1@ABCFGHLOPRSTUWabcdefghiklmnopqrstuvwx";
     0x1000012ec  lea rbx, [rip + 0x731]          |     rbx = 0x100001a24;
     0x1000012f3  jmp 0x100001300                 | 
-                                                 |     while (eax == 0xffffffffffffffff) {
+                                                 |     while (eax != 0xffffffffffffffff) {
     0x1000012f5  call 0x100004400                |         func_100004400 ();
     0x1000012fa  jmp 0x100001300                 | 
     0x100001300  mov edi, r14d                   |         edi = r14d;
