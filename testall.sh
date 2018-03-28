@@ -3,8 +3,13 @@
 TESTFOLDER=./tests
 TMPFOLDER=./tmp/
 R2DECFOLDER=$1
+TRAVIS=$2
+RMCMD="rmdir"
+ERROR=false
 
-NODE=$(which node)
+if [ -z "$TRAVIS" ]; then
+	RMCMD="rm -rf"
+fi
 
 if [ -z "$R2DECFOLDER" ]; then
 	R2DECFOLDER=~/.config/radare2/r2pm/git/r2dec-js
@@ -30,6 +35,7 @@ for ELEM in $TESTS; do
 	if [ ! -z "$DIFF" ]; then
 		echo "[XX]: $NAME"
 		diff --color=always -u "$ELEM.output.txt" "$OUTPUTFILE"
+		ERROR=true
 	else
 		echo "[OK]: $NAME"
 		rm "$OUTPUTFILE"
@@ -38,10 +44,15 @@ for ELEM in $TESTS; do
 done
 
 if [ ! "$TMPFOLDER" == "/tmp" ] ; then
-	rmdir "$TMPFOLDER"
+	$RMCMD "$TMPFOLDER"
 fi
 
 if [ -f "$R2DECBINFLD/r2dec-test" ]; then
 	echo "cleaning binary folder"
     make --no-print-directory clean -C "$R2DECBINFLD"
 fi
+
+if $ERROR; then
+	exit 1;
+fi
+exit 0;
