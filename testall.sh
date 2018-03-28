@@ -6,16 +6,19 @@ R2DECFOLDER=$1
 TRAVIS=$2
 RMCMD="rmdir"
 ERROR=false
+DIFFFLAGS="--color=always"
 
 if [ ! -z "$TRAVIS" ]; then
 	RMCMD="rm -rf"
+else
+	DIFFFLAGS=""
 fi
 
 if [ -z "$R2DECFOLDER" ]; then
 	R2DECFOLDER=~/.config/radare2/r2pm/git/r2dec-js
 fi
 
-R2DECBINFLD=$R2DECFOLDER/p/
+R2DECBINFLD=$R2DECFOLDER/p
 
 if [ ! -f "$R2DECBINFLD/r2dec-test" ]; then
 	echo "building binary src"
@@ -34,7 +37,7 @@ for ELEM in $TESTS; do
 
 	if [ ! -z "$DIFF" ]; then
 		echo "[XX]: $NAME"
-		diff --color=always -u "$ELEM.output.txt" "$OUTPUTFILE"
+		diff $DIFFFLAGS -u "$ELEM.output.txt" "$OUTPUTFILE"
 		ERROR=true
 	else
 		echo "[OK]: $NAME"
