@@ -6,12 +6,11 @@ R2DECFOLDER=$1
 TRAVIS=$2
 RMCMD="rmdir"
 ERROR=false
-DIFFFLAGS="--color=always"
+DIFF="diff -u"
 
 if [ ! -z "$TRAVIS" ]; then
 	RMCMD="rm -rf"
-else
-	DIFFFLAGS=""
+	DIFF="diff --color=always -u"
 fi
 
 if [ -z "$R2DECFOLDER" ]; then
@@ -37,7 +36,7 @@ for ELEM in $TESTS; do
 
 	if [ ! -z "$DIFF" ]; then
 		echo "[XX]: $NAME"
-		diff $DIFFFLAGS -u "$ELEM.output.txt" "$OUTPUTFILE"
+		$DIFF "$ELEM.output.txt" "$OUTPUTFILE"
 		ERROR=true
 	else
 		echo "[OK]: $NAME"
