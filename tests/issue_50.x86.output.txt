@@ -1,44 +1,44 @@
-    ; assembly                                           | /* r2dec pseudo C output */
-                                                         | #include <stdint.h>
-                                                         | 
-(fcn) fcn.00403b70                                       | void fcn_00403b70 () {
-    0x00403b70  push ebp                                 | 
-    0x00403b71  mov ebp, esp                             | 
-    0x00403b73  push edi                                 | 
-    0x00403b74  push esi                                 | 
-    0x00403b75  mov edi, 0x40507d                        |     edi = 0x40507d;
-    0x00403b7a  and esp, 0xfffffff0                      | 
-    0x00403b7d  sub esp, 0x30                            | 
-    0x00403b80  lea esi, [esp + 0x1c]                    |     esi = esp;
-    0x00403b84  call 0x401990                            |     fcn_00401990 (esi);
-                                                         |     /* const char * s */
-    0x00403b89  mov dword [esp], 0x405064                |     *((int32_t*) esp) = 0x405064;
-    0x00403b90  call 0x403a48                            |     msvcrt_dll_puts (*((uint32_t*) esp));
-    0x00403b95  mov dword [esp + 4], esi                 |     *((int32_t*) local_4h) = esi;
-                                                         |     /* const char * format */
-    0x00403b99  mov dword [esp], 0x40507a                |     *((int32_t*) esp) = 0x40507a;
-    0x00403ba0  call 0x403a38                            |     msvcrt_dll_scanf (*((uint32_t*) esp), *((uint32_t*) local_4h));
-    0x00403ba5  mov ecx, 0x11                            |     ecx = 0x11;
-    0x00403baa  repe cmpsb byte [esi], byte ptr es:[edi] |     __asm (repe cmpsb byte [esi], byte ptr es:[edi]);
-                                                         |     if ((null) != (null)) {
-    0x00403bac  je 0x403bd4                              | 
-                                                         |         /* const char * s */
-    0x00403bae  mov dword [esp], 0x405098                |         *((int32_t*) esp) = 0x405098;
-    0x00403bb5  call 0x403a48                            |         msvcrt_dll_puts (*((uint32_t*) esp));
-                                                         | label_0:
-                                                         |         /* const char * format */
-    0x00403bba  mov dword [esp], 0x40509d                |         *((int32_t*) esp) = 0x40509d;
-    0x00403bc1  call 0x403a50                            |         msvcrt_dll_printf (*((uint32_t*) esp));
-    0x00403bc6  call 0x40200c                            |         msvcrt_dll_getch ();
-    0x00403bcb  lea esp, [ebp - 8]                       |         esp = ebp;
-    0x00403bce  xor eax, eax                             |         eax = 0;
-    0x00403bd0  pop esi                                  | 
-    0x00403bd1  pop edi                                  | 
-    0x00403bd2  pop ebp                                  | 
-    0x00403bd3  ret                                      |         return;
-                                                         |     }
-                                                         |     /* const char * s */
-    0x00403bd4  mov dword [esp], 0x40508e                |     *((int32_t*) esp) = 0x40508e;
-    0x00403bdb  call 0x403a48                            |     msvcrt_dll_puts (*((uint32_t*) esp));
-    0x00403be0  jmp 0x403bba                             |     goto label_0;
-                                                         | }
+    ; assembly                                            | /* r2dec pseudo C output */
+                                                          | #include <stdint.h>
+                                                          | 
+(fcn) fcn.00403b70:                                       | void fcn_00403b70 () {
+    0x00403b70  push ebp                                  | 
+    0x00403b71  mov ebp, esp                              | 
+    0x00403b73  push edi                                  | 
+    0x00403b74  push esi                                  | 
+    0x00403b75  mov edi, 0x40507d                         |     edi = 0x40507d;
+    0x00403b7a  and esp, 0xfffffff0                       | 
+    0x00403b7d  sub esp, 0x30                             | 
+    0x00403b80  lea esi, [esp + 0x1c]                     |     esi = esp;
+    0x00403b84  call 0x401990                             |     fcn_00401990 (esi);
+                                                          |     /* const char * s */
+    0x00403b89  mov dword [esp], 0x405064                 |     *((int32_t*) esp) = 0x405064;
+    0x00403b90  call 0x403a48                             |     msvcrt_dll_puts (*((uint32_t*) esp));
+    0x00403b95  mov dword [esp + 4], esi                  |     *((int32_t*) local_4h) = esi;
+                                                          |     /* const char * format */
+    0x00403b99  mov dword [esp], 0x40507a                 |     *((int32_t*) esp) = 0x40507a;
+    0x00403ba0  call 0x403a38                             |     msvcrt_dll_scanf (*((uint32_t*) esp), *((uint32_t*) local_4h));
+    0x00403ba5  mov ecx, 0x11                             |     ecx = 0x11;
+    0x00403baa  repe cmpsb byte [esi], byte ptr es:[edi]  |     __asm (repe cmpsb byte [esi], byte ptr es:[edi]);
+                                                          |     if ((null) != (null)) {
+    0x00403bac  je 0x403bd4                               | 
+                                                          |         /* const char * s */
+    0x00403bae  mov dword [esp], 0x405098                 |         *((int32_t*) esp) = 0x405098;
+    0x00403bb5  call 0x403a48                             |         msvcrt_dll_puts (*((uint32_t*) esp));
+                                                          | label_0:
+                                                          |         /* const char * format */
+    0x00403bba  mov dword [esp], 0x40509d                 |         *((int32_t*) esp) = 0x40509d;
+    0x00403bc1  call 0x403a50                             |         msvcrt_dll_printf (*((uint32_t*) esp));
+    0x00403bc6  call 0x40200c                             |         msvcrt_dll_getch ();
+    0x00403bcb  lea esp, [ebp - 8]                        |         esp = ebp;
+    0x00403bce  xor eax, eax                              |         eax = 0;
+    0x00403bd0  pop esi                                   | 
+    0x00403bd1  pop edi                                   | 
+    0x00403bd2  pop ebp                                   | 
+    0x00403bd3  ret                                       |         return;
+                                                          |     }
+                                                          |     /* const char * s */
+    0x00403bd4  mov dword [esp], 0x40508e                 |     *((int32_t*) esp) = 0x40508e;
+    0x00403bdb  call 0x403a48                             |     msvcrt_dll_puts (*((uint32_t*) esp));
+    0x00403be0  jmp 0x403bba                              |     goto label_0;
+                                                          | }
