@@ -2,23 +2,23 @@
                                                   | #include <stdint.h>
                                                   | #include <locale.h>
                                                   | #include <stdlib.h>
-                                                  | 
+                                                  |
 (fcn) entry0:                                     | void entry0 () {
-    0x100001200  push rbp                         | 
-    0x100001201  mov rbp, rsp                     | 
-    0x100001204  push r15                         | 
-    0x100001206  push r14                         | 
-    0x100001208  push r13                         | 
-    0x10000120a  push r12                         | 
-    0x10000120c  push rbx                         | 
-    0x10000120d  sub rsp, 0x618                   | 
+    0x100001200  push rbp                         |
+    0x100001201  mov rbp, rsp                     |
+    0x100001204  push r15                         |
+    0x100001206  push r14                         |
+    0x100001208  push r13                         |
+    0x10000120a  push r12                         |
+    0x10000120c  push rbx                         |
+    0x10000120d  sub rsp, 0x618                   |
     0x100001214  mov r15, rsi                     |     r15 = rsi;
     0x100001217  mov r14d, edi                    |     r14d = edi;
     0x10000121a  lea rax, [rbp - 0x240]           |     rax = local_240h;
     0x100001221  mov qword [rbp - 0x30], rax      |     *((int64_t*) local_30h) = rax;
-    0x100001225  test r14d, r14d                  | 
+    0x100001225  test r14d, r14d                  |
                                                   |     if (r14d <= 0) {
-    0x100001228  jg 0x10000122f                   | 
+    0x100001228  jg 0x10000122f                   |
     0x10000122a  call 0x100004400                 |         func_100004400 ();
                                                   |     }
                                                   |     /* const char * locale */
@@ -29,23 +29,23 @@
                                                   |     /* int fd */
     0x10000123d  mov edi, 1                       |     edi = 1;
     0x100001242  call 0x10000451e                 |     eax = isatty (edi);
-    0x100001247  test eax, eax                    | 
+    0x100001247  test eax, eax                    |
                                                   |     if (eax != 0) {
-    0x100001249  je 0x1000012a9                   | 
+    0x100001249  je 0x1000012a9                   |
     0x10000124b  mov dword [rip + 0x427b], 0x50   |         *((int32_t*) 0x1000054d0) = 0x50;
                                                   |         /* const char * name */
-    0x100001255  lea rdi, [rip + 0x3895]          | 
+    0x100001255  lea rdi, [rip + 0x3895]          |
     0x10000125c  call 0x1000044ee                 |         rax = getenv ("COLUMNS");
-    0x100001261  test rax, rax                    | 
+    0x100001261  test rax, rax                    |
                                                   |         if (rax != 0) {
-    0x100001264  je 0x100001275                   | 
-    0x100001266  cmp byte [rax], 0                | 
+    0x100001264  je 0x100001275                   |
+    0x100001266  cmp byte [rax], 0                |
                                                   |             if (*((int8_t*) rax) != 0) {
-    0x100001269  je 0x100001275                   | 
+    0x100001269  je 0x100001275                   |
                                                   |                 /* const char * str */
     0x10000126b  mov rdi, rax                     |                 rdi = rax;
     0x10000126e  call 0x10000448e                 |                 atoi (rdi);
-    0x100001273  jmp 0x100001297                  | 
+    0x100001273  jmp 0x100001297                  |
                                                   |             }
                                                   |             else {
     0x100001275  lea rdx, [rbp - 0x38]            |                 rdx = local_38h;
@@ -53,29 +53,29 @@
     0x10000127e  mov esi, 0x40087468              |                 esi = 0x40087468;
     0x100001283  xor eax, eax                     |                 eax = 0;
     0x100001285  call 0x100004518                 |                 ioctl (esi, edi, rdx);
-    0x10000128a  cmp eax, 0xffffffffffffffff      | 
+    0x10000128a  cmp eax, 0xffffffffffffffff      |
                                                   |                 if (eax != 0xffffffffffffffff) {
-    0x10000128d  je 0x10000129d                   | 
+    0x10000128d  je 0x10000129d                   |
     0x10000128f  movzx eax, word [rbp - 0x36]     |                     eax = (int16_t) local_36h;
-    0x100001293  test eax, eax                    | 
+    0x100001293  test eax, eax                    |
                                                   |                     if (eax != 0) {
-    0x100001295  je 0x10000129d                   | 
+    0x100001295  je 0x10000129d                   |
     0x100001297  mov dword [rip + 0x4233], eax    |                         *((int32_t*) 0x1000054d0) = eax;
                                                   |                     }
                                                   |                 }
                                                   |             }
                                                   |         }
     0x10000129d  mov dword [rip + 0x438d], 1      |         *((int32_t*) 0x100005634) = 1;
-    0x1000012a7  jmp 0x1000012cf                  | 
+    0x1000012a7  jmp 0x1000012cf                  |
                                                   |     }
                                                   |     else {
     0x1000012a9  mov byte [rip + 0x4250], 1       |         *((int8_t*) 0x100005500) = 1;
                                                   |         /* const char * name */
-    0x1000012b0  lea rdi, [rip + 0x383a]          | 
+    0x1000012b0  lea rdi, [rip + 0x383a]          |
     0x1000012b7  call 0x1000044ee                 |         rax = getenv ("COLUMNS");
-    0x1000012bc  test rax, rax                    | 
+    0x1000012bc  test rax, rax                    |
                                                   |         if (rax != 0) {
-    0x1000012bf  je 0x1000012cf                   | 
+    0x1000012bf  je 0x1000012cf                   |
                                                   |             /* const char * str */
     0x1000012c1  mov rdi, rax                     |             rdi = rax;
     0x1000012c4  call 0x10000448e                 |             eax = atoi (rdi);
@@ -83,18 +83,18 @@
                                                   |         }
                                                   |     }
     0x1000012cf  call 0x100004500                 |     eax = getuid ();
-    0x1000012d4  test eax, eax                    | 
+    0x1000012d4  test eax, eax                    |
                                                   |     if (eax == 0) {
-    0x1000012d6  jne 0x1000012df                  | 
+    0x1000012d6  jne 0x1000012df                  |
     0x1000012d8  mov byte [rip + 0x4225], 1       |         *((int8_t*) 0x100005504) = 1;
                                                   |     }
     0x1000012df  mov r12d, 0x10                   |     r12d = 0x10;
     0x1000012e5  lea r13, [rip + 0x380d]          |     r13 = "1@ABCFGHLOPRSTUWabcdefghiklmnopqrstuvwx";
     0x1000012ec  lea rbx, [rip + 0x731]           |     rbx = 0x100001a24;
-    0x1000012f3  jmp 0x100001300                  | 
+    0x1000012f3  jmp 0x100001300                  |
                                                   |     while (eax != 0xffffffffffffffff) {
     0x1000012f5  call 0x100004400                 |         func_100004400 ();
-    0x1000012fa  jmp 0x100001300                  | 
+    0x1000012fa  jmp 0x100001300                  |
                                                   |         /* int argc */
     0x100001300  mov edi, r14d                    |         edi = r14d;
                                                   |         /* const char * *argv */
@@ -103,41 +103,41 @@
     0x100001306  mov rdx, r13                     |         rdx = r13;
     0x100001309  call 0x1000044f4                 |         getopt (rdx, rsi, edi);
     0x10000130e  lea ecx, [rax - 0x31]            |         ecx = rax - 0x31;
-    0x100001311  cmp ecx, 0x47                    | 
+    0x100001311  cmp ecx, 0x47                    |
                                                   |         if (ecx <= 0x47) {
-    0x100001314  ja 0x10000169b                   | 
+    0x100001314  ja 0x10000169b                   |
     0x10000131a  movsxd rax, dword [rbx + rcx*4]  |             rax = (int32_t) rbx + (rcx * 4);
     0x10000131e  add rax, rbx                     |             rax += rbx;
     0x100001321  jmp rax                          |             (*(void(*)()) rax) ();
                                                   |         }
-    0x10000169b  cmp eax, 0xffffffffffffffff      | 
+    0x10000169b  cmp eax, 0xffffffffffffffff      |
                                                   |     }
-    0x10000169e  jne 0x1000012f5                  | 
+    0x10000169e  jne 0x1000012f5                  |
     0x1000016a4  mov rax, qword [rip + 0x3975]    |     rax = *((int64_t*) reloc.optind);
     0x1000016ab  movsxd r13, dword [rax]          |     r13 = (int32_t) rax;
-    0x1000016ae  lea rdi, [rip + 0x347c]          | 
+    0x1000016ae  lea rdi, [rip + 0x347c]          |
     0x1000016b5  call 0x1000044ee                 |     rax = getenv ("CLICOLOR");
-    0x1000016ba  test rax, rax                    | 
+    0x1000016ba  test rax, rax                    |
                                                   |     if (rax != 0) {
-    0x1000016bd  je 0x1000017bf                   | 
+    0x1000016bd  je 0x1000017bf                   |
     0x1000016c3  mov edi, 1                       |         edi = 1;
     0x1000016c8  call 0x10000451e                 |         eax = isatty (edi);
-    0x1000016cd  test eax, eax                    | 
+    0x1000016cd  test eax, eax                    |
                                                   |         if (eax == 0) {
-    0x1000016cf  jne 0x1000016e6                  | 
-    0x1000016d1  lea rdi, [rip + 0x3462]          | 
+    0x1000016cf  jne 0x1000016e6                  |
+    0x1000016d1  lea rdi, [rip + 0x3462]          |
     0x1000016d8  call 0x1000044ee                 |             rax = getenv ("CLICOLOR_FORCE");
-    0x1000016dd  test rax, rax                    | 
+    0x1000016dd  test rax, rax                    |
                                                   |             if (rax != 0) {
-    0x1000016e0  je 0x1000017bf                   | 
-    0x1000016e6  lea rdi, [rip + 0x345c]          | 
+    0x1000016e0  je 0x1000017bf                   |
+    0x1000016e6  lea rdi, [rip + 0x345c]          |
     0x1000016ed  call 0x1000044ee                 |                 getenv ("TERM");
     0x1000016f2  lea rdi, [rbp - 0x640]           |                 rdi = local_640h;
     0x1000016f9  mov rsi, rax                     |                 rsi = rax;
     0x1000016fc  call 0x1000045b4                 |                 tgetent (rsi, rdi);
-    0x100001701  cmp eax, 1                       | 
+    0x100001701  cmp eax, 1                       |
                                                   |                 if (eax == 1) {
-    0x100001704  jne 0x1000017bf                  | 
+    0x100001704  jne 0x1000017bf                  |
     0x10000170a  lea rdi, [rip + 0x343d]          |                     rdi = str_AF;
     0x100001711  lea rbx, [rbp - 0x30]            |                     rbx = local_30h;
     0x100001715  mov rsi, rbx                     |                     rsi = rbx;
@@ -159,32 +159,32 @@
     0x10000176d  mov rsi, rbx                     |                     rsi = rbx;
     0x100001770  call 0x1000045ba                 |                     rax = tgetstr (rsi, rdi);
     0x100001775  mov qword [rip + 0x3e6c], rax    |                     *((int64_t*) 0x1000055e8) = rax;
-    0x10000177c  test rax, rax                    | 
+    0x10000177c  test rax, rax                    |
                                                   |                     if (rax == 0) {
-    0x10000177f  jne 0x100001798                  | 
+    0x10000177f  jne 0x100001798                  |
     0x100001781  lea rdi, [rip + 0x33d5]          |                         rdi = str_oc;
     0x100001788  lea rsi, [rbp - 0x30]            |                         rsi = local_30h;
     0x10000178c  call 0x1000045ba                 |                         rax = tgetstr (rsi, rdi);
     0x100001791  mov qword [rip + 0x3e50], rax    |                         *((int64_t*) 0x1000055e8) = rax;
                                                   |                     }
-    0x100001798  cmp qword [rip + 0x3e50], 0      | 
+    0x100001798  cmp qword [rip + 0x3e50], 0      |
                                                   |                     if (*((int64_t*) 0x1000055f0) != 0) {
-    0x1000017a0  je 0x1000017bf                   | 
+    0x1000017a0  je 0x1000017bf                   |
     0x1000017a2  mov rcx, qword [rip + 0x3e37]    |                         rcx = *((int64_t*) 0x1000055e0);
-    0x1000017a9  test rcx, rcx                    | 
+    0x1000017a9  test rcx, rcx                    |
                                                   |                         if (rcx != 0) {
-    0x1000017ac  je 0x1000017bf                   | 
-    0x1000017ae  test rax, rax                    | 
+    0x1000017ac  je 0x1000017bf                   |
+    0x1000017ae  test rax, rax                    |
                                                   |                             if (rax != 0) {
-    0x1000017b1  je 0x1000017bf                   | 
+    0x1000017b1  je 0x1000017bf                   |
     0x1000017b3  mov dword [rip + 0x3e5f], 1      |                                 *((int32_t*) 0x10000561c) = 1;
-    0x1000017bd  jmp 0x1000017cb                  | 
+    0x1000017bd  jmp 0x1000017cb                  |
                                                   |                             }
                                                   |                             else {
     0x1000017bf  xor r8d, r8d                     |                                 r8d = 0;
-    0x1000017c2  cmp dword [rip + 0x3e53], 0      | 
+    0x1000017c2  cmp dword [rip + 0x3e53], 0      |
                                                   |                                 if (*((int32_t*) 0x10000561c) != 0) {
-    0x1000017c9  je 0x100001811                   | 
+    0x1000017c9  je 0x100001811                   |
     0x1000017cb  mov dword [rip + 0x3e63], 1      |                                     *((int32_t*) 0x100005638) = 1;
                                                   |                                     /* func.100003bd8 */
     0x1000017d5  lea rbx, [rip + 0x23fc]          |                                     rbx = tputs_bd8;
@@ -194,7 +194,7 @@
     0x1000017e9  mov edi, 3                       |                                     edi = 3;
     0x1000017ee  mov rsi, rbx                     |                                     rsi = rbx;
     0x1000017f1  call 0x10000457e                 |                                     signal (rsi, edi);
-    0x1000017f6  lea rdi, [rip + 0x3363]          | 
+    0x1000017f6  lea rdi, [rip + 0x3363]          |
     0x1000017fd  call 0x1000044ee                 |                                     rax = getenv ("LSCOLORS");
     0x100001802  mov rdi, rax                     |                                     rdi = rax;
     0x100001805  call 0x100003a5b                 |                                     strlen (rdi);
@@ -222,15 +222,15 @@
                                                   |     if (*((int32_t*) 0x10000561c) != 0) {
     0x100001846  cmovne ecx, r12d                 |         ecx = r12d;
                                                   |     }
-    0x10000184a  test bl, bl                      | 
+    0x10000184a  test bl, bl                      |
                                                   |     if (bl != 0) {
     0x10000184c  cmovne ecx, r12d                 |         ecx = r12d;
                                                   |     }
-    0x100001850  test r10b, r10b                  | 
+    0x100001850  test r10b, r10b                  |
                                                   |     if (r10b != 0) {
     0x100001853  cmovne ecx, r12d                 |         ecx = r12d;
                                                   |     }
-    0x100001857  test r8d, r8d                    | 
+    0x100001857  test r8d, r8d                    |
                                                   |     if (r8d != 0) {
     0x10000185a  cmovne ecx, r12d                 |         ecx = r12d;
                                                   |     }
@@ -244,18 +244,18 @@
     0x100001873  mov cl, byte [rip + 0x3cab]      |     cl = *((int8_t*) 0x100005524);
     0x100001879  mov ebx, eax                     |     ebx = eax;
     0x10000187b  or ebx, 0x80                     |     ebx |= 0x80;
-    0x100001881  test cl, cl                      | 
+    0x100001881  test cl, cl                      |
                                                   |     if (cl == 0) {
     0x100001883  cmove ebx, eax                   |         ebx = eax;
                                                   |     }
     0x100001886  or edx, r9d                      |     edx |= r9d;
                                                   |     if (cl != 0) {
-    0x100001889  je 0x1000018d8                   | 
-    0x10000188b  cmp byte [rip + 0x3c82], 1       | 
+    0x100001889  je 0x1000018d8                   |
+    0x10000188b  cmp byte [rip + 0x3c82], 1       |
                                                   |         if (*((int8_t*) 0x100005514) == 1) {
-    0x100001892  jne 0x1000018a1                  | 
+    0x100001892  jne 0x1000018a1                  |
     0x100001894  mov qword [rip + 0x3d61], 2      |             *((int64_t*) 0x100005600) = 2;
-    0x10000189f  jmp 0x1000018d8                  | 
+    0x10000189f  jmp 0x1000018d8                  |
                                                   |         }
                                                   |         else {
     0x1000018a1  lea rsi, [rip + 0x3d58]          |             rsi = 0x100005600;
@@ -271,82 +271,82 @@
     0x1000018d1  mov r10b, byte [rip + 0x3c44]    |             r10b = *((int8_t*) 0x10000551c);
                                                   |         }
                                                   |     }
-    0x1000018d8  cmp byte [rip + 0x3c39], 1       | 
+    0x1000018d8  cmp byte [rip + 0x3c39], 1       |
                                                   |     if (*((int8_t*) 0x100005518) == 1) {
-    0x1000018df  jne 0x1000018f3                  | 
-    0x1000018e1  test r10b, 1                     | 
+    0x1000018df  jne 0x1000018f3                  |
+    0x1000018e1  test r10b, 1                     |
                                                   |         if ((r10b & 1) != 0) {
-    0x1000018e5  je 0x100001905                   | 
+    0x1000018e5  je 0x100001905                   |
                                                   |             /* func.100001132 */
     0x1000018e7  lea rax, [rip - 0x7bc]           |             rax = func_100001132;
-    0x1000018ee  jmp 0x1000019a7                  | 
+    0x1000018ee  jmp 0x1000019a7                  |
                                                   |         }
                                                   |         else {
-    0x1000018f3  test r10b, 1                     | 
+    0x1000018f3  test r10b, 1                     |
                                                   |             if ((r10b & 1) != 0) {
-    0x1000018f7  je 0x100001933                   | 
+    0x1000018f7  je 0x100001933                   |
                                                   |                 /* func.100001100 */
     0x1000018f9  lea rax, [rip - 0x800]           |                 rax = func_100001100;
-    0x100001900  jmp 0x1000019a7                  | 
+    0x100001900  jmp 0x1000019a7                  |
                                                   |             }
                                                   |             else {
     0x100001905  mov al, byte [rip + 0x3c15]      |                 al = *((int8_t*) 0x100005520);
-    0x10000190b  test al, al                      | 
+    0x10000190b  test al, al                      |
                                                   |                 if (al != 0) {
-    0x10000190d  je 0x100001961                   | 
-    0x10000190f  cmp dword [rip + 0x3cfa], 0      | 
+    0x10000190d  je 0x100001961                   |
+    0x10000190f  cmp dword [rip + 0x3cfa], 0      |
                                                   |                     if (*((int32_t*) 0x100005610) == 0) {
-    0x100001916  jne 0x100001973                  | 
-    0x100001918  cmp dword [rip + 0x3d3d], 0      | 
+    0x100001916  jne 0x100001973                  |
+    0x100001918  cmp dword [rip + 0x3d3d], 0      |
                                                   |                         if (*((int32_t*) 0x10000565c) == 0) {
-    0x10000191f  jne 0x100001985                  | 
-    0x100001921  cmp dword [rip + 0x3cf0], 0      | 
+    0x10000191f  jne 0x100001985                  |
+    0x100001921  cmp dword [rip + 0x3cf0], 0      |
                                                   |                             if (*((int32_t*) 0x100005618) == 0) {
-    0x100001928  jne 0x100001997                  | 
+    0x100001928  jne 0x100001997                  |
                                                   |                                 /* func.100000f8c */
     0x10000192a  lea rax, [rip - 0x9a5]           |                                 rax = func_100000f8c;
-    0x100001931  jmp 0x1000019a7                  | 
+    0x100001931  jmp 0x1000019a7                  |
                                                   |                             }
                                                   |                             else {
     0x100001933  mov al, byte [rip + 0x3be7]      |                                 al = *((int8_t*) 0x100005520);
-    0x100001939  test al, al                      | 
+    0x100001939  test al, al                      |
                                                   |                                 if (al != 0) {
-    0x10000193b  je 0x10000196a                   | 
-    0x10000193d  cmp dword [rip + 0x3ccc], 0      | 
+    0x10000193b  je 0x10000196a                   |
+    0x10000193d  cmp dword [rip + 0x3ccc], 0      |
                                                   |                                     if (*((int32_t*) 0x100005610) == 0) {
-    0x100001944  jne 0x10000197c                  | 
-    0x100001946  cmp dword [rip + 0x3d0f], 0      | 
+    0x100001944  jne 0x10000197c                  |
+    0x100001946  cmp dword [rip + 0x3d0f], 0      |
                                                   |                                         if (*((int32_t*) 0x10000565c) == 0) {
-    0x10000194d  jne 0x10000198e                  | 
-    0x10000194f  cmp dword [rip + 0x3cc2], 0      | 
+    0x10000194d  jne 0x10000198e                  |
+    0x10000194f  cmp dword [rip + 0x3cc2], 0      |
                                                   |                                             if (*((int32_t*) 0x100005618) == 0) {
-    0x100001956  jne 0x1000019a0                  | 
+    0x100001956  jne 0x1000019a0                  |
                                                   |                                                 /* func.100000f47 */
     0x100001958  lea rax, [rip - 0xa18]           |                                                 rax = func_100000f47;
-    0x10000195f  jmp 0x1000019a7                  | 
+    0x10000195f  jmp 0x1000019a7                  |
                                                   |                                             }
                                                   |                                             else {
                                                   |                                                 /* func.100000f32 */
     0x100001961  lea rax, [rip - 0xa36]           |                                                 rax = func_100000f32;
-    0x100001968  jmp 0x1000019a7                  | 
+    0x100001968  jmp 0x1000019a7                  |
                                                   |                                                 /* func.100000f20 */
     0x10000196a  lea rax, [rip - 0xa51]           |                                                 rax = func_100000f20;
-    0x100001971  jmp 0x1000019a7                  | 
+    0x100001971  jmp 0x1000019a7                  |
                                                   |                                                 /* func.10000101f */
     0x100001973  lea rax, [rip - 0x95b]           |                                                 rax = func_10000101f;
-    0x10000197a  jmp 0x1000019a7                  | 
+    0x10000197a  jmp 0x1000019a7                  |
                                                   |                                                 /* func.100000fda */
     0x10000197c  lea rax, [rip - 0x9a9]           |                                                 rax = func_100000fda;
-    0x100001983  jmp 0x1000019a7                  | 
+    0x100001983  jmp 0x1000019a7                  |
                                                   |                                                 /* func.1000010b2 */
     0x100001985  lea rax, [rip - 0x8da]           |                                                 rax = func_1000010b2;
-    0x10000198c  jmp 0x1000019a7                  | 
+    0x10000198c  jmp 0x1000019a7                  |
                                                   |                                                 /* func.10000106d */
     0x10000198e  lea rax, [rip - 0x928]           |                                                 rax = func_10000106d;
-    0x100001995  jmp 0x1000019a7                  | 
+    0x100001995  jmp 0x1000019a7                  |
                                                   |                                                 /* func.1000011b2 */
     0x100001997  lea rax, [rip - 0x7ec]           |                                                 rax = func_1000011b2;
-    0x10000199e  jmp 0x1000019a7                  | 
+    0x10000199e  jmp 0x1000019a7                  |
                                                   |                                                 /* func.10000116d */
     0x1000019a0  lea rax, [rip - 0x83a]           |                                                 rax = func_10000116d;
                                                   |                                             }
@@ -362,40 +362,40 @@
                                                   |     }
     0x1000019a7  mov qword [rip + 0x3b7a], rax    |     *((int64_t*) 0x100005528) = rax;
     0x1000019ae  sub r14d, r13d                   |     r14d -= r13d;
-    0x1000019b1  cmp byte [rip + 0x3b48], 1       | 
+    0x1000019b1  cmp byte [rip + 0x3b48], 1       |
                                                   |     if (*((int8_t*) 0x100005500) == 1) {
-    0x1000019b8  jne 0x1000019c3                  | 
+    0x1000019b8  jne 0x1000019c3                  |
                                                   |         /* func.1000028c4 */
     0x1000019ba  lea rax, [rip + 0xf03]           |         rax = printscol_8c4;
-    0x1000019c1  jmp 0x1000019ee                  | 
+    0x1000019c1  jmp 0x1000019ee                  |
                                                   |     }
                                                   |     else {
-    0x1000019c3  cmp dword [rip + 0x3c66], 0      | 
+    0x1000019c3  cmp dword [rip + 0x3c66], 0      |
                                                   |         if (*((int32_t*) 0x100005630) == 0) {
-    0x1000019ca  jne 0x1000019de                  | 
-    0x1000019cc  cmp dword [rip + 0x3c8d], 0      | 
+    0x1000019ca  jne 0x1000019de                  |
+    0x1000019cc  cmp dword [rip + 0x3c8d], 0      |
                                                   |             if (*((int32_t*) 0x100005660) == 0) {
-    0x1000019d3  jne 0x1000019e7                  | 
+    0x1000019d3  jne 0x1000019e7                  |
                                                   |                 /* func.100003745 */
     0x1000019d5  lea rax, [rip + 0x1d69]          |                 rax = realloc_745;
-    0x1000019dc  jmp 0x1000019ee                  | 
+    0x1000019dc  jmp 0x1000019ee                  |
                                                   |             }
                                                   |             else {
                                                   |                 /* func.100002aad */
     0x1000019de  lea rax, [rip + 0x10c8]          |                 rax = func_100002aad;
-    0x1000019e5  jmp 0x1000019ee                  | 
+    0x1000019e5  jmp 0x1000019ee                  |
                                                   |                 /* func.100003674 */
     0x1000019e7  lea rax, [rip + 0x1c86]          |                 rax = strlen_674;
                                                   |             }
                                                   |         }
                                                   |     }
     0x1000019ee  mov qword [rip + 0x3b3b], rax    |     *((int64_t*) 0x100005530) = rax;
-    0x1000019f5  test r14d, r14d                  | 
+    0x1000019f5  test r14d, r14d                  |
                                                   |     if (r14d == 0) {
-    0x1000019f8  jne 0x100001a08                  | 
+    0x1000019f8  jne 0x100001a08                  |
     0x1000019fa  lea rsi, [rip + 0x3adf]          |         rsi = 0x1000054e0;
     0x100001a01  mov edi, 1                       |         edi = 1;
-    0x100001a06  jmp 0x100001a0f                  | 
+    0x100001a06  jmp 0x100001a0f                  |
                                                   |     }
                                                   |     else {
     0x100001a08  lea rsi, [r15 + r13*8]           |         rsi = r15 + r13*8;

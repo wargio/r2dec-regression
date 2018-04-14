@@ -2,12 +2,12 @@
                                              | #include <stdint.h>
                                              | #include <stdio.h>
                                              | #include <wchar.h>
-                                             | 
+                                             |
 (fcn) sym.main:                              | int32_t main () {
-    0x08048494  push ebp                     | 
-    0x08048495  mov ebp, esp                 | 
-    0x08048497  and esp, 0xfffffff0          | 
-    0x0804849a  add esp, 0xffffffffffffff80  | 
+    0x08048494  push ebp                     |
+    0x08048495  mov ebp, esp                 |
+    0x08048497  and esp, 0xfffffff0          |
+    0x0804849a  add esp, 0xffffffffffffff80  |
                                              |     do {
     0x0804849d  mov eax, 0x80485d0           |         eax = "Enter password: ";
     0x080484a2  mov dword [esp], eax         |         *((int32_t*) esp) = eax;
@@ -20,20 +20,20 @@
     0x080484bf  lea eax, [esp + 0x1c]        |         eax = local_1ch;
     0x080484c3  mov dword [esp + 4], eax     |         *((int32_t*) local_4h) = eax;
                                              |         /* pass.1964 */
-    0x080484c7  mov dword [esp], 0x804a040   | 
+    0x080484c7  mov dword [esp], 0x804a040   |
     0x080484ce  call 0x8048390               |         eax = wcscmp ("w0wgreat", *((uint32_t*) local_4h));
-    0x080484d3  test eax, eax                | 
+    0x080484d3  test eax, eax                |
                                              |         if (eax == 0) {
-    0x080484d5  jne 0x80484eb                | 
-    0x080484d7  mov dword [esp], 0x80485e5   | 
+    0x080484d5  jne 0x80484eb                |
+    0x080484d7  mov dword [esp], 0x80485e5   |
     0x080484de  call 0x80483a0               |             puts ("Congrats!");
-    0x080484e3  nop                          | 
+    0x080484e3  nop                          |
     0x080484e4  mov eax, 0                   |             eax = 0;
-    0x080484e9  leave                        | 
+    0x080484e9  leave                        |
     0x080484ea  ret                          |             return eax;
                                              |         }
-    0x080484eb  mov dword [esp], 0x80485ef   | 
+    0x080484eb  mov dword [esp], 0x80485ef   |
     0x080484f2  call 0x80483a0               |         puts ("Wrong!");
                                              |     } while (1);
-    0x080484f7  jmp 0x804849d                | 
+    0x080484f7  jmp 0x804849d                |
                                              | }

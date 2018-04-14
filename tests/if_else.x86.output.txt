@@ -1,23 +1,23 @@
     ; assembly                               | /* r2dec pseudo C output */
                                              | #include <stdint.h>
-                                             | 
+                                             |
 (fcn) main:                                  | int32_t main () {
-    0x000005fa  push rbp                     | 
-    0x000005fb  mov rbp, rsp                 | 
+    0x000005fa  push rbp                     |
+    0x000005fb  mov rbp, rsp                 |
     0x000005fe  mov dword [rbp - 0x14], edi  |     *((int32_t*) local_14h) = edi;
     0x00000601  mov qword [rbp - 0x20], rsi  |     *((int64_t*) local_20h) = rsi;
     0x00000605  mov dword [rbp - 4], 0xdead  |     *((int32_t*) local_4h) = 0xdead;
-    0x0000060c  cmp dword [rbp - 4], 0xbeef  | 
+    0x0000060c  cmp dword [rbp - 4], 0xbeef  |
                                              |     if (*((int32_t*) local_4h) != 0xbeef) {
-    0x00000613  je 0x61e                     | 
+    0x00000613  je 0x61e                     |
     0x00000615  mov dword [rbp - 4], 0xbeef  |         *((int32_t*) local_4h) = 0xbeef;
-    0x0000061c  jmp 0x625                    | 
+    0x0000061c  jmp 0x625                    |
                                              |     }
                                              |     else {
     0x0000061e  add dword [rbp - 4], 0x2000  |         *((int32_t*) local_4h) += 0x2000;
                                              |     }
     0x00000625  add dword [rbp - 4], 0x10    |     *((int32_t*) local_4h) += 0x10;
     0x00000629  mov eax, 0                   |     eax = 0;
-    0x0000062e  pop rbp                      | 
+    0x0000062e  pop rbp                      |
     0x0000062f  ret                          |     return eax;
                                              | }

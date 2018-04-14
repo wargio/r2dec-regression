@@ -6,13 +6,12 @@
                                         | #define SPR_HID5 (0x3f6)
                                         | #define SPR_HID6 (0x3f9)
                                         | #include <limits.h>
-                                        | 
+                                        |
                                         | uint64_t rotate_left64 (uint64_t value, uint32_t count) {
                                         |     const uint64_t mask = (CHAR_BIT * sizeof (value)) - 1;
                                         |     count &= mask;
                                         |     return (value << count) | (value >> (-count & mask));
                                         | }
-                                        | 
 (fcn) boot:                             | void boot () {
     0x00000ae8  li r0, 0                |     r0 = 0;
     0x00000aec  mfpvr r4                |     r4 = _mfpvr ();
@@ -20,17 +19,17 @@
     0x00000af4  ori r5, r5, 0xa48       |     r5 |= 0xa48;
                                         |     do {
     0x00000af8  ld r6, 0(r5)            |         r6 = *((int64_t*) r5);
-    0x00000afc  cmpd r6, r4             | 
+    0x00000afc  cmpd r6, r4             |
                                         |         if ((uint64_t) r6 == (uint64_t) r4) {
     0x00000b00  beq- 0xb18              |             goto label_0;
                                         |         }
-    0x00000b04  cmpdi r6, 0             | 
+    0x00000b04  cmpdi r6, 0             |
                                         |         if ((uint64_t) r6 == 0) {
     0x00000b08  beq- 0xb14              |             goto label_1;
                                         |         }
     0x00000b0c  addi r5, r5, 0x10       |         r5 += 0x10;
                                         |     } while (1);
-    0x00000b10  b 0xaf8                 | 
+    0x00000b10  b 0xaf8                 |
                                         | label_1:
     0x00000b14  addi r5, r5, -0x10      |     r5 += -0x10;
                                         | label_0:
@@ -122,13 +121,13 @@
     0x00000c34  dcbz 0, r3              |         _dcbz (r3);
     0x00000c38  addi r3, r3, 0x80       |         r3 += 0x80;
                                         |     } while ((--ctr) != 0);
-    0x00000c3c  bdnz 0xc34              | 
+    0x00000c3c  bdnz 0xc34              |
     0x00000c40  lis r1, 0xbff           |     r1 = 0xbff0000;
     0x00000c44  ori r1, r1, 0xff80      |     r1 |= 0xff80;
     0x00000c48  lis r2, 0x80c           |     r2 = 0x80c0000;
     0x00000c4c  ori r2, r2, 0xdde0      |     r2 |= 0xdde0;
     0x00000c50  lis r3, 0x800           |     r3 = 0x8000000;
     0x00000c54  ori r3, r3, 0           |     r3 |= 0;
-    0x00000c58  mtlr r3                 | 
+    0x00000c58  mtlr r3                 |
     0x00000c5c  blrl                    |     (*(void(*)()) r3) ();
                                         | }
