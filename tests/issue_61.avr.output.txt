@@ -1,0 +1,30 @@
+    ; assembly                  | /* r2dec pseudo C output */
+                                | #include <stdint.h>
+                                |
+(fcn) fcn.000000b2:             | void fcn_000000b2 () {
+    0x000000b2  sts 0x98, r1    |     *((uint8_t*) 0x98) = r1;
+    0x000000b6  ldi r24, 0x67   |     r24 = 0x67;
+    0x000000b8  sts 0x99, r24   |     *((uint8_t*) 0x99) = r24;
+    0x000000bc  lds r24, 0x9a   |     r24 = *((uint8_t*) 0x9a);
+    0x000000c0  ori r24, 0x98   |     r24 |= 0x98;
+    0x000000c2  sts 0x9a, r24   |     *((uint8_t*) 0x9a) = r24;
+    0x000000c6  lds r24, 0x9d   |     r24 = *((uint8_t*) 0x9d);
+    0x000000ca  ori r24, 0x0e   |     r24 |= 0x0e;
+    0x000000cc  sts 0x9d, r24   |     *((uint8_t*) 0x9d) = r24;
+                                |     do {
+    0x000000d0  ldi r24, 0x48   |         r24 = 0x48;
+    0x000000d2  call 0xa4       |         (*(void(*)()) 0xa4) ();
+    0x000000d6  ser r18         |         r18 = 0xff;
+    0x000000d8  ldi r24, 0x70   |         r24 = 0x70;
+    0x000000da  ldi r25, 0x02   |         r25 = 0x02;
+                                |         do {
+    0x000000dc  subi r18, 0x01  |             r18 -= 0x01;
+    0x000000de  sbci r24, 0x00  |             r24 -= 0x00;
+    0x000000e0  sbci r25, 0x00  |
+                                |         } while (r25 == 0x00);
+    0x000000e2  brne 0xdc       |
+    0x000000e4  rjmp 0xe6       |
+    0x000000e6  nop             |
+                                |     } while (1);
+    0x000000e8  rjmp 0xd0       |
+                                | }

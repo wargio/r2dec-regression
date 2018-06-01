@@ -1,0 +1,48 @@
+    ; assembly                     | /* r2dec pseudo C output */
+                                   | #include <stdint.h>
+                                   | #define WRITE_TO_IO(x,y) __asm(in (x), (y))
+                                   | #define MEM_Z ((uint16_t*)((r31 << 8) | r30))
+                                   | #define MEM_X ((uint16_t*)((r27 << 8) | r26))
+                                   |
+(fcn) entry0:                      | uint8_t entry0 () {
+    0x000007ce  clr r1             |     r1 = 0;
+    0x000007d0  out 0x3f, r1       |     WRITE_TO_IO (0x3f, r1);
+    0x000007d2  ser r28            |     r28 = 0xff;
+    0x000007d4  ldi r29, 0x08      |     r29 = 0x08;
+    0x000007d6  out 0x3e, r29      |     WRITE_TO_IO (0x3e, r29);
+    0x000007d8  out 0x3d, r28      |     WRITE_TO_IO (0x3d, r28);
+    0x000007da  ldi r17, 0x02      |     r17 = 0x02;
+    0x000007dc  ldi r26, 0x00      |     r26 = 0x00;
+    0x000007de  ldi r27, 0x01      |     r27 = 0x01;
+    0x000007e0  ldi r30, 0xbc      |     r30 = 0xbc;
+    0x000007e2  ldi r31, 0x2d      |     r31 = 0x2d;
+    0x000007e4  rjmp 0x7ea         |
+                                   |     while ((r26 | (r27 << 8)) != (0xb4 | (r17 << 8))) {
+    0x000007e6  lpm r0, z+         |         r0 = *((uint8_t*) MEM_Z);
+                                   |         uint8_t value0 = r30;
+                                   |         r30 += 1;
+                                   |         r31 = (r30 < value0) ? (r31 + 1) : r31;
+    0x000007e8  st x+, r0          |         *((uint8_t*) MEM_X) = r0;
+                                   |         uint8_t value1 = r26;
+                                   |         r26 += 1;
+                                   |         r27 = (r26 < value1) ? (r27 + 1) : r27;
+    0x000007ea  cpi r26, 0xb4      |
+    0x000007ec  cpc r27, r17       |
+                                   |     }
+    0x000007ee  brne 0x7e6         |
+    0x000007f0  ldi r18, 0x03      |     r18 = 0x03;
+    0x000007f2  ldi r26, 0xb4      |     r26 = 0xb4;
+    0x000007f4  ldi r27, 0x02      |     r27 = 0x02;
+    0x000007f6  rjmp 0x7fa         |
+                                   |     while ((r26 | (r27 << 8)) != (0x47 | (r18 << 8))) {
+    0x000007f8  st x+, r1          |         *((uint8_t*) MEM_X) = r1;
+                                   |         uint8_t value2 = r26;
+                                   |         r26 += 1;
+                                   |         r27 = (r26 < value2) ? (r27 + 1) : r27;
+    0x000007fa  cpi r26, 0x47      |
+    0x000007fc  cpc r27, r18       |
+                                   |     }
+    0x000007fe  brne 0x7f8         |
+    0x00000800  call fcn.0000080c  |     fcn_0000080c ();
+    0x00000804  jmp 0x2db8         |     (*(void(*)()) 0x2db8) ();
+                                   | }

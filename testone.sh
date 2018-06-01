@@ -9,7 +9,7 @@ ERROR=false
 DIFF="diff --color=always -u"
 
 if [ -z "$R2DECFOLDER" ]; then
-	R2DECFOLDER=~/.config/radare2/r2pm/git/r2dec-js
+	R2DECFOLDER=~/.local/share/radare2/r2pm/git/r2dec-js
 fi
 
 R2DECBINFLD=$R2DECFOLDER/p
