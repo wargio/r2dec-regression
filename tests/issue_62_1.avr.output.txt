@@ -1,0 +1,18 @@
+    ; assembly                 | /* r2dec pseudo C output */
+                               | #include <stdint.h>
+                               | #define WRITE_TO_IO(x,y) __asm(in (x), (y))
+                               | #define DISABLE_INTERRUPTS __asm(cli)
+                               |
+(fcn) entry0:                  | void entry0 () {
+    0x0000008c  clr r1         |     r1 = 0;
+    0x0000008e  out 0x3f, r1   |     WRITE_TO_IO (0x3f, r1);
+    0x00000090  ser r28        |     r28 = 0xff;
+    0x00000092  ldi r29, 0x10  |     r29 = 0x10;
+    0x00000094  out 0x3e, r29  |     WRITE_TO_IO (0x3e, r29);
+    0x00000096  out 0x3d, r28  |     WRITE_TO_IO (0x3d, r28);
+    0x00000098  call 0xb2      |     (*(void(*)()) 0xb2) ();
+    0x0000009c  jmp 0xea       |
+    0x000000ea  cli            |     DISABLE_INTERRUPTS;
+                               |     while (1);
+    0x000000ec  rjmp 0xec      |
+                               | }

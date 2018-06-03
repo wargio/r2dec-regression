@@ -168,5 +168,5 @@
                                                                     |     }
     0x564310a2afe4  movsxd rax, dword [r13 + rax*4]                 |     rax = (int32_t) r13 + (rax * 4);
     0x564310a2afe9  add rax, r13                                    |     rax += r13;
-    0x564310a2afec  jmp rax                                         |     (*(void(*)()) rax) ();
+    0x564310a2afec  jmp rax                                         |     return (*(void(*)()) rax) ();
                                                                     | }

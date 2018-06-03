@@ -394,5 +394,5 @@
     0x100001a0f  mov edx, ebx                     |     edx = ebx;
     0x100001a11  call 0x100001b44                 |     func_100001b44 (edx, edi, rsi);
     0x100001a16  movzx edi, byte [rip + 0x3b1b]   |     edi = (int8_t) 0x100005538;
-    0x100001a1d  call 0x1000044a6                 |     exit (edi);
+    0x100001a1d  call 0x1000044a6                 |     return exit (edi);
                                                   | }
