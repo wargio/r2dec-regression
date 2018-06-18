@@ -2,7 +2,7 @@
                                              | #include <stdint.h>
                                              | #include <stdio.h>
                                              |
-(fcn) sym.main:                              | int32_t main () {
+(fcn) sym.main:                              | uint32_t main () {
     0x0000064a  push rbp                     |
     0x0000064b  mov rbp, rsp                 |
     0x0000064e  sub rsp, 0x10                |

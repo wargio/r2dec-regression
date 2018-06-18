@@ -1,7 +1,7 @@
     ; assembly                                | /* r2dec pseudo C output */
                                               | #include <stdint.h>
                                               |
-(fcn) sym.func.10000116d:                     | void func () {
+(fcn) sym.func.10000116d:                     | uint32_t func () {
     0x10000116d  push rbp                     |
     0x10000116e  mov rbp, rsp                 |
     0x100001171  mov r8, qword [rsi + 0x60]   |     r8 = *((int64_t*) rsi + 0x60);

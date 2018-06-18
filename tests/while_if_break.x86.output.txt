@@ -1,7 +1,7 @@
     ; assembly                               | /* r2dec pseudo C output */
                                              | #include <stdint.h>
                                              |
-(fcn) main:                                  | int32_t main () {
+(fcn) main:                                  | void main () {
     0x000005fa  push rbp                     |
     0x000005fb  mov rbp, rsp                 |
     0x000005fe  mov dword [rbp - 0x14], edi  |     *((int32_t*) local_14h) = edi;
@@ -13,7 +13,7 @@
                                              |         if (*((int32_t*) local_4h) > 0x40) {
     0x00000612  jle 0x61a                    |
     0x00000614  add dword [rbp - 4], 7       |             *((int32_t*) local_4h) += 7;
-    0x00000618  jmp 0x627                    |             goto label_0;
+    0x00000618  jmp 0x627                    |             break;
                                              |         }
                                              |         else {
     0x0000061a  add dword [rbp - 4], 0x10    |             *((int32_t*) local_4h) += 0x10;
@@ -21,7 +21,6 @@
     0x00000625  jle 0x60e                    |
                                              |         }
                                              |     }
-                                             | label_0:
     0x00000627  add dword [rbp - 4], 0x15    |     *((int32_t*) local_4h) += 0x15;
     0x0000062b  mov eax, 0                   |     eax = 0;
     0x00000630  pop rbp                      |

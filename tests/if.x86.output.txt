@@ -1,7 +1,7 @@
     ; assembly                               | /* r2dec pseudo C output */
                                              | #include <stdint.h>
                                              |
-(fcn) sym.main:                              | int32_t main () {
+(fcn) sym.main:                              | void main () {
     0x000005fa  push rbp                     |
     0x000005fb  mov rbp, rsp                 |
     0x000005fe  mov dword [rbp - 0x14], edi  |     *((int32_t*) local_14h) = edi;
