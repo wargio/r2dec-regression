@@ -1,0 +1,19 @@
+    ; assembly                             | /* r2dec pseudo C output */
+                                           | #include <stdint.h>
+                                           | #include <stdio.h>
+                                           |
+(fcn) sym._main:                           | void main () {
+                                           |     /* [00] -r-x section size 35 named 0.__TEXT.__text */
+    0x100000f60  push rbp                  |
+    0x100000f61  mov rbp, rsp              |
+    0x100000f64  sub rsp, 0x10             |
+    0x100000f68  lea rdi, [rip + 0x37]     |
+    0x100000f6f  mov al, 0                 |     al = 0;
+    0x100000f71  call 0x100000f84          |     printf ("Hello world\n");
+    0x100000f76  xor ecx, ecx              |     ecx = 0;
+    0x100000f78  mov dword [rbp - 4], eax  |     *((int32_t*) local_4h) = eax;
+    0x100000f7b  mov eax, ecx              |     eax = ecx;
+    0x100000f7d  add rsp, 0x10             |
+    0x100000f81  pop rbp                   |
+    0x100000f82  ret                       |     return;
+                                           | }
