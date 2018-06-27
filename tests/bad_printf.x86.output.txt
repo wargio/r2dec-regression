@@ -2,7 +2,7 @@
                                            | #include <stdint.h>
                                            | #include <stdio.h>
                                            |
-(fcn) sym._main:                           | void main () {
+(fcn) sym._main:                           | int32_t main () {
                                            |     /* [00] -r-x section size 35 named 0.__TEXT.__text */
     0x100000f60  push rbp                  |
     0x100000f61  mov rbp, rsp              |
@@ -15,5 +15,5 @@
     0x100000f7b  mov eax, ecx              |     eax = ecx;
     0x100000f7d  add rsp, 0x10             |
     0x100000f81  pop rbp                   |
-    0x100000f82  ret                       |     return;
+    0x100000f82  ret                       |     return eax;
                                            | }

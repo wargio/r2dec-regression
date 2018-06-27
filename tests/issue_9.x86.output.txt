@@ -4,7 +4,7 @@
                                                                     | #include <libintl.h>
                                                                     | #include <stdlib.h>
                                                                     |
-(fcn) fcn.rip:                                                      | void fcn_rip () {
+(fcn) fcn.rip:                                                      | int64_t fcn_rip () {
                                                                     |     /* [14] --r-x section size 72505 named .text */
     0x564310a2ad40  push r15                                        |
     0x564310a2ad42  push r14                                        |

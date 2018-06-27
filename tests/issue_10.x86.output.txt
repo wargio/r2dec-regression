@@ -3,7 +3,7 @@
                                                   | #include <locale.h>
                                                   | #include <stdlib.h>
                                                   |
-(fcn) main:                                       | void main () {
+(fcn) main:                                       | uint64_t main () {
     0x100001200  push rbp                         |
     0x100001201  mov rbp, rsp                     |
     0x100001204  push r15                         |

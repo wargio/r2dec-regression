@@ -28,5 +28,5 @@
     0x0000ad58  inc cx                        |     cx++;
     0x0000ad59  pop di                        |
     0x0000ad5a  pop bp                        |
-    0x0000ad5b  ret                           |     return;
+    0x0000ad5b  ret                           |
                                               | }

@@ -1,6 +1,6 @@
     ; assembly                             | /* r2dec pseudo C output */
                                            | #include <stdint.h>
                                            |
-(fcn) sym.getTIB:                          | void getTIB () {
+(fcn) sym.getTIB:                          | int64_t getTIB () {
     0x10000443a  mov rax, qword fs:[0x28]  |     rax = *((int64_t*) fs + 0x28);
                                            | }

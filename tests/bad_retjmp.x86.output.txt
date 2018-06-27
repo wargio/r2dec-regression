@@ -1,7 +1,7 @@
     ; assembly                                | /* r2dec pseudo C output */
                                               | #include <stdint.h>
                                               |
-(fcn) sym.func.10000116d:                     | void func () {
+(fcn) sym.func.10000116d:                     | int32_t func_10000116d () {
     0x10000116d  push rbp                     |
     0x10000116e  mov rbp, rsp                 |
     0x100001171  mov r8, qword [rsi + 0x60]   |     r8 = *((int64_t*) rsi + 0x60);
@@ -25,7 +25,7 @@
                                               |                 if (*((int64_t*) r8 + 0x58) < rcx) {
     0x1000011a0  jge 0x1000011a4              |
     0x1000011a2  pop rbp                      |
-    0x1000011a3  ret                          |                     return;
+    0x1000011a3  ret                          |                     return eax;
                                               |                 }
                                               |             }
                                               |         }
