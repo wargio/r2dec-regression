@@ -1,0 +1,330 @@
+    ; assembly                                                      | /* r2dec pseudo C output */
+                                                                    | #include <stdint.h>
+                                                                    | #include <string.h>
+                                                                    |
+(fcn) sym.add_image_hook_swiftV1_mach_headerconst__long:            | void add_image_hook_swiftV1_mach_headerconst_long () {
+    0x100006038  stp x28, x27, [sp, -0x60]!                         |     *((uint64_t*) sp + -0x60) = x28, x27;
+    0x10000603c  stp x26, x25, [sp, 0x10]                           |     *((uint64_t*) sp + +) = x26, x25;
+    0x100006040  stp x24, x23, [sp, 0x20]                           |     *((uint64_t*) sp + +) = x24, x23;
+    0x100006044  stp x22, x21, [sp, 0x30]                           |     *((uint64_t*) sp + +) = x22, x21;
+    0x100006048  stp x20, x19, [sp, 0x40]                           |     *((uint64_t*) sp + 0x40) = x20, x19;
+    0x10000604c  stp x29, x30, [sp, 0x50]                           |     *((uint64_t*) sp + 0x50) = x29, x30;
+    0x100006050  add x29, sp, 0x50                                  |     x29 = sp + 0x50;
+    0x100006054  sub sp, sp, 0x40                                   |
+    0x100006058  mov x19, x0                                        |     x19 = x0;
+    0x10000605c  adrp x8, 0x100008000                               |     x8 = reloc._DefaultRuneLocale;
+    0x100006060  ldrb w9, [x8, 0x6a8]                               |     w9 = *((uint8_t*) x8 + 0x6a8);;
+    0x100006064  tbnz w9, 0, 0x10000620c                            |     __asm (tbnz w9, 0, 0x10000620c);
+    0x100006068  nop                                                |
+    0x10000606c  ldr x10, 0x100008020                               |     x10 = reloc.objc_allocateClassPair;
+                                                                    |     /* __ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches */
+    0x100006070  adr x9, 0x1000085f8                                |     x9 = add_image_hook_swiftV1_mach_headerconst__long_::patches;
+    0x100006074  nop                                                |
+    0x100006078  adr x11, 0x100007e12                               |     x11 = str.objc_readClassPair;
+    0x10000607c  nop                                                |
+                                                                    |     /* __ZL28__arclite_objc_readClassPairP10objc_classPK15objc_image_info */
+    0x100006080  adr x12, 0x1000068f4                               |     x12 = __arclite_objc_readClassPair_objc_class__objc_image_infoconst;
+    0x100006084  nop                                                |
+    0x100006088  stp x11, x12, [x9]                                 |     *((uint64_t*) x9 + undefined) = x11, x12;
+    0x10000608c  adr x11, 0x100007e26                               |     x11 = str.objc_allocateClassPair;
+    0x100006090  nop                                                |
+                                                                    |     /* __ZL32__arclite_objc_allocateClassPairP10objc_classPKcm */
+    0x100006094  adr x12, 0x100006c18                               |     x12 = __arclite_objc_allocateClassPair_objc_class__charconst__unsignedlong;
+    0x100006098  nop                                                |
+    0x10000609c  stp x11, x12, [x9, 0x10]                           |     *((uint64_t*) x9 + 0x10) = x11, x12;
+    0x1000060a0  adrp x11, 0x100008000                              |     x11 = reloc._DefaultRuneLocale;
+    0x1000060a4  str x10, [x11, 0x6b0]                              |     *((uint32_t*)((uint8_t*) x11 + 0x6b0)) = x10;
+    0x1000060a8  adr x10, 0x100007e3e                               |     x10 = str.object_getIndexedIvars;
+    0x1000060ac  nop                                                |
+    0x1000060b0  str x10, [x9, 0x20]                                |     *((uint32_t*)((uint8_t*) x9 + 0x20)) = x10;
+                                                                    |     /* __ZL32__arclite_object_getIndexedIvarsP11objc_object */
+    0x1000060b4  adr x10, 0x100006ce8                               |     x10 = __arclite_object_getIndexedIvars_objc_object;
+    0x1000060b8  nop                                                |
+    0x1000060bc  str x10, [x9, 0x28]                                |     *((uint32_t*)((uint8_t*) x9 + 0x28)) = x10;
+    0x1000060c0  nop                                                |
+    0x1000060c4  ldr x10, 0x100008060                               |     x10 = reloc.object_getIndexedIvars;
+    0x1000060c8  nop                                                |
+    0x1000060cc  str x10, [x11, 0x6b8]                              |     *((uint32_t*)((uint8_t*) x11 + 0x6b8)) = x10;
+    0x1000060d0  adr x10, 0x100007e56                               |     x10 = str.objc_getClass;
+    0x1000060d4  nop                                                |
+                                                                    |     /* func.100006d54 */
+    0x1000060d8  adr x11, 0x100006d54                               |     x11 = __arclite_objc_getClass_charconst;
+    0x1000060dc  nop                                                |
+    0x1000060e0  stp x10, x11, [x9, 0x30]                           |     *((uint64_t*) x9 + 0x30) = x10, x11;
+    0x1000060e4  adrp x10, 0x100008000                              |     x10 = reloc._DefaultRuneLocale;
+    0x1000060e8  nop                                                |
+    0x1000060ec  ldr x11, 0x100008030                               |     x11 = reloc.objc_getClass;
+    0x1000060f0  str x11, [x10, 0x6c0]                              |     *((uint32_t*)((uint8_t*) x10 + 0x6c0)) = x11;
+    0x1000060f4  adr x10, 0x100007e65                               |     x10 = str.objc_getMetaClass;
+    0x1000060f8  nop                                                |
+    0x1000060fc  str x10, [x9, 0x40]                                |     *((uint32_t*)((uint8_t*) x9 + 0x40)) = x10;
+                                                                    |     /* func.100006dc0 */
+    0x100006100  adr x10, 0x100006dc0                               |     x10 = __arclite_objc_getMetaClass_charconst;
+    0x100006104  nop                                                |
+    0x100006108  str x10, [x9, 0x48]                                |     *((uint32_t*)((uint8_t*) x9 + 0x48)) = x10;
+    0x10000610c  adrp x10, 0x100008000                              |     x10 = reloc._DefaultRuneLocale;
+    0x100006110  nop                                                |
+    0x100006114  ldr x11, 0x100008038                               |     x11 = reloc.objc_getMetaClass;
+    0x100006118  str x11, [x10, 0x6c8]                              |     *((uint32_t*)((uint8_t*) x10 + 0x6c8)) = x11;
+    0x10000611c  adr x10, 0x100007e78                               |     x10 = str.objc_getRequiredClass;
+    0x100006120  nop                                                |
+    0x100006124  str x10, [x9, 0x50]                                |     *((uint32_t*)((uint8_t*) x9 + 0x50)) = x10;
+                                                                    |     /* func.100006e2c */
+    0x100006128  adr x10, 0x100006e2c                               |     x10 = __arclite_objc_getRequiredClass_charconst;
+    0x10000612c  nop                                                |
+    0x100006130  str x10, [x9, 0x58]                                |     *((uint32_t*)((uint8_t*) x9 + 0x58)) = x10;
+    0x100006134  nop                                                |
+    0x100006138  ldr x10, 0x100008048                               |     x10 = reloc.objc_getRequiredClass;
+    0x10000613c  adrp x11, 0x100008000                              |     x11 = reloc._DefaultRuneLocale;
+    0x100006140  str x10, [x11, 0x6d0]                              |     *((uint32_t*)((uint8_t*) x11 + 0x6d0)) = x10;
+    0x100006144  adr x10, 0x100007e8f                               |     x10 = str.objc_lookUpClass;
+    0x100006148  nop                                                |
+                                                                    |     /* func.100006e98 */
+    0x10000614c  adr x11, 0x100006e98                               |     x11 = __arclite_objc_lookUpClass_charconst;
+    0x100006150  nop                                                |
+    0x100006154  stp x10, x11, [x9, 0x60]                           |     *((uint64_t*) x9 + 0x60) = x10, x11;
+    0x100006158  adrp x10, 0x100008000                              |     x10 = reloc._DefaultRuneLocale;
+    0x10000615c  nop                                                |
+    0x100006160  ldr x11, 0x100008050                               |     x11 = reloc.objc_lookUpClass;
+    0x100006164  str x11, [x10, 0x6d8]                              |     *((uint32_t*)((uint8_t*) x10 + 0x6d8)) = x11;
+    0x100006168  adr x10, 0x100007ea1                               |     x10 = str.objc_getProtocol;
+    0x10000616c  nop                                                |
+    0x100006170  str x10, [x9, 0x70]                                |     *((uint32_t*)((uint8_t*) x9 + 0x70)) = x10;
+                                                                    |     /* __ZL26__arclite_objc_getProtocolPKc */
+    0x100006174  adr x10, 0x100006f04                               |     x10 = __arclite_objc_getProtocol_charconst;
+    0x100006178  nop                                                |
+    0x10000617c  str x10, [x9, 0x78]                                |     *((uint32_t*)((uint8_t*) x9 + 0x78)) = x10;
+    0x100006180  adrp x10, 0x100008000                              |     x10 = reloc._DefaultRuneLocale;
+    0x100006184  nop                                                |
+    0x100006188  ldr x11, 0x100008040                               |     x11 = reloc.objc_getProtocol;
+    0x10000618c  str x11, [x10, 0x6e0]                              |     *((uint32_t*)((uint8_t*) x10 + 0x6e0)) = x11;
+    0x100006190  adr x10, 0x100007eb3                               |     x10 = str.class_getName;
+    0x100006194  nop                                                |
+    0x100006198  str x10, [x9, 0x80]                                |     *((uint32_t*)((uint8_t*) x9 + 0x80)) = x10;
+                                                                    |     /* __ZL23__arclite_class_getNameP10objc_class */
+    0x10000619c  adr x10, 0x100006f70                               |     x10 = __arclite_class_getName_objc_class;
+    0x1000061a0  nop                                                |
+    0x1000061a4  str x10, [x9, 0x88]                                |     *((uint32_t*)((uint8_t*) x9 + 0x88)) = x10;
+    0x1000061a8  nop                                                |
+    0x1000061ac  ldr x10, 0x100008010                               |     x10 = reloc.class_getName;
+    0x1000061b0  adrp x11, 0x100008000                              |     x11 = reloc._DefaultRuneLocale;
+    0x1000061b4  str x10, [x11, 0x6e8]                              |     *((uint32_t*)((uint8_t*) x11 + 0x6e8)) = x10;
+    0x1000061b8  adr x10, 0x100007ec2                               |     x10 = str.protocol_getName;
+    0x1000061bc  nop                                                |
+                                                                    |     /* func.100006f90 */
+    0x1000061c0  adr x11, 0x100006f90                               |     x11 = __arclite_protocol_getName_Protocol;
+    0x1000061c4  nop                                                |
+    0x1000061c8  stp x10, x11, [x9, 0x90]                           |     *((uint64_t*) x9 + 0x90) = x10, x11;
+    0x1000061cc  adrp x10, 0x100008000                              |     x10 = reloc._DefaultRuneLocale;
+    0x1000061d0  nop                                                |
+    0x1000061d4  ldr x11, 0x100008068                               |     x11 = reloc.protocol_getName;
+    0x1000061d8  str x11, [x10, 0x6f0]                              |     *((uint32_t*)((uint8_t*) x10 + 0x6f0)) = x11;
+    0x1000061dc  adr x10, 0x100007ed4                               |     x10 = str.objc_copyClassNamesForImage;
+    0x1000061e0  nop                                                |
+    0x1000061e4  str x10, [x9, 0xa0]                                |     *((uint32_t*)((uint8_t*) x9 + 0xa0)) = x10;
+                                                                    |     /* __ZL37__arclite_objc_copyClassNamesForImagePKcPj */
+    0x1000061e8  adr x10, 0x100006fb0                               |     x10 = __arclite_objc_copyClassNamesForImage_charconst__unsignedint;
+    0x1000061ec  nop                                                |
+    0x1000061f0  str x10, [x9, 0xa8]                                |     *((uint32_t*)((uint8_t*) x9 + 0xa8)) = x10;
+    0x1000061f4  adrp x9, 0x100008000                               |     x9 = reloc._DefaultRuneLocale;
+    0x1000061f8  nop                                                |
+    0x1000061fc  ldr x10, 0x100008028                               |     x10 = reloc.objc_copyClassNamesForImage;
+    0x100006200  str x10, [x9, 0x6f8]                               |     *((uint32_t*)((uint8_t*) x9 + 0x6f8)) = x10;
+    0x100006204  orr w9, wzr, 1                                     |     w9 = wzr | 1;
+    0x100006208  strb w9, [x8, 0x6a8]                               |     *((uint8_t*) x8 + 0x6a8) = w9;
+    0x10000620c  ldr w8, [x19, 0x10]                                |     w8 = *((uint32_t*)((uint8_t*) x19 + 0x10));
+    0x100006210  str w8, [sp, 8]                                    |     *((uint32_t*)((uint8_t*) sp + local_8h)) = w8;
+                                                                    |     if (w8 == 0) {
+    0x100006214  cbz w8, 0x100006430                                |
+    0x100006218  movz x26, 0                                        |         x26 = 0;
+    0x10000621c  str xzr, [sp, 0x18]                                |         *((uint32_t*)((uint8_t*) sp + local_18h)) = xzr;
+    0x100006220  add x8, x19, 0x20                                  |         x8 = x19 + 0x20;
+    0x100006224  adr x20, 0x100007f3c                               |         x20 = str.TEXT;
+    0x100006228  nop                                                |
+    0x10000622c  ldr w23, [sp, 8]                                   |         w23 = *((uint32_t*)((uint8_t*) sp + local_8h));
+    0x100006230  mov x24, x8                                        |         x24 = x8;
+    0x100006234  mov x25, x8                                        |         x25 = x8;
+    0x100006238  adr x21, 0x100007f43                               |         x21 = str.LINKEDIT;
+    0x10000623c  nop                                                |
+                                                                    |         do {
+    0x100006240  ldr w8, [x24]                                      |             w8 = x24;
+    0x100006244  cmp w8, 0x19                                       |
+                                                                    |             if (w8 == 0x19) {
+    0x100006248  b.ne 0x100006294                                   |
+    0x10000624c  add x22, x24, 8                                    |                 x22 = x24 + 8;
+    0x100006250  mov x0, x22                                        |                 x0 = x22;
+    0x100006254  mov x1, x20                                        |                 x1 = x20;
+    0x100006258  bl 0x100007900                                     |                 strcmp ();
+                                                                    |                 if (w0 == 0) {
+    0x10000625c  cbz w0, 0x100006288                                |
+    0x100006260  mov x0, x22                                        |                     x0 = x22;
+    0x100006264  mov x1, x21                                        |                     x1 = x21;
+    0x100006268  bl 0x100007900                                     |                     strcmp ();
+                                                                    |                     if (w0 != 0) {
+    0x10000626c  cbnz w0, 0x100006294                               |
+    0x100006270  ldr x8, [x24, 0x18]                                |                         x8 = *((uint32_t*)((uint8_t*) x24 + 0x18));
+    0x100006274  ldr x9, [sp, 0x18]                                 |                         x9 = *((uint32_t*)((uint8_t*) sp + local_18h));
+    0x100006278  add x8, x8, x9                                     |                         x8 += x9;
+    0x10000627c  ldr x9, [x24, 0x28]                                |                         x9 = *((uint32_t*)((uint8_t*) x24 + 0x28));
+    0x100006280  sub x26, x8, x9                                    |                         x26 = x8 - x9;
+    0x100006284  b 0x100006294                                      |
+    0x100006288  ldr x8, [x24, 0x18]                                |                         x8 = *((uint32_t*)((uint8_t*) x24 + 0x18));
+    0x10000628c  sub x8, x19, x8                                    |                         x8 = x19 - x8;
+    0x100006290  str x8, [sp, 0x18]                                 |                         *((uint32_t*)((uint8_t*) sp + local_18h)) = x8;
+                                                                    |                     }
+                                                                    |                 }
+                                                                    |             }
+    0x100006294  ldr w8, [x24, 4]                                   |             w8 = *((uint32_t*)((uint8_t*) x24 + 4));
+    0x100006298  add x24, x24, x8                                   |             x24 += x8;
+    0x10000629c  sub w23, w23, 1                                    |             w23 -= 1;
+                                                                    |         } while (w23 != 0);
+    0x1000062a0  cbnz w23, 0x100006240                              |
+    0x1000062a4  mov x12, x25                                       |         x12 = x25;
+                                                                    |         if (x26 == 0) {
+    0x1000062a8  cbz x26, 0x100006430                               |
+    0x1000062ac  movz x8, 0                                         |             x8 = 0;
+    0x1000062b0  stp x8, xzr, [sp, 0x30]                            |             *((uint64_t*) sp + +) = x8, xzr;
+    0x1000062b4  movz x21, 0                                        |             x21 = 0;
+    0x1000062b8  ldr w8, [sp, 8]                                    |             w8 = *((uint32_t*)((uint8_t*) sp + local_8h));
+    0x1000062bc  mov x9, x12                                        |             x9 = x12;
+                                                                    |             do {
+    0x1000062c0  ldr w10, [x9]                                      |                 w10 = x9;
+    0x1000062c4  cmp w10, 0xb                                       |
+                                                                    |                 if (w10 != 0xb) {
+    0x1000062c8  b.eq 0x1000062f0                                   |
+    0x1000062cc  cmp w10, 2                                         |
+                                                                    |                     if (w10 == 2) {
+    0x1000062d0  b.ne 0x1000062f8                                   |
+    0x1000062d4  ldr w10, [x9, 0x10]                                |                         w10 = *((uint32_t*)((uint8_t*) x9 + 0x10));
+    0x1000062d8  add x10, x26, x10                                  |                         x10 = x26 + x10;
+    0x1000062dc  str x10, [sp, 0x38]                                |                         *((uint32_t*)((uint8_t*) sp + local_38h)) = x10;
+    0x1000062e0  ldr w10, [x9, 8]                                   |                         w10 = *((uint32_t*)((uint8_t*) x9 + 8));
+    0x1000062e4  add x10, x26, x10                                  |                         x10 = x26 + x10;
+    0x1000062e8  str x10, [sp, 0x30]                                |                         *((uint32_t*)((uint8_t*) sp + local_30h)) = x10;
+    0x1000062ec  b 0x1000062f8                                      |
+    0x1000062f0  ldr w10, [x9, 0x38]                                |                         w10 = *((uint32_t*)((uint8_t*) x9 + 0x38));
+    0x1000062f4  add x21, x26, x10                                  |                         x21 = x26 + x10;
+                                                                    |                     }
+                                                                    |                 }
+    0x1000062f8  ldr w10, [x9, 4]                                   |                 w10 = *((uint32_t*)((uint8_t*) x9 + 4));
+    0x1000062fc  add x9, x9, x10                                    |                 x9 += x10;
+    0x100006300  sub w8, w8, 1                                      |                 w8 -= 1;
+                                                                    |             } while (w8 != 0);
+    0x100006304  cbnz w8, 0x1000062c0                               |
+                                                                    |             if (x21 == 0) {
+    0x100006308  cbz x21, 0x100006430                               |
+    0x10000630c  ldr x8, [sp, 0x38]                                 |                 x8 = *((uint32_t*)((uint8_t*) sp + local_38h));
+                                                                    |                 if (x8 == 0) {
+    0x100006310  cbz x8, 0x100006430                                |
+    0x100006314  ldr x8, [sp, 0x30]                                 |                     x8 = *((uint32_t*)((uint8_t*) sp + local_30h));
+                                                                    |                     if (x8 == 0) {
+    0x100006318  cbz x8, 0x100006430                                |
+    0x10000631c  movz w9, 0                                         |                         w9 = 0;
+    0x100006320  orr w28, wzr, 0x80000000                           |                         w28 = wzr | 0x80000000;
+    0x100006324  orr w27, wzr, 0x40000000                           |                         w27 = wzr | 0x40000000;
+                                                                    |                         do {
+    0x100006328  str w9, [sp, 0xc]                                  |                             *((uint32_t*)((uint8_t*) sp + local_ch)) = w9;
+    0x10000632c  str x12, [sp, 0x10]                                |                             *((uint32_t*)((uint8_t*) sp + local_10h)) = x12;
+    0x100006330  ldr w8, [x12]                                      |                             w8 = x12;
+    0x100006334  cmp w8, 0x19                                       |
+                                                                    |                             if (w8 == 0x19) {
+    0x100006338  b.ne 0x100006414                                   |
+    0x10000633c  ldr x8, [sp, 0x10]                                 |                                 x8 = *((uint32_t*)((uint8_t*) sp + local_10h));
+    0x100006340  add x25, x8, 0x48                                  |                                 x25 = x8 + 0x48;
+    0x100006344  ldr w8, [x8, 0x40]                                 |                                 w8 = *((uint32_t*)((uint8_t*) x8 + 0x40));
+    0x100006348  movz w9, 0x50                                      |                                 w9 = 0x50;
+    0x10000634c  madd x8, x8, x9, x25                               |                                 __asm (madd x8, x8, x9, x25);
+    0x100006350  str x8, [sp, 0x20]                                 |                                 *((uint32_t*)((uint8_t*) sp + local_20h)) = x8;
+    0x100006354  b 0x100006360                                      |
+                                                                    |                                 while (x9 != 7) {
+                                                                    | label_1:
+    0x100006358  add x25, x25, 0x50                                 |                                     x25 += 0x50;
+    0x10000635c  ldr x8, [sp, 0x20]                                 |                                     x8 = *((uint32_t*)((uint8_t*) sp + local_20h));
+    0x100006360  cmp x25, x8                                        |
+    0x100006364  b.hs 0x100006414                                   |                                     goto label_0;
+    0x100006368  ldr x8, [x25, 0x40]                                |                                     x8 = *((uint32_t*)((uint8_t*) x25 + 0x40));
+    0x10000636c  and x9, x8, 0xff                                   |                                     x9 = x8 & 0xff;
+    0x100006370  cmp x9, 7                                          |
+                                                                    |                                 }
+    0x100006374  b.ne 0x100006358                                   |
+    0x100006378  ldr x9, [x25, 0x28]                                |                                 x9 = *((uint32_t*)((uint8_t*) x25 + 0x28));
+    0x10000637c  lsr x26, x9, 3                                     |                                 x26 = x9 >> 3;
+    0x100006380  cbz x26, 0x100006358                               |                                 goto label_1;
+    0x100006384  movz x24, 0                                        |                                 x24 = 0;
+    0x100006388  lsr x23, x8, 0x20                                  |                                 x23 = x8 >> 0x20;
+    0x10000638c  ldr x8, [x25, 0x20]                                |                                 x8 = *((uint32_t*)((uint8_t*) x25 + 0x20));
+    0x100006390  ldr x9, [sp, 0x18]                                 |                                 x9 = *((uint32_t*)((uint8_t*) sp + local_18h));
+    0x100006394  add x8, x8, x9                                     |                                 x8 += x9;
+    0x100006398  str x8, [sp, 0x28]                                 |                                 *((uint32_t*)((uint8_t*) sp + local_28h)) = x8;
+                                                                    |                                 do {
+    0x10000639c  add w8, w24, w23                                   |                                     w8 = w24 + w23;
+    0x1000063a0  ldr w8, [x21, w8, uxtw 2]                          |                                     w8 = x21[w8 + 2];
+    0x1000063a4  cmp w8, w28                                        |
+    0x1000063a8  ccmp w8, w27, 4, ne                                |                                     __asm (ccmp w8, w27, 4, ne);
+                                                                    |                                     if (w8 != w28) {
+    0x1000063ac  b.eq 0x100006404                                   |
+    0x1000063b0  movz x22, 0                                        |                                         x22 = 0;
+    0x1000063b4  lsl x8, x8, 4                                      |                                         x8 <<= 4;
+    0x1000063b8  ldr x9, [sp, 0x30]                                 |                                         x9 = *((uint32_t*)((uint8_t*) sp + local_30h));
+    0x1000063bc  ldr w8, [x9, x8]                                   |                                         w8 = *((uint32_t*)((uint8_t*) x9 + x8));
+    0x1000063c0  ldr x9, [sp, 0x38]                                 |                                         x9 = *((uint32_t*)((uint8_t*) sp + local_38h));
+    0x1000063c4  add x19, x9, x8                                    |                                         x19 = x9 + x8;
+                                                                    |                                         /* __ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches */
+    0x1000063c8  adr x8, 0x1000085f8                                |                                         x8 = add_image_hook_swiftV1_mach_headerconst__long_::patches;
+    0x1000063cc  nop                                                |
+    0x1000063d0  add x20, x8, 8                                     |                                         x20 = x8 + 8;
+                                                                    |                                         do {
+    0x1000063d4  ldur x0, [x20, -8]                                 |                                             x0 = *((uint32_t*)((uint8_t*) x20 + -8));
+    0x1000063d8  mov x1, x19                                        |                                             x1 = x19;
+    0x1000063dc  bl 0x100007900                                     |                                             strcmp ();
+                                                                    |                                             if (w0 != 0) {
+    0x1000063e0  cbz w0, 0x1000063f8                                |                                                 goto label_2;
+                                                                    |                                             }
+    0x1000063e4  add x22, x22, 1                                    |                                             x22 += 1;
+    0x1000063e8  add x20, x20, 0x10                                 |                                             x20 += 0x10;
+    0x1000063ec  cmp x22, 0xa                                       |
+                                                                    |                                         } while (x22 > 0xa);
+                                                                    |                                     }
+                                                                    |                                 } while (x24 overflow x26);
+                                                                    |                             }
+                                                                    |                         } while (w9 == w8);
+                                                                    |                     }
+                                                                    |                 }
+                                                                    |             }
+                                                                    |         }
+                                                                    |     }
+    0x1000063f0  b.ls 0x1000063d4                                   |
+                                                                    |     if (w8 != w28) {
+    0x1000063f4  b 0x100006404                                      |
+                                                                    | label_2:
+    0x1000063f8  ldr x8, [x20]                                      |         x8 = x20;
+    0x1000063fc  ldr x9, [sp, 0x28]                                 |         x9 = *((uint32_t*)((uint8_t*) sp + local_28h));
+    0x100006400  str x8, [x9, x24, lsl 3]                           |         x9[x24 << 3] = x8;
+                                                                    |     }
+    0x100006404  add w24, w24, 1                                    |     w24 += 1;
+                                                                    |     do {
+    0x100006408  cmp x24, x26                                       |
+                                                                    |     } while (x24 overflow x26);
+    0x10000640c  b.lo 0x10000639c                                   |
+                                                                    |     if (w8 == 0x19) {
+    0x100006410  b 0x100006358                                      |         goto label_1;
+                                                                    |     }
+                                                                    | label_0:
+    0x100006414  ldr x12, [sp, 0x10]                                |     x12 = *((uint32_t*)((uint8_t*) sp + local_10h));
+                                                                    |     do {
+    0x100006418  ldr w8, [x12, 4]                                   |         w8 = *((uint32_t*)((uint8_t*) x12 + 4));
+    0x10000641c  add x12, x12, x8                                   |         x12 += x8;
+    0x100006420  ldp w8, w9, [sp, 8]                                |         w8, w9 = *((uint64_t*) local_8h);
+    0x100006424  add w9, w9, 1                                      |         w9 += 1;
+    0x100006428  cmp w9, w8                                         |
+                                                                    |     } while (w9 == w8);
+    0x10000642c  b.ne 0x100006328                                   |
+    0x100006430  sub sp, x29, 0x50                                  |
+    0x100006434  ldp x29, x30, [sp, 0x50]                           |     x29, x30 = *((uint64_t*) sp + 0x50);
+    0x100006438  ldp x20, x19, [sp, 0x40]                           |     x20, x19 = *((uint64_t*) sp + 0x40);
+    0x10000643c  ldp x22, x21, [sp, 0x30]                           |     x22, x21 = *((uint64_t*) local_30h);
+    0x100006440  ldp x24, x23, [sp, 0x20]                           |     x24, x23 = *((uint64_t*) local_20h);
+    0x100006444  ldp x26, x25, [sp, 0x10]                           |     x26, x25 = *((uint64_t*) local_10h);
+    0x100006448  ldp x28, x27, [sp], 0x60                           |     x28, x27 = *((uint64_t*) sp + 0x60);
+    0x10000644c  ret                                                |     return;
+                                                                    | }
