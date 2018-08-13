@@ -1,6 +1,6 @@
-    ; assembly                            | /* r2dec pseudo C output */
-                                          | #include <stdint.h>
-                                          |
-(fcn) sym.imp.__error:                    | void imp_error () {
-    0x10000443a  jmp qword [rip + 0xc08]  |     return *((uint64_t*) 0x100005048) ();
-                                          | }
+    ; assembly                                   | /* r2dec pseudo C output */
+                                                 | #include <stdint.h>
+                                                 |  
+    ; (fcn) sym.imp.__error ()                   | void _error (void) {
+    0x10000443a jmp qword [rip + 0xc08]          |     return void (*)() ();
+                                                 | }

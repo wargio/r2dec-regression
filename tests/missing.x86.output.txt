@@ -1,32 +1,32 @@
-    ; assembly                                | /* r2dec pseudo C output */
-                                              | #include <stdint.h>
-                                              | #include <limits.h>
-                                              | #define SWAP16(n) ((uint16_t) (((n & 0x00ff) << 8) | \
-                                              |                                ((n & 0xff00) >> 8)))
-                                              |
-                                              | uint16_t rotate_left16 (uint16_t value, uint32_t count) {
-                                              |     const uint16_t mask = (CHAR_BIT * sizeof (value)) - 1;
-                                              |     count &= mask;
-                                              |     return (value << count) | (value >> (-count & mask));
-                                              | }
-(fcn) fcn.0000ad3e:                           | void fcn_0000ad3e () {
-    0x0000ad3e  rol cx, 0x18                  |     cx = rotate_left16 (cx, 0x18);
-    0x0000ad41  xor si, cx                    |     si ^= cx;
-    0x0000ad43  mov ax, di                    |     ax = di;
-    0x0000ad45  bswap ax                      |     ax = SWAP16 (ax);
-    0x0000ad47  mov word [bp + si + 8], ax    |     *((int16_t*) bp + si + 8) = ax;
-    0x0000ad4a  bswap si                      |     si = SWAP16 (si);
-    0x0000ad4c  mov word [bp + si + 0xc], si  |     *((int16_t*) bp + si + 0xc) = si;
-    0x0000ad4f  xor ax, ax                    |     ax = 0;
-    0x0000ad51  pop bx                        |
-    0x0000ad52  inc cx                        |     cx++;
-    0x0000ad53  pop sp                        |
-    0x0000ad54  inc cx                        |     cx++;
-    0x0000ad55  pop bp                        |
-    0x0000ad56  inc cx                        |     cx++;
-    0x0000ad57  pop si                        |
-    0x0000ad58  inc cx                        |     cx++;
-    0x0000ad59  pop di                        |
-    0x0000ad5a  pop bp                        |
-    0x0000ad5b  ret                           |
-                                              | }
+    ; assembly                                       | /* r2dec pseudo C output */
+                                                     | #include <stdint.h>
+                                                     |  
+                                                     | uint16_t rotate_left16 (uint16_t value, uint32_t count ) {
+                                                     |     const uint16_t mask = (CHAR_BIT * sizeof (value)) - 1;
+                                                     |     count &= mask;
+                                                     |     return (value << count) | (value >> (-count & mask));
+                                                     | }
+                                                     | #define SWAP16(n) ((uint16_t) (((n & 0x00ff) << 8) | \
+                                                     |                                ((n & 0xff00) >> 8)))
+                                                     |  
+    ; (fcn) fcn.0000ad3e ()                          | void fcn_0000ad3e (void) {
+    0x0000ad3e rol cx, 0x18                          |     cx = rotate_left16 (cx, 0x18);
+    0x0000ad41 xor si, cx                            |     si ^= cx;
+    0x0000ad43 mov ax, di                            |     ax = di;
+    0x0000ad45 bswap ax                              |     ax = SWAP16 (ax);
+    0x0000ad47 mov word [bp + si + 8], ax            |     *((int16_t*) bp + si + 8) = ax;
+    0x0000ad4a bswap si                              |     si = SWAP16 (si);
+    0x0000ad4c mov word [bp + si + 0xc], si          |     *((int16_t*) bp + si + 0xc) = si;
+    0x0000ad4f xor ax, ax                            |     ax = 0;
+    0x0000ad51 pop bx                                |     
+    0x0000ad52 inc cx                                |     cx++;
+    0x0000ad53 pop sp                                |     
+    0x0000ad54 inc cx                                |     cx++;
+    0x0000ad55 pop bp                                |     
+    0x0000ad56 inc cx                                |     cx++;
+    0x0000ad57 pop si                                |     
+    0x0000ad58 inc cx                                |     cx++;
+    0x0000ad59 pop di                                |     
+    0x0000ad5a pop bp                                |     
+    0x0000ad5b ret                                   |     
+                                                     | }

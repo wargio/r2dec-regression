@@ -1,107 +1,105 @@
-    ; assembly                                | /* r2dec pseudo C output */
-                                              | #include <stdint.h>
-                                              | #include <stdio.h>
-                                              |
-(fcn) sub.llu_990:                            | void llu () {
-    0x100002990  push rbp                     |
-    0x100002991  mov rbp, rsp                 |
-    0x100002994  push r15                     |
-    0x100002996  push r14                     |
-    0x100002998  push r13                     |
-    0x10000299a  push r12                     |
-    0x10000299c  push rbx                     |
-    0x10000299d  push rax                     |
-                                              |     /* arg3 */
-    0x10000299e  mov r15, rdx                 |     r15 = rdx;
-                                              |     /* arg1 */
-    0x1000029a1  mov rbx, rdi                 |     rbx = rdi;
-    0x1000029a4  mov r12, qword [rbx + 0x60]  |     r12 = *((int64_t*) rbx + 0x60);
-    0x1000029a8  lea rax, [rip + 0x2c7d]      |     rax = 0x10000562c;
-    0x1000029af  cmp dword [rax], 0           |
-                                              |     if (*((int32_t*) rax) != 0) {
-    0x1000029b2  je 0x1000029cc               |
-    0x1000029b4  mov rdx, qword [r12 + 8]     |         rdx = *((int64_t*) r12 + 8);
-    0x1000029b9  lea rdi, [rip + 0x22c1]      |
-    0x1000029c0  xor eax, eax                 |         eax = 0;
-    0x1000029c2  call 0x100004554             |         eax = printf ("%*llu ", rdx);
-    0x1000029c7  mov r14d, eax                |         r14d = eax;
-    0x1000029ca  jmp 0x1000029cf              |
-                                              |     }
-                                              |     else {
-    0x1000029cc  xor r14d, r14d               |         r14d = 0;
-                                              |     }
-    0x1000029cf  lea rax, [rip + 0x2c7a]      |     rax = 0x100005650;
-    0x1000029d6  cmp dword [rax], 0           |
-                                              |     if (*((int32_t*) rax) != 0) {
-    0x1000029d9  je 0x100002a0e               |
-    0x1000029db  mov rax, qword [r12 + 0x68]  |         rax = *((int64_t*) r12 + 0x68);
-    0x1000029e0  lea rcx, [rip + 0x2c19]      |         rcx = 0x100005600;
-    0x1000029e7  cqo                          |         __asm (cqo);
-    0x1000029e9  idiv qword [rcx]             |         rax /= *((int64_t*) rcx);
-    0x1000029ec  mov rcx, rax                 |         rcx = rax;
-    0x1000029ef  cmp rdx, 1                   |
-    0x1000029f3  sbb rcx, 0xffffffffffffffff  |         rcx -= 0xffffffffffffffff;
-    0x1000029f7  lea rdi, [rip + 0x228a]      |         rdi = "%*qu ";
-    0x1000029fe  xor eax, eax                 |         eax = 0;
-    0x100002a00  mov esi, r15d                |         esi = r15d;
-    0x100002a03  mov rdx, rcx                 |         rdx = rcx;
-    0x100002a06  call 0x100004554             |         eax = printf (rdx, esi);
-    0x100002a0b  add r14d, eax                |         r14d += eax;
-                                              |     }
-    0x100002a0e  lea r15, [rip + 0x2c07]      |     r15 = 0x10000561c;
-    0x100002a15  cmp dword [r15], 0           |
-                                              |     if (*((int32_t*) r15) != 0) {
-    0x100002a19  je 0x100002a2e               |
-    0x100002a1b  movzx edi, word [r12 + 4]    |         edi = (int16_t) r12 + 4;
-    0x100002a21  call 0x1000034ac             |         eax = func_1000034ac (edi);
-    0x100002a26  test eax, eax                |
-    0x100002a28  setne r13b                   |         r13b = (eax != 0) ? 1 : 0;
-    0x100002a2c  jmp 0x100002a31              |
-                                              |     }
-                                              |     else {
-    0x100002a2e  xor r13d, r13d               |         r13d = 0;
-                                              |     }
-    0x100002a31  add rbx, 0x68                |     rbx += 0x68;
-    0x100002a35  mov rdi, rbx                 |     rdi = rbx;
-    0x100002a38  call 0x10000358c             |     eax = func_10000358c (rdi);
-    0x100002a3d  mov ebx, eax                 |     ebx = eax;
-    0x100002a3f  test r13b, r13b              |
-                                              |     if (r13b != 0) {
-    0x100002a42  je 0x100002a80               |
-    0x100002a44  mov eax, dword [r15]         |         eax = *((int32_t*) r15);
-    0x100002a47  test eax, eax                |
-                                              |         if (eax != 0) {
-    0x100002a49  je 0x100002a80               |
-    0x100002a4b  lea rax, [rip + 0x2b96]      |             rax = 0x1000055e8;
-    0x100002a52  mov rdi, qword [rax]         |             rdi = *((int64_t*) rax);
-                                              |             /* func.100003c68 */
-    0x100002a55  lea r15, [rip + 0x120c]      |             r15 = putchar_c68;
-    0x100002a5c  mov esi, 1                   |             esi = 1;
-    0x100002a61  mov rdx, r15                 |             rdx = r15;
-    0x100002a64  call 0x1000045cc             |             tputs (rdx, esi);
-    0x100002a69  lea rax, [rip + 0x2b88]      |             rax = 0x1000055f8;
-    0x100002a70  mov rdi, qword [rax]         |             rdi = *((int64_t*) rax);
-    0x100002a73  mov esi, 1                   |             esi = 1;
-    0x100002a78  mov rdx, r15                 |             rdx = r15;
-    0x100002a7b  call 0x1000045cc             |             tputs (rdx, esi, rdi);
-                                              |         }
-                                              |     }
-    0x100002a80  add ebx, r14d                |     ebx += r14d;
-    0x100002a83  lea rax, [rip + 0x2bda]      |     rax = 0x100005664;
-    0x100002a8a  cmp dword [rax], 0           |
-                                              |     if (*((int32_t*) rax) != 0) {
-    0x100002a8d  je 0x100002a9c               |
-    0x100002a8f  movzx edi, word [r12 + 4]    |         edi = (int16_t) r12 + 4;
-    0x100002a95  call 0x1000035c2             |         eax = putchar (edi);
-    0x100002a9a  add ebx, eax                 |         ebx += eax;
-                                              |     }
-    0x100002a9c  mov eax, ebx                 |     eax = ebx;
-    0x100002a9e  add rsp, 8                   |
-    0x100002aa2  pop rbx                      |
-    0x100002aa3  pop r12                      |
-    0x100002aa5  pop r13                      |
-    0x100002aa7  pop r14                      |
-    0x100002aa9  pop r15                      |
-    0x100002aab  pop rbp                      |
-    0x100002aac  ret                          |
-                                              | }
+    ; assembly                                       | /* r2dec pseudo C output */
+                                                     | #include <stdint.h>
+                                                     |  
+    ; (fcn) sub.llu_990 ()                           | void sub_llu_990 (void) {
+    0x100002990 push rbp                             |     
+    0x100002991 mov rbp, rsp                         |     
+    0x100002994 push r15                             |     
+    0x100002996 push r14                             |     
+    0x100002998 push r13                             |     
+    0x10000299a push r12                             |     
+    0x10000299c push rbx                             |     
+    0x10000299d push rax                             |     
+                                                     |     /* arg3 */
+    0x10000299e mov r15, rdx                         |     r15 = rdx;
+                                                     |     /* arg1 */
+    0x1000029a1 mov rbx, rdi                         |     rbx = rdi;
+    0x1000029a4 mov r12, qword [rbx + 0x60]          |     r12 = *((int64_t*) rbx + 0x60);
+    0x1000029a8 lea rax, [rip + 0x2c7d]              |     rax = 0x10000562c;
+    0x1000029af cmp dword [rax], 0                   |     
+                                                     |     if (*((int32_t*) rax) == 0) {
+    0x1000029b2 je 0x1000029cc                       |         
+    0x1000029b4 mov rdx, qword [r12 + 8]             |         rdx = *((int64_t*) r12 + 8);
+    0x1000029b9 lea rdi, [rip + 0x22c1]              |         rdi = "%*llu ";
+    0x1000029c0 xor eax, eax                         |         eax = 0;
+    0x1000029c2 call 0x100004554                     |         printf ();
+    0x1000029c7 mov r14d, eax                        |         r14d = eax;
+    0x1000029ca jmp 0x1000029cf                      |         
+                                                     |     } else {
+    0x1000029cc xor r14d, r14d                       |         r14d = 0;
+                                                     |     }
+    0x1000029cf lea rax, [rip + 0x2c7a]              |     rax = 0x100005650;
+    0x1000029d6 cmp dword [rax], 0                   |     
+                                                     |     if (*((int32_t*) rax) == 0) {
+    0x1000029d9 je 0x100002a0e                       |         
+    0x1000029db mov rax, qword [r12 + 0x68]          |         rax = *((int64_t*) r12 + 0x68);
+    0x1000029e0 lea rcx, [rip + 0x2c19]              |         rcx = 0x100005600;
+    0x1000029e7 cqo                                  |         __asm (cqo);
+    0x1000029e9 idiv qword [rcx]                     |         rax = *((int64_t*) rdx:rax) / rcx;
+                                                     |         rdx = *((int64_t*) rdx:rax) % rcx;
+    0x1000029ec mov rcx, rax                         |         rcx = rax;
+    0x1000029ef cmp rdx, 1                           |         
+    0x1000029f3 sbb rcx, 0xffffffffffffffff          |         rcx -= 0xffffffffffffffff;
+    0x1000029f7 lea rdi, [rip + 0x228a]              |         rdi = "%*qu ";
+    0x1000029fe xor eax, eax                         |         eax = 0;
+    0x100002a00 mov esi, r15d                        |         esi = r15d;
+    0x100002a03 mov rdx, rcx                         |         rdx = rcx;
+    0x100002a06 call 0x100004554                     |         printf ();
+    0x100002a0b add r14d, eax                        |         r14d += eax;
+                                                     |     }
+    0x100002a0e lea r15, [rip + 0x2c07]              |     r15 = 0x10000561c;
+    0x100002a15 cmp dword [r15], 0                   |     
+                                                     |     if (*((int32_t*) r15) == 0) {
+    0x100002a19 je 0x100002a2e                       |         
+    0x100002a1b movzx edi, word [r12 + 4]            |         edi = *((uint16_t*) r12 + 4);
+    0x100002a21 call 0x1000034ac                     |         func_1000034ac ();
+    0x100002a26 test eax, eax                        |         
+    0x100002a28 setne r13b                           |         r13b = (eax != 0) ? 1 : 0;
+    0x100002a2c jmp 0x100002a31                      |         
+                                                     |     } else {
+    0x100002a2e xor r13d, r13d                       |         r13d = 0;
+                                                     |     }
+    0x100002a31 add rbx, 0x68                        |     rbx += 0x68;
+    0x100002a35 mov rdi, rbx                         |     rdi = rbx;
+    0x100002a38 call 0x10000358c                     |     func_10000358c ();
+    0x100002a3d mov ebx, eax                         |     ebx = eax;
+    0x100002a3f test r13b, r13b                      |     
+                                                     |     if (r13b == 0) {
+    0x100002a42 je 0x100002a80                       |         
+    0x100002a44 mov eax, dword [r15]                 |         eax = *((int32_t*) r15);
+    0x100002a47 test eax, eax                        |         
+                                                     |         if (eax == 0) {
+    0x100002a49 je 0x100002a80                       |             goto label_0;
+                                                     |         }
+    0x100002a4b lea rax, [rip + 0x2b96]              |         rax = 0x1000055e8;
+    0x100002a52 mov rdi, qword [rax]                 |         rdi = *((int64_t*) rax);
+    0x100002a55 lea r15, [rip + 0x120c]              |         r15 = sub_putchar_c68;
+    0x100002a5c mov esi, 1                           |         esi = 1;
+    0x100002a61 mov rdx, r15                         |         rdx = r15;
+    0x100002a64 call 0x1000045cc                     |         tputs ();
+    0x100002a69 lea rax, [rip + 0x2b88]              |         rax = 0x1000055f8;
+    0x100002a70 mov rdi, qword [rax]                 |         rdi = *((int64_t*) rax);
+    0x100002a73 mov esi, 1                           |         esi = 1;
+    0x100002a78 mov rdx, r15                         |         rdx = r15;
+    0x100002a7b call 0x1000045cc                     |         tputs ();
+                                                     |     }
+                                                     | label_0:
+    0x100002a80 add ebx, r14d                        |     ebx += r14d;
+    0x100002a83 lea rax, [rip + 0x2bda]              |     rax = 0x100005664;
+    0x100002a8a cmp dword [rax], 0                   |     
+                                                     |     if (*((int32_t*) rax) == 0) {
+    0x100002a8d je 0x100002a9c                       |         
+    0x100002a8f movzx edi, word [r12 + 4]            |         edi = *((uint16_t*) r12 + 4);
+    0x100002a95 call 0x1000035c2                     |         func_1000035c2 ();
+    0x100002a9a add ebx, eax                         |         ebx += eax;
+                                                     |     }
+    0x100002a9c mov eax, ebx                         |     eax = ebx;
+    0x100002a9e add rsp, 8                           |     
+    0x100002aa2 pop rbx                              |     
+    0x100002aa3 pop r12                              |     
+    0x100002aa5 pop r13                              |     
+    0x100002aa7 pop r14                              |     
+    0x100002aa9 pop r15                              |     
+    0x100002aab pop rbp                              |     
+    0x100002aac ret                                  |     
+                                                     | }
