@@ -1,19 +1,22 @@
-    ; assembly                               | /* r2dec pseudo C output */
-                                             | #include <stdint.h>
-                                             |  
-    ; (fcn) main ()                          | int32_t main (void) {
-    0x000005fa push rbp                      |     
-    0x000005fb mov rbp, rsp                  |     
-    0x000005fe mov dword [rbp - 0x14], edi   |     *((int32_t*) local_14h) = edi;
-    0x00000601 mov qword [rbp - 0x20], rsi   |     *((int64_t*) local_20h) = rsi;
-    0x00000605 mov dword [rbp - 4], 0        |     *((int32_t*) local_4h) = 0;
-    0x0000060c jmp 0x612                     |     
-                                             |     while (local_4h <= 0x8f) {
-    0x0000060e add dword [rbp - 4], 0x50     |         local_4h += 0x50;
-    0x00000612 cmp dword [rbp - 4], 0x8f     |         
-    0x00000619 jle 0x60e                     |         
-                                             |     }
-    0x0000061b mov eax, 0                    |     eax = 0;
-    0x00000620 pop rbp                       |     
-    0x00000621 ret                           |     return eax;
-                                             | }
+    ; assembly                                   | /* r2dec pseudo C output */
+                                                 | #include <stdint.h>
+                                                 |  
+    ; (fcn) main ()                              | int32_t main (int32_t argc, char ** argv) {
+                                                 |     char ** local_20h;
+                                                 |     int32_t local_14h;
+                                                 |     int32_t local_4h;
+    0x00001119 push rbp                          |     
+    0x0000111a mov rbp, rsp                      |     
+    0x0000111d mov dword [rbp - 0x14], edi       |     local_14h = edi;
+    0x00001120 mov qword [rbp - 0x20], rsi       |     local_20h = rsi;
+    0x00001124 mov dword [rbp - 4], 0            |     local_4h = 0;
+    0x0000112b jmp 0x1131                        |     
+                                                 |     while (local_4h <= 0x8f) {
+    0x0000112d add dword [rbp - 4], 0x50         |         local_4h += 0x50;
+    0x00001131 cmp dword [rbp - 4], 0x8f         |         
+    0x00001138 jle 0x112d                        |         
+                                                 |     }
+    0x0000113a mov eax, 0                        |     eax = 0;
+    0x0000113f pop rbp                           |     
+    0x00001140 ret                               |     return eax;
+                                                 | }
