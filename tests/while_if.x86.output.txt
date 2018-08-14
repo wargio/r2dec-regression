@@ -8,9 +8,9 @@
     0x00000601 mov qword [rbp - 0x20], rsi   |     *((int64_t*) local_20h) = rsi;
     0x00000605 mov dword [rbp - 4], 0        |     *((int32_t*) local_4h) = 0;
     0x0000060c jmp 0x61c                     |     
-                                             |     while (local_4h > 0x8f) {
+                                             |     while (local_4h <= 0x8f) {
     0x0000060e cmp dword [rbp - 4], 0xf      |         
-                                             |         if (local_4h > 0xf) {
+                                             |         if (local_4h <= 0xf) {
     0x00000612 jg 0x618                      |             
     0x00000614 add dword [rbp - 4], 0x50     |             local_4h += 0x50;
                                              |         }

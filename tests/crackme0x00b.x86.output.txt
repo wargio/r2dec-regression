@@ -20,7 +20,7 @@
     0x080484c7 mov dword [esp], 0x804a040        |         *((int32_t*) esp) = "w0wgreat";
     0x080484ce call 0x8048390                    |         wcscmp ();
     0x080484d3 test eax, eax                     |         
-                                                 |         if (eax != 0) {
+                                                 |         if (eax == 0) {
     0x080484d5 jne 0x80484eb                     |             
     0x080484d7 mov dword [esp], 0x80485e5        |             *((int32_t*) esp) = "Congrats!";
     0x080484de call 0x80483a0                    |             puts ();

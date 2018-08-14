@@ -2,33 +2,27 @@
                              | #include <stdint.h>
                              |  
     ; (fcn) sym.fnc.1 ()     | int32_t fnc_1 () {
-                             |     int32_t local_1;;
-                             |     int32_t local_3;;
-    0x0000004e i32.const 1   |     const int32_t local_0 = 1;
-                             |     if (local_0 != 0) {
-    0x00000050 if            |         
-    0x00000052 i32.const 1   |         local_1 = 1;
-    0x00000054 set_local 0   |         
-    0x00000056 else          |         
-                             |     } else {
-    0x00000057 i32.const 2   |         local_1 = 2;
-    0x00000059 set_local 0   |         
-    0x0000005b end           |         
+                             |     int32_t local_0;
+    0x0000002a i32.const 0   |     local_0 = 0;
+    0x0000002c set_local 0   |     
+    0x0000002e i32.const 1   |     const int32_t local_1 = 1;
+                             |     if (local_1 != 0) {
+    0x00000030 if            |         
+    0x00000032 get_local 0   |         
+    0x00000034 i32.const 1   |         
+    0x00000036 i32.add       |         local_0++;
+    0x00000037 set_local 0   |         
                              |     }
-    0x0000005c i32.const 0   |     const int32_t local_2 = 0;
-                             |     if (local_2 != 0) {
-    0x0000005e if            |         
-    0x00000060 i32.const 4   |         local_3 = 4;
-    0x00000062 set_local 1   |         
-    0x00000064 else          |         
-                             |     } else {
-    0x00000065 i32.const 8   |         local_3 = 8;
-    0x00000067 set_local 1   |         
-    0x00000069 end           |         
+    0x00000039 end           |     
+    0x0000003a i32.const 0   |     const int32_t local_3 = 0;
+                             |     if (local_3 != 0) {
+    0x0000003c if            |         
+    0x0000003e get_local 0   |         
+    0x00000040 i32.const 1   |         
+    0x00000042 i32.add       |         local_0++;
+    0x00000043 set_local 0   |         
                              |     }
-    0x0000006a get_local 0   |     
-    0x0000006c get_local 1   |     
-    0x0000006e i32.add       |     int32_t local_4 = local_1 + local_3;
-    0x0000006f return        |     return local_4;
-    0x00000070 end           |     
+    0x00000045 end           |     
+    0x00000046 get_local 0   |     
+    0x00000048 return        |     return local_0;
                              | }
