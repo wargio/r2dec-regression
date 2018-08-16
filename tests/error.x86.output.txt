@@ -2,5 +2,5 @@
                                                  | #include <stdint.h>
                                                  |  
     ; (fcn) sym.imp.__error ()                   | void _error (void) {
-    0x10000443a jmp qword [rip + 0xc08]          |     return void (*)() ();
+    0x10000443a jmp qword [rip + 0xc08]          |     void (*)() ();
                                                  | }

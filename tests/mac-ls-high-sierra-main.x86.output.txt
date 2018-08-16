@@ -26,14 +26,14 @@
     0x100001238 call 0x100004578                         |     setlocale ();
                                                          |     /* int fd */
     0x10000123d mov edi, 1                               |     edi = 1;
-    0x100001242 call 0x10000451e                         |     isatty ();
+    0x100001242 call 0x10000451e                         |     eax = isatty ();
     0x100001247 test eax, eax                            |     
                                                          |     if (eax != 0) {
     0x100001249 je 0x1000012a9                           |         
     0x10000124b mov dword [rip + 0x427b], 0x50           |         *((int32_t*) 0x1000054d0) = 0x50;
                                                          |         /* const char * name */
     0x100001255 lea rdi, [rip + 0x3895]                  |         rdi = "COLUMNS";
-    0x10000125c call 0x1000044ee                         |         getenv ();
+    0x10000125c call 0x1000044ee                         |         rax = getenv ();
     0x100001261 test rax, rax                            |         
                                                          |         if (rax != 0) {
     0x100001264 je 0x100001275                           |             
@@ -42,7 +42,7 @@
     0x100001269 je 0x100001275                           |                 
                                                          |                 /* const char * str */
     0x10000126b mov rdi, rax                             |                 rdi = rax;
-    0x10000126e call 0x10000448e                         |                 atoi ();
+    0x10000126e call 0x10000448e                         |                 eax = atoi ();
     0x100001273 jmp 0x100001297                          |                 
                                                          |             }
                                                          |         } else {
@@ -50,7 +50,7 @@
     0x100001279 mov edi, 1                               |             edi = 1;
     0x10000127e mov esi, 0x40087468                      |             esi = 0x40087468;
     0x100001283 xor eax, eax                             |             eax = 0;
-    0x100001285 call 0x100004518                         |             ioctl ();
+    0x100001285 call 0x100004518                         |             eax = ioctl ();
     0x10000128a cmp eax, 0xffffffffffffffff              |             
                                                          |             if (eax != -1) {
     0x10000128d je 0x10000129d                           |                 goto label_0;
@@ -69,18 +69,18 @@
     0x1000012a9 mov byte [rip + 0x4250], 1               |         *((int8_t*) 0x100005500) = 1;
                                                          |         /* const char * name */
     0x1000012b0 lea rdi, [rip + 0x383a]                  |         rdi = "COLUMNS";
-    0x1000012b7 call 0x1000044ee                         |         getenv ();
+    0x1000012b7 call 0x1000044ee                         |         rax = getenv ();
     0x1000012bc test rax, rax                            |         
                                                          |         if (rax != 0) {
     0x1000012bf je 0x1000012cf                           |             goto label_1;
                                                          |         }
                                                          |         /* const char * str */
     0x1000012c1 mov rdi, rax                             |         rdi = rax;
-    0x1000012c4 call 0x10000448e                         |         atoi ();
+    0x1000012c4 call 0x10000448e                         |         eax = atoi ();
     0x1000012c9 mov dword [rip + 0x4201], eax            |         *((int32_t*) 0x1000054d0) = eax;
                                                          |     }
                                                          | label_1:
-    0x1000012cf call 0x100004500                         |     getuid ();
+    0x1000012cf call 0x100004500                         |     eax = getuid ();
     0x1000012d4 test eax, eax                            |     
                                                          |     if (eax == 0) {
     0x1000012d6 jne 0x1000012df                          |         
@@ -106,7 +106,7 @@
     0x100001314 ja 0x10000169b                           |             
     0x10000131a movsxd rax, dword [rbx + rcx*4]          |             rax = *((int32_t*) rbx + rcx*4);
     0x10000131e add rax, rbx                             |             rax += rbx;
-    0x100001321 jmp rax                                  |             void (*rax)() ();
+    0x100001321 jmp rax                                  |             eax = void (*rax)() ();
                                                          |         }
     0x10000169b cmp eax, 0xffffffffffffffff              |         
     0x10000169e jne 0x1000012f5                          |         
@@ -114,57 +114,57 @@
     0x1000016a4 mov rax, qword [rip + 0x3975]            |     rax = *((int64_t*) reloc.optind);
     0x1000016ab movsxd r13, dword [rax]                  |     r13 = *((int32_t*) rax);
     0x1000016ae lea rdi, [rip + 0x347c]                  |     rdi = "CLICOLOR";
-    0x1000016b5 call 0x1000044ee                         |     getenv ();
+    0x1000016b5 call 0x1000044ee                         |     rax = getenv ();
     0x1000016ba test rax, rax                            |     
                                                          |     if (rax != 0) {
     0x1000016bd je 0x1000017bf                           |         
     0x1000016c3 mov edi, 1                               |         edi = 1;
-    0x1000016c8 call 0x10000451e                         |         isatty ();
+    0x1000016c8 call 0x10000451e                         |         eax = isatty ();
     0x1000016cd test eax, eax                            |         
                                                          |         if (eax == 0) {
     0x1000016cf jne 0x1000016e6                          |             
     0x1000016d1 lea rdi, [rip + 0x3462]                  |             rdi = "CLICOLOR_FORCE";
-    0x1000016d8 call 0x1000044ee                         |             getenv ();
+    0x1000016d8 call 0x1000044ee                         |             rax = getenv ();
     0x1000016dd test rax, rax                            |             
                                                          |             if (rax != 0) {
     0x1000016e0 je 0x1000017bf                           |                 goto label_2;
                                                          |             }
                                                          |         }
     0x1000016e6 lea rdi, [rip + 0x345c]                  |         rdi = "TERM";
-    0x1000016ed call 0x1000044ee                         |         getenv ();
+    0x1000016ed call 0x1000044ee                         |         rax = getenv ();
     0x1000016f2 lea rdi, [rbp - 0x640]                   |         rdi = local_640h;
     0x1000016f9 mov rsi, rax                             |         rsi = rax;
-    0x1000016fc call 0x1000045b4                         |         tgetent ();
+    0x1000016fc call 0x1000045b4                         |         eax = tgetent ();
     0x100001701 cmp eax, 1                               |         
                                                          |         if (eax == 1) {
     0x100001704 jne 0x1000017bf                          |             
     0x10000170a lea rdi, [rip + 0x343d]                  |             rdi = str_AF;
     0x100001711 lea rbx, [rbp - 0x30]                    |             rbx = local_30h;
     0x100001715 mov rsi, rbx                             |             rsi = rbx;
-    0x100001718 call 0x1000045ba                         |             tgetstr ();
+    0x100001718 call 0x1000045ba                         |             rax = tgetstr ();
     0x10000171d mov qword [rip + 0x3ecc], rax            |             *((int64_t*) 0x1000055f0) = rax;
     0x100001724 lea rdi, [rip + 0x3426]                  |             rdi = str_AB;
     0x10000172b mov rsi, rbx                             |             rsi = rbx;
-    0x10000172e call 0x1000045ba                         |             tgetstr ();
+    0x10000172e call 0x1000045ba                         |             rax = tgetstr ();
     0x100001733 mov qword [rip + 0x3ea6], rax            |             *((int64_t*) 0x1000055e0) = rax;
     0x10000173a lea rdi, [rip + 0x3413]                  |             rdi = str_me;
     0x100001741 mov rsi, rbx                             |             rsi = rbx;
-    0x100001744 call 0x1000045ba                         |             tgetstr ();
+    0x100001744 call 0x1000045ba                         |             rax = tgetstr ();
     0x100001749 mov qword [rip + 0x3ea8], rax            |             *((int64_t*) 0x1000055f8) = rax;
     0x100001750 lea rdi, [rip + 0x3400]                  |             rdi = str_md;
     0x100001757 mov rsi, rbx                             |             rsi = rbx;
-    0x10000175a call 0x1000045ba                         |             tgetstr ();
+    0x10000175a call 0x1000045ba                         |             rax = tgetstr ();
     0x10000175f mov qword [rip + 0x3ea2], rax            |             *((int64_t*) 0x100005608) = rax;
     0x100001766 lea rdi, [rip + 0x33ed]                  |             rdi = str_op;
     0x10000176d mov rsi, rbx                             |             rsi = rbx;
-    0x100001770 call 0x1000045ba                         |             tgetstr ();
+    0x100001770 call 0x1000045ba                         |             rax = tgetstr ();
     0x100001775 mov qword [rip + 0x3e6c], rax            |             *((int64_t*) 0x1000055e8) = rax;
     0x10000177c test rax, rax                            |             
                                                          |             if (rax == 0) {
     0x10000177f jne 0x100001798                          |                 
     0x100001781 lea rdi, [rip + 0x33d5]                  |                 rdi = str_oc;
     0x100001788 lea rsi, [rbp - 0x30]                    |                 rsi = local_30h;
-    0x10000178c call 0x1000045ba                         |                 tgetstr ();
+    0x10000178c call 0x1000045ba                         |                 rax = tgetstr ();
     0x100001791 mov qword [rip + 0x3e50], rax            |                 *((int64_t*) 0x1000055e8) = rax;
                                                          |             }
     0x100001798 cmp qword [rip + 0x3e50], 0              |             
@@ -200,7 +200,7 @@
     0x1000017ee mov rsi, rbx                             |     rsi = rbx;
     0x1000017f1 call 0x10000457e                         |     signal ();
     0x1000017f6 lea rdi, [rip + 0x3363]                  |     rdi = "LSCOLORS";
-    0x1000017fd call 0x1000044ee                         |     getenv ();
+    0x1000017fd call 0x1000044ee                         |     rax = getenv ();
     0x100001802 mov rdi, rax                             |     rdi = rax;
     0x100001805 call 0x100003a5b                         |     func_100003a5b ();
     0x10000180a mov r8d, dword [rip + 0x3e0b]            |     r8d = *((int32_t*) 0x10000561c);
@@ -217,25 +217,25 @@
     0x10000183a or ecx, 8                                |     ecx |= 8;
     0x10000183d or eax, esi                              |     eax |= esi;
     0x10000183f mov r10b, byte [rip + 0x3cd6]            |     r10b = *((int8_t*) 0x10000551c);
-                                                         |     if (*((int32_t*) 0x10000561c) == 0) {
+                                                         |     if (eax != 0) {
     0x100001846 cmovne ecx, r12d                         |         ecx = r12d;
                                                          |     }
     0x10000184a test bl, bl                              |     
-                                                         |     if (bl == 0) {
+                                                         |     if (bl != 0) {
     0x10000184c cmovne ecx, r12d                         |         ecx = r12d;
                                                          |     }
     0x100001850 test r10b, r10b                          |     
-                                                         |     if (r10b == 0) {
+                                                         |     if (r10b != 0) {
     0x100001853 cmovne ecx, r12d                         |         ecx = r12d;
                                                          |     }
     0x100001857 test r8d, r8d                            |     
-                                                         |     if (r8d == 0) {
+                                                         |     if (r8d != 0) {
     0x10000185a cmovne ecx, r12d                         |         ecx = r12d;
                                                          |     }
     0x10000185e mov bl, byte [rip + 0x3ca8]              |     bl = *((int8_t*) 0x10000550c);
     0x100001864 xor bl, 1                                |     bl ^= 1;
     0x100001867 or edi, esi                              |     edi |= esi;
-    0x100001869 sete al                                  |     al = (r8d == 0) ? 1 : 0;
+    0x100001869 sete al                                  |     al = (edi == 0) ? 1 : 0;
     0x10000186c and al, bl                               |     al &= bl;
     0x10000186e movzx eax, al                            |     eax = (int32_t) al;
     0x100001871 or eax, ecx                              |     eax |= ecx;
@@ -243,11 +243,11 @@
     0x100001879 mov ebx, eax                             |     ebx = eax;
     0x10000187b or ebx, 0x80                             |     ebx |= 0x80;
     0x100001881 test cl, cl                              |     
-                                                         |     if (cl != 0) {
+                                                         |     if (cl == 0) {
     0x100001883 cmove ebx, eax                           |         ebx = eax;
                                                          |     }
     0x100001886 or edx, r9d                              |     edx |= r9d;
-                                                         |     if (cl != 0) {
+                                                         |     if (edx != 0) {
     0x100001889 je 0x1000018d8                           |         
     0x10000188b cmp byte [rip + 0x3c82], 1               |         
                                                          |         if (*((int8_t*) 0x100005514) == 1) {

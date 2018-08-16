@@ -8,7 +8,7 @@
     0x100000f64 sub rsp, 0x10                    |     
     0x100000f68 lea rdi, [rip + 0x37]            |     rdi = "Hello world\n";
     0x100000f6f mov al, 0                        |     al = 0;
-    0x100000f71 call 0x100000f84                 |     printf ();
+    0x100000f71 call 0x100000f84                 |     eax = printf ();
     0x100000f76 xor ecx, ecx                     |     ecx = 0;
     0x100000f78 mov dword [rbp - 4], eax         |     *((int32_t*) local_4h) = eax;
     0x100000f7b mov eax, ecx                     |     eax = ecx;

@@ -30,7 +30,7 @@
                                                                  |         /* const char * format */
     0x00403bba mov dword [esp], 0x40509d                         |         *((int32_t*) esp) = 0x40509d;
     0x00403bc1 call 0x403a50                                     |         sub_msvcrt_dll_printf_a50 ();
-    0x00403bc6 call 0x40200c                                     |         sub_msvcrt_dll_getch_c ();
+    0x00403bc6 call 0x40200c                                     |         eax = sub_msvcrt_dll_getch_c ();
     0x00403bcb lea esp, [ebp - 8]                                |         esp = ebp - 8;
     0x00403bce xor eax, eax                                      |         eax = 0;
     0x00403bd0 pop esi                                           |         
