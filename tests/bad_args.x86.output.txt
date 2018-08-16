@@ -1,0 +1,41 @@
+    ; assembly                                       | /* r2dec pseudo C output */
+                                                     | #include <stdint.h>
+                                                     |  
+    ; (fcn) fcn.rip ()                               | uint64_t fcn_rip (int32_t arg_8h, int32_t arg_10h) {
+                                                     |     int32_t local_8h;
+    0x10000b19c pop rdi                              |     
+    0x10000b19d push 0                               |     
+    0x10000b19f mov rbp, rsp                         |     
+    0x10000b1a2 and rsp, 0xfffffffffffffff0          |     
+    0x10000b1a6 sub rsp, 0x10                        |     
+    0x10000b1aa mov esi, dword [rbp + 8]             |     
+    0x10000b1ad lea rdx, [rbp + 0x10]                |     
+    0x10000b1b1 mov r8, qword [rip + 0x4c408]        |     r8 = *((int64_t*) 0x1000575c0);
+    0x10000b1b8 lea rcx, [rip - 0x23]                |     rcx = fcn_rip;
+    0x10000b1bf sub rcx, r8                          |     
+    0x10000b1c2 lea r8, [rip - 0x11c9]               |     
+    0x10000b1c9 lea r9, [rbp - 8]                    |     
+    0x10000b1cd call 0x10000b20f                     |     fcn_10000b20f (*((void*) arg_8h), *((void*) arg_10h), *((void*) r8), *((void*) 0x10000a000), *((void*) local_8h));
+    0x10000b1d2 mov rdi, qword [rbp - 8]             |     rdi = local_8h;
+    0x10000b1d6 cmp rdi, 0                           |     
+                                                     |     if (rdi == 0) {
+    0x10000b1da jne 0x10000b1ec                      |         
+    0x10000b1dc mov rsp, rbp                         |         
+    0x10000b1df add rsp, 8                           |         
+    0x10000b1e3 mov rbp, 0                           |         
+    0x10000b1ea jmp rax                              |         void (*rax)() ();
+                                                     |     }
+    0x10000b1ec add rsp, 0x10                        |     
+    0x10000b1f0 push rdi                             |     
+    0x10000b1f1 mov rdi, qword [rbp + 8]             |     rdi = arg_8h;
+    0x10000b1f5 lea rsi, [rbp + 0x10]                |     rsi = &arg_10h;
+    0x10000b1f9 lea rdx, [rsi + rdi*8 + 8]           |     rdx = rsi + rdi*8 + 8;
+    0x10000b1fe mov rcx, rdx                         |     rcx = rdx;
+                                                     |     do {
+    0x10000b201 mov r8, qword [rcx]                  |         r8 = *((int64_t*) rcx);
+    0x10000b204 add rcx, 8                           |         rcx += 8;
+    0x10000b208 test r8, r8                          |         
+    0x10000b20b jne 0x10000b201                      |         
+                                                     |     } while (r8 != 0);
+    0x10000b20d jmp rax                              |     return void (*rax)() ();
+                                                     | }
