@@ -1,7 +1,7 @@
     ; assembly                                       | /* r2dec pseudo C output */
                                                      | #include <stdint.h>
                                                      |  
-    ; (fcn) sub.llu_990 ()                           | void sub_llu_990 (void) {
+    ; (fcn) sub.llu_990 ()                           | uint64_t sub_llu_990 (void) {
     0x100002990 push rbp                             |     
     0x100002991 mov rbp, rsp                         |     
     0x100002994 push r15                             |     
@@ -101,5 +101,5 @@
     0x100002aa7 pop r14                              |     
     0x100002aa9 pop r15                              |     
     0x100002aab pop rbp                              |     
-    0x100002aac ret                                  |     
+    0x100002aac ret                                  |     return rax;
                                                      | }
