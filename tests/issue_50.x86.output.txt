@@ -1,7 +1,7 @@
     ; assembly                                                   | /* r2dec pseudo C output */
                                                                  | #include <stdint.h>
                                                                  |  
-    ; (fcn) fcn.00403b70 ()                                      | void fcn_00403b70 (void) {
+    ; (fcn) fcn.00403b70 ()                                      | uint32_t fcn_00403b70 (void) {
     0x00403b70 push ebp                                          |     
     0x00403b71 mov ebp, esp                                      |     
     0x00403b73 push edi                                          |     
@@ -36,7 +36,7 @@
     0x00403bd0 pop esi                                           |         
     0x00403bd1 pop edi                                           |         
     0x00403bd2 pop ebp                                           |         
-    0x00403bd3 ret                                               |         return;
+    0x00403bd3 ret                                               |         return eax;
                                                                  |         /* const char * s */
                                                                  | label_0:
     0x00403bd4 mov dword [esp], 0x40508e                         |         *((int32_t*) esp) = 0x40508e;
