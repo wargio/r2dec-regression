@@ -114,8 +114,8 @@
     0x00000c20 lis r4, 0x80c                 |     r4 = 0x80cbd80;
     0x00000c24 ori r4, r4, 0xbd80            |     
     0x00000c28 subf r4, r3, r4               |     r4 -= r3;
-    0x00000c2c rldicl r4, r4, 0x39, 7        |     r4 = rotate_left64 (r4, 0x39);
-                                             |     r4 &= 7;
+    0x00000c2c rldicl r4, r4, 0x39, 7        |     r4 = rotate_left64 (r4, 57);
+                                             |     r4 &= 0xffffffffffffff80;
     0x00000c30 mtctr r4                      |     ctr = r4;
                                              |     do {
     0x00000c34 dcbz 0, r3                    |         _dcbz (r3);

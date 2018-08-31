@@ -1,0 +1,20 @@
+    ; assembly                                   | /* r2dec pseudo C output */
+                                                 | #include <stdint.h>
+                                                 |  
+                                                 | uint64_t rotate_left64 (uint64_t value, uint32_t count ) {
+                                                 |     const uint64_t mask = (CHAR_BIT * sizeof (value)) - 1;
+                                                 |     count &= mask;
+                                                 |     return (value << count) | (value >> (-count & mask));
+                                                 | }
+                                                 |  
+    ; (fcn) fcn.00000000 ()                      | uint32_t fcn_00000000 () {
+    0x00000000 rlwinm r0, r3, 0x1b, 0x15, 0x1a   |     r0 = rotate_left64 (r3, 27);
+                                                 |     r0 &= 0x7e0;
+    0x00000004 rlwinm r9, r3, 0x18, 0x10, 0x14   |     r9 = rotate_left64 (r3, 24);
+                                                 |     r9 &= 0xf800;
+    0x00000008 rlwinm r3, r3, 0x12, 0x1e, 0x1f   |     r3 = rotate_left64 (r3, 18);
+                                                 |     r3 &= 0x3;
+    0x0000000c rlwinm r3, r3, 0x1d, 0x1b, 0x1f   |     r3 = rotate_left64 (r3, 29);
+                                                 |     r3 &= 0x1f;
+    0x00000010 blr                               |     return r3;
+                                                 | }

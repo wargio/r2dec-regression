@@ -3,10 +3,10 @@
                              |  
     ; (fcn) sym.fnc.1 ()     | int32_t fnc_1 () {
                              |     int32_t local_0;
-    0x0000002a i32.const 0   |     local_0 = 0;
-    0x0000002c set_local 0   |     
-    0x0000002e i32.const 1   |     const int32_t local_1 = 1;
-                             |     if (local_1 != 0) {
+    0x0000002a i32.const 0   |     stack_0 = 0;
+    0x0000002c set_local 0   |     local_0 = stack_0;
+    0x0000002e i32.const 1   |     stack_1 = 1;
+                             |     if (stack_1 == 0) {
     0x00000030 if            |         
     0x00000032 get_local 0   |         
     0x00000034 i32.const 1   |         
@@ -14,8 +14,8 @@
     0x00000037 set_local 0   |         
                              |     }
     0x00000039 end           |     
-    0x0000003a i32.const 0   |     const int32_t local_3 = 0;
-                             |     if (local_3 != 0) {
+    0x0000003a i32.const 0   |     stack_4 = 0;
+                             |     if (stack_4 == 0) {
     0x0000003c if            |         
     0x0000003e get_local 0   |         
     0x00000040 i32.const 1   |         
