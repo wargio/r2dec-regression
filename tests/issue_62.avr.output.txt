@@ -21,11 +21,11 @@
     0x000007e6 lpm r0, z+            |         r0 = *((uint8_t*) MEM_Z);
                                      |         uint8_t local_0 = r30;
                                      |         r30++;
-                                     |         r31 = r30 < local_0 ? (r31 + 1) : r31;
+                                     |         r31 = (r30 < local_0) ? (r31 + 1) : r31;
     0x000007e8 st x+, r0             |         *((uint8_t*) MEM_X) = r0;
                                      |         uint8_t local_1 = r26;
                                      |         r26++;
-                                     |         r27 = r26 < local_1 ? (r27 + 1) : r27;
+                                     |         r27 = (r26 < local_1) ? (r27 + 1) : r27;
     0x000007ea cpi r26, 0xb4         |         
     0x000007ec cpc r27, r17          |         
     0x000007ee brne 0x7e6            |         
@@ -38,7 +38,7 @@
     0x000007f8 st x+, r1             |         *((uint8_t*) MEM_X) = r1;
                                      |         uint8_t local_2 = r26;
                                      |         r26++;
-                                     |         r27 = r26 < local_2 ? (r27 + 1) : r27;
+                                     |         r27 = (r26 < local_2) ? (r27 + 1) : r27;
     0x000007fa cpi r26, 0x47         |         
     0x000007fc cpc r27, r18          |         
     0x000007fe brne 0x7f8            |         

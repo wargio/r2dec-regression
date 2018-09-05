@@ -34,7 +34,7 @@
     0x1000029d9 je 0x100002a0e                       |         
     0x1000029db mov rax, qword [r12 + 0x68]          |         rax = *((int64_t*) r12 + 0x68);
     0x1000029e0 lea rcx, [rip + 0x2c19]              |         rcx = 0x100005600;
-    0x1000029e7 cqo                                  |         __asm (cqo);
+    0x1000029e7 cqo                                  |         __asm ("cqo");
     0x1000029e9 idiv qword [rcx]                     |         rax = *((int64_t*) rdx:rax) / rcx;
                                                      |         rdx = *((int64_t*) rdx:rax) % rcx;
     0x1000029ec mov rcx, rax                         |         rcx = rax;
