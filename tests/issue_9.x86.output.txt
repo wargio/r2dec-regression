@@ -13,7 +13,7 @@
     0x564310a2ad4c mov rbx, rsi                                      |     rbx = rsi;
     0x564310a2ad4f sub rsp, 0x58                                     |     
     0x564310a2ad53 mov rdi, qword [rsi]                              |     rdi = *((int64_t*) rsi);
-    0x564310a2ad56 mov rax, qword fs:[0x28]                          |     rax = *((int64_t*) fs + 0x28);
+    0x564310a2ad56 mov rax, qword fs:[0x28]                          |     rax = *((int64_t*) fs:0x28);
     0x564310a2ad5f mov qword [rsp + 0x48], rax                       |     *((int64_t*) local_48h) = rax;
     0x564310a2ad64 xor eax, eax                                      |     eax = 0;
     0x564310a2ad66 call 0x564310a366b0                               |     fcn_564310a366b0 ();
