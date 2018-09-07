@@ -1,0 +1,15 @@
+    ; assembly                                   | /* r2dec pseudo C output */
+                                                 | #include <stdint.h>
+                                                 |  
+    ; (fcn) sym.stosb ()                         | int32_t stosb (int32_t arg2, int32_t arg3) {
+                                                 |     /* arg2 */
+    0x000006c0 mov eax, esi                      |     eax = esi;
+                                                 |     /* arg3 */
+    0x000006c2 mov rcx, rdx                      |     rcx = rdx;
+                                                 |     do {
+    0x000006c5 rep stosb byte [rdi], al          |         *((uint8_t*) rdi) = al;
+                                                 |         rcx--;
+                                                 |         rdi++;
+                                                 |     } while (rcx != 0);
+    0x000006c7 ret                               |     return eax;
+                                                 | }

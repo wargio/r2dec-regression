@@ -19,7 +19,6 @@ if [ ! -f "$R2DECBINFLD/r2dec-test" ]; then
     make --no-print-directory testbin -C "$R2DECBINFLD"
 fi
 ELEM=$(find "$TESTFOLDER" | grep "$TESTFOLDER/$TESTNAME" | grep ".json" | sed "s/.json//g")
-echo "$ELEM"
 mkdir "$TMPFOLDER"
 
 NAME=$(basename "$ELEM")
@@ -30,15 +29,15 @@ fi
 
 OUTPUTFILE="$TMPFOLDER/$NAME.output.txt"
 $R2DECBINFLD/r2dec-test "$R2DECFOLDER" "$ELEM.json" > "$OUTPUTFILE" || break
+if [ ! -f "$ELEM.output.txt" ]; then
+	touch "$ELEM.output.txt"
+fi
+
 DIFFOUTPUT=$(diff -u "$ELEM.output.txt" "$OUTPUTFILE")
 
 if [ ! -z "$DIFFOUTPUT" ]; then
 	echo "[XX]: $NAME"
-	if [ -f "$ELEM.output.txt" ]; then
-		$DIFF "$ELEM.output.txt" "$OUTPUTFILE"
-	else
-		cat "$OUTPUTFILE"
-	fi
+	$DIFF "$ELEM.output.txt" "$OUTPUTFILE"
 	ERROR=true
 else
 	echo "[OK]: $NAME"

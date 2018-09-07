@@ -1,25 +1,23 @@
-    ; assembly                         | /* r2dec pseudo C output */
-                                       | #include <stdint.h>
-                                       | #include <limits.h>
-                                       |
-                                       | uint32_t rotate_right32 (uint32_t value, uint32_t count) {
-                                       |     const uint32_t mask = (CHAR_BIT * sizeof (value)) - 1;
-                                       |     count &= mask;
-                                       |     return (value >> count) | (value << (-count & mask));
-                                       | }
-(fcn) fcn.000106ac:                    | void fcn_000106ac () {
-    0x000106ac  ldrb r3, [r1]          |     r1 = *((uint8_t*) r3);
-    0x000106b0  cmp r3, 0              |
-                                       |     if (r3 == 0) {
-    0x000106b4  bxeq lr                |         return;
-                                       |     }
-                                       |     while (r3 != 0) {
-    0x000106b8  eor r0, r0, r3         |         r0 ^= r3;
-    0x000106bc  ldrb r3, [r1, 1]!      |         r1 += 1; r3 = r1[0];
-    0x000106c0  ror r0, r0, 0x1b       |         r0 = rotate_right32 (r0, 27);
-    0x000106c4  cmp r3, 0              |
-    0x000106c8  eor r0, r0, r0, lsl 8  |         r0 ^= (r0 << 8);
-                                       |     }
-    0x000106cc  bne 0x106b8            |
-    0x000106d0  bx lr                  |     return;
-                                       | }
+    ; assembly                               | /* r2dec pseudo C output */
+                                             | #include <stdint.h>
+                                             |  
+                                             | uint32_t rotate_right32 (uint32_t value, uint32_t count ) {
+                                             |     const uint32_t mask = (CHAR_BIT * sizeof (value)) - 1;
+                                             |     count &= mask;
+                                             |     return (value >> count) | (value << (-count & mask));
+                                             | }
+                                             |  
+    ; (fcn) fcn.000106ac ()                  | void fcn_000106ac () {
+    0x000106ac ldrb r3, [r1]                 |     r1 = *((uint8_t*) ldrb);
+    0x000106b0 cmp r3, 0                     |     
+    0x000106b4 bxeq lr                       |     return;
+                                             |     do {
+    0x000106b8 eor r0, r0, r3                |         eor = r0 ^ r3;
+    0x000106bc ldrb r3, [r1, 1]!             |         r1 += 1; ldrb = r1[0];
+    0x000106c0 ror r0, r0, 0x1b              |         r0 = rotate_right32 (r0, 27);
+    0x000106c4 cmp r3, 0                     |         
+    0x000106c8 eor r0, r0, r0, lsl 8         |         eor = r0 ^ (r0 << 8);
+    0x000106cc bne 0x106b8                   |         
+                                             |     } while (r3 == 0);
+    0x000106d0 bx lr                         |     return;
+                                             | }
