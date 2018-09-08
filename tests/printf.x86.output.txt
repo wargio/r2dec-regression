@@ -1,20 +1,17 @@
-    ; assembly                               | /* r2dec pseudo C output */
-                                             | #include <stdint.h>
-                                             | #include <stdio.h>
-                                             |
-(fcn) sym.main:                              | int32_t main (int32_t arg1, int32_t arg2) {
-                                             |     int32_t local_10h;
-                                             |     int32_t local_4h;
-    0x0000063a  push rbp                     |
-    0x0000063b  mov rbp, rsp                 |
-    0x0000063e  sub rsp, 0x10                |
-                                             |     /* arg1 */
-    0x00000642  mov dword [rbp - 4], edi     |     local_4h = edi;
-                                             |     /* arg2 */
-    0x00000645  mov qword [rbp - 0x10], rsi  |     local_10h = rsi;
-    0x00000649  lea rdi, [rip + 0x94]        |
-    0x00000650  call 0x510                   |     puts ("hello world");
-    0x00000655  mov eax, 0                   |     eax = 0;
-    0x0000065a  leave                        |
-    0x0000065b  ret                          |     return eax;
-                                             | }
+    ; assembly                                   | /* r2dec pseudo C output */
+                                                 | #include <stdint.h>
+                                                 |  
+    ; (fcn) sym.main ()                          | int32_t main (int32_t argc, char ** argv) {
+                                                 |     char ** local_10h;
+                                                 |     int32_t local_4h;
+    0x00001139 push rbp                          |     
+    0x0000113a mov rbp, rsp                      |     
+    0x0000113d sub rsp, 0x10                     |     
+    0x00001141 mov dword [rbp - 4], edi          |     local_4h = edi;
+    0x00001144 mov qword [rbp - 0x10], rsi       |     local_10h = rsi;
+    0x00001148 lea rdi, [rip + 0xeb5]            |     
+    0x0000114f call 0x1030                       |     puts ("hello world");
+    0x00001154 mov eax, 0                        |     eax = 0;
+    0x00001159 leave                             |     
+    0x0000115a ret                               |     return eax;
+                                                 | }

@@ -1,24 +1,22 @@
-    ; assembly                               | /* r2dec pseudo C output */
-                                             | #include <stdint.h>
-                                             |
-(fcn) sym.main:                              | int32_t main (int32_t arg1, int32_t arg2) {
-                                             |     int32_t local_20h;
-                                             |     int32_t local_14h;
-                                             |     unsigned int local_4h;
-    0x000005fa  push rbp                     |
-    0x000005fb  mov rbp, rsp                 |
-                                             |     /* arg1 */
-    0x000005fe  mov dword [rbp - 0x14], edi  |     local_14h = edi;
-                                             |     /* arg2 */
-    0x00000601  mov qword [rbp - 0x20], rsi  |     local_20h = rsi;
-    0x00000605  mov dword [rbp - 4], 0xdead  |     local_4h = 0xdead;
-    0x0000060c  cmp dword [rbp - 4], 0xbeef  |
-                                             |     if (local_4h != 0xbeef) {
-    0x00000613  je 0x61c                     |
-    0x00000615  mov dword [rbp - 4], 0xbeef  |         local_4h = 0xbeef;
-                                             |     }
-    0x0000061c  add dword [rbp - 4], 0x10    |     local_4h += 0x10;
-    0x00000620  mov eax, 0                   |     eax = 0;
-    0x00000625  pop rbp                      |
-    0x00000626  ret                          |     return eax;
-                                             | }
+    ; assembly                                   | /* r2dec pseudo C output */
+                                                 | #include <stdint.h>
+                                                 |  
+    ; (fcn) sym.main ()                          | int32_t main (int32_t argc, char ** argv) {
+                                                 |     char ** local_20h;
+                                                 |     int32_t local_14h;
+                                                 |     uint32_t local_4h;
+    0x00001119 push rbp                          |     
+    0x0000111a mov rbp, rsp                      |     
+    0x0000111d mov dword [rbp - 0x14], edi       |     local_14h = edi;
+    0x00001120 mov qword [rbp - 0x20], rsi       |     local_20h = rsi;
+    0x00001124 mov dword [rbp - 4], 0xdead       |     local_4h = 0xdead;
+    0x0000112b cmp dword [rbp - 4], 0xbeef       |     
+                                                 |     if (local_4h != 0xbeef) {
+    0x00001132 je 0x113b                         |         
+    0x00001134 mov dword [rbp - 4], 0xbeef       |         local_4h = 0xbeef;
+                                                 |     }
+    0x0000113b add dword [rbp - 4], 0x10         |     local_4h += 0x10;
+    0x0000113f mov eax, 0                        |     eax = 0;
+    0x00001144 pop rbp                           |     
+    0x00001145 ret                               |     return eax;
+                                                 | }
