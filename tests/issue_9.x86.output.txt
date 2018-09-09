@@ -87,7 +87,7 @@
     0x564310a2aed8 lea rdx, [rip + 0x15e81]                          |     rdx = obj_quoting_style_vals;
     0x564310a2aedf cdqe                                              |     rax = (int64_t) eax;
     0x564310a2aee1 xor edi, edi                                      |     edi = 0;
-    0x564310a2aee3 mov esi, dword [rdx + rax*4]                      |     esi = *((int32_t*) rdx + rax*4);
+    0x564310a2aee3 mov esi, dword [rdx + rax*4]                      |     esi = *((int32_t*) (rdx + rax*4));
     0x564310a2aee6 call 0x564310a37c90                               |     fcn_564310a37c90 ();
                                                                      | label_1:
     0x564310a2aeeb lea rdi, [rip + 0x1338f]                          |     rdi = "COLUMNS";
@@ -163,7 +163,7 @@
                                                                      |     if (eax <= 0x112) {
     0x564310a2afde ja 0x564310a2c43f                                 |         void (*0x564310a2c43f)() ();
                                                                      |     }
-    0x564310a2afe4 movsxd rax, dword [r13 + rax*4]                   |     rax = *((int32_t*) r13 + rax*4);
+    0x564310a2afe4 movsxd rax, dword [r13 + rax*4]                   |     rax = *((int32_t*) (r13 + rax*4));
     0x564310a2afe9 add rax, r13                                      |     rax += r13;
     0x564310a2afec jmp rax                                           |     return void (*rax)() ();
                                                                      | }

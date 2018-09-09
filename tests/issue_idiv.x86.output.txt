@@ -14,12 +14,12 @@
     0x10000299e mov r15, rdx                         |     r15 = rdx;
                                                      |     /* arg1 */
     0x1000029a1 mov rbx, rdi                         |     rbx = rdi;
-    0x1000029a4 mov r12, qword [rbx + 0x60]          |     r12 = *((int64_t*) rbx + 0x60);
+    0x1000029a4 mov r12, qword [rbx + 0x60]          |     r12 = *((int64_t*) (rbx + 0x60));
     0x1000029a8 lea rax, [rip + 0x2c7d]              |     rax = 0x10000562c;
     0x1000029af cmp dword [rax], 0                   |     
                                                      |     if (*((int32_t*) rax) != 0) {
     0x1000029b2 je 0x1000029cc                       |         
-    0x1000029b4 mov rdx, qword [r12 + 8]             |         rdx = *((int64_t*) r12 + 8);
+    0x1000029b4 mov rdx, qword [r12 + 8]             |         rdx = *((int64_t*) (r12 + 8));
     0x1000029b9 lea rdi, [rip + 0x22c1]              |         rdi = "%*llu ";
     0x1000029c0 xor eax, eax                         |         eax = 0;
     0x1000029c2 call 0x100004554                     |         eax = printf ();
@@ -32,7 +32,7 @@
     0x1000029d6 cmp dword [rax], 0                   |     
                                                      |     if (*((int32_t*) rax) != 0) {
     0x1000029d9 je 0x100002a0e                       |         
-    0x1000029db mov rax, qword [r12 + 0x68]          |         rax = *((int64_t*) r12 + 0x68);
+    0x1000029db mov rax, qword [r12 + 0x68]          |         rax = *((int64_t*) (r12 + 0x68));
     0x1000029e0 lea rcx, [rip + 0x2c19]              |         rcx = 0x100005600;
     0x1000029e7 cqo                                  |         __asm ("cqo");
     0x1000029e9 idiv qword [rcx]                     |         rax = *((int64_t*) rdx:rax) / rcx;
@@ -51,7 +51,7 @@
     0x100002a15 cmp dword [r15], 0                   |     
                                                      |     if (*((int32_t*) r15) != 0) {
     0x100002a19 je 0x100002a2e                       |         
-    0x100002a1b movzx edi, word [r12 + 4]            |         edi = *((uint16_t*) r12 + 4);
+    0x100002a1b movzx edi, word [r12 + 4]            |         edi = *((uint16_t*) (r12 + 4));
     0x100002a21 call 0x1000034ac                     |         eax = func_1000034ac ();
     0x100002a26 test eax, eax                        |         
     0x100002a28 setne r13b                           |         r13b = (eax != 0) ? 1 : 0;
@@ -89,7 +89,7 @@
     0x100002a8a cmp dword [rax], 0                   |     
                                                      |     if (*((int32_t*) rax) != 0) {
     0x100002a8d je 0x100002a9c                       |         
-    0x100002a8f movzx edi, word [r12 + 4]            |         edi = *((uint16_t*) r12 + 4);
+    0x100002a8f movzx edi, word [r12 + 4]            |         edi = *((uint16_t*) (r12 + 4));
     0x100002a95 call 0x1000035c2                     |         eax = func_1000035c2 ();
     0x100002a9a add ebx, eax                         |         ebx += eax;
                                                      |     }

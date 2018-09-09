@@ -14,9 +14,9 @@
     0x0000ad41 xor si, cx                            |     si ^= cx;
     0x0000ad43 mov ax, di                            |     ax = di;
     0x0000ad45 bswap ax                              |     ax = SWAP16 (ax);
-    0x0000ad47 mov word [bp + si + 8], ax            |     *((int16_t*) bp + si + 8) = ax;
+    0x0000ad47 mov word [bp + si + 8], ax            |     *((int16_t*) (bp + si + 8)) = ax;
     0x0000ad4a bswap si                              |     si = SWAP16 (si);
-    0x0000ad4c mov word [bp + si + 0xc], si          |     *((int16_t*) bp + si + 0xc) = si;
+    0x0000ad4c mov word [bp + si + 0xc], si          |     *((int16_t*) (bp + si + 0xc)) = si;
     0x0000ad4f xor ax, ax                            |     ax = 0;
     0x0000ad51 pop bx                                |     
     0x0000ad52 inc cx                                |     cx++;
