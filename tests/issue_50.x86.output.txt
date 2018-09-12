@@ -20,7 +20,7 @@
     0x00403ba0 call 0x403a38                                     |     sub_msvcrt_dll_scanf_a38 ();
     0x00403ba5 mov ecx, 0x11                                     |     ecx = 0x11;
     0x00403baa repe cmpsb byte [esi], byte ptr es:[edi]          |     __asm ("repe cmpsb byte [esi], byte ptr es:[edi]");
-                                                                 |     if (null != ) {
+                                                                 |     if (? != ?) {
     0x00403bac je 0x403bd4                                       |         goto label_0;
                                                                  |     }
                                                                  |     /* const char * s */
