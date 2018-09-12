@@ -10,7 +10,7 @@ if [ $# -eq 3 ]; then
 	ARCH=$(r2 -Q -c "e asm.arch" "$FILENAME")
 	FILEJSON="$TESTFOLDER/$NAME.$ARCH.json"
 	FILEOUT="$TESTFOLDER/$NAME.$ARCH.output.txt"
-	r2 -A -Q -c "s main; pddi" "$FILENAME" > "$FILEJSON" 2> "$TMPFOLDER/stderr.txt"
+	r2 -A -Q -c "pddi @ main" "$FILENAME" > "$FILEJSON" 2> "$TMPFOLDER/stderr.txt"
 	if [ ! -f "$FILEOUT" ]; then
 		mv "$TMPFOLDER/output.txt" "$FILEOUT"
 	fi

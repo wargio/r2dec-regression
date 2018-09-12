@@ -104,7 +104,7 @@
     0x100001311 cmp ecx, 0x47                            |         
                                                          |         if (ecx <= 0x47) {
     0x100001314 ja 0x10000169b                           |             
-    0x10000131a movsxd rax, dword [rbx + rcx*4]          |             rax = *((int32_t*) rbx + rcx*4);
+    0x10000131a movsxd rax, dword [rbx + rcx*4]          |             rax = *((int32_t*) (rbx + rcx*4));
     0x10000131e add rax, rbx                             |             rax += rbx;
     0x100001321 jmp rax                                  |             eax = void (*rax)() ();
                                                          |         }

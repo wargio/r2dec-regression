@@ -4,11 +4,11 @@
     ; (fcn) fcn.0023fec ()               | void fcn_0023fec () {
                                          |     /* link pointer is lost. (used r0) */
     0x00023fec jarl 0x00185084, r0       |     void (*0x00185084)() ();
-    0x00023ff0 ld.h 0x6c36[r4], r14      |     r14 = *((int16_t*) r4 + 0x6c36);
+    0x00023ff0 ld.h 0x6c36[r4], r14      |     r14 = *((int16_t*) (r4 + 0x6c36));
     0x00023ff4 movhi 0x2, r0, r1         |     
-    0x00023ff8 ld.h 0x703a[r1], r13      |     r13 = *((int16_t*) r1 + 0x703a);
+    0x00023ff8 ld.h 0x703a[r1], r13      |     r13 = *((int16_t*) (r1 + 0x703a));
     0x00023ffc movhi 0x2, r0, r1         |     
-    0x00024000 ld.h 0x7038[r1], r12      |     r12 = *((int16_t*) r1 + 0x7038);
+    0x00024000 ld.h 0x7038[r1], r12      |     r12 = *((int16_t*) (r1 + 0x7038));
     0x00024004 cmp r13, r14              |     
                                          |     if (r14 <= r13) {
     0x00024006 ble 0x0002400c            |         
@@ -49,7 +49,7 @@
                                          | label_0:
     0x0002403c shr 4, r11                |     r11 >>= 4;
     0x0002403e satsubr r11, r0           |     
-    0x00024040 ld.w 0x6cc8[r4], r6       |     r6 = *((uint32_t*) r4 + 0x6cc8);
+    0x00024040 ld.w 0x6cc8[r4], r6       |     r6 = *((uint32_t*) (r4 + 0x6cc8));
     0x00024044 mov r11, r26              |     r26 = r11;
     0x00024046 mov r11, r7               |     r7 = r11;
                                          |     /* r31 = PC + 4; */

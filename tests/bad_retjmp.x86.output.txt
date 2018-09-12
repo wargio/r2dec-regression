@@ -4,25 +4,25 @@
     ; (fcn) sym.func.10000116d ()                    | int32_t func_10000116d (void) {
     0x10000116d push rbp                             |     
     0x10000116e mov rbp, rsp                         |     
-    0x100001171 mov r8, qword [rsi + 0x60]           |     r8 = *((int64_t*) rsi + 0x60);
-    0x100001175 mov rdx, qword [rdi + 0x60]          |     rdx = *((int64_t*) rdi + 0x60);
-    0x100001179 mov rcx, qword [rdx + 0x50]          |     rcx = *((int64_t*) rdx + 0x50);
+    0x100001171 mov r8, qword [rsi + 0x60]           |     r8 = *((int64_t*) (rsi + 0x60));
+    0x100001175 mov rdx, qword [rdi + 0x60]          |     rdx = *((int64_t*) (rdi + 0x60));
+    0x100001179 mov rcx, qword [rdx + 0x50]          |     rcx = *((int64_t*) (rdx + 0x50));
     0x10000117d mov eax, 1                           |     eax = 1;
     0x100001182 cmp qword [r8 + 0x50], rcx           |     
-                                                     |     if (*((int64_t*) r8 + 0x50) <= rcx) {
+                                                     |     if (*((int64_t*) (r8 + 0x50)) <= rcx) {
     0x100001186 jg 0x1000011a2                       |         
-                                                     |         if (*((int64_t*) r8 + 0x50) < rcx) {
+                                                     |         if (*((int64_t*) (r8 + 0x50)) < rcx) {
     0x100001188 jge 0x100001191                      |             
     0x10000118a mov eax, 0xffffffff                  |             eax = 0xffffffff;
     0x10000118f jmp 0x1000011a2                      |             
                                                      |         } else {
-    0x100001191 mov rcx, qword [rdx + 0x58]          |             rcx = *((int64_t*) rdx + 0x58);
+    0x100001191 mov rcx, qword [rdx + 0x58]          |             rcx = *((int64_t*) (rdx + 0x58));
     0x100001195 cmp qword [r8 + 0x58], rcx           |             
-                                                     |             if (*((int64_t*) r8 + 0x58) <= rcx) {
+                                                     |             if (*((int64_t*) (r8 + 0x58)) <= rcx) {
     0x100001199 jg 0x1000011a2                       |                 goto label_0;
                                                      |             }
     0x10000119b mov eax, 0xffffffff                  |             eax = 0xffffffff;
-                                                     |             if (*((int64_t*) r8 + 0x58) < rcx) {
+                                                     |             if (*((int64_t*) (r8 + 0x58)) < rcx) {
     0x1000011a0 jge 0x1000011a4                      |                 goto label_1;
                                                      |             }
                                                      |         }
