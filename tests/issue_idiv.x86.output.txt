@@ -68,7 +68,7 @@
     0x100002a42 je 0x100002a80                       |         
     0x100002a44 mov eax, dword [r15]                 |         eax = *((int32_t*) r15);
     0x100002a47 test eax, eax                        |         
-                                                     |         if (eax != 0) {
+                                                     |         if (eax == 0) {
     0x100002a49 je 0x100002a80                       |             goto label_0;
                                                      |         }
     0x100002a4b lea rax, [rip + 0x2b96]              |         rax = 0x1000055e8;

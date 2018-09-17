@@ -52,12 +52,12 @@
     0x100001283 xor eax, eax                             |             eax = 0;
     0x100001285 call 0x100004518                         |             eax = ioctl ();
     0x10000128a cmp eax, 0xffffffffffffffff              |             
-                                                         |             if (eax != -1) {
+                                                         |             if (eax == -1) {
     0x10000128d je 0x10000129d                           |                 goto label_0;
                                                          |             }
     0x10000128f movzx eax, word [rbp - 0x36]             |             eax = *((uint16_t*) local_36h);
     0x100001293 test eax, eax                            |             
-                                                         |             if (eax != 0) {
+                                                         |             if (eax == 0) {
     0x100001295 je 0x10000129d                           |                 goto label_0;
                                                          |             }
                                                          |         }
@@ -71,7 +71,7 @@
     0x1000012b0 lea rdi, [rip + 0x383a]                  |         rdi = "COLUMNS";
     0x1000012b7 call 0x1000044ee                         |         rax = getenv ();
     0x1000012bc test rax, rax                            |         
-                                                         |         if (rax != 0) {
+                                                         |         if (rax == 0) {
     0x1000012bf je 0x1000012cf                           |             goto label_1;
                                                          |         }
                                                          |         /* const char * str */
@@ -126,7 +126,7 @@
     0x1000016d1 lea rdi, [rip + 0x3462]                  |             rdi = "CLICOLOR_FORCE";
     0x1000016d8 call 0x1000044ee                         |             rax = getenv ();
     0x1000016dd test rax, rax                            |             
-                                                         |             if (rax != 0) {
+                                                         |             if (rax == 0) {
     0x1000016e0 je 0x1000017bf                           |                 goto label_2;
                                                          |             }
                                                          |         }
@@ -168,16 +168,16 @@
     0x100001791 mov qword [rip + 0x3e50], rax            |                 *((int64_t*) 0x1000055e8) = rax;
                                                          |             }
     0x100001798 cmp qword [rip + 0x3e50], 0              |             
-                                                         |             if (*((int64_t*) 0x1000055f0) != 0) {
+                                                         |             if (*((int64_t*) 0x1000055f0) == 0) {
     0x1000017a0 je 0x1000017bf                           |                 goto label_2;
                                                          |             }
     0x1000017a2 mov rcx, qword [rip + 0x3e37]            |             rcx = *((int64_t*) 0x1000055e0);
     0x1000017a9 test rcx, rcx                            |             
-                                                         |             if (rcx != 0) {
+                                                         |             if (rcx == 0) {
     0x1000017ac je 0x1000017bf                           |                 goto label_2;
                                                          |             }
     0x1000017ae test rax, rax                            |             
-                                                         |             if (rax != 0) {
+                                                         |             if (rax == 0) {
     0x1000017b1 je 0x1000017bf                           |                 goto label_2;
                                                          |             }
     0x1000017b3 mov dword [rip + 0x3e5f], 1              |             *((int32_t*) 0x10000561c) = 1;
@@ -187,7 +187,7 @@
                                                          | label_2:
     0x1000017bf xor r8d, r8d                             |         r8d = 0;
     0x1000017c2 cmp dword [rip + 0x3e53], 0              |         
-                                                         |         if (*((int32_t*) 0x10000561c) != 0) {
+                                                         |         if (*((int32_t*) 0x10000561c) == 0) {
     0x1000017c9 je 0x100001811                           |             goto label_3;
                                                          |         }
                                                          |     }

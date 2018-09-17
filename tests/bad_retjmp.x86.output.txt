@@ -18,11 +18,11 @@
                                                      |         } else {
     0x100001191 mov rcx, qword [rdx + 0x58]          |             rcx = *((int64_t*) (rdx + 0x58));
     0x100001195 cmp qword [r8 + 0x58], rcx           |             
-                                                     |             if (*((int64_t*) (r8 + 0x58)) <= rcx) {
+                                                     |             if (*((int64_t*) (r8 + 0x58)) > rcx) {
     0x100001199 jg 0x1000011a2                       |                 goto label_0;
                                                      |             }
     0x10000119b mov eax, 0xffffffff                  |             eax = 0xffffffff;
-                                                     |             if (*((int64_t*) (r8 + 0x58)) < rcx) {
+                                                     |             if (*((int64_t*) (r8 + 0x58)) >= rcx) {
     0x1000011a0 jge 0x1000011a4                      |                 goto label_1;
                                                      |             }
                                                      |         }

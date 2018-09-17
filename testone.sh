@@ -18,7 +18,7 @@ if [ ! -f "$R2DECBINFLD/r2dec-test" ]; then
 	echo "building binary src"
     make --no-print-directory testbin -C "$R2DECBINFLD"
 fi
-ELEM=$(find "$TESTFOLDER" -name "$TESTNAME*.json" | sed "s/.json//g")
+ELEM=$(find "$TESTFOLDER" | grep "$TESTNAME*.json" | sed "s/.json//g")
 mkdir "$TMPFOLDER"
 
 NAME=$(basename "$ELEM")

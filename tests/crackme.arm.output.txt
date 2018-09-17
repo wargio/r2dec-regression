@@ -24,9 +24,9 @@
                                              |     if (r3 == 0) {
     0x000114d8 movne lr, pc                  |         lr = pc;
                                              |     }
-                                             |     /* Beware that this call is a conditional call.
+                                             |     /* Beware that this jump is a conditional jump.
                                              |      * r2dec transformed it as a return, due being the
                                              |      * last instruction. Please, check 'pdda' output
-                                             |      * for more informations.. */
+                                             |      * for more hints. */
     0x000114dc movne pc, r3                  |     return pc = r3;
                                              | }

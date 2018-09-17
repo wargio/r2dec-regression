@@ -37,15 +37,15 @@
     0x564310a2ade4 mov qword [rip + 0x21c489], 0xffffffffffffffff    |     *((int64_t*) 0x564310c47278) = 0xffffffffffffffff;
     0x564310a2adef mov byte [rip + 0x21c3e2], 0                      |     *((int8_t*) 0x564310c471d8) = 0;
     0x564310a2adf6 cmp eax, 2                                        |     
-                                                                     |     if (eax != 2) {
+                                                                     |     if (eax == 2) {
     0x564310a2adf9 je 0x564310a2ba4e                                 |         void (*0x564310a2ba4e)() ();
                                                                      |     }
     0x564310a2adff cmp eax, 3                                        |     
-                                                                     |     if (eax != 3) {
+                                                                     |     if (eax == 3) {
     0x564310a2ae02 je 0x564310a2ae12                                 |         goto label_0;
                                                                      |     }
     0x564310a2ae04 sub eax, 1                                        |     eax--;
-                                                                     |     if (eax != 0) {
+                                                                     |     if (eax == 0) {
     0x564310a2ae07 je 0x564310a2b694                                 |         void (*0x564310a2b694)() ();
                                                                      |     }
     0x564310a2ae0d call 0x564310a2a6e0                               |     abort ();
@@ -72,7 +72,7 @@
     0x564310a2aea8 call 0x564310a2a6a0                               |     rax = getenv ();
     0x564310a2aead test rax, rax                                     |     
     0x564310a2aeb0 mov r12, rax                                      |     r12 = rax;
-                                                                     |     if (rax != 0) {
+                                                                     |     if (rax == 0) {
     0x564310a2aeb3 je 0x564310a2aeeb                                 |         goto label_1;
                                                                      |     }
     0x564310a2aeb5 lea rdx, [rip + 0x15ea4]                          |     rdx = obj_quoting_style_vals;
@@ -81,7 +81,7 @@
     0x564310a2aec8 mov rdi, rax                                      |     rdi = rax;
     0x564310a2aecb call 0x564310a32bb0                               |     eax = fcn_564310a32bb0 ();
     0x564310a2aed0 test eax, eax                                     |     
-                                                                     |     if (eax < 0) {
+                                                                     |     if (eax >= 0) {
     0x564310a2aed2 js 0x564310a2ba69                                 |         void (*0x564310a2ba69)() ();
                                                                      |     }
     0x564310a2aed8 lea rdx, [rip + 0x15e81]                          |     rdx = obj_quoting_style_vals;
@@ -95,11 +95,11 @@
     0x564310a2aefd call 0x564310a2a6a0                               |     rax = getenv ();
     0x564310a2af02 test rax, rax                                     |     
     0x564310a2af05 mov r12, rax                                      |     r12 = rax;
-                                                                     |     if (rax != 0) {
+                                                                     |     if (rax == 0) {
     0x564310a2af08 je 0x564310a2af13                                 |         goto label_2;
                                                                      |     }
     0x564310a2af0a cmp byte [rax], 0                                 |     
-                                                                     |     if (*((int8_t*) rax) == 0) {
+                                                                     |     if (*((int8_t*) rax) != 0) {
     0x564310a2af0d jne 0x564310a2bba8                                |         void (*0x564310a2bba8)() ();
                                                                      |     }
                                                                      | label_2:
@@ -114,7 +114,7 @@
     0x564310a2af2f je 0x564310a2af42                                 |         
     0x564310a2af31 movzx eax, word [rsp + 0x32]                      |         eax = *((uint16_t*) local_32h);
     0x564310a2af36 test ax, ax                                       |         
-                                                                     |         if (ax != 0) {
+                                                                     |         if (ax == 0) {
     0x564310a2af39 je 0x564310a2af42                                 |             goto label_3;
                                                                      |         }
     0x564310a2af3b mov qword [rip + 0x21c26e], rax                   |         *((int64_t*) 0x564310c471b0) = rax;
@@ -125,7 +125,7 @@
     0x564310a2af4e test rax, rax                                     |     
     0x564310a2af51 mov r13, rax                                      |     r13 = rax;
     0x564310a2af54 mov qword [rip + 0x21c261], 8                     |     *((int64_t*) 0x564310c471c0) = 8;
-                                                                     |     if (rax != 0) {
+                                                                     |     if (rax == 0) {
     0x564310a2af5f je 0x564310a2af87                                 |         goto label_4;
                                                                      |     }
     0x564310a2af61 xor r8d, r8d                                      |     r8d = 0;
@@ -135,7 +135,7 @@
     0x564310a2af6b mov rdi, rax                                      |     rdi = rax;
     0x564310a2af6e call 0x564310a3a7a0                               |     eax = fcn_564310a3a7a0 ();
     0x564310a2af73 test eax, eax                                     |     
-                                                                     |     if (eax == 0) {
+                                                                     |     if (eax != 0) {
     0x564310a2af75 jne 0x564310a2bfe1                                |         void (*0x564310a2bfe1)() ();
                                                                      |     }
     0x564310a2af7b mov rax, qword [rsp + 0x30]                       |     rax = *((int64_t*) local_30h);
@@ -155,12 +155,12 @@
     0x564310a2afbe mov dword [rsp + 0x30], 0xffffffff                |     *((int32_t*) local_30h) = 0xffffffff;
     0x564310a2afc6 call 0x564310a2a870                               |     eax = getopt_long ();
     0x564310a2afcb cmp eax, 0xffffffffffffffff                       |     
-                                                                     |     if (eax != -1) {
+                                                                     |     if (eax == -1) {
     0x564310a2afce je 0x564310a2b6e5                                 |         void (*0x564310a2b6e5)() ();
                                                                      |     }
     0x564310a2afd4 add eax, 0x83                                     |     eax += 0x83;
     0x564310a2afd9 cmp eax, 0x112                                    |     
-                                                                     |     if (eax <= 0x112) {
+                                                                     |     if (eax > 0x112) {
     0x564310a2afde ja 0x564310a2c43f                                 |         void (*0x564310a2c43f)() ();
                                                                      |     }
     0x564310a2afe4 movsxd rax, dword [r13 + rax*4]                   |     rax = *((int32_t*) (r13 + rax*4));

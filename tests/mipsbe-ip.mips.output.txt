@@ -134,7 +134,7 @@
     0x004026f8 addiu s1, s1, -1              |         s1 += -1;
     0x004026fc slti v0, s1, 2                |         v0 = (s1 < 2) ? 1 : 0;
     0x00402700 beqz v0, 0x4025ec             |         
-                                             |     } while (v0 != 0);
+                                             |     } while (v0 == 0);
     0x00402704 nop                           |     
                                              | label_9:
     0x00402708 lui v0, 0x43                  |     v0 = 0x430000;
@@ -210,7 +210,7 @@
     0x004027e4 lw gp, 0x10(sp)               |     gp = *((int32_t*) (sp + 4));
     0x004027e8 lw a2, 0x24(sp)               |     a2 = *((int32_t*) (sp + 9));
     0x004027ec move a0, a2                   |     a0 = a2;
-                                             |     if (v0 != 0) {
+                                             |     if (v0 == 0) {
     0x004027f0 bnez v0, 0x40281c             |         
     0x004027f4 addiu v1, zero, 4             |         v1 = 4;
                                              | label_3:
@@ -372,7 +372,7 @@
     0x004029dc lw a2, 0x24(sp)               |         a2 = *((int32_t*) (sp + 9));
     0x004029e0 lui v1, 0x43                  |         v1 = 0x430000;
     0x004029e4 beqz v0, 0x4029a4             |         
-                                             |     } while (v0 != 0);
+                                             |     } while (v0 == 0);
     0x004029e8 lw t9, -0x7f34(gp)            |     t9 = *((int32_t*) (gp - 8141));
     0x004029ec lui a1, 0x42                  |     a1 = 0x420000;
     0x004029f0 move a0, a2                   |     a0 = a2;
@@ -407,7 +407,7 @@
     0x00402a4c lw gp, 0x10(sp)               |         gp = *((int32_t*) (sp + 4));
     0x00402a50 lw a2, 0x24(sp)               |         a2 = *((int32_t*) (sp + 9));
     0x00402a54 lui v0, 0x43                  |         v0 = 0x430000;
-                                             |         if (v0 != 0) {
+                                             |         if (v0 == 0) {
     0x00402a58 bnez v0, 0x402a6c             |             
     0x00402a5c lw v1, 0x546c(v0)             |             v1 = *((int32_t*) (v0 + 5403));
     0x00402a60 addiu v1, v1, 1               |             v1++;
@@ -423,7 +423,7 @@
     0x00402a84 lw gp, 0x10(sp)               |         gp = *((int32_t*) (sp + 4));
     0x00402a88 lw a2, 0x24(sp)               |         a2 = *((int32_t*) (sp + 9));
     0x00402a8c lui v0, 0x43                  |         v0 = 0x430000;
-                                             |         if (v0 != 0) {
+                                             |         if (v0 == 0) {
     0x00402a90 bnez v0, 0x402ab0             |             
     0x00402a94 lw v1, 0x5470(v0)             |             v1 = *((int32_t*) (v0 + 5404));
     0x00402a98 addiu v1, v1, 1               |             v1++;
@@ -443,7 +443,7 @@
     0x00402ac8 lw gp, 0x10(sp)               |         gp = *((int32_t*) (sp + 4));
     0x00402acc lw a2, 0x24(sp)               |         a2 = *((int32_t*) (sp + 9));
     0x00402ad0 lui v0, 0x43                  |         v0 = 0x430000;
-                                             |         if (v0 != 0) {
+                                             |         if (v0 == 0) {
     0x00402ad4 bnez v0, 0x402ae8             |             
     0x00402ad8 lw v1, 0x5474(v0)             |             v1 = *((int32_t*) (v0 + 5405));
     0x00402adc addiu v1, v1, 1               |             v1++;
@@ -459,7 +459,7 @@
     0x00402b00 lw gp, 0x10(sp)               |         gp = *((int32_t*) (sp + 4));
     0x00402b04 lw a2, 0x24(sp)               |         a2 = *((int32_t*) (sp + 9));
     0x00402b08 lui a0, 0x42                  |         a0 = 0x420000;
-                                             |         if (v0 == 0) {
+                                             |         if (v0 != 0) {
     0x00402b0c beqz v0, 0x402b48             |             
     0x00402b10 lw t9, -0x7f34(gp)            |             t9 = *((int32_t*) (gp - 8141));
     0x00402b14 lui a1, 0x42                  |             a1 = 0x420000;
@@ -503,7 +503,7 @@
     0x00402b94 addiu s1, s1, -1              |         s1 += -1;
     0x00402b98 addiu s0, s0, 4               |         s0 += 4;
     0x00402b9c beq s1, v0, 0x402a2c          |         
-                                             |     } while (s1 != v0);
+                                             |     } while (s1 == v0);
     0x00402ba0 lui v0, 0x43                  |     v0 = 0x430000;
     0x00402ba4 lw v1, (s0)                   |     v1 = *((int32_t*) s0);
     0x00402ba8 sw v1, 0x547c(v0)             |     *((int32_t*) (v0 + 5407)) = v1;

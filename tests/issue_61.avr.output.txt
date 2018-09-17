@@ -22,7 +22,7 @@
     0x000000de sbci r24, 0x00        |         
     0x000000e0 sbci r25, 0x00        |         
     0x000000e2 brne 0xdc             |         
-                                     |     } while (r25 == 0);
+                                     |     } while (r25 != 0);
     0x000000e4 rjmp 0xe6             |     
     0x000000e6 nop                   |     
     0x000000e8 rjmp 0xd0             |     goto label_0;

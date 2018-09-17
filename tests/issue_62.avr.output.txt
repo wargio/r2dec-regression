@@ -17,7 +17,7 @@
     0x000007e0 ldi r30, 0xbc         |     r30 = 0xbc;
     0x000007e2 ldi r31, 0x2d         |     r31 = 0x2d;
     0x000007e4 rjmp 0x7ea            |     
-                                     |     while ((r26 | (r27 << 8)) == (0xb4 | (r17 << 8))) {
+                                     |     while ((r26 | (r27 << 8)) != (0xb4 | (r17 << 8))) {
     0x000007e6 lpm r0, z+            |         r0 = *((uint8_t*) MEM_Z);
                                      |         uint8_t local_0 = r30;
                                      |         r30++;
@@ -34,7 +34,7 @@
     0x000007f2 ldi r26, 0xb4         |     r26 = 0xb4;
     0x000007f4 ldi r27, 0x02         |     r27 = 0x02;
     0x000007f6 rjmp 0x7fa            |     
-                                     |     while ((r26 | (r27 << 8)) == (0x47 | (r18 << 8))) {
+                                     |     while ((r26 | (r27 << 8)) != (0x47 | (r18 << 8))) {
     0x000007f8 st x+, r1             |         *((uint8_t*) MEM_X) = r1;
                                      |         uint8_t local_2 = r26;
                                      |         r26++;
