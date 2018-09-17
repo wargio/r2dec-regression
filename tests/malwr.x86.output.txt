@@ -13,46 +13,47 @@
     0x0045af40 push r12                                      |         
     0x0045af42 pop rdi                                       |         rdi = r12;
     0x0045af43 pop r8                                        |         r8 = r12;
-    0x0045af45 jl 0x45af99                                   |         goto label_0;
-    0x0045af49 push rdx                                      |         
-    0x0045af4a push r12                                      |         
-    0x0045af4c pop rdi                                       |         rdi = r12;
-    0x0045af4d push rdi                                      |         
-    0x0045af4e push rdx                                      |         
-    0x0045af4f push r12                                      |         
-    0x0045af51 and byte [r14 + 0x61], r12b                   |         *((uint8_t*) (r14 + 0x61)) &= r12b;
-    0x0045af55 imul ebp, dword [rbp + 0x64], 0xa2e           |         ebp = *((int32_t*) (rbp + 0x64)) * 0xa2e;
-    0x0045af5d nop                                           |         
-    0x0045af5e nop                                           |         
-    0x0045af5f nop                                           |         
-    0x0045af60 pop rsi                                       |         rsi = r12;
-    0x0045af61 push 2                                        |         
-    0x0045af63 pop rdi                                       |         rdi = 2;
-    0x0045af64 push 1                                        |         
-    0x0045af66 pop rax                                       |         rax = 1;
-    0x0045af67 syscall                                       |         __asm ("syscall");
-    0x0045af69 push 0x7f                                     |         
-    0x0045af6b pop rdi                                       |         rdi = 0x7f;
-    0x0045af6c push 0x3c                                     |         
-    0x0045af6e pop rax                                       |         rax = 0x3c;
-    0x0045af6f syscall                                       |         __asm ("syscall");
-    0x0045af71 pop rbx                                       |         rbx = 0x3c;
-    0x0045af72 push 1                                        |         
-    0x0045af74 push 0x40000c                                 |         
-    0x0045af79 push rax                                      |         
-    0x0045af7a push 0x2dffd2                                 |         
-    0x0045af7f push rcx                                      |         
-    0x0045af80 push r15                                      |         
-    0x0045af82 mov edi, 0x800000                             |         edi = 0x800000;
-    0x0045af87 push 7                                        |         
-    0x0045af89 pop rdx                                       |         rdx = 7;
-    0x0045af8a mov esi, 0x2dffd2                             |         esi = 0x2dffd2;
-    0x0045af8f push 0x32                                     |         
-    0x0045af91 pop r10                                       |         r10 = 0x32;
-    0x0045af93 sub r8d, r8d                                  |         r8d -= r8d;
-    0x0045af96 push 9                                        |         
-    0x0045af98 pop rax                                       |         rax = 9;
-                                                             | label_0:
+                                                             |         if (? >= ?) {
+    0x0045af45 jl 0x45af99                                   |             
+    0x0045af49 push rdx                                      |             
+    0x0045af4a push r12                                      |             
+    0x0045af4c pop rdi                                       |             rdi = r12;
+    0x0045af4d push rdi                                      |             
+    0x0045af4e push rdx                                      |             
+    0x0045af4f push r12                                      |             
+    0x0045af51 and byte [r14 + 0x61], r12b                   |             *((uint8_t*) (r14 + 0x61)) &= r12b;
+    0x0045af55 imul ebp, dword [rbp + 0x64], 0xa2e           |             ebp = *((int32_t*) (rbp + 0x64)) * 0xa2e;
+    0x0045af5d nop                                           |             
+    0x0045af5e nop                                           |             
+    0x0045af5f nop                                           |             
+    0x0045af60 pop rsi                                       |             rsi = r12;
+    0x0045af61 push 2                                        |             
+    0x0045af63 pop rdi                                       |             rdi = 2;
+    0x0045af64 push 1                                        |             
+    0x0045af66 pop rax                                       |             rax = 1;
+    0x0045af67 syscall                                       |             __asm ("syscall");
+    0x0045af69 push 0x7f                                     |             
+    0x0045af6b pop rdi                                       |             rdi = 0x7f;
+    0x0045af6c push 0x3c                                     |             
+    0x0045af6e pop rax                                       |             rax = 0x3c;
+    0x0045af6f syscall                                       |             __asm ("syscall");
+    0x0045af71 pop rbx                                       |             rbx = 0x3c;
+    0x0045af72 push 1                                        |             
+    0x0045af74 push 0x40000c                                 |             
+    0x0045af79 push rax                                      |             
+    0x0045af7a push 0x2dffd2                                 |             
+    0x0045af7f push rcx                                      |             
+    0x0045af80 push r15                                      |             
+    0x0045af82 mov edi, 0x800000                             |             edi = 0x800000;
+    0x0045af87 push 7                                        |             
+    0x0045af89 pop rdx                                       |             rdx = 7;
+    0x0045af8a mov esi, 0x2dffd2                             |             esi = 0x2dffd2;
+    0x0045af8f push 0x32                                     |             
+    0x0045af91 pop r10                                       |             r10 = 0x32;
+    0x0045af93 sub r8d, r8d                                  |             r8d -= r8d;
+    0x0045af96 push 9                                        |             
+    0x0045af98 pop rax                                       |             rax = 9;
+                                                             |         }
     0x0045af99 syscall                                       |         __asm ("syscall");
     0x0045af9b cmp edi, eax                                  |         
     0x0045af9d jne 0x45af33                                  |         
@@ -60,19 +61,20 @@
     0x0045afa3 mov esi, 0x400000                             |     esi = segment.ehdr;
     0x0045afa8 mov edx, edi                                  |     edx = edi;
     0x0045afaa sub edx, esi                                  |     edx -= esi;
-    0x0045afac je 0x45afc3                                   |     goto label_1;
-    0x0045afae add ebp, edx                                  |     ebp += edx;
-    0x0045afb0 add dword [rsp + 8], edx                      |     local_8h += edx;
-    0x0045afb4 add dword [rsp + 0x18], edx                   |     local_18h += edx;
-    0x0045afb8 mov ecx, ebx                                  |     ecx = ebx;
-    0x0045afba sub ecx, esi                                  |     ecx -= esi;
-    0x0045afbc shr ecx, 3                                    |     ecx >>= 3;
-    0x0045afbf cld                                           |     __asm ("cld");
-    0x0045afc0 rep movsq qword [rdi], qword ptr [rsi]        |     *((uint64_t*) rdi) = *((uint64_t*) rsi);
-                                                             |     rcx--;
-                                                             |     rsi += 8;
-                                                             |     rdi += 8;
-                                                             | label_1:
+                                                             |     if (edx != 0) {
+    0x0045afac je 0x45afc3                                   |         
+    0x0045afae add ebp, edx                                  |         ebp += edx;
+    0x0045afb0 add dword [rsp + 8], edx                      |         local_8h += edx;
+    0x0045afb4 add dword [rsp + 0x18], edx                   |         local_18h += edx;
+    0x0045afb8 mov ecx, ebx                                  |         ecx = ebx;
+    0x0045afba sub ecx, esi                                  |         ecx -= esi;
+    0x0045afbc shr ecx, 3                                    |         ecx >>= 3;
+    0x0045afbf cld                                           |         
+    0x0045afc0 rep movsq qword [rdi], qword ptr [rsi]        |         *((uint64_t*) rdi) = *((uint64_t*) rsi);
+                                                             |         rcx--;
+                                                             |         rsi += 8;
+                                                             |         rdi += 8;
+                                                             |     }
     0x0045afc3 xchg eax, edi                                 |     tmp_0 = eax;
                                                              |     eax = edi;
                                                              |     edi = tmp_0;
