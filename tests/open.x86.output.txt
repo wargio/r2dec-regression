@@ -1,0 +1,18 @@
+    ; assembly                               | /* r2dec pseudo C output */
+                                             | #include <stdint.h>
+                                             |  
+    ; (fcn) entry0 ()                        | int8_t entry0 (void) {
+                                             |     int32_t local_4h;
+                                             |     /* [00] -r-x section size 40 named 0.__TEXT.__text */
+    0x100000f60 push rbp                     |     
+    0x100000f61 mov rbp, rsp                 |     
+    0x100000f64 sub rsp, 0x10                |     
+    0x100000f68 lea rdi, [rip + 0x3b]        |     
+    0x100000f6f mov esi, 1                   |     
+    0x100000f74 mov dword [rbp - 4], 0       |     local_4h = 0;
+    0x100000f7b mov al, 0                    |     al = 0;
+    0x100000f7d call 0x100000f88             |     open_fake ("/bin/ls", 1);
+    0x100000f82 add rsp, 0x10                |     
+    0x100000f86 pop rbp                      |     
+    0x100000f87 ret                          |     return al;
+                                             | }
