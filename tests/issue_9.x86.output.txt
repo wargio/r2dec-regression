@@ -81,7 +81,7 @@
     0x564310a2aec8 mov rdi, rax                                      |     rdi = rax;
     0x564310a2aecb call 0x564310a32bb0                               |     eax = fcn_564310a32bb0 ();
     0x564310a2aed0 test eax, eax                                     |     
-                                                                     |     if (eax >= 0) {
+                                                                     |     if (eax < 0) {
     0x564310a2aed2 js 0x564310a2ba69                                 |         void (*0x564310a2ba69)() ();
                                                                      |     }
     0x564310a2aed8 lea rdx, [rip + 0x15e81]                          |     rdx = obj_quoting_style_vals;
