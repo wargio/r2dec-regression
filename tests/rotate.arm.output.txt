@@ -1,4 +1,5 @@
     ; assembly                               | /* r2dec pseudo C output */
+                                             | /* testsuite @ 0x0 */
                                              | #include <stdint.h>
                                              |  
                                              | uint32_t rotate_right32 (uint32_t value, uint32_t count ) {

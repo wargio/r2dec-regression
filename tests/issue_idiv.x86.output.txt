@@ -1,4 +1,5 @@
     ; assembly                                       | /* r2dec pseudo C output */
+                                                     | /* testsuite @ 0x0 */
                                                      | #include <stdint.h>
                                                      |  
     ; (fcn) sub.llu_990 ()                           | uint64_t sub_llu_990 (void) {

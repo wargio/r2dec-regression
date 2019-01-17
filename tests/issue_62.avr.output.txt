@@ -1,4 +1,5 @@
     ; assembly                       | /* r2dec pseudo C output */
+                                     | /* testsuite @ 0x0 */
                                      | #include <stdint.h>
                                      | #define WRITE_TO_IO(x,y) __asm(in (x), (y))
                                      | #define MEM_Z ((uint16_t*)((r31 << 8) | r30))

@@ -1,4 +1,5 @@
     ; assembly                                           | /* r2dec pseudo C output */
+                                                         | /* testsuite @ 0x0 */
                                                          | #include <stdint.h>
                                                          |  
     ; (fcn) main ()                                      | uint64_t main (void) {

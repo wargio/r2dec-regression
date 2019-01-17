@@ -1,4 +1,5 @@
     ; assembly                               | /* r2dec pseudo C output */
+                                             | /* testsuite @ 0x0 */
                                              | #include <stdint.h>
                                              | #define SPR_HID1 (0x3f1)
                                              | #define SPR_HID4 (0x3f4)

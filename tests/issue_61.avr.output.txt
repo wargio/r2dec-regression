@@ -1,4 +1,5 @@
     ; assembly                       | /* r2dec pseudo C output */
+                                     | /* testsuite @ 0x0 */
                                      | #include <stdint.h>
                                      |  
     ; (fcn) fcn.000000b2 ()          | void fcn_000000b2 () {
