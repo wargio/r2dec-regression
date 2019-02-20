@@ -17,7 +17,7 @@
     0x080484af lea edx, [esp + 0x1c]             |         edx = &local_1ch;
     0x080484b3 mov dword [esp + 4], edx          |         
     0x080484b7 mov dword [esp], eax              |         
-    0x080484ba call 0x80483d0                    |         _isoc99_scanf (eax, edx);
+    0x080484ba call 0x80483d0                    |         isoc99_scanf (eax, edx);
     0x080484bf lea eax, [esp + 0x1c]             |         eax = &local_1ch;
     0x080484c3 mov dword [esp + 4], eax          |         
     0x080484c7 mov dword [esp], 0x804a040        |         

@@ -2,6 +2,6 @@
                                                  | /* testsuite @ 0x0 */
                                                  | #include <stdint.h>
                                                  |  
-    ; (fcn) sym.imp.__error ()                   | void _error (void) {
+    ; (fcn) sym.imp.__error ()                   | void error (void) {
     0x10000443a jmp qword [rip + 0xc08]          |     void (*)() ();
                                                  | }

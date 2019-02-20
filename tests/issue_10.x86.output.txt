@@ -2,7 +2,7 @@
                                                          | /* testsuite @ 0x0 */
                                                          | #include <stdint.h>
                                                          |  
-    ; (fcn) main ()                                      | uint64_t main (void) {
+    ; (fcn) main ()                                      | int32_t main (void) {
     0x100001200 push rbp                                 |     
     0x100001201 mov rbp, rsp                             |     
     0x100001204 push r15                                 |     

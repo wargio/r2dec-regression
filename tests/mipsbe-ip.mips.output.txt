@@ -2,7 +2,7 @@
                                              | /* testsuite @ 0x0 */
                                              | #include <stdint.h>
                                              |  
-    ; (fcn) main ()                          | void main () {
+    ; (fcn) main ()                          | int32_t main () {
     0x00402558 addiu sp, sp, -0x50           |     sp += -0x50;
     0x0040255c sw ra, 0x4c(sp)               |     *((int32_t*) (sp + 19)) = ra;
     0x00402560 sw fp, 0x48(sp)               |     *((int32_t*) (sp + 18)) = fp;

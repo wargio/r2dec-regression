@@ -2,7 +2,7 @@
                                                  | /* testsuite @ 0x0 */
                                                  | #include <stdint.h>
                                                  |  
-    ; (fcn) sym._main ()                         | uint32_t _main (void) {
+    ; (fcn) sym._main ()                         | int32_t main (void) {
                                                  |     /* [00] -r-x section size 35 named 0.__TEXT.__text */
     0x100000f60 push rbp                         |     
     0x100000f61 mov rbp, rsp                     |     

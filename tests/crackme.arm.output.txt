@@ -2,7 +2,7 @@
                                              | /* testsuite @ 0x0 */
                                              | #include <stdint.h>
                                              |  
-    ; (fcn) sym.__dll_exit ()                | void _dll_exit () {
+    ; (fcn) sym.__dll_exit ()                | void dll_exit () {
     0x0001149c push {r4, r5, r6, lr}         |     
     0x000114a0 ldr r3, [pc, 0x64]            |     r3 = aav.0x00014004;
                                              |     /* arg4 */
