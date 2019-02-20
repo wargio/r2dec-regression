@@ -32,12 +32,12 @@
     0x0045af63 pop rdi                                       |             rdi = 2;
     0x0045af64 push 1                                        |             
     0x0045af66 pop rax                                       |             rax = 1;
-    0x0045af67 syscall                                       |             __asm ("syscall");
+    0x0045af67 syscall                                       |             rax = sys_exit (0x2);
     0x0045af69 push 0x7f                                     |             
     0x0045af6b pop rdi                                       |             rdi = 0x7f;
     0x0045af6c push 0x3c                                     |             
     0x0045af6e pop rax                                       |             rax = 0x3c;
-    0x0045af6f syscall                                       |             __asm ("syscall");
+    0x0045af6f syscall                                       |             rax = sys_umask (0x7f);
     0x0045af71 pop rbx                                       |             rbx = 0x3c;
     0x0045af72 push 1                                        |             
     0x0045af74 push 0x40000c                                 |             
@@ -55,7 +55,7 @@
     0x0045af96 push 9                                        |             
     0x0045af98 pop rax                                       |             rax = 9;
                                                              |         }
-    0x0045af99 syscall                                       |         __asm ("syscall");
+    0x0045af99 syscall                                       |         rax = sys_link (rdi, rsi);
     0x0045af9b cmp edi, eax                                  |         
     0x0045af9d jne 0x45af33                                  |         
                                                              |     } while (edi != eax);
