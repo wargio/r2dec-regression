@@ -120,7 +120,7 @@
     0x00017f08 mov r5, r0                            |             r5 = r0;
     0x00017f0c str r0, [r4, 0xbd4]                   |             *((uint32_t*) (r4 + 0xbd4)) = r0;
     0x00017f10 ldr r0, [pc, 0x2d0]                   |             r0 = aav.0x0001e240;
-    0x00017f14 bl 0xf6b8                             |             0xf6b8 ();
+    0x00017f14 bl 0xf6b8                             |             void (*0xf6b8)() ();
     0x00017f18 ldr r3, [r4, 0xbd4]                   |             r3 = *((uint32_t*) (r4 + 0xbd4));
     0x00017f1c str r0, [r5]                          |             *((uint32_t*) r5) = r0;
     0x00017f20 ldr r0, [r3]                          |             r0 = *((uint32_t*) r3);
@@ -143,7 +143,7 @@
     0x00017f44 b 0x17f34                             |         
                                                      |     } while (1);
                                                      | label_5:
-    0x00017f48 bl 0xf6dc                             |     0xf6dc ();
+    0x00017f48 bl 0xf6dc                             |     void (*0xf6dc)() ();
                                                      | label_3:
     0x00017f4c ldr r4, [pc, 0x268]                   |     r4 = aav.0x001d310c;
     0x00017f50 ldr r1, [r4, 0xbd4]                   |     r1 = *((uint32_t*) (r4 + 0xbd4));
@@ -171,7 +171,7 @@
     0x00017f98 str r0, [r3, 4]                       |             *((uint32_t*) (r3 + 4)) = r0;
     0x00017f9c ldr r0, [pc, 0x250]                   |             r0 = str.Get_a_correct_Segment_ID:__d_and_semaphore_ID:_d;
     0x00017fa0 bl 0xe994                             |             sym_imp_printf ();
-    0x00017fa4 bl 0x19690                            |             0x19690 ();
+    0x00017fa4 bl 0x19690                            |             void (*0x19690)() ();
     0x00017fa8 mov r1, 1                             |             r1 = 1;
     0x00017fac mov r0, 0xd                           |             r0 = 0xd;
     0x00017fb0 bl 0xea18                             |             sym_imp_signal ();
@@ -313,7 +313,7 @@
     0x00018184 cmp r3, 0                             |             
                                                      |             if (r3 != 0) {
     0x00018188 beq 0x18190                           |                 
-    0x0001818c bl 0x293b8                            |                 0x293b8 ();
+    0x0001818c bl 0x293b8                            |                 void (*0x293b8)() ();
                                                      |             }
     0x00018190 bl 0x9dc24                            |             sub_memset_c24 ();
     0x00018194 mov r0, 1                             |             r0 = 1;
@@ -323,7 +323,7 @@
     0x000181a0 ldr r0, [pc, 0x80]                    |         r0 = str.restart_httpd;
     0x000181a4 bl 0xdba8                             |         sym_imp_acosNvramConfig_set ();
     0x000181a8 mov r0, 0x50                          |         r0 = 0x50;
-    0x000181ac bl 0x14fcc                            |         0x14fcc ();
+    0x000181ac bl 0x14fcc                            |         void (*0x14fcc)() ();
     0x000181b0 mov r0, 0                             |         r0 = 0;
                                                      |     }
                                                      | label_8:
