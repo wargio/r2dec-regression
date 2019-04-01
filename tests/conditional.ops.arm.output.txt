@@ -10,7 +10,7 @@
     0x00017dd0 mov r4, 1                             |     r4 = 1;
     0x00017dd4 sub sp, sp, 0x24                      |     
     0x00017dd8 mov r8, r0                            |     r8 = r0;
-    0x00017ddc mov r6, r1                            |     
+    0x00017ddc mov r6, r1                            |     r6 = r1;
     0x00017de0 mov sl, r4                            |     sl = r4;
     0x00017de4 str r3, [r5, 4]                       |     *((uint32_t*) (r5 + 4)) = r3;
     0x00017de8 str r3, [r5, 0xbe8]                   |     *((uint32_t*) (r5 + 0xbe8)) = r3;
@@ -19,7 +19,7 @@
                                                      |     while (r3 == 0x2d) {
     0x00017df4 mov r0, r7                            |         r0 = r7;
     0x00017df8 ldr r1, [pc, 0x3c0]                   |         r1 = *((uint32_t*) 0x000181c0);
-    0x00017dfc bl 0xe7cc                             |         r0 = strcmp (0, aav_0010b8e0);
+    0x00017dfc bl 0xe7cc                             |         r0 = strcmp (r0, r1);
     0x00017e00 cmp r0, 0                             |         
                                                      |         if (r0 != 0) {
     0x00017e04 streq sl, [r5, 4]                     |             *((uint32_t*) (r5 + 4)) = sl;
@@ -28,7 +28,7 @@
     0x00017e08 beq 0x17e3c                           |             
     0x00017e0c mov r0, r7                            |             r0 = r7;
     0x00017e10 ldr r1, [pc, 0x3ac]                   |             r1 = *((uint32_t*) 0x000181c4);
-    0x00017e14 bl 0xe7cc                             |             r0 = strcmp (0, aav_0010b8e0);
+    0x00017e14 bl 0xe7cc                             |             r0 = strcmp (r0, r1);
     0x00017e18 cmp r0, 0                             |             
                                                      |             if (r0 != 0) {
     0x00017e1c bne 0x17e3c                           |                 goto label_1;
@@ -40,7 +40,7 @@
                                                      |                 r2 = *((uint32_t*) (r6 + offset_0));
                                                      |             }
                                                      |             if (r3 >= r8) {
-    0x00017e2c addlt r4, r3, 1                       |                 
+    0x00017e2c addlt r4, r3, 1                       |                 r4 = r3 + 1;
                                                      |             }
                                                      |             if (r3 >= r8) {
     0x00017e30 strlt r2, [r5, 0xbe8]                 |                 *((uint32_t*) (r5 + 0xbe8)) = r2;
@@ -67,13 +67,13 @@
     0x00017e54 beq 0x17df4                           |         
                                                      |     }
                                                      | label_2:
-    0x00017e58 ldr r0, [pc, 0x368]                   |     r0 = str.tmp_shm_id;
+    0x00017e58 ldr r0, [pc, 0x368]                   |     r0 = str_tmp_shm_id;
     0x00017e5c mov r1, 0                             |     r1 = 0;
     0x00017e60 bl 0xdea8                             |     r0 = access ();
     0x00017e64 cmp r0, 0                             |     
                                                      |     if (r0 == 0) {
     0x00017e68 bne 0x17e98                           |         
-    0x00017e6c ldr r0, [pc, 0x354]                   |         r0 = str.tmp_shm_id;
+    0x00017e6c ldr r0, [pc, 0x354]                   |         r0 = str_tmp_shm_id;
     0x00017e70 ldr r1, [pc, 0x354]                   |         r1 = *((uint32_t*) 0x000181cc);
     0x00017e74 bl 0xe034                             |         r0 = fopen ();
     0x00017e78 cmp r0, 0                             |         
@@ -84,7 +84,7 @@
     0x00017e88 bl 0xe9f4                             |             fscanf ();
     0x00017e8c b 0x17f4c                             |             goto label_3;
                                                      |         }
-    0x00017e90 ldr r0, [pc, 0x340]                   |         r0 = str.tmp_shm_id_open_failed;
+    0x00017e90 ldr r0, [pc, 0x340]                   |         r0 = str_tmp_shm_id_open_failed;
     0x00017e94 b 0x17f34                             |         
                                                      |     } else {
     0x00017e98 ldr r4, [pc, 0x33c]                   |         r4 = aav_00123b18;
@@ -94,7 +94,7 @@
     0x00017ea8 bl 0xe1a8                             |         shmget ();
     0x00017eac ldr r1, [pc, 0x32c]                   |         r1 = *((uint32_t*) 0x000181e0);
     0x00017eb0 str r0, [r4, 0xb70]                   |         *((uint32_t*) (r4 + 0xb70)) = r0;
-    0x00017eb4 ldr r0, [pc, 0x30c]                   |         r0 = str.tmp_shm_id;
+    0x00017eb4 ldr r0, [pc, 0x30c]                   |         r0 = str_tmp_shm_id;
     0x00017eb8 bl 0xe034                             |         r0 = fopen ();
     0x00017ebc subs r5, r0, 0                        |         r5 = r0 - 0;
                                                      |         if (r5 != r0) {
@@ -104,7 +104,7 @@
                                                      |             if (r1 == 1) {
     0x00017ecc beq 0x17f30                           |                 goto label_4;
                                                      |             }
-    0x00017ed0 ldr r0, [pc, 0x30c]                   |             r0 = str.shm_ID:__d;
+    0x00017ed0 ldr r0, [pc, 0x30c]                   |             r0 = str_shm_ID:__d;
     0x00017ed4 bl 0xe994                             |             printf ();
     0x00017ed8 ldr r2, [r4, 0xb70]                   |             r2 = *((uint32_t*) (r4 + 0xb70));
     0x00017edc mov r0, r5                            |             r0 = r5;
@@ -118,13 +118,13 @@
     0x00017efc mov r2, r1                            |             r2 = r1;
     0x00017f00 bl 0xe2b0                             |             shmat ();
     0x00017f04 movw r1, 0x7b6                        |             r1 = (r1 & 0xFFFF0000) | (0x7b6 & 0xFFFF);
-    0x00017f08 mov r5, r0                            |             
+    0x00017f08 mov r5, r0                            |             r5 = r0;
     0x00017f0c str r0, [r4, 0xbd4]                   |             *((uint32_t*) (r4 + 0xbd4)) = r0;
     0x00017f10 ldr r0, [pc, 0x2d0]                   |             r0 = aav_0001e240;
-    0x00017f14 bl 0xf6b8                             |             void (*0xf6b8)() (r3 + 1);
+    0x00017f14 bl 0xf6b8                             |             void (*0xf6b8)(uint32_t, uint32_t) (r0, r1);
     0x00017f18 ldr r3, [r4, 0xbd4]                   |             r3 = *((uint32_t*) (r4 + 0xbd4));
     0x00017f1c str r0, [r5]                          |             *((uint32_t*) r5) = r0;
-    0x00017f20 ldr r0, [r3]                          |             
+    0x00017f20 ldr r0, [r3]                          |             r0 = *((uint32_t*) r3);
     0x00017f24 cmn r0, 1                             |             
                                                      |             if (r0 != 1) {
     0x00017f28 bne 0x17f48                           |                 goto label_5;
@@ -132,19 +132,19 @@
     0x00017f2c b 0x17f40                             |             goto label_6;
                                                      |         }
                                                      | label_4:
-    0x00017f30 ldr r0, [pc, 0x2b4]                   |         r0 = str.tmp_shm_id_opened_error;
+    0x00017f30 ldr r0, [pc, 0x2b4]                   |         r0 = str_tmp_shm_id_opened_error;
                                                      |     }
                                                      |     do {
                                                      | label_0:
-    0x00017f34 bl 0xe9e8                             |         puts (0);
+    0x00017f34 bl 0xe9e8                             |         puts (r0);
     0x00017f38 mov r0, 1                             |         r0 = 1;
-    0x00017f3c bl 0xe718                             |         exit (0);
+    0x00017f3c bl 0xe718                             |         exit (r0);
                                                      | label_6:
-    0x00017f40 ldr r0, [pc, 0x2a8]                   |         r0 = str.Semaphore_Create_Failed.;
+    0x00017f40 ldr r0, [pc, 0x2a8]                   |         r0 = str_Semaphore_Create_Failed.;
     0x00017f44 b 0x17f34                             |         
                                                      |     } while (1);
                                                      | label_5:
-    0x00017f48 bl 0xf6dc                             |     void (*0xf6dc)() (*((uint32_t*) r3));
+    0x00017f48 bl 0xf6dc                             |     void (*0xf6dc)(uint32_t) (r0);
                                                      | label_3:
     0x00017f4c ldr r4, [pc, 0x268]                   |     r4 = aav_001d310c;
     0x00017f50 ldr r1, [r4, 0xbd4]                   |     r1 = *((uint32_t*) (r4 + 0xbd4));
@@ -164,15 +164,15 @@
     0x00017f7c beq 0x18024                           |         
     0x00017f80 ldr r3, [pc, 0x234]                   |         r3 = aav_001d310c;
     0x00017f84 ldr r3, [r3, 0xbd4]                   |         r3 = *((uint32_t*) (r3 + 0xbd4));
-    0x00017f88 ldr r2, [r3]                          |         
+    0x00017f88 ldr r2, [r3]                          |         r2 = *((uint32_t*) r3);
     0x00017f8c cmn r2, 1                             |         
                                                      |         if (r2 != 1) {
     0x00017f90 beq 0x18024                           |             
     0x00017f94 mov r0, 0                             |             r0 = 0;
     0x00017f98 str r0, [r3, 4]                       |             *((uint32_t*) (r3 + 4)) = r0;
-    0x00017f9c ldr r0, [pc, 0x250]                   |             r0 = str.Get_a_correct_Segment_ID:__d_and_semaphore_ID:_d;
+    0x00017f9c ldr r0, [pc, 0x250]                   |             r0 = str_Get_a_correct_Segment_ID:__d_and_semaphore_ID:_d;
     0x00017fa0 bl 0xe994                             |             printf ();
-    0x00017fa4 bl 0x19690                            |             void (*0x19690)() (*((uint32_t*) r3));
+    0x00017fa4 bl 0x19690                            |             void (*0x19690)(uint32_t) (r0);
     0x00017fa8 mov r1, 1                             |             r1 = 1;
     0x00017fac mov r0, 0xd                           |             r0 = 0xd;
     0x00017fb0 bl 0xea18                             |             signal ();
@@ -209,25 +209,25 @@
                                                      |         }
                                                      |     } else {
     0x00018024 ldr r3, [pc, 0x190]                   |         r3 = aav_001d310c;
-    0x00018028 ldr r0, [pc, 0x1cc]                   |         r0 = str.Get_a_incorrect_Segment_ID:__d_and_semaphore_ID:_d;
+    0x00018028 ldr r0, [pc, 0x1cc]                   |         r0 = str_Get_a_incorrect_Segment_ID:__d_and_semaphore_ID:_d;
     0x0001802c ldr r3, [r3, 0xbd4]                   |         r3 = *((uint32_t*) (r3 + 0xbd4));
-    0x00018030 ldr r2, [r3]                          |         
+    0x00018030 ldr r2, [r3]                          |         r2 = *((uint32_t*) r3);
     0x00018034 bl 0xe994                             |         printf ();
-    0x00018038 ldr r0, [pc, 0x1c0]                   |         r0 = str.something_wrong_in_getting_shm_id.;
+    0x00018038 ldr r0, [pc, 0x1c0]                   |         r0 = str_something_wrong_in_getting_shm_id.;
     0x0001803c b 0x17f34                             |         goto label_0;
                                                      |     }
-    0x00018040 ldr r0, [pc, 0x1bc]                   |     r0 = str.daemon;
+    0x00018040 ldr r0, [pc, 0x1bc]                   |     r0 = str_daemon;
     0x00018044 bl 0xe490                             |     perror ();
     0x00018048 mov r0, r4                            |     r0 = r4;
     0x0001804c b 0x181b4                             |     goto label_8;
                                                      | label_7:
-    0x00018050 ldr r0, [pc, 0x1b0]                   |     r0 = str.var_run_httpd.pid;
+    0x00018050 ldr r0, [pc, 0x1b0]                   |     r0 = str_var_run_httpd.pid;
     0x00018054 ldr r1, [pc, 0x184]                   |     r1 = *((uint32_t*) 0x000181e0);
     0x00018058 bl 0xe034                             |     r0 = fopen ();
     0x0001805c subs r4, r0, 0                        |     r4 = r0 - 0;
                                                      |     if (r4 == r0) {
     0x00018060 bne 0x18074                           |         
-    0x00018064 ldr r0, [pc, 0x19c]                   |         r0 = str.var_run_httpd.pid;
+    0x00018064 ldr r0, [pc, 0x19c]                   |         r0 = str_var_run_httpd.pid;
     0x00018068 bl 0xe490                             |         perror ();
     0x0001806c mvn r0, 0                             |         r0 = ~0;
     0x00018070 b 0x181b4                             |         
@@ -239,7 +239,7 @@
     0x00018084 bl 0xe514                             |         fprintf ();
     0x00018088 mov r0, r4                            |         r0 = r4;
     0x0001808c bl 0xdf80                             |         fclose ();
-    0x00018090 ldr r0, [pc, 0x174]                   |         r0 = str.restart_all_processes;
+    0x00018090 ldr r0, [pc, 0x174]                   |         r0 = str_restart_all_processes;
     0x00018094 ldr r1, [pc, 0x174]                   |         r1 = *((uint32_t*) 0x00018210);
     0x00018098 bl 0xd8d8                             |         r0 = acosNvramConfig_match ();
     0x0001809c cmp r0, 0                             |         
@@ -247,20 +247,20 @@
     0x000180a0 beq 0x180a8                           |             
     0x000180a4 bl 0xe8a4                             |             agApi_clear_nat_for_httpd ();
                                                      |         }
-    0x000180a8 ldr r0, [pc, 0x164]                   |         r0 = str.sku_name;
+    0x000180a8 ldr r0, [pc, 0x164]                   |         r0 = str_sku_name;
     0x000180ac ldr r1, [pc, 0x164]                   |         r1 = *((uint32_t*) 0x00018218);
     0x000180b0 bl 0xd8d8                             |         r0 = acosNvramConfig_match ();
     0x000180b4 cmp r0, 0                             |         
                                                      |         if (r0 == 0) {
     0x000180b8 bne 0x180e4                           |             
-    0x000180bc ldr r0, [pc, 0x150]                   |             r0 = str.sku_name;
+    0x000180bc ldr r0, [pc, 0x150]                   |             r0 = str_sku_name;
     0x000180c0 ldr r1, [pc, 0x154]                   |             r1 = aav_000cb22c;
     0x000180c4 bl 0xd8d8                             |             r0 = acosNvramConfig_match ();
     0x000180c8 cmp r0, 0                             |             
                                                      |             if (r0 == 0) {
     0x000180cc beq 0x180ec                           |                 goto label_9;
                                                      |             }
-    0x000180d0 ldr r0, [pc, 0x148]                   |             r0 = str.gui_region;
+    0x000180d0 ldr r0, [pc, 0x148]                   |             r0 = str_gui_region;
     0x000180d4 ldr r1, [pc, 0x148]                   |             r1 = aav_000cad3c;
     0x000180d8 bl 0xd8d8                             |             r0 = acosNvramConfig_match ();
     0x000180dc cmp r0, 0                             |             
@@ -279,16 +279,16 @@
     0x000180fc str r1, [sp]                          |         *((uint32_t*) sp) = r1;
     0x00018100 mov r4, sp                            |         r4 = sp;
     0x00018104 str r2, [r3, 0xbdc]                   |         *((uint32_t*) (r3 + 0xbdc)) = r2;
-    0x00018108 mov r2, 0x1c                          |         
-    0x0001810c bl 0xe43c                             |         memset (0, aav_0010b8e0, 0x1c);
-    0x00018110 ldr r0, [pc, 0x108]                   |         r0 = str.gui_region;
+    0x00018108 mov r2, 0x1c                          |         r2 = 0x1c;
+    0x0001810c bl 0xe43c                             |         memset (x0, x1, r2, , r4);
+    0x00018110 ldr r0, [pc, 0x108]                   |         r0 = str_gui_region;
     0x00018114 bl 0xe694                             |         r0 = acosNvramConfig_get ();
     0x00018118 mov r1, r0                            |         r1 = r0;
     0x0001811c mov r0, sp                            |         r0 = sp;
-    0x00018120 bl 0xeae4                             |         strcpy (0, aav_0010b8e0);
+    0x00018120 bl 0xeae4                             |         strcpy (r0, r1);
     0x00018124 mov r0, sp                            |         r0 = sp;
-    0x00018128 bl 0xa9f40                            |         sub_puts_f40 (0);
-    0x0001812c ldr r0, [pc, 0xf4]                    |         r0 = str.restart_httpd;
+    0x00018128 bl 0xa9f40                            |         sub_puts_f40 (r0);
+    0x0001812c ldr r0, [pc, 0xf4]                    |         r0 = str_restart_httpd;
     0x00018130 ldr r1, [pc, 0xd8]                    |         r1 = *((uint32_t*) 0x00018210);
     0x00018134 bl 0xd8d8                             |         r0 = acosNvramConfig_match ();
     0x00018138 cmp r0, 0                             |         
@@ -298,12 +298,12 @@
     0x00018144 bl 0x4b0bc                            |             sub_memset_bc ();
     0x00018148 bl 0x39e50                            |             sub_agApi_fwURLFilterEnable_e50 ();
     0x0001814c bl 0x3a8fc                            |             sub_agApi_fwURLFilterEnable_Session2_8fc ();
-    0x00018150 bl 0x4cd04                            |             sub_memset_d04 (0, aav_0010b8e0);
-    0x00018154 bl 0x41aa8                            |             sub_acosNvramConfig_get_aa8 (0, aav_0010b8e0, 0x1c, 0, r5, r0, r1);
+    0x00018150 bl 0x4cd04                            |             sub_memset_d04 (x0, x1);
+    0x00018154 bl 0x41aa8                            |             sub_acosNvramConfig_get_aa8 (x0, x1, x2, x3, x4, x5, x6);
     0x00018158 bl 0x46be8                            |             fcn_00046be8 ();
     0x0001815c bl 0x4c560                            |             sub_acosNvramConfig_get_560 ();
     0x00018160 bl 0x413c0                            |             sub_acosNvramConfig_set_3c0 ();
-    0x00018164 bl 0x40584                            |             sub_acosNvramConfig_get_584 (0);
+    0x00018164 bl 0x40584                            |             sub_acosNvramConfig_get_584 (x0);
     0x00018168 bl 0x4e01c                            |             sub_acosNvramConfig_get_1c ();
     0x0001816c bl 0x4440c                            |             sub_acosNvramConfig_match_40c ();
     0x00018170 bl 0x73094                            |             sub_acosNvramConfig_match_94 ();
@@ -314,18 +314,18 @@
     0x00018184 cmp r3, 0                             |             
                                                      |             if (r3 != 0) {
     0x00018188 beq 0x18190                           |                 
-    0x0001818c bl 0x293b8                            |                 void (*0x293b8)() (*((uint32_t*) r3));
+    0x0001818c bl 0x293b8                            |                 void (*0x293b8)() ();
                                                      |             }
-    0x00018190 bl 0x9dc24                            |             sub_memset_c24 (0, aav_0010b8e0);
+    0x00018190 bl 0x9dc24                            |             sub_memset_c24 (x0, x1);
     0x00018194 mov r0, 1                             |             r0 = 1;
-    0x00018198 bl 0x93c58                            |             sub_fork_c58 (0, aav_0010b8e0);
+    0x00018198 bl 0x93c58                            |             sub_fork_c58 (r0, x1);
                                                      |         }
-    0x0001819c ldr r1, [pc, 0x88]                    |         
-    0x000181a0 ldr r0, [pc, 0x80]                    |         r0 = str.restart_httpd;
+    0x0001819c ldr r1, [pc, 0x88]                    |         r1 = aav_0010b8e0;
+    0x000181a0 ldr r0, [pc, 0x80]                    |         r0 = str_restart_httpd;
     0x000181a4 bl 0xdba8                             |         acosNvramConfig_set ();
     0x000181a8 mov r0, 0x50                          |         r0 = 0x50;
-    0x000181ac bl 0x14fcc                            |         void (*0x14fcc)() (*((uint32_t*) r3));
-    0x000181b0 mov r0, 0                             |         
+    0x000181ac bl 0x14fcc                            |         void (*0x14fcc)(uint32_t) (r0);
+    0x000181b0 mov r0, 0                             |         r0 = 0;
                                                      |     }
                                                      | label_8:
     0x000181b4 add sp, sp, 0x24                      |     
