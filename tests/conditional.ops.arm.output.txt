@@ -1,4 +1,4 @@
-    ; assembly                                       | /* r2dec pseudo C output */
+    ; assembly                                       | /* r2dec pseudo code output */
                                                      | /* testsuite @ 0x0 */
                                                      | #include <stdint.h>
                                                      |  
@@ -280,7 +280,7 @@
     0x00018100 mov r4, sp                            |         r4 = sp;
     0x00018104 str r2, [r3, 0xbdc]                   |         *((uint32_t*) (r3 + 0xbdc)) = r2;
     0x00018108 mov r2, 0x1c                          |         r2 = 0x1c;
-    0x0001810c bl 0xe43c                             |         memset (x0, x1, r2, , r4);
+    0x0001810c bl 0xe43c                             |         memset (r0, r1, r2);
     0x00018110 ldr r0, [pc, 0x108]                   |         r0 = str_gui_region;
     0x00018114 bl 0xe694                             |         r0 = acosNvramConfig_get ();
     0x00018118 mov r1, r0                            |         r1 = r0;
@@ -298,12 +298,12 @@
     0x00018144 bl 0x4b0bc                            |             sub_memset_bc ();
     0x00018148 bl 0x39e50                            |             sub_agApi_fwURLFilterEnable_e50 ();
     0x0001814c bl 0x3a8fc                            |             sub_agApi_fwURLFilterEnable_Session2_8fc ();
-    0x00018150 bl 0x4cd04                            |             sub_memset_d04 (x0, x1);
-    0x00018154 bl 0x41aa8                            |             sub_acosNvramConfig_get_aa8 (x0, x1, x2, x3, x4, x5, x6);
+    0x00018150 bl 0x4cd04                            |             sub_memset_d04 (r0, r1);
+    0x00018154 bl 0x41aa8                            |             sub_acosNvramConfig_get_aa8 (r0, r1, r2, r3, r4, r5, r6);
     0x00018158 bl 0x46be8                            |             fcn_00046be8 ();
     0x0001815c bl 0x4c560                            |             sub_acosNvramConfig_get_560 ();
     0x00018160 bl 0x413c0                            |             sub_acosNvramConfig_set_3c0 ();
-    0x00018164 bl 0x40584                            |             sub_acosNvramConfig_get_584 (x0);
+    0x00018164 bl 0x40584                            |             sub_acosNvramConfig_get_584 (r0);
     0x00018168 bl 0x4e01c                            |             sub_acosNvramConfig_get_1c ();
     0x0001816c bl 0x4440c                            |             sub_acosNvramConfig_match_40c ();
     0x00018170 bl 0x73094                            |             sub_acosNvramConfig_match_94 ();
@@ -316,9 +316,9 @@
     0x00018188 beq 0x18190                           |                 
     0x0001818c bl 0x293b8                            |                 void (*0x293b8)() ();
                                                      |             }
-    0x00018190 bl 0x9dc24                            |             sub_memset_c24 (x0, x1);
+    0x00018190 bl 0x9dc24                            |             sub_memset_c24 (r0, r1);
     0x00018194 mov r0, 1                             |             r0 = 1;
-    0x00018198 bl 0x93c58                            |             sub_fork_c58 (r0, x1);
+    0x00018198 bl 0x93c58                            |             sub_fork_c58 (r0, r1);
                                                      |         }
     0x0001819c ldr r1, [pc, 0x88]                    |         r1 = aav_0010b8e0;
     0x000181a0 ldr r0, [pc, 0x80]                    |         r0 = str_restart_httpd;
