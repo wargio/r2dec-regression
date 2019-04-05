@@ -12,11 +12,11 @@
     0x10000b1aa mov esi, dword [rbp + 8]             |     
     0x10000b1ad lea rdx, [rbp + 0x10]                |     
     0x10000b1b1 mov r8, qword [rip + 0x4c408]        |     r8 = *((int64_t*) 0x1000575c0);
-    0x10000b1b8 lea rcx, [rip - 0x23]                |     rcx = fcn_rip;
-    0x10000b1bf sub rcx, r8                          |     
+    0x10000b1b8 lea rcx, [rip - 0x23]                |     
+    0x10000b1bf sub rcx, r8                          |     rcx -= r8;
     0x10000b1c2 lea r8, [rip - 0x11c9]               |     
     0x10000b1c9 lea r9, [rbp - 8]                    |     
-    0x10000b1cd call 0x10000b20f                     |     rax = fcn_10000b20f (rdi, arg_8h, arg_10h, r8, 0x10000a000, local_8h);
+    0x10000b1cd call 0x10000b20f                     |     rax = fcn_10000b20f (rdi, arg_8h, arg_10h, fcn.rip, 0x10000a000, local_8h);
     0x10000b1d2 mov rdi, qword [rbp - 8]             |     rdi = local_8h;
     0x10000b1d6 cmp rdi, 0                           |     
                                                      |     if (rdi == 0) {

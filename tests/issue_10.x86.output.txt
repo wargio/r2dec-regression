@@ -250,7 +250,7 @@
     0x1000018a8 lea rdi, [rbp - 0x3c]                    |             rdi = local_3ch;
     0x1000018ac call 0x1000044e8                         |             getbsize ();
     0x1000018b1 mov rax, qword [rip + 0x3d48]            |             rax = *((int64_t*) 0x100005600);
-    0x1000018b8 mov rcx, rax                             |             rcx = rax;
+    0x1000018b8 mov rcx, rax                             |             rcx = *((uint64_t*) 0x100005600);
     0x1000018bb sar rcx, 0x3f                            |             rcx >>= 0x3f;
     0x1000018bf shr rcx, 0x37                            |             rcx >>= 0x37;
     0x1000018c3 add rcx, rax                             |             rcx += rax;
