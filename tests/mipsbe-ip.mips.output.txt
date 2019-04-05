@@ -366,7 +366,7 @@
     0x004029c4 nop                           |         
                                              | label_23:
     0x004029c8 lw t9, -0x7f34(gp)            |         t9 = *((int32_t*) (gp - 8141));
-    0x004029cc lui a1, 0x42                  |         a1 = -statistics;
+    0x004029cc lui a1, 0x42                  |         a1 = "-statistics";
     0x004029d0 addiu a1, a1, -0x105c         |         
     0x004029d4 jalr t9                       |         t9 ();
     0x004029d8 lw gp, 0x10(sp)               |         gp = *((int32_t*) (sp + 4));
