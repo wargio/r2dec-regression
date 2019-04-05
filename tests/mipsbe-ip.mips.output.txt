@@ -14,8 +14,8 @@
     0x00402578 sw s2, 0x30(sp)               |     *((int32_t*) (sp + 12)) = s2;
     0x0040257c sw s1, 0x2c(sp)               |     *((int32_t*) (sp + 11)) = s1;
     0x00402580 sw s0, 0x28(sp)               |     *((int32_t*) (sp + 10)) = s0;
-    0x00402584 lui gp, 0x44                  |     gp = 0x43d0e0;
-    0x00402588 addiu gp, gp, -0x2f20         |     gp += -0x2f20;
+    0x00402584 lui gp, 0x44                  |     gp = _gp;
+    0x00402588 addiu gp, gp, -0x2f20         |     
     0x0040258c sw gp, 0x10(sp)               |     *((int32_t*) (sp + 4)) = gp;
     0x00402590 move s0, a1                   |     s0 = a1;
     0x00402594 lw t9, -0x7de8(gp)            |     t9 = *((int32_t*) (gp - 8058));
@@ -366,8 +366,8 @@
     0x004029c4 nop                           |         
                                              | label_23:
     0x004029c8 lw t9, -0x7f34(gp)            |         t9 = *((int32_t*) (gp - 8141));
-    0x004029cc lui a1, 0x42                  |         a1 = 0x41efa4;
-    0x004029d0 addiu a1, a1, -0x105c         |         a1 += -0x105c;
+    0x004029cc lui a1, 0x42                  |         a1 = -statistics;
+    0x004029d0 addiu a1, a1, -0x105c         |         
     0x004029d4 jalr t9                       |         t9 ();
     0x004029d8 lw gp, 0x10(sp)               |         gp = *((int32_t*) (sp + 4));
     0x004029dc lw a2, 0x24(sp)               |         a2 = *((int32_t*) (sp + 9));
