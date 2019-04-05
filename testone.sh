@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TESTFOLDER=./tests
-TMPFOLDER=./tmp/
+TMPFOLDER=./tmp
 R2DECFOLDER=$2
 TESTNAME=$1
 RMCMD="rmdir"
