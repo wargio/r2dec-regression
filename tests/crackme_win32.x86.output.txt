@@ -1,0 +1,78 @@
+    ; assembly                                   | /* r2dec pseudo code output */
+                                                 | /* testsuite @ 0x0 */
+                                                 | #include <stdint.h>
+                                                 |  
+    ; (fcn) sub.Good_Job_401000 ()               | int32_t Good_Job_401000 (int32_t arg_8h, int32_t arg_ch) {
+                                                 |     /* [00] -r-x section size 4096 named .text */
+    0x00401000 push ebp                          |     
+    0x00401001 mov ebp, esp                      |     
+    0x00401003 push ebx                          |     
+    0x00401004 push esi                          |     
+    0x00401005 push edi                          |     
+    0x00401006 cmp dword [ebp + 8], 2            |     
+                                                 |     if (arg_8h == 2) {
+    0x0040100a jne 0x40105e                      |         
+    0x0040100c xor eax, eax                      |         eax = 0;
+                                                 |         if (arg_8h != 2) {
+    0x0040100e je 0x401011                       |             
+    0x00401010 nop                               |             
+                                                 |         }
+    0x00401011 mov eax, dword [ebp + 0xc]        |         eax = arg_ch;
+    0x00401014 mov ecx, dword [eax + 4]          |         ecx = *((int32_t*) (eax + 4));
+    0x00401017 movsx edx, byte [ecx]             |         edx = *((int8_t*) ecx);
+    0x0040101a cmp edx, 0x70                     |         
+                                                 |         if (edx == 0x70) {
+    0x0040101d jne 0x40105e                      |             
+    0x0040101f xor eax, eax                      |             eax = 0;
+                                                 |             if (edx != 0x70) {
+    0x00401021 je 0x401024                       |                 
+    0x00401023 nop                               |                 
+                                                 |             }
+    0x00401024 mov eax, dword [ebp + 0xc]        |             eax = arg_ch;
+    0x00401027 mov ecx, dword [eax + 4]          |             ecx = *((int32_t*) (eax + 4));
+    0x0040102a movsx edx, byte [ecx + 2]         |             edx = *((int8_t*) (ecx + 2));
+    0x0040102e cmp edx, 0x71                     |             
+                                                 |             if (edx != 0x71) {
+    0x00401031 jne 0x40105e                      |                 goto label_0;
+                                                 |             }
+    0x00401033 xor eax, eax                      |             eax = 0;
+                                                 |             if (edx != 0x71) {
+    0x00401035 je 0x401038                       |                 
+    0x00401037 nop                               |                 
+                                                 |             }
+    0x00401038 mov eax, dword [ebp + 0xc]        |             eax = arg_ch;
+    0x0040103b mov ecx, dword [eax + 4]          |             ecx = *((int32_t*) (eax + 4));
+    0x0040103e movsx edx, byte [ecx + 1]         |             edx = *((int8_t*) (ecx + 1));
+    0x00401042 cmp edx, 0x64                     |             
+                                                 |             if (edx != 0x64) {
+    0x00401045 jne 0x40105e                      |                 goto label_0;
+                                                 |             }
+    0x00401047 xor eax, eax                      |             eax = 0;
+                                                 |             if (edx != 0x64) {
+    0x00401049 je 0x40104c                       |                 
+    0x0040104b nop                               |                 
+                                                 |             }
+    0x0040104c push 0x403010                     |             
+    0x00401051 call dword [0x402000]             |             eax = printf ("Good Job!");
+    0x00401057 add esp, 4                        |             
+    0x0040105a xor eax, eax                      |             eax = 0;
+    0x0040105c jmp 0x401073                      |             
+                                                 |         }
+                                                 |     } else {
+                                                 | label_0:
+    0x0040105e xor eax, eax                      |         eax = 0;
+                                                 |         if (edx != 0x64) {
+    0x00401060 je 0x401063                       |             
+    0x00401062 nop                               |             
+                                                 |         }
+    0x00401063 push 0x40301c                     |         
+    0x00401068 call dword [0x402000]             |         eax = printf ("Son, I am disappoint.");
+    0x0040106e add esp, 4                        |         
+    0x00401071 xor eax, eax                      |         eax = 0;
+                                                 |     }
+    0x00401073 pop edi                           |     
+    0x00401074 pop esi                           |     
+    0x00401075 pop ebx                           |     
+    0x00401076 pop ebp                           |     
+    0x00401077 ret                               |     return eax;
+                                                 | }
