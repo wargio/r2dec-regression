@@ -287,28 +287,28 @@
     0x0001811c mov r0, sp                            |         r0 = sp;
     0x00018120 bl 0xeae4                             |         strcpy (r0, r1);
     0x00018124 mov r0, sp                            |         r0 = sp;
-    0x00018128 bl 0xa9f40                            |         sub_puts_f40 (r0);
+    0x00018128 bl 0xa9f40                            |         puts_f40 (r0);
     0x0001812c ldr r0, [pc, 0xf4]                    |         r0 = str_restart_httpd;
     0x00018130 ldr r1, [pc, 0xd8]                    |         r1 = *((uint32_t*) 0x00018210);
     0x00018134 bl 0xd8d8                             |         r0 = acosNvramConfig_match ();
     0x00018138 cmp r0, 0                             |         
                                                      |         if (r0 == 0) {
     0x0001813c bne 0x1819c                           |             
-    0x00018140 bl 0x4a724                            |             sub_memset_724 ();
-    0x00018144 bl 0x4b0bc                            |             sub_memset_bc ();
-    0x00018148 bl 0x39e50                            |             sub_agApi_fwURLFilterEnable_e50 ();
-    0x0001814c bl 0x3a8fc                            |             sub_agApi_fwURLFilterEnable_Session2_8fc ();
-    0x00018150 bl 0x4cd04                            |             sub_memset_d04 (r0, r1);
-    0x00018154 bl 0x41aa8                            |             sub_acosNvramConfig_get_aa8 (r0, r1, r2, r3, r4, r5, r6);
+    0x00018140 bl 0x4a724                            |             memset_724 ();
+    0x00018144 bl 0x4b0bc                            |             memset_bc ();
+    0x00018148 bl 0x39e50                            |             agApi_fwURLFilterEnable_e50 ();
+    0x0001814c bl 0x3a8fc                            |             agApi_fwURLFilterEnable_Session2_8fc ();
+    0x00018150 bl 0x4cd04                            |             memset_d04 (r0, r1);
+    0x00018154 bl 0x41aa8                            |             acosNvramConfig_get_aa8 (r0, r1, r2, r3, r4, r5, r6);
     0x00018158 bl 0x46be8                            |             fcn_00046be8 ();
-    0x0001815c bl 0x4c560                            |             sub_acosNvramConfig_get_560 ();
-    0x00018160 bl 0x413c0                            |             sub_acosNvramConfig_set_3c0 ();
-    0x00018164 bl 0x40584                            |             sub_acosNvramConfig_get_584 (r0);
-    0x00018168 bl 0x4e01c                            |             sub_acosNvramConfig_get_1c ();
-    0x0001816c bl 0x4440c                            |             sub_acosNvramConfig_match_40c ();
-    0x00018170 bl 0x73094                            |             sub_acosNvramConfig_match_94 ();
-    0x00018174 bl 0xa1058                            |             sub_system_58 ();
-    0x00018178 bl 0x21814                            |             sub_acosNvramConfig_get_814 ();
+    0x0001815c bl 0x4c560                            |             acosNvramConfig_get_560 ();
+    0x00018160 bl 0x413c0                            |             acosNvramConfig_set_3c0 ();
+    0x00018164 bl 0x40584                            |             acosNvramConfig_get_584 (r0);
+    0x00018168 bl 0x4e01c                            |             acosNvramConfig_get_1c ();
+    0x0001816c bl 0x4440c                            |             acosNvramConfig_match_40c ();
+    0x00018170 bl 0x73094                            |             acosNvramConfig_match_94 ();
+    0x00018174 bl 0xa1058                            |             system_58 ();
+    0x00018178 bl 0x21814                            |             acosNvramConfig_get_814 ();
     0x0001817c ldr r3, [pc, 0x38]                    |             r3 = aav_001d310c;
     0x00018180 ldr r3, [r3, 0xbdc]                   |             r3 = *((uint32_t*) (r3 + 0xbdc));
     0x00018184 cmp r3, 0                             |             
@@ -316,9 +316,9 @@
     0x00018188 beq 0x18190                           |                 
     0x0001818c bl 0x293b8                            |                 void (*0x293b8)() ();
                                                      |             }
-    0x00018190 bl 0x9dc24                            |             sub_memset_c24 (r0, r1);
+    0x00018190 bl 0x9dc24                            |             memset_c24 (r0, r1);
     0x00018194 mov r0, 1                             |             r0 = 1;
-    0x00018198 bl 0x93c58                            |             sub_fork_c58 (r0, r1);
+    0x00018198 bl 0x93c58                            |             fork_c58 (r0, r1);
                                                      |         }
     0x0001819c ldr r1, [pc, 0x88]                    |         r1 = aav_0010b8e0;
     0x000181a0 ldr r0, [pc, 0x80]                    |         r0 = str_restart_httpd;

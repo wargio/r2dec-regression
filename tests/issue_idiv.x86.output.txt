@@ -2,7 +2,7 @@
                                                      | /* testsuite @ 0x0 */
                                                      | #include <stdint.h>
                                                      |  
-    ; (fcn) sub.llu_990 ()                           | uint64_t sub_llu_990 (void) {
+    ; (fcn) sub.llu_990 ()                           | uint64_t llu_990 (void) {
     0x100002990 push rbp                             |     
     0x100002991 mov rbp, rsp                         |     
     0x100002994 push r15                             |     

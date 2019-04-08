@@ -17,7 +17,7 @@
     0x564310a2ad56 mov rax, qword fs:[0x28]                          |     rax = *((int64_t*) fs:0x28);
     0x564310a2ad5f mov qword [rsp + 0x48], rax                       |     *((int64_t*) local_48h) = rax;
     0x564310a2ad64 xor eax, eax                                      |     eax = 0;
-    0x564310a2ad66 call 0x564310a366b0                               |     fcn_564310a366b0 ();
+    0x564310a2ad66 call 0x564310a366b0                               |     fcn_564310a366b0 (rbx, rbp, r12, r13, r14);
     0x564310a2ad6b lea rsi, [rip + 0x16277]                          |     rsi = 0x564310a40fe9;
     0x564310a2ad72 mov edi, 6                                        |     edi = 6;
     0x564310a2ad77 call 0x564310a2ab80                               |     setlocale ();
