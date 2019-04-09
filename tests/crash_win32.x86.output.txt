@@ -22,10 +22,6 @@
     0x00401014 mov ecx, dword [eax + 4]              |             ecx = *((int32_t*) (eax + 4));
     0x00401017 movsx edx, byte [ecx]                 |             edx = *((int8_t*) ecx);
     0x0040101a cmp edx, 0x70                         |             
-    0x00401011 mov eax, dword [ebp + 0xc]            |             eax = arg_ch;
-    0x00401014 mov ecx, dword [eax + 4]              |             ecx = *((int32_t*) (eax + 4));
-    0x00401017 movsx edx, byte [ecx]                 |             edx = *((int8_t*) ecx);
-    0x0040101a cmp edx, 0x70                         |             
                                                      |             if (edx == 0x70) {
     0x0040101d jne 0x40105e                          |                 
     0x0040101f xor eax, eax                          |                 eax = 0;
@@ -37,41 +33,28 @@
     0x00401027 mov ecx, dword [eax + 4]              |                 ecx = *((int32_t*) (eax + 4));
     0x0040102a movsx edx, byte [ecx + 2]             |                 edx = *((int8_t*) (ecx + 2));
     0x0040102e cmp edx, 0x71                         |                 
-    0x00401024 mov eax, dword [ebp + 0xc]            |                 eax = arg_ch;
-    0x00401027 mov ecx, dword [eax + 4]              |                 ecx = *((int32_t*) (eax + 4));
-    0x0040102a movsx edx, byte [ecx + 2]             |                 edx = *((int8_t*) (ecx + 2));
-    0x0040102e cmp edx, 0x71                         |                 
                                                      |                 if (edx != 0x71) {
     0x00401031 jne 0x40105e                          |                     goto label_0;
                                                      |                 }
     0x00401032 sub esi, dword [ebx]                  |                 esi -= *((int32_t*) ebx);
     0x00401033 xor eax, eax                          |                 eax = 0;
-    0x00401035 je 0x401038                           |                 
-    0x00401037 call 0x8b4c55c7                       |                 void (*0x8b4c55c7)() ();
-    0x00401038 mov eax, dword [ebp + 0xc]            |                 eax = arg_ch;
-    0x00401033 xor eax, eax                          |                 eax = 0;
-    0x00401038 mov eax, dword [ebp + 0xc]            |                 eax = arg_ch;
+                                                     |                 if (esi != 0) {
+    0x00401035 je 0x401038                           |                     
+    0x00401037 call 0x8b4c55c7                       |                     void (*0x8b4c55c7)() ();
+                                                     |                 }
     0x00401038 mov eax, dword [ebp + 0xc]            |                 eax = arg_ch;
     0x0040103b mov ecx, dword [eax + 4]              |                 ecx = *((int32_t*) (eax + 4));
     0x0040103c dec eax                               |                 eax--;
     0x0040103d add al, 0xf                           |                 al += 0xf;
     0x0040103f mov esi, 0xfa830151                   |                 esi = 0xfa830151;
-    0x0040103c dec eax                               |                 eax--;
-    0x0040103d add al, 0xf                           |                 al += 0xf;
-    0x0040103f mov esi, 0xfa830151                   |                 esi = 0xfa830151;
-    0x00401044 jne 0x40105e                          |                 goto label_0;
                                                      |                 if (al != 0) {
-                                                     |                     if (al != 0) {
-    0x00401044 jne 0x40105e                          |                         goto label_0;
-                                                     |                     }
+    0x00401044 jne 0x40105e                          |                     goto label_0;
                                                      |                 }
     0x00401047 xor eax, eax                          |                 eax = 0;
                                                      |                 if (al != 0) {
     0x00401049 je 0x40104c                           |                     
     0x0040104b call 0x407020b8                       |                     void (*0x407020b8)() ();
                                                      |                 }
-    0x0040104c push 0x403010                         |                 
-    0x00401051 call dword [0x402000]                 |                 printf ("Good Job!");
     0x0040104c push 0x403010                         |                 
     0x00401051 call dword [0x402000]                 |                 eax = printf ("Good Job!");
     0x00401057 add esp, 4                            |                 
@@ -85,8 +68,6 @@
     0x00401060 je 0x401063                           |                 
     0x00401062 call 0x40702ccf                       |                 void (*0x40702ccf)() ();
                                                      |             }
-    0x00401063 push 0x40301c                         |             
-    0x00401068 call dword [0x402000]                 |             printf ("Son, I am disappoint.");
     0x00401063 push 0x40301c                         |             
     0x00401068 call dword [0x402000]                 |             eax = printf ("Son, I am disappoint.");
     0x0040106e add esp, 4                            |             
