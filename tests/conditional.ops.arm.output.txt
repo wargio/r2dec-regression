@@ -105,7 +105,7 @@
     0x00017ecc beq 0x17f30                           |                 goto label_4;
                                                      |             }
     0x00017ed0 ldr r0, [pc, 0x30c]                   |             r0 = str_shm_ID:__d;
-    0x00017ed4 bl 0xe994                             |             printf ();
+    0x00017ed4 bl 0xe994                             |             printf (r0);
     0x00017ed8 ldr r2, [r4, 0xb70]                   |             r2 = *((uint32_t*) (r4 + 0xb70));
     0x00017edc mov r0, r5                            |             r0 = r5;
     0x00017ee0 ldr r1, [pc, 0x2e8]                   |             r1 = *((uint32_t*) 0x000181d0);
@@ -117,7 +117,7 @@
     0x00017ef8 ldr r4, [pc, 0x2bc]                   |             r4 = aav_001d310c;
     0x00017efc mov r2, r1                            |             r2 = r1;
     0x00017f00 bl 0xe2b0                             |             shmat ();
-    0x00017f04 movw r1, 0x7b6                        |             r1 = (r1 & 0xFFFF0000) | (0x7b6 & 0xFFFF);
+    0x00017f04 movw r1, 0x7b6                        |             r1 = 0x7b6;
     0x00017f08 mov r5, r0                            |             r5 = r0;
     0x00017f0c str r0, [r4, 0xbd4]                   |             *((uint32_t*) (r4 + 0xbd4)) = r0;
     0x00017f10 ldr r0, [pc, 0x2d0]                   |             r0 = aav_0001e240;
@@ -171,7 +171,7 @@
     0x00017f94 mov r0, 0                             |             r0 = 0;
     0x00017f98 str r0, [r3, 4]                       |             *((uint32_t*) (r3 + 4)) = r0;
     0x00017f9c ldr r0, [pc, 0x250]                   |             r0 = str_Get_a_correct_Segment_ID:__d_and_semaphore_ID:_d;
-    0x00017fa0 bl 0xe994                             |             printf ();
+    0x00017fa0 bl 0xe994                             |             r0 = printf (r0);
     0x00017fa4 bl 0x19690                            |             void (*0x19690)(uint32_t) (r0);
     0x00017fa8 mov r1, 1                             |             r1 = 1;
     0x00017fac mov r0, 0xd                           |             r0 = 0xd;
@@ -212,7 +212,7 @@
     0x00018028 ldr r0, [pc, 0x1cc]                   |         r0 = str_Get_a_incorrect_Segment_ID:__d_and_semaphore_ID:_d;
     0x0001802c ldr r3, [r3, 0xbd4]                   |         r3 = *((uint32_t*) (r3 + 0xbd4));
     0x00018030 ldr r2, [r3]                          |         r2 = *((uint32_t*) r3);
-    0x00018034 bl 0xe994                             |         printf ();
+    0x00018034 bl 0xe994                             |         printf (r0, r1, r2, r3);
     0x00018038 ldr r0, [pc, 0x1c0]                   |         r0 = str_something_wrong_in_getting_shm_id.;
     0x0001803c b 0x17f34                             |         goto label_0;
                                                      |     }
@@ -298,12 +298,12 @@
     0x00018144 bl 0x4b0bc                            |             memset_bc ();
     0x00018148 bl 0x39e50                            |             agApi_fwURLFilterEnable_e50 ();
     0x0001814c bl 0x3a8fc                            |             agApi_fwURLFilterEnable_Session2_8fc ();
-    0x00018150 bl 0x4cd04                            |             memset_d04 (r0, r1);
-    0x00018154 bl 0x41aa8                            |             acosNvramConfig_get_aa8 (r0, r1, r2, r3, r4, r5, r6);
+    0x00018150 bl 0x4cd04                            |             r0 = memset_d04 (r0, r1);
+    0x00018154 bl 0x41aa8                            |             r0 = acosNvramConfig_get_aa8 (r0, r1, r2, r3, r4, r5, r6);
     0x00018158 bl 0x46be8                            |             fcn_00046be8 ();
     0x0001815c bl 0x4c560                            |             acosNvramConfig_get_560 ();
     0x00018160 bl 0x413c0                            |             acosNvramConfig_set_3c0 ();
-    0x00018164 bl 0x40584                            |             acosNvramConfig_get_584 (r0);
+    0x00018164 bl 0x40584                            |             r0 = acosNvramConfig_get_584 (r0);
     0x00018168 bl 0x4e01c                            |             acosNvramConfig_get_1c ();
     0x0001816c bl 0x4440c                            |             acosNvramConfig_match_40c ();
     0x00018170 bl 0x73094                            |             acosNvramConfig_match_94 ();
