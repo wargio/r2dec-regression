@@ -1,0 +1,46 @@
+    ; assembly                                   | /* r2dec pseudo code output */
+                                                 | /* testsuite @ 0x0 */
+                                                 | #include <stdint.h>
+                                                 |  
+    ; (fcn) entry0 ()                            | void entry0 () {
+    0x100010f7c stp x22, x21, [sp, -0x30]!       |     *((uint64_t*) (sp + -0x30)) = x22;
+                                                 |     *((uint64_t*) (sp + -0x30 + 8)) = x21;
+    0x100010f80 stp x20, x19, [sp, 0x10]         |     *((uint64_t*) (sp + 0x10)) = x20;
+                                                 |     *((uint64_t*) (sp + 0x10 + 8)) = x19;
+    0x100010f84 stp x29, x30, [sp, 0x20]         |     *((uint64_t*) (sp + 0x20)) = x29;
+                                                 |     *((uint64_t*) (sp + 0x20 + 8)) = x30;
+    0x100010f88 add x29, sp, 0x20                |     x29 = sp + 0x20;
+    0x100010f8c mov x19, x1                      |     x19 = x1;
+    0x100010f90 mov x20, x0                      |     x20 = x0;
+                                                 |     @autoreleasepool {
+    0x100010f94 bl 0x1000ff5a0                   |         
+    0x100010f98 mov x21, x0                      |         x21 = x0;
+    0x100010f9c adrp x8, 0x10016a000             |         x8 = 0x10016a000;
+    0x100010fa0 ldr x0, [x8, 0x5f0]              |         
+    0x100010fa4 adrp x8, 0x100165000             |         x8 = 0x100165000;
+    0x100010fa8 ldr x1, [x8, 0xf20]              |         
+    0x100010fac bl 0x1000ff684                   |         x0 = [*((uint64_t*) 0x10016a5f0) *((uint64_t*) 0x100165f20)];
+    0x100010fb0 bl 0x1000ff474                   |         x0 = NSStringFromClass (x0);
+    0x100010fb4 mov x29, x29                     |         
+    0x100010fb8 bl 0x1000ff6d8                   |         
+    0x100010fbc mov x22, x0                      |         x22 = x0;
+    0x100010fc0 movz x2, 0                       |         x2 = 0x0;
+    0x100010fc4 mov x0, x20                      |         x0 = x20;
+    0x100010fc8 mov x1, x19                      |         x1 = x19;
+    0x100010fcc mov x3, x22                      |         x3 = x22;
+    0x100010fd0 bl 0x1000ff3e4                   |         x0 = UIApplicationMain (x0, x1, x2, x3);
+    0x100010fd4 mov x19, x0                      |         x19 = x0;
+    0x100010fd8 mov x0, x22                      |         x0 = x22;
+    0x100010fdc bl 0x1000ff6a8                   |         [x0 release];
+    0x100010fe0 mov x0, x21                      |         x0 = x21;
+    0x100010fe4 bl 0x1000ff594                   |         
+                                                 |     }
+    0x100010fe8 mov x0, x19                      |     x0 = x19;
+    0x100010fec ldp x29, x30, [sp, 0x20]         |     x29 = *((uint64_t*) (sp + 0x20));
+                                                 |     x30 = *((uint64_t*) (sp + 0x20 + 8));
+    0x100010ff0 ldp x20, x19, [sp, 0x10]         |     x20 = *((uint64_t*) (sp + 0x10));
+                                                 |     x19 = *((uint64_t*) (sp + 0x10 + 8));
+    0x100010ff4 ldp x22, x21, [sp], 0x30         |     x22 = *((uint64_t*) sp);
+                                                 |     x21 = *((uint64_t*) (sp + 8));
+    0x100010ff8 ret                              |     return;
+                                                 | }
