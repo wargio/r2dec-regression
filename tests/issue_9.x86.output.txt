@@ -33,7 +33,7 @@
     0x564310a2adbb mov dword [rip + 0x21c34b], 0                     |     *((int32_t*) 0x564310c47110) = 0;
     0x564310a2adc5 mov byte [rip + 0x21c3ec], 1                      |     *((int8_t*) 0x564310c471b8) = 1;
     0x564310a2adcc mov qword [rip + 0x21c49d], rax                   |     *((int64_t*) 0x564310c47270) = rax;
-    0x564310a2add3 mov eax, dword [rip + 0x21b407]                   |     eax = *((int32_t*) obj.ls_mode);
+    0x564310a2add3 mov eax, dword [rip + 0x21b407]                   |     eax = ls_mode;
     0x564310a2add9 mov qword [rip + 0x21c49c], 0                     |     *((int64_t*) 0x564310c47280) = 0;
     0x564310a2ade4 mov qword [rip + 0x21c489], 0xffffffffffffffff    |     *((int64_t*) 0x564310c47278) = 0xffffffffffffffff;
     0x564310a2adef mov byte [rip + 0x21c3e2], 0                      |     *((int8_t*) 0x564310c471d8) = 0;
