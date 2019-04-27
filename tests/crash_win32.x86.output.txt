@@ -88,7 +88,7 @@
     0x004010c7 call dword [0x402024]                 |         _p_commode ();
     0x004010cd mov ecx, dword [0x403048]             |         ecx = *((int32_t*) 0x403048);
     0x004010d3 mov dword [eax], ecx                  |         *((int32_t*) eax) = ecx;
-    0x004010d5 mov eax, dword [0x402020]             |         eax = *((int32_t*) sym.imp.MSVCRT.dll__adjust_fdiv);
+    0x004010d5 mov eax, dword [0x402020]             |         eax = imp.MSVCRT.dll__adjust_fdiv;
     0x004010da mov eax, dword [eax]                  |         eax = *((int32_t*) eax);
     0x004010dc mov dword [0x403058], eax             |         *((int32_t*) 0x403058) = eax;
     0x004010e1 call 0x4011a9                         |         fcn_004011a9 ();
