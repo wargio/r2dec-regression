@@ -1,0 +1,103 @@
+    ; assembly                                           | /* r2dec pseudo code output */
+                                                         | /* testsuite @ 0x0 */
+                                                         | #include <stdint.h>
+                                                         |  
+    ; (fcn) sym.func.10000686c ()                        | uint64_t func_10000686c (int32_t arg1) {
+                                                         |     void ** instance;
+    0x10000686c push rbp                                 |     
+    0x10000686d mov rbp, rsp                             |     
+    0x100006870 push r15                                 |     
+    0x100006872 push r14                                 |     
+    0x100006874 push r13                                 |     
+    0x100006876 push r12                                 |     
+    0x100006878 push rbx                                 |     
+    0x100006879 sub rsp, 0x18                            |     
+    0x10000687d lea rax, [rbp - 0x38]                    |     rax = &instance;
+    0x100006881 mov qword [rax], rdi                     |     *((int64_t*) rax) = rdi;
+    0x100006884 mov rcx, qword [rip + 0x22975]           |     
+    0x10000688b mov qword [rax + 8], rcx                 |     *((int64_t*) (rax + 8)) = rcx;
+    0x10000688f mov rsi, qword [rip + 0x216e2]           |     
+    0x100006896 mov rdi, rax                             |     rdi = rax;
+    0x100006899 call 0x1000163fa                         |     rax = [rax init rdx];
+    0x10000689e mov rbx, rax                             |     rbx = rax;
+    0x1000068a1 test rax, rax                            |     
+                                                         |     if (rax != 0) {
+    0x1000068a4 je 0x1000069eb                           |         
+    0x1000068aa mov rax, qword [rip + 0x22a0f]           |         rax = 0x2;
+    0x1000068b1 xor ecx, ecx                             |         ecx = 0;
+    0x1000068b3 mov qword [rbx + rax], rcx               |         *((int64_t*) (rbx + rax)) = rcx;
+    0x1000068b7 mov rax, qword [rip + 0x22a0a]           |         rax = 0x2;
+    0x1000068be mov qword [rbx + rax], rcx               |         *((int64_t*) (rbx + rax)) = rcx;
+    0x1000068c2 mov rax, qword [rip + 0x22a07]           |         rax = 0x2;
+    0x1000068c9 mov qword [rbx + rax], 0xe               |         *((int64_t*) (rbx + rax)) = 0xe;
+    0x1000068d1 mov rdi, qword [rip + 0x22790]           |         
+    0x1000068d8 mov r14, qword [rip + 0x21519]           |         r14 = *((int64_t*) str.alloc);
+    0x1000068df mov r12, qword [rip + 0x177c2]           |         
+    0x1000068e6 mov rsi, r14                             |         rsi = r14;
+    0x1000068e9 call r12                                 |         rax = [NSMutableString alloc];
+    0x1000068ec mov rsi, qword [rip + 0x2168d]           |         
+    0x1000068f3 lea rdx, [rip + 0x17966]                 |         
+    0x1000068fa mov rdi, rax                             |         rdi = rax;
+    0x1000068fd call r12                                 |         rax = [0x1000292d0 initWithString: 0x10001e260];
+    0x100006900 mov rcx, qword [rip + 0x229d1]           |         
+    0x100006907 mov qword [rbx + rcx], rax               |         *((int64_t*) (rbx + rcx)) = rax;
+    0x10000690b mov rdi, qword [rip + 0x2275e]           |         
+    0x100006912 mov rsi, r14                             |         rsi = r14;
+    0x100006915 call r12                                 |         rax = [NSNumber alloc rdx];
+    0x100006918 mov rsi, qword [rip + 0x21669]           |         
+    0x10000691f xor edx, edx                             |         
+    0x100006921 mov rdi, rax                             |         rdi = rax;
+    0x100006924 call r12                                 |         rax = [0x1000292d0 initWithInt: 0];
+    0x100006927 mov rcx, qword [rip + 0x229b2]           |         rcx = 0x2;
+    0x10000692e mov qword [rbx + rcx], rax               |         *((int64_t*) (rbx + rcx)) = rax;
+    0x100006932 mov rax, qword [rip + 0x229af]           |         rax = 0x2;
+    0x100006939 mov rcx, qword [rip + 0x17748]           |         rcx = *((int64_t*) reloc.NSZeroRect);
+    0x100006940 mov rdx, qword [rcx]                     |         rdx = *((int64_t*) rcx);
+    0x100006943 mov rsi, qword [rcx + 8]                 |         rsi = *((int64_t*) (rcx + 8));
+    0x100006947 mov qword [rbx + rax], rdx               |         *((int64_t*) (rbx + rax)) = rdx;
+    0x10000694b mov qword [rbx + rax + 8], rsi           |         *((int64_t*) (rbx + rax + 8)) = rsi;
+    0x100006950 mov rdx, qword [rcx + 0x10]              |         rdx = *((int64_t*) (rcx + 0x10));
+    0x100006954 mov qword [rbx + rax + 0x10], rdx        |         *((int64_t*) (rbx + rax + 0x10)) = rdx;
+    0x100006959 mov rcx, qword [rcx + 0x18]              |         
+    0x10000695d mov qword [rbx + rax + 0x18], rcx        |         *((int64_t*) (rbx + rax + 0x18)) = rcx;
+    0x100006962 mov rax, qword [rip + 0x22987]           |         rax = 0x2;
+    0x100006969 mov dword [rbx + rax], 0                 |         *((int32_t*) (rbx + rax)) = 0;
+    0x100006970 mov r13, qword [rip + 0x22981]           |         r13 = *((int64_t*) 0x1000292f8);
+    0x100006977 mov rdi, qword [rbx + r13]               |         rdi = *((int64_t*) (rbx + r13));
+    0x10000697b mov r14, qword [rip + 0x2160e]           |         r14 = *((int64_t*) str.cell);
+    0x100006982 mov rsi, r14                             |         rsi = *((uint64_t*) str.cell);
+    0x100006985 call r12                                 |         rax = [NSNumber cell rdx];
+    0x100006988 mov r15, qword [rip + 0x21609]           |         r15 = *((int64_t*) str.formatter);
+    0x10000698f mov rdi, rax                             |         rdi = rax;
+    0x100006992 mov rsi, r15                             |         rsi = r15;
+    0x100006995 call r12                                 |         rax = [NSNumber formatter];
+    0x100006998 mov rsi, qword [rip + 0x21601]           |         
+    0x10000699f mov edx, 1                               |         
+    0x1000069a4 mov rdi, rax                             |         rdi = rax;
+    0x1000069a7 call r12                                 |         rax = [0x1000292f0 setLocalizesFormat: 1];
+    0x1000069aa mov rdi, qword [rbx + r13]               |         rdi = *((int64_t*) (rbx + r13));
+    0x1000069ae mov rsi, r14                             |         rsi = r14;
+    0x1000069b1 call r12                                 |         rax = [NSNumber cell];
+    0x1000069b4 mov rdi, rax                             |         rdi = rax;
+    0x1000069b7 mov rsi, r15                             |         rsi = r15;
+    0x1000069ba call r12                                 |         rax = [NSNumber formatter];
+    0x1000069bd mov rsi, qword [rip + 0x215e4]           |         
+    0x1000069c4 lea rdx, [rip + 0x178b5]                 |         
+    0x1000069cb mov rdi, rax                             |         rdi = rax;
+    0x1000069ce call r12                                 |         rax = [0x1000292f0 setFormat: 0x10001e280];
+    0x1000069d1 mov rax, qword [rip + 0x22928]           |         rax = *((int64_t*) 0x100029300);
+    0x1000069d8 mov rdi, qword [rbx + rax]               |         rdi = *((int64_t*) (rbx + rax));
+    0x1000069dc mov rsi, qword [rip + 0x215cd]           |         
+    0x1000069e3 mov edx, 1                               |         
+    0x1000069e8 call r12                                 |         rax = [NSNumber setPostsFrameChangedNotifications: 1];
+                                                         |     }
+    0x1000069eb mov rax, rbx                             |     rax = rbx;
+    0x1000069ee add rsp, 0x18                            |     
+    0x1000069f2 pop rbx                                  |     
+    0x1000069f3 pop r12                                  |     
+    0x1000069f5 pop r13                                  |     
+    0x1000069f7 pop r14                                  |     
+    0x1000069f9 pop r15                                  |     
+    0x1000069fb pop rbp                                  |     
+    0x1000069fc ret                                      |     return rax;
+                                                         | }
