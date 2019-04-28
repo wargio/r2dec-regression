@@ -10,32 +10,32 @@
     0x100000e54 sub rsp, 0x10                        |     
     0x100000e58 mov rax, qword [rip + 0x311]         |     rax = *((int64_t*) 0x100001170);
     0x100000e5f mov rsi, qword [rip + 0x2f2]         |     
-    0x100000e66 mov rdi, rax                         |     
-    0x100000e69 call 0x100000eee                     |     rax = [rax *((uint64_t*) 0x100001158)];
+    0x100000e66 mov rdi, rax                         |     rdi = rax;
+    0x100000e69 call 0x100000eee                     |     rax = [0x100001170 0x100001158];
     0x100000e6e lea rdx, [rip + 0xd0]                |     
     0x100000e75 mov qword [rbp - 8], rax             |     instance = rax;
     0x100000e79 mov rax, qword [rbp - 8]             |     
     0x100000e7d mov rsi, qword [rip + 0x2dc]         |     
-    0x100000e84 mov rdi, rax                         |     
-    0x100000e87 call 0x100000eee                     |     rax = [rax setName: "Brad Cox"];
+    0x100000e84 mov rdi, rax                         |     rdi = rax;
+    0x100000e87 call 0x100000eee                     |     rax = [0x100001170 setName: "Brad Cox"];
     0x100000e8c mov rax, qword [rbp - 8]             |     rax = instance;
     0x100000e90 mov rsi, qword [rip + 0x2d1]         |     
-    0x100000e97 mov rdi, rax                         |     
-    0x100000e9a call 0x100000eee                     |     rax = [rax sayHello];
+    0x100000e97 mov rdi, rax                         |     rdi = rax;
+    0x100000e9a call 0x100000eee                     |     rax = [0x100001170 sayHello];
     0x100000e9f mov rax, qword [rip + 0x2ca]         |     rax = *((int64_t*) 0x100001170);
     0x100000ea6 mov rsi, qword [rip + 0x2ab]         |     
-    0x100000ead mov rdi, rax                         |     
-    0x100000eb0 call 0x100000eee                     |     rax = [rax *((uint64_t*) 0x100001158)];
+    0x100000ead mov rdi, rax                         |     rdi = rax;
+    0x100000eb0 call 0x100000eee                     |     rax = [0x100001170 0x100001158];
     0x100000eb5 lea rdx, [rip + 0x92]                |     
     0x100000ebc mov qword [rbp - 0x10], rax          |     var_10h = rax;
     0x100000ec0 mov rax, qword [rbp - 0x10]          |     
     0x100000ec4 mov rsi, qword [rip + 0x295]         |     
-    0x100000ecb mov rdi, rax                         |     
-    0x100000ece call 0x100000eee                     |     rax = [rax setName: "Tom Love"];
+    0x100000ecb mov rdi, rax                         |     rdi = rax;
+    0x100000ece call 0x100000eee                     |     rax = [0x100001170 setName: "Tom Love"];
     0x100000ed3 mov rax, qword [rbp - 0x10]          |     rax = var_10h;
     0x100000ed7 mov rsi, qword [rip + 0x28a]         |     
-    0x100000ede mov rdi, rax                         |     
-    0x100000ee1 call 0x100000eee                     |     rax = [rax sayHello];
+    0x100000ede mov rdi, rax                         |     rdi = rax;
+    0x100000ee1 call 0x100000eee                     |     rax = [0x100001170 sayHello];
     0x100000ee6 xor eax, eax                         |     eax = 0;
     0x100000ee8 add rsp, 0x10                        |     
     0x100000eec pop rbp                              |     

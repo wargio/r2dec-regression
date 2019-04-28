@@ -23,12 +23,12 @@
     0x1000068a1 test rax, rax                            |     
                                                          |     if (rax != 0) {
     0x1000068a4 je 0x1000069eb                           |         
-    0x1000068aa mov rax, qword [rip + 0x22a0f]           |         rax = 0x2;
+    0x1000068aa mov rax, qword [rip + 0x22a0f]           |         rax = *((int64_t*) 0x1000292c0);
     0x1000068b1 xor ecx, ecx                             |         ecx = 0;
     0x1000068b3 mov qword [rbx + rax], rcx               |         *((int64_t*) (rbx + rax)) = rcx;
-    0x1000068b7 mov rax, qword [rip + 0x22a0a]           |         rax = 0x2;
+    0x1000068b7 mov rax, qword [rip + 0x22a0a]           |         rax = *((int64_t*) 0x1000292c8);
     0x1000068be mov qword [rbx + rax], rcx               |         *((int64_t*) (rbx + rax)) = rcx;
-    0x1000068c2 mov rax, qword [rip + 0x22a07]           |         rax = 0x2;
+    0x1000068c2 mov rax, qword [rip + 0x22a07]           |         rax = *((int64_t*) 0x1000292d0);
     0x1000068c9 mov qword [rbx + rax], 0xe               |         *((int64_t*) (rbx + rax)) = 0xe;
     0x1000068d1 mov rdi, qword [rip + 0x22790]           |         
     0x1000068d8 mov r14, qword [rip + 0x21519]           |         r14 = *((int64_t*) str.alloc);
@@ -48,9 +48,9 @@
     0x10000691f xor edx, edx                             |         
     0x100006921 mov rdi, rax                             |         rdi = rax;
     0x100006924 call r12                                 |         rax = [0x1000292d0 initWithInt: 0];
-    0x100006927 mov rcx, qword [rip + 0x229b2]           |         rcx = 0x2;
+    0x100006927 mov rcx, qword [rip + 0x229b2]           |         rcx = *((int64_t*) 0x1000292e0);
     0x10000692e mov qword [rbx + rcx], rax               |         *((int64_t*) (rbx + rcx)) = rax;
-    0x100006932 mov rax, qword [rip + 0x229af]           |         rax = 0x2;
+    0x100006932 mov rax, qword [rip + 0x229af]           |         rax = *((int64_t*) 0x1000292e8);
     0x100006939 mov rcx, qword [rip + 0x17748]           |         rcx = *((int64_t*) reloc.NSZeroRect);
     0x100006940 mov rdx, qword [rcx]                     |         rdx = *((int64_t*) rcx);
     0x100006943 mov rsi, qword [rcx + 8]                 |         rsi = *((int64_t*) (rcx + 8));
@@ -60,7 +60,7 @@
     0x100006954 mov qword [rbx + rax + 0x10], rdx        |         *((int64_t*) (rbx + rax + 0x10)) = rdx;
     0x100006959 mov rcx, qword [rcx + 0x18]              |         
     0x10000695d mov qword [rbx + rax + 0x18], rcx        |         *((int64_t*) (rbx + rax + 0x18)) = rcx;
-    0x100006962 mov rax, qword [rip + 0x22987]           |         rax = 0x2;
+    0x100006962 mov rax, qword [rip + 0x22987]           |         rax = *((int64_t*) 0x1000292f0);
     0x100006969 mov dword [rbx + rax], 0                 |         *((int32_t*) (rbx + rax)) = 0;
     0x100006970 mov r13, qword [rip + 0x22981]           |         r13 = *((int64_t*) 0x1000292f8);
     0x100006977 mov rdi, qword [rbx + r13]               |         rdi = *((int64_t*) (rbx + r13));

@@ -35,5 +35,5 @@
     0x1000011a4 add rdi, 0x68                        |     rdi += 0x68;
     0x1000011a8 add rsi, 0x68                        |     rsi += 0x68;
     0x1000011ac pop rbp                              |     
-    0x1000011ad jmp 0x10000458a                      |     return void (*0x10000458a)() ();
+    0x1000011ad jmp 0x10000458a                      |     return strcoll ();
                                                      | }
