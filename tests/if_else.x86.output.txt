@@ -6,6 +6,8 @@
                                                  |     char ** local_20h;
                                                  |     int32_t local_14h;
                                                  |     uint32_t local_4h;
+                                                 |     rdi = argc;
+                                                 |     rsi = argv;
     0x00001119 push rbp                          |     
     0x0000111a mov rbp, rsp                      |     
     0x0000111d mov dword [rbp - 0x14], edi       |     local_14h = edi;

@@ -3,6 +3,8 @@
                                                  | #include <stdint.h>
                                                  |  
     ; (fcn) sym.stosb ()                         | int32_t stosb (int32_t arg2, int32_t arg3) {
+                                                 |     rsi = arg2;
+                                                 |     rdx = arg3;
                                                  |     /* arg2 */
     0x000006c0 mov eax, esi                      |     eax = esi;
                                                  |     /* arg3 */

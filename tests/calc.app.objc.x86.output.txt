@@ -4,6 +4,7 @@
                                                          |  
     ; (fcn) sym.func.10000686c ()                        | uint64_t func_10000686c (int32_t arg1) {
                                                          |     void ** instance;
+                                                         |     rdi = arg1;
     0x10000686c push rbp                                 |     
     0x10000686d mov rbp, rsp                             |     
     0x100006870 push r15                                 |     

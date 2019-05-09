@@ -3,6 +3,7 @@
                                              | #include <stdint.h>
                                              |  
     ; (fcn) sym.public_int_AppDelegate::application_int__int () | void public_int_AppDelegate::application_int_int (char * selector) {
+                                             |     r0 = selector;
                                              |     /* [00] -r-x section size 3364 named 0.__TEXT.__text */
     0x00009580 svcge 0x3b5f0                 |     __asm ("svcge 0x3b5f0");
     0x00009582 add r7, sp, 0xc               |     r7 = sp + 0xc;

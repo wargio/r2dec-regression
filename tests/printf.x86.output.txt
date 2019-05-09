@@ -5,6 +5,8 @@
     ; (fcn) sym.main ()                          | int32_t main (int32_t argc, char ** argv) {
                                                  |     char ** local_10h;
                                                  |     int32_t local_4h;
+                                                 |     rdi = argc;
+                                                 |     rsi = argv;
     0x00001139 push rbp                          |     
     0x0000113a mov rbp, rsp                      |     
     0x0000113d sub rsp, 0x10                     |     
