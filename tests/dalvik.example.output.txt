@@ -1,0 +1,58 @@
+    ; assembly                                                                                                                                                   | /* r2dec pseudo code output */
+                                                                                                                                                                 | /* testsuite @ 0x0 */
+    ; (fcn) sym.La_b_g_a_W.method.a_Landroid_app_Activity__La_b_g_a_W ()                                                                                         | java.lang.Object a.b.g.a.W.method.a (a.b.g.a.W v3) {
+    0x0007fff0 instance-of v0, v4, La/b/g/a/W$a;                                                                                                                 |     v0 = (v4 instanceof a.b.g.a.W$a) ? 1 : 0;
+                                                                                                                                                                 |     if (v0 != 0) {
+    0x0007fff4 if-eqz v0, 0x00080008                                                                                                                             |         
+    0x0007fff8 move-object v0, v4                                                                                                                                |         v0 = v4;
+                                                                                                                                                                 |         if (!(v0 instanceof a.b.g.a.W$a)) {
+    0x0007fffa check-cast v0, La/b/g/a/W$a;                                                                                                                      |             throw java.lang.ClassCastException ("a.b.g.a.W$a");
+                                                                                                                                                                 |         }
+    0x0007fffe invoke-interface {v0}, La/b/g/a/W$a.c()Landroid/content/Intent; ; 0x5f7                                                                           |         v0 = v0.c ();
+    0x00080004 move-result-object v0                                                                                                                             |         
+    0x00080006 goto 0x0008000a                                                                                                                                   |         
+                                                                                                                                                                 |     } else {
+    0x00080008 const/4 v0, 0                                                                                                                                     |         v0 = 0;
+                                                                                                                                                                 |     }
+                                                                                                                                                                 |     if (v0 == 0) {
+    0x0008000a if-nez v0, 0x00080016                                                                                                                             |         
+    0x0008000e invoke-static {v4}, La/b/b/a/a.a(Landroid/app/Activity;)Landroid/content/Intent; ; 0x80                                                           |         v0 = a.b.b.a.a.a (v4);
+    0x00080014 move-result-object v0                                                                                                                             |         
+                                                                                                                                                                 |     }
+                                                                                                                                                                 |     if (v0 == 0) {
+    0x00080016 if-eqz v0, 0x00080096                                                                                                                             |         goto label_0;
+                                                                                                                                                                 |     }
+    0x0008001a invoke-virtual {v0}, Landroid/content/Intent.getComponent()Landroid/content/ComponentName; ; 0x1452                                               |     v4 = v0.getComponent ();
+    0x00080020 move-result-object v4                                                                                                                             |     
+                                                                                                                                                                 |     if (v4 == 0) {
+    0x00080022 if-nez v4, 0x0008003a                                                                                                                             |         
+    0x00080026 iget-object v4, v3, La/b/g/a/W;->b Landroid/content/Context;                                                                                      |         v4 = v3.b;
+    0x0008002a invoke-virtual {v4}, Landroid/content/Context.getPackageManager()Landroid/content/pm/PackageManager; ; 0x1432                                     |         v4 = v4.getPackageManager ();
+    0x00080030 move-result-object v4                                                                                                                             |         
+    0x00080032 invoke-virtual {v0, v4}, Landroid/content/Intent.resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName; ; 0x145a     |         v4 = v0.resolveActivity (v4);
+    0x00080038 move-result-object v4                                                                                                                             |         
+                                                                                                                                                                 |     }
+    0x0008003a iget-object v1, v3, La/b/g/a/W;->a Ljava/util/ArrayList;                                                                                          |     v1 = v3.a;
+    0x0008003e invoke-virtual {v1}, Ljava/util/ArrayList.size()I ; 0x2385                                                                                        |     v1 = v1.size ();
+    0x00080044 move-result v1                                                                                                                                    |     
+    0x00080046 iget-object v2, v3, La/b/g/a/W;->b Landroid/content/Context;                                                                                      |     
+                                                                                                                                                                 |     do {
+    0x0008004a invoke-static {v2, v4}, La/b/b/a/a.a(Landroid/content/Context;Landroid/content/ComponentName;)Landroid/content/Intent; ; 0x81                     |         v4 = a.b.b.a.a.a (v3.b, v4);
+    0x00080050 move-result-object v4                                                                                                                             |         
+                                                                                                                                                                 |         if (v4 == 0) {
+    0x00080052 if-eqz v4, 0x0008006e                                                                                                                             |             goto label_1;
+                                                                                                                                                                 |         }
+    0x00080056 iget-object v2, v3, La/b/g/a/W;->a Ljava/util/ArrayList;                                                                                          |         v2 = v3.a;
+    0x0008005a invoke-virtual {v2, v1, v4}, Ljava/util/ArrayList.add(ILjava/lang/Object;)V ; 0x2376                                                              |         v2.add (v1, v4);
+    0x00080060 iget-object v2, v3, La/b/g/a/W;->b Landroid/content/Context;                                                                                      |         v2 = v3.b;
+    0x00080064 invoke-virtual {v4}, Landroid/content/Intent.getComponent()Landroid/content/ComponentName; ; 0x1452                                               |         v4 = v4.getComponent ();
+    0x0008006a move-result-object v4                                                                                                                             |         
+    0x0008006c goto 0x0008004a                                                                                                                                   |         
+                                                                                                                                                                 |     } while (1);
+                                                                                                                                                                 | label_1:
+    0x0008006e iget-object v4, v3, La/b/g/a/W;->a Ljava/util/ArrayList;                                                                                          |     v4 = v3.a;
+    0x00080072 invoke-virtual {v4, v0}, Ljava/util/ArrayList.add(Ljava/lang/Object;)Z ; 0x2377                                                                   |     v4.add (v0);
+    0x00080078 goto 0x00080096                                                                                                                                   |     return v3;
+                                                                                                                                                                 | label_0:
+    0x00080096 return-object v3                                                                                                                                  |     return v3;
+                                                                                                                                                                 | }
