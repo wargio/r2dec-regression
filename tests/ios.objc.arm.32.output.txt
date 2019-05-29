@@ -1,106 +1,106 @@
-    ; assembly                               | /* r2dec pseudo code output */
-                                             | /* testsuite @ 0x0 */
-                                             | #include <stdint.h>
-                                             |  
-    ; (fcn) sym.public_int_AppDelegate::application_int__int () | void public_int_AppDelegate::application_int_int (char * selector) {
-                                             |     r0 = selector;
-                                             |     /* [00] -r-x section size 3364 named 0.__TEXT.__text */
-    0x00009580 svcge 0x3b5f0                 |     __asm ("svcge 0x3b5f0");
-    0x00009582 add r7, sp, 0xc               |     r7 = sp + 0xc;
-    0x00009584 push.w {r8, sl, fp}           |     
-    0x00009588 mov r8, r0                    |     r8 = r0;
-    0x0000958a movw r0, 0x33a2               |     
-    0x0000958e movt r0, 0                    |     
-    0x00009592 add r0, pc                    |     r0 = "window";
-    0x00009594 ldr r1, [r0]                  |     
-    0x00009596 mov r0, r8                    |     r0 = r8;
-    0x00009598 blx 0xbfdc                    |     r0 = [r0 window r2];
-    0x0000959c mov r7, r7                    |     
-    0x0000959e blx 0xbfec                    |     
-    0x000095a2 mov r4, r0                    |     r4 = r0;
-    0x000095a4 movw r0, 0x338c               |     
-    0x000095a8 movt r0, 0                    |     
-    0x000095ac add r0, pc                    |     r0 = "rootViewController";
-    0x000095ae ldr r1, [r0]                  |     
-    0x000095b0 mov r0, r4                    |     r0 = r4;
-    0x000095b2 blx 0xbfdc                    |     r0 = [r0 rootViewController r2];
-    0x000095b6 mov r7, r7                    |     
-    0x000095b8 blx 0xbfec                    |     
-    0x000095bc mov fp, r0                    |     
-    0x000095be mov r0, r4                    |     r0 = r4;
-    0x000095c0 blx 0xbfe4                    |     [r0 release];
-    0x000095c4 movw r0, 0x3370               |     
-    0x000095c8 movt r0, 0                    |     
-    0x000095cc add r0, pc                    |     r0 = "viewControllers";
-    0x000095ce ldr r1, [r0]                  |     
-    0x000095d0 mov r0, fp                    |     r0 = fp;
-    0x000095d2 blx 0xbfdc                    |     r0 = [r0 viewControllers r2];
-    0x000095d6 mov r7, r7                    |     
-    0x000095d8 blx 0xbfec                    |     
-    0x000095dc mov r4, r0                    |     r4 = r0;
-    0x000095de movw r0, 0x335a               |     
-    0x000095e2 movt r0, 0                    |     
-    0x000095e6 add r0, pc                    |     r0 = "lastObject";
-    0x000095e8 ldr r1, [r0]                  |     
-    0x000095ea mov r0, r4                    |     r0 = r4;
-    0x000095ec blx 0xbfdc                    |     r0 = [r0 lastObject r2];
-    0x000095f0 mov r7, r7                    |     
-    0x000095f2 blx 0xbfec                    |     
-    0x000095f6 mov sl, r0                    |     sl = r0;
-    0x000095f8 mov r0, r4                    |     r0 = r4;
-    0x000095fa blx 0xbfe4                    |     [r0 release];
-    0x000095fe movw r0, 0x333e               |     
-    0x00009602 movt r0, 0                    |     
-    0x00009606 add r0, pc                    |     r0 = "topViewController";
-    0x00009608 ldr r1, [r0]                  |     
-    0x0000960a mov r0, sl                    |     r0 = sl;
-    0x0000960c blx 0xbfdc                    |     r0 = [r0 topViewController r2];
-    0x00009610 mov r7, r7                    |     
-    0x00009612 blx 0xbfec                    |     
-    0x00009616 mov r4, r0                    |     r4 = r0;
-    0x00009618 movw r0, 0x3328               |     
-    0x0000961c movt r0, 0                    |     
-    0x00009620 add r0, pc                    |     r0 = "navigationItem";
-    0x00009622 ldr r1, [r0]                  |     
-    0x00009624 mov r0, r4                    |     r0 = r4;
-    0x00009626 blx 0xbfdc                    |     r0 = [r0 navigationItem r2];
-    0x0000962a mov r7, r7                    |     
-    0x0000962c blx 0xbfec                    |     
-    0x00009630 mov r6, r0                    |     r6 = r0;
-    0x00009632 movw r0, 0x3312               |     
-    0x00009636 movt r0, 0                    |     
-    0x0000963a add r0, pc                    |     r0 = "displayModeButtonItem";
-    0x0000963c ldr r1, [r0]                  |     
-    0x0000963e mov r0, fp                    |     r0 = fp;
-    0x00009640 blx 0xbfdc                    |     r0 = [r0 displayModeButtonItem r2];
-    0x00009644 mov r7, r7                    |     
-    0x00009646 blx 0xbfec                    |     
-    0x0000964a mov r5, r0                    |     r5 = r0;
-    0x0000964c movw r0, 0x32fa               |     
-    0x00009650 movt r0, 0                    |     
-    0x00009654 mov r2, r5                    |     r2 = r5;
-    0x00009656 add r0, pc                    |     r0 = "setLeftBarButtonItem:";
-    0x00009658 ldr r1, [r0]                  |     
-    0x0000965a mov r0, r6                    |     r0 = r6;
-    0x0000965c blx 0xbfdc                    |     r0 = [r0 setLeftBarButtonItem: r2];
-    0x00009660 mov r0, r5                    |     r0 = r5;
-    0x00009662 blx 0xbfe4                    |     [r0 release];
-    0x00009666 mov r0, r6                    |     r0 = r6;
-    0x00009668 blx 0xbfe4                    |     [r0 release];
-    0x0000966c mov r0, r4                    |     r0 = r4;
-    0x0000966e blx 0xbfe4                    |     [r0 release];
-    0x00009672 movw r0, 0x32d8               |     
-    0x00009676 mov r2, r8                    |     r2 = r8;
-    0x00009678 movt r0, 0                    |     
-    0x0000967c add r0, pc                    |     r0 = 0xc958;
-    0x0000967e ldr r1, [r0]                  |     
-    0x00009680 mov r0, fp                    |     r0 = fp;
-    0x00009682 blx 0xbfdc                    |     r0 = [r0 *((uint32_t*) 0xc958) r2];
-    0x00009686 mov r0, sl                    |     r0 = sl;
-    0x00009688 blx 0xbfe4                    |     [r0 release];
-    0x0000968c mov r0, fp                    |     r0 = fp;
-    0x0000968e blx 0xbfe4                    |     [r0 release];
-    0x00009692 movs r0, 1                    |     r0 = 1;
-    0x00009694 pop.w {r8, sl, fp}            |     
-    0x00009698 pop {r4, r5, r6, r7, pc}      |     
-                                             | }
+    ; assembly                                                       | /* r2dec pseudo code output */
+                                                                     | /* testsuite @ 0x0 */
+                                                                     | #include <stdint.h>
+                                                                     |  
+    ; (fcn) sym.public_int_AppDelegate::application_int__int ()      | void public_int_AppDelegate::application_int_int (char * selector) {
+                                                                     |     r0 = selector;
+                                                                     |     /* [00] -r-x section size 3364 named 0.__TEXT.__text */
+    0x00009580 svcge 0x3b5f0                                         |     __asm ("svcge 0x3b5f0");
+    0x00009582 add r7, sp, 0xc                                       |     r7 = sp + 0xc;
+    0x00009584 push.w {r8, sl, fp}                                   |     
+    0x00009588 mov r8, r0                                            |     r8 = r0;
+    0x0000958a movw r0, 0x33a2                                       |     
+    0x0000958e movt r0, 0                                            |     
+    0x00009592 add r0, pc                                            |     r0 = "window";
+    0x00009594 ldr r1, [r0]                                          |     
+    0x00009596 mov r0, r8                                            |     r0 = r8;
+    0x00009598 blx 0xbfdc                                            |     r0 = [r0 window r2];
+    0x0000959c mov r7, r7                                            |     
+    0x0000959e blx 0xbfec                                            |     
+    0x000095a2 mov r4, r0                                            |     r4 = r0;
+    0x000095a4 movw r0, 0x338c                                       |     
+    0x000095a8 movt r0, 0                                            |     
+    0x000095ac add r0, pc                                            |     r0 = "rootViewController";
+    0x000095ae ldr r1, [r0]                                          |     
+    0x000095b0 mov r0, r4                                            |     r0 = r4;
+    0x000095b2 blx 0xbfdc                                            |     r0 = [r0 rootViewController r2];
+    0x000095b6 mov r7, r7                                            |     
+    0x000095b8 blx 0xbfec                                            |     
+    0x000095bc mov fp, r0                                            |     
+    0x000095be mov r0, r4                                            |     r0 = r4;
+    0x000095c0 blx 0xbfe4                                            |     [r0 release];
+    0x000095c4 movw r0, 0x3370                                       |     
+    0x000095c8 movt r0, 0                                            |     
+    0x000095cc add r0, pc                                            |     r0 = "viewControllers";
+    0x000095ce ldr r1, [r0]                                          |     
+    0x000095d0 mov r0, fp                                            |     r0 = fp;
+    0x000095d2 blx 0xbfdc                                            |     r0 = [r0 viewControllers r2];
+    0x000095d6 mov r7, r7                                            |     
+    0x000095d8 blx 0xbfec                                            |     
+    0x000095dc mov r4, r0                                            |     r4 = r0;
+    0x000095de movw r0, 0x335a                                       |     
+    0x000095e2 movt r0, 0                                            |     
+    0x000095e6 add r0, pc                                            |     r0 = "lastObject";
+    0x000095e8 ldr r1, [r0]                                          |     
+    0x000095ea mov r0, r4                                            |     r0 = r4;
+    0x000095ec blx 0xbfdc                                            |     r0 = [r0 lastObject r2];
+    0x000095f0 mov r7, r7                                            |     
+    0x000095f2 blx 0xbfec                                            |     
+    0x000095f6 mov sl, r0                                            |     sl = r0;
+    0x000095f8 mov r0, r4                                            |     r0 = r4;
+    0x000095fa blx 0xbfe4                                            |     [r0 release];
+    0x000095fe movw r0, 0x333e                                       |     
+    0x00009602 movt r0, 0                                            |     
+    0x00009606 add r0, pc                                            |     r0 = "topViewController";
+    0x00009608 ldr r1, [r0]                                          |     
+    0x0000960a mov r0, sl                                            |     r0 = sl;
+    0x0000960c blx 0xbfdc                                            |     r0 = [r0 topViewController r2];
+    0x00009610 mov r7, r7                                            |     
+    0x00009612 blx 0xbfec                                            |     
+    0x00009616 mov r4, r0                                            |     r4 = r0;
+    0x00009618 movw r0, 0x3328                                       |     
+    0x0000961c movt r0, 0                                            |     
+    0x00009620 add r0, pc                                            |     r0 = "navigationItem";
+    0x00009622 ldr r1, [r0]                                          |     
+    0x00009624 mov r0, r4                                            |     r0 = r4;
+    0x00009626 blx 0xbfdc                                            |     r0 = [r0 navigationItem r2];
+    0x0000962a mov r7, r7                                            |     
+    0x0000962c blx 0xbfec                                            |     
+    0x00009630 mov r6, r0                                            |     r6 = r0;
+    0x00009632 movw r0, 0x3312                                       |     
+    0x00009636 movt r0, 0                                            |     
+    0x0000963a add r0, pc                                            |     r0 = "displayModeButtonItem";
+    0x0000963c ldr r1, [r0]                                          |     
+    0x0000963e mov r0, fp                                            |     r0 = fp;
+    0x00009640 blx 0xbfdc                                            |     r0 = [r0 displayModeButtonItem r2];
+    0x00009644 mov r7, r7                                            |     
+    0x00009646 blx 0xbfec                                            |     
+    0x0000964a mov r5, r0                                            |     r5 = r0;
+    0x0000964c movw r0, 0x32fa                                       |     
+    0x00009650 movt r0, 0                                            |     
+    0x00009654 mov r2, r5                                            |     r2 = r5;
+    0x00009656 add r0, pc                                            |     r0 = "setLeftBarButtonItem:";
+    0x00009658 ldr r1, [r0]                                          |     
+    0x0000965a mov r0, r6                                            |     r0 = r6;
+    0x0000965c blx 0xbfdc                                            |     r0 = [r0 setLeftBarButtonItem: r2];
+    0x00009660 mov r0, r5                                            |     r0 = r5;
+    0x00009662 blx 0xbfe4                                            |     [r0 release];
+    0x00009666 mov r0, r6                                            |     r0 = r6;
+    0x00009668 blx 0xbfe4                                            |     [r0 release];
+    0x0000966c mov r0, r4                                            |     r0 = r4;
+    0x0000966e blx 0xbfe4                                            |     [r0 release];
+    0x00009672 movw r0, 0x32d8                                       |     
+    0x00009676 mov r2, r8                                            |     r2 = r8;
+    0x00009678 movt r0, 0                                            |     
+    0x0000967c add r0, pc                                            |     r0 = 0xc958;
+    0x0000967e ldr r1, [r0]                                          |     
+    0x00009680 mov r0, fp                                            |     r0 = fp;
+    0x00009682 blx 0xbfdc                                            |     r0 = [r0 *((uint32_t*) 0xc958) r2];
+    0x00009686 mov r0, sl                                            |     r0 = sl;
+    0x00009688 blx 0xbfe4                                            |     [r0 release];
+    0x0000968c mov r0, fp                                            |     r0 = fp;
+    0x0000968e blx 0xbfe4                                            |     [r0 release];
+    0x00009692 movs r0, 1                                            |     r0 = 1;
+    0x00009694 pop.w {r8, sl, fp}                                    |     
+    0x00009698 pop {r4, r5, r6, r7, pc}                              |     
+                                                                     | }
