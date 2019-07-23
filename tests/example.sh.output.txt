@@ -1,0 +1,105 @@
+    ; assembly                               | /* r2dec pseudo code output */
+                                             | /* testsuite @ 0x0 */
+                                             | #include <stdint.h>
+                                             |  
+    ; (fcn) entry0 ()                        | void entry0 () {
+                                             |     /* [01] -r-x section size 598452 named .text */
+    0x08000040 extu.w r4, r4                 |     r4 = (uint16_t) r4;
+    0x08000042 mov.l r8, @-r15               |     r15 -= 4;
+                                             |     *((int32_t*) r15) = (int32_t) r8;
+    0x08000044 mov r4, r2                    |     r2 = r4;
+    0x08000046 mov.l r9, @-r15               |     r15 -= 4;
+                                             |     *((int32_t*) r15) = (int32_t) r9;
+    0x08000048 shlr8 r2                      |     r2 >>= 8;
+    0x0800004a mov.l r10, @-r15              |     r15 -= 4;
+                                             |     *((int32_t*) r15) = (int32_t) r10;
+    0x0800004c extu.b r4, r4                 |     r4 = (uint8_t) r4;
+    0x0800004e mov.l r14, @-r15              |     r15 -= 4;
+                                             |     *((int32_t*) r15) = (int32_t) r14;
+    0x08000050 sts.l pr, @-r15               |     r15 -= 4;
+                                             |     *((int32_t*) r15) = (int32_t) pr;
+    0x08000052 add 0xF8, r15                 |     r15 += 0xf8;
+    0x08000054 tst r2, r2                    |     
+    0x08000056 mov r15, r14                  |     r14 = r15;
+                                             |     if (r2 == 0) {
+    0x08000058 bt.s 0x08000088               |         goto label_0;
+                                             |     }
+    0x0800005a mov.l @(0x54,PC), r10         |     r10 = (int32_t) *((int32_t*) 0x80000ae);
+    0x0800005c mov 0x00, r8                  |     r8 = 0x00;
+    0x0800005e bra 0x0800007a                |     void (*0x0800007a)() ();
+                                             |     while (r1 != 0) {
+    0x08000060 add 0x08, r1                  |         r1 += 0x08;
+    0x08000062 sts macl, r0                  |         r0 = macl;
+    0x08000064 mov.l @(r0,r1), r1            |         r1 = (int32_t) *((int32_t*) (r1 + r0));
+    0x08000066 cmp/eq r4, r1                 |         
+    0x08000068 mov r10, r1                   |         r1 = r10;
+                                             |         if (r1 == r4) {
+    0x0800006a bf.s 0x08000078               |             
+    0x0800006c add 0x0C, r1                  |             r1 += 0x0c;
+    0x0800006e mov.l @(r0,r1), r1            |             r1 = (int32_t) *((int32_t*) (r1 + r0));
+    0x08000070 cmp/eq r2, r1                 |             
+                                             |             if (r1 != r2) {
+    0x08000072 bf 0x08000078                 |                 goto label_1;
+                                             |             }
+    0x08000074 bra 0x08000200                |             void (*0x08000200)() ();
+    0x08000076 nop                           |             
+                                             |         }
+                                             | label_1:
+    0x08000078 add 0x01, r8                  |         r8 += 0x01;
+    0x0800007a mov 0x24, r9                  |         r9 = 0x24;
+    0x0800007c mul.l r9, r8                  |         mac = r8 * r9;
+    0x0800007e sts macl, r0                  |         r0 = macl;
+    0x08000080 mov.l @(r0,r10), r1           |         r1 = (int32_t) *((int32_t*) (r10 + r0));
+    0x08000082 tst r1, r1                    |         
+    0x08000084 mov r10, r1                   |         r1 = r10;
+    0x08000086 bf.s 0x08000060               |         
+                                             |     }
+                                             | label_0:
+    0x08000088 mov 0x2B, r1                  |     r1 = 0x2b;
+    0x0800008a cmp/hi r1, r4                 |     
+    0x0800008c mov 0x00, r0                  |     r0 = 0x00;
+                                             |     if (r4 == r1) {
+    0x0800008e bf.s 0x08000094               |         
+    0x08000090 add 0x08, r14                 |         r14 += 0x08;
+    0x08000092 bra 0x08000210                |         void (*0x08000210)() ();
+                                             |     } else {
+    0x08000094 mov 0x48, r1                  |         r1 = 0x48;
+    0x08000096 mulu.w r1, r4                 |         mac = r4 * r1;
+    0x08000098 mov.l @(0x18,PC), r1          |         r1 = (int32_t) *((int32_t*) 0x80000b0);
+    0x0800009a sts macl, r0                  |         r0 = macl;
+    0x0800009c mov.l @(r0,r1), r8            |         r8 = (int32_t) *((int32_t*) (r1 + r0));
+    0x0800009e add 0xFE, r4                  |         r4 += 0xfe;
+    0x080000a0 mov 0x22, r1                  |         r1 = 0x22;
+    0x080000a2 cmp/hi r1, r4                 |         
+                                             |         if (r4 != r1) {
+    0x080000a4 bt 0x08000160                 |             
+    0x080000a6 mova @(0x10,PC), r0           |             r0 = *((int32_t*) 0x80000b6);
+    0x080000a8 add r4, r4                    |             r4 += r4;
+    0x080000aa mov.w @(r0,r4), r1            |             r1 = (int16_t) *((int16_t*) (r4 + r0));
+    0x080000ac braf r1                       |             void (*r1)() ();
+    0x080000ae nop                           |             
+                                             |         }
+    0x08000160 mov r8, r0                    |         r0 = r8;
+    0x08000162 bra 0x0800020e                |         void (*0x0800020e)() ();
+    0x08000200 mov.l @(0x4C,PC), r1          |         r1 = (int32_t) *((int32_t*) 0x800024c);
+    0x08000202 mov.l @(0x50,PC), r4          |         r4 = (int32_t) *((int32_t*) 0x8000252);
+    0x08000204 mov.l @(r0,r10), r5           |         r5 = (int32_t) *((int32_t*) (r10 + r0));
+    0x08000206 jsr @r1                       |         void (*r1)() ();
+    0x08000208 mul.l r9, r8                  |         mac = r8 * r9;
+    0x0800020a sts macl, r0                  |         r0 = macl;
+    0x0800020c mov.l @(r0,r10), r0           |         r0 = (int32_t) *((int32_t*) (r10 + r0));
+    0x0800020e add 0x08, r14                 |         r14 += 0x08;
+                                             |     }
+    0x08000210 mov r14, r15                  |     r15 = r14;
+    0x08000212 lds.l @r15+, pr               |     pr = (int32_t) *((int32_t*) r15);
+                                             |     r15 += 4;
+    0x08000214 mov.l @r15+, r14              |     r14 = (int32_t) *((int32_t*) r15);
+                                             |     r15 += 4;
+    0x08000216 mov.l @r15+, r10              |     r10 = (int32_t) *((int32_t*) r15);
+                                             |     r15 += 4;
+    0x08000218 mov.l @r15+, r9               |     r9 = (int32_t) *((int32_t*) r15);
+                                             |     r15 += 4;
+    0x0800021a mov.l @r15+, r8               |     r8 = (int32_t) *((int32_t*) r15);
+                                             |     r15 += 4;
+    0x0800021c rts                           |     return;
+                                             | }
