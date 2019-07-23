@@ -1,0 +1,9 @@
+    ; assembly                       | /* r2dec pseudo code output */
+                                     | /* testsuite @ 0x0 */
+                                     | #include <stdint.h>
+                                     |  
+    ; (fcn) fcn.0001d420 ()          | uint32_t fcn_0001d420 () {
+    0x0001d420 orr w8, wzr, 4        |     w8 = 4;
+    0x0001d424 sxtb w0, w8           |     w0 = (int32_t) w8;
+    0x0001d428 ret                   |     return w0;
+                                     | }

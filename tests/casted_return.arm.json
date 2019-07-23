@@ -1,0 +1,94 @@
+{
+    "Csj": [],
+    "afcfj": [],
+    "aflj": [],
+    "afvj": {
+        "bp": [],
+        "reg": [],
+        "sp": []
+    },
+    "agj": [
+        {
+            "blocks": [
+                {
+                    "colorize": 0,
+                    "offset": 119840,
+                    "ops": [
+                        {
+                            "bytes": "e8031e32",
+                            "disasm": "orr w8, wzr, 4",
+                            "esil": "4,wzr,|,w8,=",
+                            "family": "cpu",
+                            "fcn_addr": 119840,
+                            "fcn_last": 119848,
+                            "flags": [
+                                "fcn.0001d420"
+                            ],
+                            "offset": 119840,
+                            "opcode": "orr w8, wzr, 4",
+                            "refptr": false,
+                            "refs": [
+                                {
+                                    "addr": 3404328,
+                                    "type": "CALL"
+                                }
+                            ],
+                            "reloc": false,
+                            "size": 4,
+                            "type": "or",
+                            "type2_num": 0,
+                            "type_num": 26
+                        },
+                        {
+                            "bytes": "001d0013",
+                            "disasm": "sxtb w0, w8",
+                            "esil": "w8,w0,=,8,w8,>>,w8,w0,=,0xff,w0,&=,31,$c,?{,0xffffff00,w0,|=}",
+                            "family": "cpu",
+                            "fcn_addr": 119840,
+                            "fcn_last": 119848,
+                            "offset": 119844,
+                            "opcode": "sxtb w0, w8",
+                            "ptr": 0,
+                            "refptr": false,
+                            "reloc": false,
+                            "size": 4,
+                            "type": "cast",
+                            "type2_num": 0,
+                            "type_num": 42
+                        },
+                        {
+                            "bytes": "c0035fd6",
+                            "disasm": "ret",
+                            "esil": "lr,pc,=",
+                            "family": "cpu",
+                            "fcn_addr": 119840,
+                            "fcn_last": 119848,
+                            "offset": 119848,
+                            "opcode": "ret",
+                            "refptr": false,
+                            "reloc": false,
+                            "size": 4,
+                            "type": "ret",
+                            "type2_num": 0,
+                            "type_num": 5
+                        }
+                    ],
+                    "size": 12
+                }
+            ],
+            "name": "fcn.0001d420",
+            "nargs": 0,
+            "ninstr": 3,
+            "nlocals": 0,
+            "offset": 119840,
+            "size": 12,
+            "stack": 0,
+            "type": "fcn"
+        }
+    ],
+    "arch": "arm",
+    "archbits": 64,
+    "icj": [],
+    "isj": [],
+    "name": "issue_1563881497002"
+}
