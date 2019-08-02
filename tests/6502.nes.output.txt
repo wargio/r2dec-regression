@@ -1,0 +1,180 @@
+    ; assembly                   | /* r2dec pseudo code output */
+                                 | /* testsuite @ 0x0 */
+                                 | #include <stdint.h>
+                                 |  
+    ; (fcn) entry0 ()            | void entry0 () {
+                                 |     /* [00] -r-x section size 32768 named ROM */
+    0x00008000 cld               |     D = ;
+    0x00008001 sei               |     I = 1;
+    0x00008002 ldx #0xff         |     x = 0xff;
+    0x00008004 txs               |     SP = x;
+                                 |     do {
+    0x00008005 lda 0x2002        |         acc = PPU_STATUS;
+    0x00008008 bpl 0x008005      |         
+                                 |     } while (acc > 0);
+    0x0000800a ldx #0x00         |     x = 0x00;
+    0x0000800c stx 0x2000        |     PPU_CTRL_REG1 = x;
+    0x0000800f stx 0x2001        |     PPU_CTRL_REG2 = x;
+    0x00008012 ldy #0x06         |     y = 0x06;
+    0x00008014 sty 0x01          |     *((uint16_t*) 0x01) = y;
+    0x00008016 ldy #0x00         |     y = 0x00;
+    0x00008018 sty 0x00          |     *((uint16_t*) 0x00) = y;
+    0x0000801a lda #0x40         |     acc = 0x40;
+    0x0000801c sta 0x10          |     *((uint16_t*) 0x10) = acc;
+    0x0000801e lda #0x48         |     acc = 0x48;
+    0x00008020 sta 0x12          |     *((uint16_t*) 0x12) = acc;
+    0x00008022 lda #0x20         |     acc = 0x20;
+    0x00008024 sta 0x20          |     *((uint16_t*) 0x20) = acc;
+                                 |     do {
+                                 | label_0:
+    0x00008026 sta (0x00),y      |         *((uint16_t*) (0x00 + y)) = acc;
+    0x00008028 dey               |         y--;
+    0x00008029 bne 0x008026      |         
+                                 |     } while (y != 0);
+    0x0000802b dec 0x01          |     *((uint16_t*) 0x01)--;
+                                 |     if (*((uint16_t*) 0x01) > 0) {
+    0x0000802d bpl 0x008026      |         goto label_0;
+                                 |     }
+    0x0000802f ldx #0x3f         |     x = 0x3f;
+    0x00008031 stx 0x2006        |     PPU_ADDRESS = x;
+    0x00008034 ldx #0x00         |     x = 0x00;
+    0x00008036 stx 0x2006        |     PPU_ADDRESS = x;
+    0x00008039 ldx #0x27         |     x = 0x27;
+    0x0000803b ldy #0x20         |     y = 0x20;
+                                 |     do {
+    0x0000803d stx 0x2007        |         PPU_DATA = x;
+    0x00008040 dey               |         y--;
+    0x00008041 bne 0x00803d      |         
+                                 |     } while (y != 0);
+    0x00008043 ldx #0x3f         |     x = 0x3f;
+    0x00008045 stx 0x2006        |     PPU_ADDRESS = x;
+    0x00008048 ldx #0x00         |     x = 0x00;
+    0x0000804a stx 0x2006        |     PPU_ADDRESS = x;
+    0x0000804d ldx #0x00         |     x = 0x00;
+                                 |     do {
+    0x0000804f lda 0xc247,x      |         acc = *((uint16_t*) 0xc247);
+    0x00008052 sta 0x2007        |         PPU_DATA = acc;
+    0x00008055 inx               |         x++;
+    0x00008056 cpx 0x20          |         
+    0x00008058 bne 0x00804f      |         
+                                 |     } while (x != *((uint16_t*) 0x20));
+    0x0000805a ldx #0x23         |     x = 0x23;
+    0x0000805c stx 0x2006        |     PPU_ADDRESS = x;
+    0x0000805f ldx #0xc0         |     x = 0xc0;
+    0x00008061 stx 0x2006        |     PPU_ADDRESS = x;
+    0x00008064 ldx #0x00         |     x = 0x00;
+                                 |     do {
+    0x00008066 lda 0xc267,x      |         acc = *((uint16_t*) 0xc267);
+    0x00008069 sta 0x2007        |         PPU_DATA = acc;
+    0x0000806c inx               |         x++;
+    0x0000806d cpx 0x10          |         
+    0x0000806f bne 0x008066      |         
+                                 |     } while (x != *((uint16_t*) 0x10));
+    0x00008071 ldx #0x00         |     x = 0x00;
+    0x00008073 ldx #0x20         |     x = 0x20;
+    0x00008075 stx 0x2006        |     PPU_ADDRESS = x;
+    0x00008078 ldx #0x00         |     x = 0x00;
+    0x0000807a stx 0x2006        |     PPU_ADDRESS = x;
+    0x0000807d ldx #0x00         |     x = 0x00;
+    0x0000807f ldy #0x00         |     y = 0x00;
+                                 |     do {
+    0x00008081 lda 0xc2a7,x      |         acc = *((uint16_t*) 0xc2a7);
+    0x00008084 sta 0x2007        |         PPU_DATA = acc;
+    0x00008087 inx               |         x++;
+    0x00008088 cpx #0x00         |         
+    0x0000808a bne 0x008081      |         
+                                 |     } while (x != 0x00);
+    0x0000808c ldy #0x00         |     y = 0x00;
+                                 |     do {
+    0x0000808e lda 0xc3f7,x      |         acc = *((uint16_t*) 0xc3f7);
+    0x00008091 sta 0x2007        |         PPU_DATA = acc;
+    0x00008094 inx               |         x++;
+    0x00008095 cpx #0x00         |         
+    0x00008097 bne 0x00808e      |         
+                                 |     } while (x != 0x00);
+    0x00008099 ldy #0x00         |     y = 0x00;
+                                 |     do {
+    0x0000809b lda 0xc3f7,x      |         acc = *((uint16_t*) 0xc3f7);
+    0x0000809e sta 0x2007        |         PPU_DATA = acc;
+    0x000080a1 inx               |         x++;
+    0x000080a2 cpx #0x00         |         
+    0x000080a4 bne 0x00809b      |         
+                                 |     } while (x != 0x00);
+    0x000080a6 ldy #0x00         |     y = 0x00;
+                                 |     do {
+    0x000080a8 lda 0xc547,x      |         acc = *((uint16_t*) 0xc547);
+    0x000080ab sta 0x2007        |         PPU_DATA = acc;
+    0x000080ae inx               |         x++;
+    0x000080af cpx #0xc0         |         
+    0x000080b1 bne 0x0080a8      |         
+                                 |     } while (x != 0xc0);
+    0x000080b3 ldx #0x00         |     x = 0x00;
+    0x000080b5 lda #0x00         |     acc = 0x00;
+    0x000080b7 sta 0x2003        |     PPU_SPR_ADDR = acc;
+                                 |     do {
+    0x000080ba lda 0xc1ff,x      |         acc = *((uint16_t*) 0xc1ff);
+    0x000080bd sta 0x2004        |         PPU_SPR_DATA = acc;
+    0x000080c0 inx               |         x++;
+    0x000080c1 cpx 0x12          |         
+    0x000080c3 bne 0x0080ba      |         
+                                 |     } while (x != *((uint16_t*) 0x12));
+    0x000080c5 ldx #0x00         |     x = 0x00;
+    0x000080c7 lda #0x90         |     acc = 0x90;
+    0x000080c9 sta 0x2000        |     PPU_CTRL_REG1 = acc;
+    0x000080cc lda #0x1e         |     acc = 0x1e;
+    0x000080ce sta 0x2001        |     PPU_CTRL_REG2 = acc;
+    0x000080d1 lda #0xff         |     acc = 0xff;
+    0x000080d3 sta 0x36          |     *((uint16_t*) 0x36) = acc;
+    0x000080d5 lda #0x05         |     acc = 0x05;
+    0x000080d7 sta 0x70          |     *((uint16_t*) 0x70) = acc;
+    0x000080d9 lda #0xcf         |     acc = 0xcf;
+    0x000080db sta 0x32          |     *((uint16_t*) 0x32) = acc;
+    0x000080dd lda #0x65         |     acc = 0x65;
+    0x000080df sta 0x34          |     *((uint16_t*) 0x34) = acc;
+    0x000080e1 lda #0xc7         |     acc = 0xc7;
+    0x000080e3 sta 0x24          |     *((uint16_t*) 0x24) = acc;
+    0x000080e5 sta 0x28          |     *((uint16_t*) 0x28) = acc;
+    0x000080e7 lda #0xcf         |     acc = 0xcf;
+    0x000080e9 sta 0x26          |     *((uint16_t*) 0x26) = acc;
+    0x000080eb sta 0x30          |     *((uint16_t*) 0x30) = acc;
+    0x000080ed lda #0x01         |     acc = 0x01;
+    0x000080ef sta 0x38          |     *((uint16_t*) 0x38) = acc;
+    0x000080f1 lda #0xfa         |     acc = 0xfa;
+    0x000080f3 sta 0x50          |     *((uint16_t*) 0x50) = acc;
+    0x000080f5 lda #0x30         |     acc = 0x30;
+    0x000080f7 sta 0x64          |     *((uint16_t*) 0x64) = acc;
+    0x000080f9 lda #0x00         |     acc = 0x00;
+    0x000080fb sta 0x52          |     *((uint16_t*) 0x52) = acc;
+    0x000080fd sta 0x54          |     *((uint16_t*) 0x54) = acc;
+    0x000080ff sta 0x56          |     *((uint16_t*) 0x56) = acc;
+    0x00008101 sta 0x58          |     *((uint16_t*) 0x58) = acc;
+    0x00008103 sta 0x62          |     *((uint16_t*) 0x62) = acc;
+    0x00008105 sta 0x72          |     *((uint16_t*) 0x72) = acc;
+    0x00008107 sta 0x74          |     *((uint16_t*) 0x74) = acc;
+                                 |     do {
+    0x00008109 lda #0x01         |         acc = 0x01;
+    0x0000810b sta 0x4016        |         JOYPAD_PORT = acc;
+    0x0000810e sta 0x4017        |         JOYPAD_PORT2 = acc;
+    0x00008111 lda #0x00         |         acc = 0x00;
+    0x00008113 sta 0x4016        |         JOYPAD_PORT = acc;
+    0x00008116 sta 0x4017        |         JOYPAD_PORT2 = acc;
+    0x00008119 lda 0x4017        |         acc = JOYPAD_PORT2;
+    0x0000811c lda 0x4017        |         acc = JOYPAD_PORT2;
+    0x0000811f lda 0x4017        |         acc = JOYPAD_PORT2;
+    0x00008122 lda 0x4017        |         acc = JOYPAD_PORT2;
+    0x00008125 lda 0x4017        |         acc = JOYPAD_PORT2;
+    0x00008128 lda 0x4017        |         acc = JOYPAD_PORT2;
+    0x0000812b lda 0x4017        |         acc = JOYPAD_PORT2;
+    0x0000812e and #0x01         |         acc &= 0x01;
+    0x00008130 beq 0x008109      |         
+                                 |     } while (acc == 0);
+    0x00008132 jsr 0xc667        |     fcn_0000c667 ();
+    0x00008135 jsr 0xc8d5        |     fcn_0000c8d5 ();
+    0x00008138 jsr 0xc80e        |     fcn_0000c80e ();
+    0x0000813b jsr 0xc7d2        |     fcn_0000c7d2 ();
+    0x0000813e jsr 0xc7f0        |     fcn_0000c7f0 ();
+    0x00008141 jsr 0xc863        |     fcn_0000c863 ();
+    0x00008144 jsr 0xc7d2        |     fcn_0000c7d2 ();
+    0x00008147 jsr 0xc7f0        |     fcn_0000c7f0 ();
+    0x0000814a jmp 0xc14d        |     return void (*0xc14d)() ();
+                                 | }
