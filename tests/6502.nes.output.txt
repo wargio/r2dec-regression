@@ -4,7 +4,7 @@
                                  |  
     ; (fcn) entry0 ()            | void entry0 () {
                                  |     /* [00] -r-x section size 32768 named ROM */
-    0x00008000 cld               |     D = ;
+    0x00008000 cld               |     D = 0;
     0x00008001 sei               |     I = 1;
     0x00008002 ldx #0xff         |     x = 0xff;
     0x00008004 txs               |     SP = x;
