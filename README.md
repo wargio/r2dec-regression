@@ -1,6 +1,6 @@
 # r2dec-regression
 
-regression suite for [r2dec-js](https://github.com/wargio/r2dec-js)
+regression suite for [r2dec-js](https://github.com/radareorg/r2dec-js)
 
 # How to
 
