@@ -1,0 +1,189 @@
+    ; assembly                       | /* r2dec pseudo code output */
+                                     | /* testsuite @ 0x0 */
+                                     | #include <stdint.h>
+                                     |  
+                                     | extern uint8_t _memory[];
+                                     | int32_t global_0;
+                                     | 
+    ; (fcn) sym.fcn.7 ()             | int32_t fcn_7 () {
+                                     |     int32_t local0;
+                                     |     int32_t local1;
+                                     |     int32_t local2;
+                                     |     int32_t local3;
+                                     |     int32_t local4;
+                                     |     int32_t local5;
+                                     |     int32_t local6;
+                                     |     int32_t local7;
+                                     |     int32_t local8;
+                                     |     int32_t local9;
+                                     |     int32_t local10;
+                                     |     int32_t local11;
+                                     |     int32_t local12;
+                                     |     int32_t local13;
+                                     |     int32_t local14;
+                                     |     int32_t local15;
+                                     |     int32_t local16;
+                                     |     int32_t local17;
+                                     |     int32_t local18;
+                                     |     int32_t local19;
+                                     |     int32_t local20;
+                                     |     int32_t local21;
+                                     |     int32_t local22;
+                                     |     int32_t local23;
+                                     |     int32_t local24;
+                                     |     int32_t local25;
+                                     |     int32_t local26;
+                                     |     int32_t local27;
+                                     |     int32_t local28;
+                                     |     int32_t local29;
+                                     |     int32_t local30;
+                                     |     int32_t local31;
+                                     |     int32_t local32;
+                                     |     int32_t local33;
+                                     |     int32_t local34;
+                                     |     int32_t local35;
+                                     |     int32_t local36;
+    0x000001b7 get_global 0          |     
+    0x000001b9 set_local 0           |     local0 = global_0;
+    0x000001bb i32.const 16          |     stack_0 = 16;
+    0x000001bd set_local 1           |     local1 = stack_0;
+    0x000001bf get_local 0           |     
+    0x000001c1 get_local 1           |     
+    0x000001c3 i32.sub               |     local2 = local0 - local1;
+    0x000001c4 set_local 2           |     
+    0x000001c6 i32.const 0           |     stack_2 = 0;
+    0x000001c8 set_local 3           |     local3 = stack_2;
+    0x000001ca get_local 3           |     
+    0x000001cc i32.load 2 1116       |     stack_3 = *((uint32_t*) (_memory + local3 + 279));
+    0x000001d0 set_local 4           |     local4 = stack_3;
+    0x000001d2 get_local 2           |     
+    0x000001d4 get_local 4           |     
+    0x000001d6 i32.store 2 8         |     *((uint32_t*) (_memory + local2 + 2)) = local4;
+    0x000001d9 get_local 2           |     
+    0x000001db i32.load 2 8          |     stack_4 = *((uint32_t*) (_memory + local2 + 2));
+    0x000001de set_local 5           |     local5 = stack_4;
+    0x000001e0 i32.const 8           |     stack_5 = 8;
+    0x000001e2 set_local 6           |     local6 = stack_5;
+    0x000001e4 get_local 5           |     
+    0x000001e6 get_local 6           |     
+    0x000001e8 i32.rem_s             |     local7 = local5 % local6;
+    0x000001e9 set_local 7           |     
+    0x000001eb block                 |     goto label_0;
+    0x000001ed get_local 7           |     
+                                     |     if (local7 == 0) {
+    0x000001ef br_if 0               |         
+    0x000001f1 i32.const 0           |         stack_7 = 0;
+    0x000001f3 set_local 8           |         local8 = stack_7;
+    0x000001f5 get_local 8           |         
+    0x000001f7 i32.load8_u 0 1132    |         stack_8 = *((uint32_t*) (_memory + local8 + 1132));
+    0x000001fb set_local 9           |         local9 = stack_8;
+    0x000001fd i32.const 24          |         stack_9 = 24;
+    0x000001ff set_local 10          |         local10 = stack_9;
+    0x00000201 get_local 9           |         
+    0x00000203 get_local 10          |         
+    0x00000205 i32.shl               |         local11 = local9 << local10;
+    0x00000206 set_local 11          |         
+    0x00000208 get_local 11          |         
+    0x0000020a get_local 10          |         
+    0x0000020c i32.shr_s             |         local12 = local11 >> local10;
+    0x0000020d set_local 12          |         
+    0x0000020f get_local 2           |         
+    0x00000211 i32.load 2 8          |         stack_12 = *((uint32_t*) (_memory + local2 + 2));
+    0x00000214 set_local 13          |         local13 = stack_12;
+    0x00000216 i32.const 8           |         stack_13 = 8;
+    0x00000218 set_local 14          |         local14 = stack_13;
+    0x0000021a get_local 13          |         
+    0x0000021c get_local 14          |         
+    0x0000021e i32.div_s             |         local15 = local13 / local14;
+    0x0000021f set_local 15          |         
+    0x00000221 get_local 15          |         
+    0x00000223 i32.load8_u 0 1024    |         stack_15 = *((uint32_t*) (_memory + local15 + 1024));
+    0x00000227 set_local 16          |         local16 = stack_15;
+    0x00000229 i32.const 255         |         stack_16 = 255;
+    0x0000022c set_local 17          |         local17 = stack_16;
+    0x0000022e get_local 16          |         
+    0x00000230 get_local 17          |         
+    0x00000232 i32.and               |         local18 = local16 & local17;
+    0x00000233 set_local 18          |         
+    0x00000235 get_local 12          |         
+    0x00000237 get_local 18          |         
+    0x00000239 i32.xor               |         local19 = local12 ^ local18;
+    0x0000023a set_local 19          |         
+    0x0000023c i32.const 0           |         stack_19 = 0;
+    0x0000023e set_local 20          |         local20 = stack_19;
+    0x00000240 get_local 20          |         
+    0x00000242 get_local 19          |         
+    0x00000244 i32.store8 0 1132     |         *((uint8_t*) (_memory + local20 + 1132)) = local19;
+                                     |     }
+                                     | label_0:
+    0x00000248 end                   |     
+    0x00000249 i32.const 1           |     stack_20 = 1;
+    0x0000024b set_local 21          |     local21 = stack_20;
+    0x0000024d i32.const 7           |     stack_21 = 7;
+    0x0000024f set_local 22          |     local22 = stack_21;
+    0x00000251 i32.const 0           |     stack_22 = 0;
+    0x00000253 set_local 23          |     local23 = stack_22;
+    0x00000255 get_local 23          |     
+    0x00000257 i32.load8_u 0 1132    |     stack_23 = *((uint32_t*) (_memory + local23 + 1132));
+    0x0000025b set_local 24          |     local24 = stack_23;
+    0x0000025d i32.const 24          |     stack_24 = 24;
+    0x0000025f set_local 25          |     local25 = stack_24;
+    0x00000261 get_local 24          |     
+    0x00000263 get_local 25          |     
+    0x00000265 i32.shl               |     local26 = local24 << local25;
+    0x00000266 set_local 26          |     
+    0x00000268 get_local 26          |     
+    0x0000026a get_local 25          |     
+    0x0000026c i32.shr_s             |     local27 = local26 >> local25;
+    0x0000026d set_local 27          |     
+    0x0000026f get_local 2           |     
+    0x00000271 i32.load 2 8          |     stack_27 = *((uint32_t*) (_memory + local2 + 2));
+    0x00000274 set_local 28          |     local28 = stack_27;
+    0x00000276 i32.const 8           |     stack_28 = 8;
+    0x00000278 set_local 29          |     local29 = stack_28;
+    0x0000027a get_local 28          |     
+    0x0000027c get_local 29          |     
+    0x0000027e i32.rem_s             |     local30 = local28 % local29;
+    0x0000027f set_local 30          |     
+    0x00000281 get_local 22          |     
+    0x00000283 get_local 30          |     
+    0x00000285 i32.sub               |     local31 = local22 - local30;
+    0x00000286 set_local 31          |     
+    0x00000288 get_local 21          |     
+    0x0000028a get_local 31          |     
+    0x0000028c i32.shl               |     local32 = local21 << local31;
+    0x0000028d set_local 32          |     
+    0x0000028f get_local 27          |     
+    0x00000291 get_local 32          |     
+    0x00000293 i32.and               |     local33 = local27 & local32;
+    0x00000294 set_local 33          |     
+    0x00000296 block                 |     goto label_1;
+    0x00000298 block                 |     goto label_2;
+    0x0000029a get_local 33          |     
+    0x0000029c i32.eqz               |     
+                                     |     if (local33 != 0) {
+    0x0000029d br_if 0               |         
+    0x0000029f i32.const 2           |         stack_33 = 2;
+    0x000002a1 set_local 34          |         local34 = stack_33;
+    0x000002a3 get_local 2           |         
+    0x000002a5 get_local 34          |         
+    0x000002a7 i32.store 2 12        |         *((uint32_t*) (_memory + local2 + 3)) = local34;
+    0x000002aa br 1                  |         
+                                     |     } else {
+                                     | label_2:
+    0x000002ac end                   |         
+    0x000002ad i32.const 3           |         stack_34 = 3;
+    0x000002af set_local 35          |         local35 = stack_34;
+    0x000002b1 get_local 2           |         
+    0x000002b3 get_local 35          |         
+    0x000002b5 i32.store 2 12        |         *((uint32_t*) (_memory + local2 + 3)) = local35;
+                                     |     }
+                                     | label_1:
+    0x000002b8 end                   |     
+    0x000002b9 get_local 2           |     
+    0x000002bb i32.load 2 12         |     stack_35 = *((uint32_t*) (_memory + local2 + 3));
+    0x000002be set_local 36          |     local36 = stack_35;
+    0x000002c0 get_local 36          |     
+    0x000002c2 return                |     return local36;
+    0x000002c3 end                   |     return;
+                                     | }
