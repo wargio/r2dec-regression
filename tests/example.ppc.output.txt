@@ -7,7 +7,7 @@
                                              | #define SPR_HID5 (0x3f6)
                                              | #define SPR_HID6 (0x3f9)
                                              |  
-                                             | uint64_t rotate_left64 (uint64_t value, uint32_t count ) {
+                                             | uint64_t rotate_left64 (uint64_t value, uint32_t count) {
                                              |     const uint64_t mask = (CHAR_BIT * sizeof (value)) - 1;
                                              |     count &= mask;
                                              |     return (value << count) | (value >> (-count & mask));
