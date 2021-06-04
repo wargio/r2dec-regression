@@ -1,4 +1,4 @@
-    ; assembly                               | /* jsdec pseudo code output */
+    ; assembly                               | /* r2dec pseudo code output */
                                              | /* testsuite @ 0x0 */
                                              | #include <stdint.h>
                                              |  
