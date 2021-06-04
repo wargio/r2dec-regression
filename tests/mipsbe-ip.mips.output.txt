@@ -1,9 +1,9 @@
-    ; assembly                               | /* r2dec pseudo code output */
+    ; assembly                               | /* jsdec pseudo code output */
                                              | /* testsuite @ 0x0 */
                                              | #include <stdint.h>
                                              |  
     ; (fcn) main ()                          | int32_t main () {
-    0x00402558 addiu sp, sp, -0x50           |     sp += -0x50;
+    0x00402558 addiu sp, sp, -0x50           |     
     0x0040255c sw ra, 0x4c(sp)               |     *((int32_t*) (sp + 19)) = ra;
     0x00402560 sw fp, 0x48(sp)               |     *((int32_t*) (sp + 18)) = fp;
     0x00402564 sw s7, 0x44(sp)               |     *((int32_t*) (sp + 17)) = s7;
@@ -14,7 +14,7 @@
     0x00402578 sw s2, 0x30(sp)               |     *((int32_t*) (sp + 12)) = s2;
     0x0040257c sw s1, 0x2c(sp)               |     *((int32_t*) (sp + 11)) = s1;
     0x00402580 sw s0, 0x28(sp)               |     *((int32_t*) (sp + 10)) = s0;
-    0x00402584 lui gp, 0x44                  |     gp = _gp;
+    0x00402584 lui gp, 0x44                  |     
     0x00402588 addiu gp, gp, -0x2f20         |     
     0x0040258c sw gp, 0x10(sp)               |     *((int32_t*) (sp + 4)) = gp;
     0x00402590 move s0, a1                   |     s0 = a1;
@@ -168,8 +168,8 @@
     0x00402754 lw s2, 0x30(sp)               |     s2 = *((int32_t*) (sp + 12));
     0x00402758 lw s1, 0x2c(sp)               |     s1 = *((int32_t*) (sp + 11));
     0x0040275c lw s0, 0x28(sp)               |     s0 = *((int32_t*) (sp + 10));
-    0x00402760 addiu sp, sp, 0x50            |     sp += 0x50;
-    0x00402764 jr ra                         |     return s1;
+    0x00402760 addiu sp, sp, 0x50            |     
+    0x00402764 jr ra                         |     return v0;
                                              | label_12:
     0x00402768 lw t9, -0x7ee0(gp)            |     t9 = *((int32_t*) (gp - 8120));
     0x0040276c sw a2, 0x24(sp)               |     *((int32_t*) (sp + 9)) = a2;
@@ -256,7 +256,7 @@
                                              | label_18:
     0x00402868 lw t9, -0x7de0(gp)            |     t9 = *((int32_t*) (gp - 8056));
     0x0040286c lui s2, 0x43                  |     s2 = 0x430000;
-    0x00402870 addiu a0, s2, 0x3c60          |     a0 = s2 + 0x3c60;
+    0x00402870 addiu a0, s2, 0x3c60          |     a0 = rth;
     0x00402874 move a1, zero                 |     a1 = 0;
     0x00402878 jalr t9                       |     t9 ();
     0x0040287c lw gp, 0x10(sp)               |     gp = *((int32_t*) (sp + 4));
@@ -292,8 +292,8 @@
     0x004028dc lw s2, 0x30(sp)               |     s2 = *((int32_t*) (sp + 12));
     0x004028e0 lw s1, 0x2c(sp)               |     s1 = *((int32_t*) (sp + 11));
     0x004028e4 lw s0, 0x28(sp)               |     s0 = *((int32_t*) (sp + 10));
-    0x004028e8 addiu sp, sp, 0x50            |     sp += 0x50;
-    0x004028ec jr ra                         |     return s1;
+    0x004028e8 addiu sp, sp, 0x50            |     
+    0x004028ec jr ra                         |     return v0;
                                              | label_16:
     0x004028f0 lw t9, -0x7ee0(gp)            |     t9 = *((int32_t*) (gp - 8120));
     0x004028f4 lui a1, 0x42                  |     a1 = 0x420000;
