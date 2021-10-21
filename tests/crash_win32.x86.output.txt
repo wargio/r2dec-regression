@@ -102,7 +102,7 @@
     0x004010fb call 0x401194                         |         fcn_00401194 ();
     0x00401100 push 0x40300c                         |         
     0x00401105 push 0x403008                         |         
-    0x0040110a call 0x40118e                         |         _initterm_40118e ();
+    0x0040110a call 0x40118e                         |         _initterm_40118e (0x403008, 0x40300c);
     0x0040110f mov eax, dword [0x403044]             |         eax = *((int32_t*) 0x403044);
     0x00401114 mov dword [ebp - 0x28], eax           |         *((int32_t*) (ebp - 0x28)) = eax;
     0x00401117 lea eax, [ebp - 0x28]                 |         
@@ -117,14 +117,14 @@
     0x0040112d call dword [0x402014]                 |         _getmainargs (ebp - 0x1c, ebp - 0x2c, ebp - 0x20, *((uint32_t*) 0x403040), ebp - 0x28);
     0x00401133 push 0x403004                         |         
     0x00401138 push 0x403000                         |         
-    0x0040113d call 0x40118e                         |         _initterm_40118e ();
+    0x0040113d call 0x40118e                         |         _initterm_40118e (0x403000, 0x403004);
     0x00401142 call dword [0x402010]                 |         _p_initenv ();
     0x00401148 mov ecx, dword [ebp - 0x20]           |         ecx = *((int32_t*) (ebp - 0x20));
     0x0040114b mov dword [eax], ecx                  |         *((int32_t*) eax) = ecx;
     0x0040114d push dword [ebp - 0x20]               |         
     0x00401150 push dword [ebp - 0x2c]               |         
     0x00401153 push dword [ebp - 0x1c]               |         
-    0x00401156 call 0x401000                         |         eax = Good_Job_401000 (*((uint32_t*) (ebp - 0x1c)), *((uint32_t*) (ebp - 0x2c)));
+    0x00401156 call 0x401000                         |         eax = Good_Job_401000 (*((uint32_t*) (ebp - 0x1c)), *((uint32_t*) (ebp - 0x2c)), *((uint32_t*) (ebp - 0x20)));
                                                      |     } while (1);
     0x0040115b add esp, 0x30                         |     
     0x0040115e mov dword [ebp - 0x24], eax           |     *((int32_t*) (ebp - 0x24)) = eax;
@@ -136,7 +136,7 @@
     0x0040116f mov dword [ebp - 0x30], ecx           |     *((int32_t*) (ebp - 0x30)) = ecx;
     0x00401172 push eax                              |     
     0x00401173 push ecx                              |     
-    0x00401174 call 0x401188                         |     _XcptFilter_401188 ();
+    0x00401174 call 0x401188                         |     _XcptFilter_401188 (ecx, eax);
     0x00401179 pop ecx                               |     
     0x0040117a pop ecx                               |     
     0x0040117b ret                                   |     return eax;
