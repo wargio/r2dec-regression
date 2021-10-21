@@ -99,7 +99,7 @@
     0x0045afd5 xchg rsi, rdi                                 |     tmp_3 = rsi;
                                                              |     rsi = rdi;
                                                              |     rdi = tmp_3;
-    0x0045afd8 call rbp                                      |     void (*rbp)(void, void) (rax, rax);
+    0x0045afd8 call rbp                                      |     void (*rbp)(uint64_t, uint64_t) (rax, rax);
     0x0045afda pop rcx                                       |     
     0x0045afdb ret                                           |     return rax;
                                                              | }
