@@ -1,0 +1,78 @@
+    ; assembly                           | /* r2dec pseudo code output */
+                                         | /* testsuite @ 0x0 */
+                                         | #include <stdint.h>
+                                         |  
+    ; (fcn) fcn.00014dd4 ()              | void fcn_00014dd4 () {
+                                         |     do {
+    0x00014dd4 addi sp, sp, -32          |         sp += -32;
+    0x00014dd6 sd ra, 24(sp)             |         *((int64_t*) (sp + 0x18)) = ra;
+    0x00014dd8 sd s0, 16(sp)             |         *((int64_t*) (sp + 0x10)) = s0;
+    0x00014dda sd s1, 8(sp)              |         *((int64_t*) (sp + 0x8)) = s1;
+    0x00014ddc sd s2, 0(sp)              |         *((int64_t*) sp) = s2;
+    0x00014dde mv s0, a1                 |         s0 = a1;
+    0x00014de0 srli a1, a1, 0x30         |         a1 >>= 0x30;
+    0x00014de2 lui a3, 0x8               |         a3 = 0x8000;
+    0x00014de4 addiw a4, a3, -1          |         a4 = a3 + -1;
+    0x00014de8 and a3, a1, a4            |         a3 = a1 & a4;
+    0x00014dec mv s1, a0                 |         s1 = a0;
+                                         |         if (a3 == a4) {
+    0x00014dee beq a3, a4, 0x14e58       |             goto label_0;
+                                         |         }
+    0x00014df2 mv s2, a2                 |         s2 = a2;
+                                         |         if (a3 != 0) {
+    0x00014df4 bnez a3, 0x14e2a          |             goto label_1;
+                                         |         }
+    0x00014df6 mv a0, s1                 |         a0 = s1;
+    0x00014df8 mv a1, s0                 |         a1 = s0;
+    0x00014dfa li a2, 0                  |         a2 = 0;
+    0x00014dfc li a3, 0                  |         a3 = 0;
+    0x00014dfe jal ra, 0x162de           |         fcn_000162de (a0, a1, a2, a3);
+                                         |         if (a0 == 0) {
+    0x00014e02 beqz a0, 0x14e52          |             goto label_2;
+                                         |         }
+    0x00014e04 lui a0, 0x4077            |         a0 = 0x4077000;
+    0x00014e08 slli a3, a0, 0x24         |         a3 = a0 << 0x24;
+    0x00014e0c mv a0, s1                 |         a0 = s1;
+    0x00014e0e mv a1, s0                 |         a1 = s0;
+    0x00014e10 li a2, 0                  |         a2 = 0;
+    0x00014e12 jal ra, 0x1636c           |         fcn_0001636c (a0, a1, a2);
+    0x00014e16 mv a2, s2                 |         a2 = s2;
+    0x00014e18 jal ra, 0x14dd4           |         fcn_00014dd4 (a0, a1, a2);
+                                         |     } while (1);
+    0x00014e1c lw a2, 0(s2)              |     a2 = *((int32_t*) s2);
+    0x00014e20 mv s1, a0                 |     s1 = a0;
+    0x00014e22 mv s0, a1                 |     s0 = a1;
+    0x00014e24 addi a0, a2, -120         |     a0 = a2 + -120;
+    0x00014e28 j 0x14e54                 |     goto label_3;
+                                         | label_1:
+    0x00014e2a lui a0, 0x8               |     a0 = 0x8000;
+    0x00014e2c addiw a2, a0, -1          |     a2 = a0 + -1;
+    0x00014e30 and a2, a2, a1            |     a2 &= a1;
+    0x00014e32 lui a3, 0xffffc           |     a3 = 0x0;
+    0x00014e34 addiw a3, a3, 2           |     a3 += 2;
+    0x00014e36 add a2, a2, a3            |     a2 += a3;
+    0x00014e38 sw a2, 0(s2)              |     *((int32_t*) s2) = a2;
+    0x00014e3c and a0, a0, a1            |     a0 &= a1;
+    0x00014e3e lui a1, 0x4               |     a1 = 0x4000;
+    0x00014e40 addiw a1, a1, -2          |     a1 += -2;
+    0x00014e42 or a0, a0, a1             |     a0 |= a1;
+    0x00014e44 slli a0, a0, 0x30         |     a0 <<= 0x30;
+    0x00014e46 li a1, -1                 |     a1 = -1;
+    0x00014e48 srli a1, a1, 0x10         |     a1 >>= 0x10;
+    0x00014e4a and a1, a1, s0            |     a1 &= s0;
+    0x00014e4c or s0, a0, a1             |     s0 = a0 | a1;
+    0x00014e50 j 0x14e58                 |     goto label_0;
+                                         | label_2:
+    0x00014e52 li a0, 0                  |     a0 = 0;
+                                         | label_3:
+    0x00014e54 sw a0, 0(s2)              |     *((int32_t*) s2) = a0;
+                                         | label_0:
+    0x00014e58 mv a0, s1                 |     a0 = s1;
+    0x00014e5a mv a1, s0                 |     a1 = s0;
+    0x00014e5c ld s2, 0(sp)              |     s2 = *((int64_t*) sp);
+    0x00014e5e ld s1, 8(sp)              |     s1 = *((int64_t*) (sp + 0x8));
+    0x00014e60 ld s0, 16(sp)             |     s0 = *((int64_t*) (sp + 0x10));
+    0x00014e62 ld ra, 24(sp)             |     ra = *((int64_t*) (sp + 0x18));
+    0x00014e64 addi sp, sp, 32           |     sp += 32;
+    0x00014e66 ret                       |     return;
+                                         | }
