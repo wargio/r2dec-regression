@@ -1,28 +1,22 @@
 #!/bin/bash
 
-TESTFOLDER=./tests
-TMPFOLDER=./tmp
-R2DECFOLDER=$2
-TESTNAME=$1
-RMCMD="rmdir"
-ERROR=false
-DIFF="diff --color=always -u"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+R2DEC="$2"
+TESTNAME="$1"
 
-if [ -z "$R2DECFOLDER" ]; then
-	R2DECFOLDER=~/.local/share/radare2/r2pm/git/r2dec-js
+if [ -z "$R2DEC" ]; then
+	echo "$0 <file.json> <r2dec folder>"
+	exit 1
 fi
 
-R2DECBINFLD=$R2DECFOLDER/p
+. "$SCRIPT_DIR/common.sh"
 
-if [ ! -f "$R2DECBINFLD/r2dec-test" ]; then
-	echo "building binary src"
-    make --no-print-directory testbin -C "$R2DECBINFLD"
-fi
+build_testsuite "$R2DEC"
 
 if [ -z "$TESTNAME" ]; then
 	echo "Empty name.."
 	exit 1;
 fi
 
-$R2DECBINFLD/r2dec-test "$R2DECFOLDER" "$TESTNAME"
+run_test "$R2DEC" "$TESTNAME"
 

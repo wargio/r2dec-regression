@@ -1,25 +1,28 @@
 #!/bin/bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 TESTFOLDER=./tests
 TMPFOLDER=./tmp
-R2DECFOLDER=$2
+R2DEC=$2
 TESTNAME=$1
 RMCMD="rmdir"
 ERROR=false
 DIFF="diff --color=always -u"
 
-if [ -z "$R2DECFOLDER" ]; then
-	R2DECFOLDER=~/.local/share/radare2/r2pm/git/r2dec-js
+if [ -z "$TESTNAME" ] || [ -z "$R2DEC" ]; then
+	echo "$0 <test name> <r2dec folder>"
+	exit 1
 fi
 
-R2DECBINFLD=$R2DECFOLDER/p
+. "$SCRIPT_DIR/common.sh"
 
-if [ ! -f "$R2DECBINFLD/r2dec-test" ]; then
-	echo "building binary src"
-    make --no-print-directory testbin -C "$R2DECBINFLD"
-fi
+build_testsuite "$R2DEC"
+
 ELEM=$(find "$TESTFOLDER" | grep "$TESTNAME*.json" | sed "s/.json//g")
-mkdir "$TMPFOLDER"
+
+if [ ! -d "$TMPFOLDER" ]; then
+	mkdir "$TMPFOLDER"
+fi
 
 NAME=$(basename "$ELEM")
 if [ -z "$NAME" ]; then
@@ -28,7 +31,7 @@ if [ -z "$NAME" ]; then
 fi
 
 OUTPUTFILE="$TMPFOLDER/$NAME.output.txt"
-$R2DECBINFLD/r2dec-test "$R2DECFOLDER" "$ELEM.json" > "$OUTPUTFILE" || break
+run_test "$R2DEC" "$ELEM.json" > "$OUTPUTFILE" || break
 if [ ! -f "$ELEM.output.txt" ]; then
 	touch "$ELEM.output.txt"
 fi
@@ -45,9 +48,8 @@ else
 fi
 
 if [ ! "$TMPFOLDER" == "/tmp" ] ; then
-	$RMCMD "$TMPFOLDER"
+	$RMCMD "$TMPFOLDER" 2> /dev/null
 fi
-
 
 if $ERROR; then
 	exit 1;
