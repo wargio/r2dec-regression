@@ -3,8 +3,8 @@
                                                              | #include <stdint.h>
                                                              |  
     ; (fcn) fcn.0045af71 ()                                  | uint64_t fcn_0045af71 (int32_t arg_64h) {
-                                                             |     int32_t local_18h;
                                                              |     int32_t local_8h;
+                                                             |     int32_t local_18h;
                                                              |     do {
     0x0045af33 push 0x1e                                     |         
     0x0045af38 pop rdx                                       |         rdx = 0x1e;
