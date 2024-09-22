@@ -2,11 +2,11 @@
                                                  | /* testsuite @ 0x0 */
                                                  | #include <stdint.h>
                                                  |  
-    ; (fcn) sym.sub ()                           | int32_t sub (int64_t arg1, int64_t arg2) {
+    ; (fcn) sym.sub ()                           | int32_t sub (int64_t arg2, int64_t arg1) {
                                                  |     int64_t var_8h;
                                                  |     int64_t var_4h;
-                                                 |     rdi = arg1;
                                                  |     rsi = arg2;
+                                                 |     rdi = arg1;
                                                  |     /* [01] -r-x section size 22 named .text */
     0x08000040 endbr64                           |     
     0x08000044 push rbp                          |     

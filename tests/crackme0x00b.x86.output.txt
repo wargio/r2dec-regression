@@ -3,8 +3,8 @@
                                                  | #include <stdint.h>
                                                  |  
     ; (fcn) sym.main ()                          | int32_t main (void) {
-                                                 |     int32_t local_1ch;
                                                  |     wchar_t * s2;
+                                                 |     int32_t local_1ch;
     0x08048494 push ebp                          |     
     0x08048495 mov ebp, esp                      |     
     0x08048497 and esp, 0xfffffff0               |     
