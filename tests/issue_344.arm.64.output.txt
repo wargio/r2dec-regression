@@ -1,0 +1,669 @@
+    ; assembly                                       | /* r2dec pseudo code output */
+                                                     | /* testsuite @ 0x0 */
+                                                     | #include <stdint.h>
+                                                     |  
+    ; (fcn) main ()                                  | int32_t main (int32_t argc, char ** argv) {
+                                                     |     int64_t var_8h;
+                                                     |     int64_t var_14h;
+                                                     |     int64_t var_18h;
+                                                     |     int64_t var_20h;
+                                                     |     int64_t var_220h;
+                                                     |     int64_t var_50h;
+                                                     |     x0 = argc;
+                                                     |     x1 = argv;
+    0x100003a58 pacibsp                              |     
+    0x100003a5c stp x28, x27, [sp, -0x60]!           |     *((uint64_t*) (sp + -0x60)) = x28;
+                                                     |     *((uint64_t*) (sp + -0x60 + 8)) = x27;
+    0x100003a60 stp x26, x25, [sp, 0x10]             |     *((uint64_t*) (sp + 0x10)) = x26;
+                                                     |     *((uint64_t*) (sp + 0x10 + 8)) = x25;
+    0x100003a64 stp x24, x23, [sp, 0x20]             |     *((uint64_t*) var_20h) = x24;
+                                                     |     *((uint64_t*) (var_20h + 8)) = x23;
+    0x100003a68 stp x22, x21, [sp, 0x30]             |     *((uint64_t*) (sp + 0x30)) = x22;
+                                                     |     *((uint64_t*) (sp + 0x30 + 8)) = x21;
+    0x100003a6c stp x20, x19, [sp, 0x40]             |     *((uint64_t*) (sp + 0x40)) = x20;
+                                                     |     *((uint64_t*) (sp + 0x40 + 8)) = x19;
+    0x100003a70 stp x29, x30, [sp, 0x50]             |     *((uint64_t*) (sp + 0x50)) = x29;
+                                                     |     *((uint64_t*) (sp + 0x50 + 8)) = x30;
+    0x100003a74 add x29, sp, 0x50                    |     x29 = sp + 0x50;
+    0x100003a78 sub sp, sp, 0x640                    |     
+    0x100003a7c mov x19, x1                          |     x19 = x1;
+    0x100003a80 mov x20, x0                          |     x20 = x0;
+    0x100003a84 sub x21, x29, 0x70                   |     x21 = x29 - 0x70;
+    0x100003a88 str xzr, [x21, 0x10]                 |     *((uint32_t*) (x21 + 0x10)) = 0;
+    0x100003a8c stur wzr, [x29, -0x64]               |     *((uint32_t*) (x29 - 0x64)) = 0;
+    0x100003a90 str xzr, [x21]                       |     *((uint32_t*) x21) = 0;
+    0x100003a94 add x8, sp, 0x20                     |     x8 = sp + 0x20;
+    0x100003a98 str x8, [sp, 0x18]                   |     var_18h = x8;
+    0x100003a9c cmp w0, 0                            |     
+                                                     |     if (w0 <= 0) {
+    0x100003aa0 b.gt 0x100003aa8                     |         
+    0x100003aa4 bl 0x100007174                       |         func_100007174 (w0);
+                                                     |     }
+    0x100003aa8 adrp x1, 0x100007000                 |     
+    0x100003aac add x1, x1, 0xa15                    |     x1 = 0x100007a15;
+    0x100003ab0 mov w0, 0                            |     w0 = 0;
+    0x100003ab4 bl 0x100007768                       |     setlocale (w0, x1);
+    0x100003ab8 adrp x0, 0x100007000                 |     
+    0x100003abc add x0, x0, 0xa16                    |     x0 = "bin/ls";
+    0x100003ac0 adrp x1, 0x100007000                 |     
+    0x100003ac4 add x1, x1, 0xa1d                    |     x1 = "Unix2003";
+    0x100003ac8 bl 0x1000074d8                       |     compat_mode ("bin/ls", "Unix2003");
+    0x100003acc adrp x26, 0x10000c000                |     x26 = 0x10000c000;
+    0x100003ad0 strb w0, [x26, 0x24]                 |     *((uint8_t*) (x26 + 0x24)) = w0;
+    0x100003ad4 mov w22, 1                           |     w22 = 1;
+    0x100003ad8 mov w0, 1                            |     w0 = 1;
+    0x100003adc bl 0x100007668                       |     isatty (w0);
+    0x100003ae0 adrp x27, 0x10000c000                |     x27 = 0x10000c000;
+    0x100003ae4 adrp x24, 0x10000c000                |     x24 = 0x10000c000;
+                                                     |     if (w0 == 0) {
+    0x100003ae8 cbnz w0, 0x100003b1c                 |         
+    0x100003aec strb w22, [x24, 0xd0]                |         *((uint8_t*) (x24 + 0xd0)) = w22;
+    0x100003af0 adrp x0, 0x100007000                 |         
+    0x100003af4 add x0, x0, 0xa26                    |         x0 = "COLUMNS";
+    0x100003af8 bl 0x1000075e8                       |         x0 = getenv ("COLUMNS");
+                                                     |         if (x0 == 0) {
+    0x100003afc cbz x0, 0x100003b88                  |             goto label_1;
+                                                     |         }
+    0x100003b00 sub x3, x29, 0x70                    |         x3 = x29 - 0x70;
+    0x100003b04 mov x1, 0                            |         x1 = 0;
+    0x100003b08 mov w2, 0x7fffffff                   |         w2 = 0x7fffffff;
+    0x100003b0c bl 0x100007828                       |         strtonum (x1, w2, x3);
+    0x100003b10 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x100003b14 str w0, [x8]                         |         *((uint32_t*) x8) = w0;
+    0x100003b18 b 0x100003b88                        |         
+                                                     |     } else {
+    0x100003b1c mov w8, 0x50                         |         w8 = 0x50;
+    0x100003b20 adrp x22, 0x10000c000                |         x22 = 0x10000c000;
+    0x100003b24 str w8, [x22]                        |         *((uint32_t*) x22) = w8;
+    0x100003b28 adrp x0, 0x100007000                 |         
+    0x100003b2c add x0, x0, 0xa26                    |         x0 = "COLUMNS";
+    0x100003b30 bl 0x1000075e8                       |         x0 = getenv ("COLUMNS");
+                                                     |         if (x0 != 0) {
+    0x100003b34 cbz x0, 0x100003b40                  |             
+    0x100003b38 ldrb w8, [x0]                        |             w8 = *((uint8_t*) x0);
+                                                     |             if (w8 != 0) {
+    0x100003b3c cbnz w8, 0x100003b6c                 |                 goto label_2;
+                                                     |             }
+                                                     |         }
+    0x100003b40 sub x8, x29, 0x60                    |         x8 = x29 - 0x60;
+    0x100003b44 str x8, [sp]                         |         *((uint32_t*) sp) = x8;
+    0x100003b48 mov w0, 1                            |         w0 = 1;
+    0x100003b4c mov w1, 0x7468                       |         w1 = 0x7468;
+    0x100003b50 movk w1, 0x4008, lsl 16              |         w1 &= 0x0;
+                                                     |         w1 |= 0x40080000;
+    0x100003b54 bl 0x100007658                       |         w0 = ioctl (w0, w1);
+    0x100003b58 cmn w0, 1                            |         
+                                                     |         if (w0 != 1) {
+    0x100003b5c b.eq 0x100003b80                     |             
+    0x100003b60 ldurh w0, [x29, -0x5e]               |             w0 = *((uint16_t*) (x29 - 0x5e));
+                                                     |             if (w0 == 0) {
+    0x100003b64 cbnz w0, 0x100003b7c                 |                 
+    0x100003b68 b 0x100003b80                        |                 goto label_3;
+                                                     | label_2:
+    0x100003b6c sub x3, x29, 0x70                    |                 x3 = x29 - 0x70;
+    0x100003b70 mov x1, 0                            |                 x1 = 0;
+    0x100003b74 mov w2, 0x7fffffff                   |                 w2 = 0x7fffffff;
+    0x100003b78 bl 0x100007828                       |                 strtonum (x1, w2, x3);
+                                                     |             }
+    0x100003b7c str w0, [x22]                        |             *((uint32_t*) x22) = w0;
+                                                     |         }
+                                                     | label_3:
+    0x100003b80 mov w8, 1                            |         w8 = 1;
+    0x100003b84 str w8, [x27, 0x28]                  |         *((uint32_t*) (x27 + 0x28)) = w8;
+                                                     |     }
+                                                     | label_1:
+    0x100003b88 ldr x8, [x21]                        |     x8 = *((uint32_t*) x21);
+                                                     |     if (x8 != 0) {
+    0x100003b8c cbz x8, 0x100003b9c                  |         
+    0x100003b90 mov w8, 0x50                         |         w8 = 0x50;
+    0x100003b94 adrp x9, 0x10000c000                 |         x9 = 0x10000c000;
+    0x100003b98 str w8, [x9]                         |         *((uint32_t*) x9) = w8;
+                                                     |     }
+    0x100003b9c adrp x0, 0x100007000                 |     
+    0x100003ba0 add x0, x0, 0xa2e                    |     x0 = "LS_SAMESORT";
+    0x100003ba4 bl 0x1000075e8                       |     x0 = getenv ("LS_SAMESORT");
+                                                     |     if (x0 != 0) {
+    0x100003ba8 cbz x0, 0x100003bb8                  |         
+    0x100003bac mov w8, 1                            |         w8 = 1;
+    0x100003bb0 adrp x9, 0x10000c000                 |         x9 = 0x10000c000;
+    0x100003bb4 str w8, [x9, 0x2c]                   |         *((uint32_t*) (x9 + 0x2c)) = w8;
+                                                     |     }
+    0x100003bb8 adrp x0, 0x100007000                 |     
+    0x100003bbc add x0, x0, 0xa3a                    |     x0 = "CLICOLOR";
+    0x100003bc0 bl 0x1000075e8                       |     getenv ("CLICOLOR");
+    0x100003bc4 adrp x28, 0x10000c000                |     x28 = 0x10000c000;
+                                                     |     if (x0 != 0) {
+    0x100003bc8 cbz x0, 0x100003bd4                  |         
+    0x100003bcc mov w8, 1                            |         w8 = 1;
+    0x100003bd0 str w8, [x28, 0x20]                  |         *((uint32_t*) (x28 + 0x20)) = w8;
+                                                     |     }
+    0x100003bd4 mov w25, 0x10                        |     w25 = 0x10;
+    0x100003bd8 adrp x21, 0x100007000                |     
+    0x100003bdc add x21, x21, 0xa43                  |     x21 = "+@1ABCD:FGHILOPRSTUWXabcdefghiklmnopqrstuvwxy%,";
+    0x100003be0 adrp x22, 0x100008000                |     x22 = reloc.__assert_rtn;
+    0x100003be4 add x22, x22, 0x2d0                  |     x22 += 0x2d0;
+                                                     |     do {
+                                                     | label_0:
+    0x100003be8 mov x0, x20                          |         x0 = x20;
+    0x100003bec mov x1, x19                          |         x1 = x19;
+    0x100003bf0 mov x2, x21                          |         x2 = x21;
+    0x100003bf4 mov x3, x22                          |         x3 = x22;
+    0x100003bf8 mov x4, 0                            |         x4 = 0;
+    0x100003bfc bl 0x1000075f8                       |         w0 = getopt_long (x0, x1, x2, x3);
+    0x100003c00 sub w16, w0, 0x25                    |         w16 = w0 - 0x25;
+    0x100003c04 cmp w16, 0x5b                        |         
+                                                     |         if (w16 > 0x5b) {
+    0x100003c08 b.hi 0x1000040c0                     |             goto label_4;
+                                                     |         }
+    0x100003c0c cmp x16, 0x5b                        |         
+    0x100003c10 csel x16, x16, xzr, ls               |         x16 = (x16 <= 0x5b) ? x16 : 0;
+    0x100003c14 adrp x17, 0x100004000                |         
+    0x100003c18 add x17, x17, 0x638                  |         x17 = func.100004638;
+                                                     |         /* switch table (92 cases) at 0x100004638 */
+    0x100003c1c ldrsw x16, [x17, x16, lsl 2]         |         offset_0 = x16 << 2;
+                                                     |         x16 = *((uint64_t*) (x17 + offset_0));
+    0x100003c20 adr x17, 0x100003c20                 |         x17 = 0x100003c20;
+    0x100003c24 add x16, x17, x16                    |         x16 = x17 + x16;
+    0x100003c28 br x16                               |         uint64_t (*x16)() ();
+    0x100003c38 b 0x100003be8                        |         
+                                                     |     } while (1);
+    0x100003c54 b 0x100003be8                        |     goto label_0;
+    0x100003c60 b 0x100004020                        |     goto label_5;
+    0x100003c70 b 0x100003be8                        |     goto label_0;
+    0x100003c88 b 0x100003be8                        |     goto label_0;
+    0x100003ca8 b 0x100003be8                        |     goto label_0;
+    0x100003cb8 b 0x100003be8                        |     goto label_0;
+    0x100003cc8 b 0x100003be8                        |     goto label_0;
+    0x100003cdc b 0x100004074                        |     goto label_6;
+    0x100003d04 b 0x100003be8                        |     goto label_0;
+    0x100003d2c b 0x100003be8                        |     goto label_0;
+    0x100003d3c b 0x100003be8                        |     goto label_0;
+    0x100003d58 b 0x100003be8                        |     goto label_0;
+    0x100003d70 b 0x100003dc8                        |     goto label_7;
+    0x100003d80 b 0x100003be8                        |     goto label_0;
+    0x100003d90 b 0x100003be8                        |     goto label_0;
+    0x100003d98 b 0x100004068                        |     goto label_8;
+    0x100003db0 b 0x100003be8                        |     goto label_0;
+                                                     | label_7:
+    0x100003dc8 adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x100003dcc str wzr, [x8, 0x40]                  |     *((uint32_t*) (x8 + 0x40)) = 0;
+    0x100003dd0 b 0x100003be8                        |     goto label_0;
+    0x100003de0 b 0x100003be8                        |     goto label_0;
+    0x100003df4 b 0x100004028                        |     goto label_9;
+    0x100003e0c b 0x100003be8                        |     goto label_0;
+    0x100003e24 b 0x100003be8                        |     goto label_0;
+    0x100003e34 b 0x100003be8                        |     goto label_0;
+    0x100003e50 b 0x100003be8                        |     goto label_0;
+    0x100003e60 b 0x100003be8                        |     goto label_0;
+    0x100003e78 b 0x100003be8                        |     goto label_0;
+    0x100003e80 b 0x100003be8                        |     goto label_0;
+    0x100003f4c b 0x100003be8                        |     goto label_0;
+    0x100003f5c b 0x100003be8                        |     goto label_0;
+    0x100003f74 b 0x100003be8                        |     goto label_0;
+    0x100003f98 b 0x100003be8                        |     goto label_0;
+    0x100003fa8 b 0x100003be8                        |     goto label_0;
+    0x100003fc0 b 0x100003be8                        |     goto label_0;
+    0x100003fd8 b 0x100004068                        |     goto label_8;
+    0x100003fe8 b 0x100003be8                        |     goto label_0;
+    0x100003ff8 b 0x100003be8                        |     goto label_0;
+    0x100004010 b 0x100003be8                        |     goto label_0;
+    0x100004018 b 0x100003be8                        |     goto label_0;
+                                                     | label_5:
+    0x100004020 adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x100004024 str wzr, [x8, 0x48]                  |     *((uint32_t*) (x8 + 0x48)) = 0;
+                                                     | label_9:
+    0x100004028 adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x10000402c str wzr, [x8, 0x4c]                  |     *((uint32_t*) (x8 + 0x4c)) = 0;
+    0x100004030 b 0x100003be8                        |     goto label_0;
+    0x10000403c strb w8, [x9, 0xd8]                  |     *((uint8_t*) (x9 + 0xd8)) = w8;
+    0x100004040 orr w25, w25, 0x20                   |     w25 |= 0x20;
+    0x100004044 mov w8, 1                            |     w8 = 1;
+    0x100004048 adrp x9, 0x10000c000                 |     x9 = 0x10000c000;
+    0x10000404c strb w8, [x9, 0xdc]                  |     *((uint8_t*) (x9 + 0xdc)) = w8;
+    0x100004050 b 0x100003be8                        |     goto label_0;
+                                                     | label_8:
+    0x100004068 adrp x9, 0x10000c000                 |     x9 = 0x10000c000;
+    0x10000406c str w8, [x9, 0x30]                   |     *((uint32_t*) (x9 + 0x30)) = w8;
+    0x100004070 strb wzr, [x24, 0xd0]                |     *((uint8_t*) (x24 + 0xd0)) = 0;
+                                                     | label_6:
+    0x100004074 adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x100004078 strb wzr, [x8, 0xd4]                 |     *((uint8_t*) (x8 + 0xd4)) = 0;
+    0x10000407c b 0x100003be8                        |     goto label_0;
+    0x100004098 b 0x100003be8                        |     goto label_0;
+                                                     | label_4:
+    0x1000040c0 cmn w0, 1                            |     
+                                                     |     if (w0 != 1) {
+    0x1000040c4 b.eq 0x1000040dc                     |         
+    0x1000040c8 bl 0x100007174                       |         func_100007174 (w0);
+    0x1000040cc b 0x100003be8                        |         goto label_0;
+                                                     |     }
+    0x1000040dc adrp x8, 0x100008000                 |     x8 = reloc.__assert_rtn;
+    0x1000040e0 ldr x8, [x8, 0x2c8]                  |     x8 = *((uint32_t*) (x8 + 0x2c8));
+    0x1000040e4 ldrsw x8, [x8]                       |     x8 = *((uint64_t*) x8);
+    0x1000040e8 str x8, [sp, 8]                      |     var_8h = x8;
+    0x1000040ec adrp x21, 0x10000c000                |     x21 = 0x10000c000;
+    0x1000040f0 ldrb w8, [x21, 0xdc]                 |     w8 = *((uint8_t*) (x21 + 0xdc));
+                                                     |     if ((w8 & 0) == 0) {
+    0x1000040f4 tbnz w8, 0, 0x100004114              |         
+    0x1000040f8 bl 0x100007618                       |         w0 = getuid ();
+                                                     |         if (w0 != 0) {
+    0x1000040fc cbnz w0, 0x100004114                 |             goto label_10;
+                                                     |         }
+    0x100004100 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x100004104 ldrb w8, [x8, 0xec]                  |         w8 = *((uint8_t*) (x8 + 0xec));
+                                                     |         if ((w8 & 0) != 0) {
+    0x100004108 tbnz w8, 0, 0x100004114              |             goto label_10;
+                                                     |         }
+    0x10000410c mov w8, 1                            |         w8 = 1;
+    0x100004110 strb w8, [x21, 0xdc]                 |         *((uint8_t*) (x21 + 0xdc)) = w8;
+                                                     |     }
+                                                     | label_10:
+    0x100004114 ldr w8, [x28, 0x20]                  |     w8 = *((uint32_t*) (x28 + 0x20));
+                                                     |     if (w8 != 0) {
+    0x100004118 cbz w8, 0x100004264                  |         
+    0x10000411c cmp w8, 2                            |         
+                                                     |         if (w8 != 2) {
+    0x100004120 b.eq 0x100004168                     |             
+    0x100004124 adrp x0, 0x100007000                 |             
+    0x100004128 add x0, x0, 0xa3a                    |             x0 = "CLICOLOR";
+    0x10000412c bl 0x1000075e8                       |             x0 = getenv ("CLICOLOR");
+                                                     |             if (x0 == 0) {
+    0x100004130 cbnz x0, 0x10000414c                 |                 
+    0x100004134 adrp x0, 0x100007000                 |                 
+    0x100004138 add x0, x0, 0xb58                    |                 x0 = "COLORTERM";
+    0x10000413c bl 0x1000075e8                       |                 x0 = getenv ("COLORTERM");
+                                                     |                 if (x0 == 0) {
+    0x100004140 cbz x0, 0x100004264                  |                     goto label_11;
+                                                     |                 }
+    0x100004144 ldrb w8, [x0]                        |                 w8 = *((uint8_t*) x0);
+                                                     |                 if (w8 == 0) {
+    0x100004148 cbz w8, 0x100004264                  |                     goto label_11;
+                                                     |                 }
+                                                     |             }
+    0x10000414c mov w0, 1                            |             w0 = 1;
+    0x100004150 bl 0x100007668                       |             w0 = isatty (w0);
+                                                     |             if (w0 != 0) {
+    0x100004154 cbnz w0, 0x100004168                 |                 goto label_12;
+                                                     |             }
+    0x100004158 adrp x0, 0x100007000                 |             
+    0x10000415c add x0, x0, 0xb62                    |             x0 = "CLICOLOR_FORCE";
+    0x100004160 bl 0x1000075e8                       |             x0 = getenv ("CLICOLOR_FORCE");
+                                                     |             if (x0 == 0) {
+    0x100004164 cbz x0, 0x100004264                  |                 goto label_11;
+                                                     |             }
+                                                     |         }
+                                                     | label_12:
+    0x100004168 adrp x0, 0x100007000                 |         
+    0x10000416c add x0, x0, 0xab3                    |         x0 = "TERM";
+    0x100004170 bl 0x1000075e8                       |         x0 = getenv ("TERM");
+                                                     |         if (x0 != 0) {
+    0x100004174 cbz x0, 0x100004240                  |             
+    0x100004178 mov x1, x0                           |             x1 = x0;
+    0x10000417c add x0, sp, 0x220                    |             x0 = sp + 0x220;
+    0x100004180 bl 0x100007858                       |             w0 = tgetent (x0, x1);
+    0x100004184 cmp w0, 1                            |             
+                                                     |             if (w0 == 1) {
+    0x100004188 b.ne 0x100004240                     |                 
+    0x10000418c adrp x0, 0x100007000                 |                 
+    0x100004190 add x0, x0, 0xab8                    |                 x0 = 0x100007ab8;
+    0x100004194 add x1, sp, 0x18                     |                 x1 = sp + 0x18;
+    0x100004198 bl 0x100007868                       |                 tgetstr (x0, x1);
+    0x10000419c adrp x21, 0x10000c000                |                 x21 = 0x10000c000;
+    0x1000041a0 str x0, [x21, 0x90]                  |                 *((uint32_t*) (x21 + 0x90)) = x0;
+    0x1000041a4 adrp x0, 0x100007000                 |                 
+    0x1000041a8 add x0, x0, 0xabb                    |                 x0 = 0x100007abb;
+    0x1000041ac add x1, sp, 0x18                     |                 x1 = sp + 0x18;
+    0x1000041b0 bl 0x100007868                       |                 tgetstr (x0, x1);
+    0x1000041b4 adrp x22, 0x10000c000                |                 x22 = 0x10000c000;
+    0x1000041b8 str x0, [x22, 0x98]                  |                 *((uint32_t*) (x22 + 0x98)) = x0;
+    0x1000041bc adrp x0, 0x100007000                 |                 
+    0x1000041c0 add x0, x0, 0xabe                    |                 x0 = 0x100007abe;
+    0x1000041c4 add x1, sp, 0x18                     |                 x1 = sp + 0x18;
+    0x1000041c8 bl 0x100007868                       |                 tgetstr (x0, x1);
+    0x1000041cc adrp x8, 0x10000c000                 |                 x8 = 0x10000c000;
+    0x1000041d0 str x0, [x8, 0xa0]                   |                 *((uint32_t*) (x8 + 0xa0)) = x0;
+    0x1000041d4 adrp x0, 0x100007000                 |                 
+    0x1000041d8 add x0, x0, 0xac1                    |                 x0 = 0x100007ac1;
+    0x1000041dc add x1, sp, 0x18                     |                 x1 = sp + 0x18;
+    0x1000041e0 bl 0x100007868                       |                 tgetstr (x0, x1);
+    0x1000041e4 adrp x8, 0x10000c000                 |                 x8 = 0x10000c000;
+    0x1000041e8 str x0, [x8, 0xa8]                   |                 *((uint32_t*) (x8 + 0xa8)) = x0;
+    0x1000041ec adrp x0, 0x100007000                 |                 
+    0x1000041f0 add x0, x0, 0xac4                    |                 x0 = 0x100007ac4;
+    0x1000041f4 add x1, sp, 0x18                     |                 x1 = sp + 0x18;
+    0x1000041f8 bl 0x100007868                       |                 tgetstr (x0, x1);
+    0x1000041fc adrp x23, 0x10000c000                |                 x23 = 0x10000c000;
+    0x100004200 str x0, [x23, 0xb0]                  |                 *((uint32_t*) (x23 + 0xb0)) = x0;
+                                                     |                 if (x0 == 0) {
+    0x100004204 cbnz x0, 0x10000421c                 |                     
+    0x100004208 adrp x0, 0x100007000                 |                     
+    0x10000420c add x0, x0, 0xac7                    |                     x0 = 0x100007ac7;
+    0x100004210 add x1, sp, 0x18                     |                     x1 = sp + 0x18;
+    0x100004214 bl 0x100007868                       |                     tgetstr (x0, x1);
+    0x100004218 str x0, [x23, 0xb0]                  |                     *((uint32_t*) (x23 + 0xb0)) = x0;
+                                                     |                 }
+    0x10000421c ldr x8, [x21, 0x90]                  |                 x8 = *((uint32_t*) (x21 + 0x90));
+                                                     |                 if (x8 == 0) {
+    0x100004220 cbz x8, 0x100004264                  |                     goto label_11;
+                                                     |                 }
+    0x100004224 ldr x8, [x22, 0x98]                  |                 x8 = *((uint32_t*) (x22 + 0x98));
+                                                     |                 if (x8 == 0) {
+    0x100004228 cbz x8, 0x100004264                  |                     goto label_11;
+                                                     |                 }
+                                                     |                 if (x0 == 0) {
+    0x10000422c cbz x0, 0x100004264                  |                     goto label_11;
+                                                     |                 }
+    0x100004230 mov w8, 1                            |                 w8 = 1;
+    0x100004234 adrp x9, 0x10000c000                 |                 x9 = 0x10000c000;
+    0x100004238 str w8, [x9, 0xb8]                   |                 *((uint32_t*) (x9 + 0xb8)) = w8;
+    0x10000423c b 0x100004278                        |                 
+                                                     |             }
+    0x100004240 ldr w8, [x28, 0x20]                  |             w8 = *((uint32_t*) (x28 + 0x20));
+    0x100004244 cmp w8, 2                            |             
+                                                     |         } else {
+                                                     |         } else {
+                                                     |         }
+                                                     |     }
+                                                     |     if (w8 == 2) {
+    0x100004248 b.ne 0x100004264                     |         
+    0x10000424c mov w8, 1                            |         w8 = 1;
+    0x100004250 adrp x9, 0x10000c000                 |         x9 = 0x10000c000;
+    0x100004254 str w8, [x9, 0xb8]                   |         *((uint32_t*) (x9 + 0xb8)) = w8;
+    0x100004258 adrp x9, 0x10000c000                 |         x9 = 0x10000c000;
+    0x10000425c strb w8, [x9, 0xbc]                  |         *((uint8_t*) (x9 + 0xbc)) = w8;
+    0x100004260 b 0x100004278                        |         
+                                                     |     }
+                                                     | label_11:
+    0x100004264 adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x100004268 ldr w8, [x8, 0xb8]                   |     w8 = *((uint32_t*) 0x10000c0b8);
+                                                     |     if (w8 != 0) {
+    0x10000426c cbnz w8, 0x100004278                 |         goto label_13;
+                                                     |     }
+    0x100004270 mov w9, 0                            |     w9 = 0;
+    0x100004274 b 0x1000042cc                        |     goto label_14;
+                                                     | label_13:
+    0x100004278 mov w8, 1                            |     w8 = 1;
+    0x10000427c adrp x9, 0x10000c000                 |     x9 = 0x10000c000;
+    0x100004280 str w8, [x9, 0xc0]                   |     *((uint32_t*) (x9 + 0xc0)) = w8;
+    0x100004284 adrp x16, 0x100006000                |     
+    0x100004288 add x16, x16, 0x8e8                  |     x16 = func.1000068e8;
+    0x10000428c paciza x16                           |     
+    0x100004290 mov x21, x16                         |     x21 = x16;
+    0x100004294 mov w0, 2                            |     w0 = 2;
+    0x100004298 mov x1, x16                          |     x1 = x16;
+    0x10000429c bl 0x100007778                       |     signal (w0);
+    0x1000042a0 mov w0, 3                            |     w0 = 3;
+    0x1000042a4 mov x1, x21                          |     x1 = x21;
+    0x1000042a8 bl 0x100007778                       |     signal (w0);
+    0x1000042ac adrp x0, 0x100007000                 |     
+    0x1000042b0 add x0, x0, 0xaca                    |     x0 = "LSCOLORS";
+    0x1000042b4 bl 0x1000075e8                       |     x0 = getenv ("LSCOLORS");
+    0x1000042b8 bl 0x100006780                       |     func_100006780 (x1, w0);
+    0x1000042bc adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x1000042c0 ldr w8, [x8, 0xb8]                   |     w8 = *((uint32_t*) 0x10000c0b8);
+    0x1000042c4 cmp w8, 0                            |     
+    0x1000042c8 cset w9, ne                          |     w9 = (w8 != 0) ? 1 : 0;
+                                                     | label_14:
+    0x1000042cc adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x1000042d0 ldr w10, [x8, 0x6c]                  |     w10 = *((uint32_t*) 0x10000c06c);
+    0x1000042d4 adrp x27, 0x10000c000                |     x27 = 0x10000c000;
+    0x1000042d8 ldr w12, [x27, 0x30]                 |     w12 = *((uint32_t*) 0x10000c030);
+    0x1000042dc orr w8, w10, w12                     |     w8 = w10 | w12;
+    0x1000042e0 adrp x11, 0x10000c000                |     x11 = 0x10000c000;
+    0x1000042e4 ldr w11, [x11, 0x7c]                 |     w11 = *((uint32_t*) 0x10000c07c);
+    0x1000042e8 orr w8, w8, w11                      |     w8 |= w11;
+    0x1000042ec cmp w8, 0                            |     
+    0x1000042f0 cset w8, ne                          |     w8 = (w8 != 0) ? 1 : 0;
+    0x1000042f4 adrp x28, 0x10000c000                |     x28 = 0x10000c000;
+    0x1000042f8 ldrb w11, [x28, 0xe4]                |     w11 = *((uint8_t*) (x28 + 0xe4));
+    0x1000042fc adrp x23, 0x10000c000                |     x23 = 0x10000c000;
+    0x100004300 ldrb w13, [x23, 0xe0]                |     w13 = *((uint8_t*) (x23 + 0xe0));
+    0x100004304 orr w11, w11, w13                    |     w11 |= w13;
+    0x100004308 adrp x13, 0x10000c000                |     x13 = 0x10000c000;
+    0x10000430c ldr w13, [x13, 0x58]                 |     w13 = *((uint32_t*) 0x10000c058);
+    0x100004310 cmp w13, 0                           |     
+    0x100004314 cset w14, ne                         |     w14 = (w13 != 0) ? 1 : 0;
+    0x100004318 orr w11, w11, w14                    |     w11 |= w14;
+    0x10000431c adrp x26, 0x10000c000                |     x26 = 0x10000c000;
+    0x100004320 ldr w14, [x26, 0x88]                 |     w14 = *((uint32_t*) 0x10000c088);
+    0x100004324 cmp w14, 0                           |     
+    0x100004328 cset w14, ne                         |     w14 = (w14 != 0) ? 1 : 0;
+    0x10000432c orr w11, w11, w14                    |     w11 |= w14;
+    0x100004330 orr w11, w8, w11                     |     w11 = w8 | w11;
+    0x100004334 orr w11, w11, w9                     |     w11 |= w9;
+    0x100004338 orr w14, w25, 8                      |     w14 = w25 | 8;
+    0x10000433c tst w11, 1                           |     
+    0x100004340 csel w11, w25, w14, ne               |     w11 = ((w11 & 1) != 0) ? w25 : w14;
+    0x100004344 adrp x14, 0x10000c000                |     x14 = 0x10000c000;
+    0x100004348 ldrb w14, [x14, 0xe8]                |     w14 = *((uint8_t*) (x14 + 0xe8));
+                                                     |     if ((w14 & 0) == 0) {
+    0x10000434c tbnz w14, 0, 0x100004380             |         
+                                                     |         if (w12 != 0) {
+    0x100004350 cbnz w12, 0x100004380                |             goto label_15;
+                                                     |         }
+    0x100004354 adrp x12, 0x10000c000                |         x12 = 0x10000c000;
+    0x100004358 ldrb w12, [x12, 0xf8]                |         w12 = *((uint8_t*) (x12 + 0xf8));
+                                                     |         if ((w12 & 0) != 0) {
+    0x10000435c tbnz w12, 0, 0x100004380             |             goto label_15;
+                                                     |         }
+    0x100004360 cmp w13, 0                           |         
+    0x100004364 adrp x12, 0x10000c000                |         x12 = 0x10000c000;
+    0x100004368 ldr w12, [x12, 0x5c]                 |         w12 = *((uint32_t*) 0x10000c05c);
+    0x10000436c ccmp w12, 0, 0, ne                   |         
+    0x100004370 ccmp w10, 0, 0, ne                   |         
+    0x100004374 csinc w9, w9, wzr, eq                |         w9 = (w10 == 0) ? w9 : (0 + 1);
+    0x100004378 eor w9, w9, 1                        |         w9 ^= 1;
+    0x10000437c orr w11, w11, w9                     |         w11 |= w9;
+                                                     |     }
+                                                     | label_15:
+    0x100004380 adrp x9, 0x10000c000                 |     x9 = 0x10000c000;
+    0x100004384 ldrb w9, [x9, 0xf4]                  |     w9 = *((uint8_t*) (x9 + 0xf4));
+    0x100004388 orr w10, w11, 0x80                   |     w10 = w11 | 0x80;
+    0x10000438c cmp w9, 0                            |     
+    0x100004390 csel w21, w10, w11, ne               |     w21 = (w9 != 0) ? w10 : w11;
+                                                     |     if (w8 != 0) {
+    0x100004394 cbz w8, 0x1000043dc                  |         
+    0x100004398 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x10000439c ldrb w8, [x8, 0xfc]                  |         w8 = *((uint8_t*) (x8 + 0xfc));
+                                                     |         if ((w8 & 0) != 0) {
+    0x1000043a0 tbz w8, 0, 0x1000043ac               |             
+    0x1000043a4 mov w8, 2                            |             w8 = 2;
+    0x1000043a8 b 0x1000043d4                        |             
+                                                     |         } else {
+    0x1000043ac adrp x22, 0x10000c000                |             
+    0x1000043b0 add x22, x22, 0xc8                   |             x22 = 0x10000c0c8;
+    0x1000043b4 sub x0, x29, 0x64                    |             x0 = x29 - 0x64;
+    0x1000043b8 mov x1, x22                          |             x1 = x22;
+    0x1000043bc bl 0x1000075d8                       |             getbsize (x0, x1);
+    0x1000043c0 ldr x8, [x22]                        |             x8 = *((uint32_t*) 0x10000c0c8);
+    0x1000043c4 add x9, x8, 0x1ff                    |             x9 = x8 + 0x1ff;
+    0x1000043c8 cmp x8, 0                            |             
+    0x1000043cc csel x8, x9, x8, lt                  |             x8 = (x8 < 0) ? x9 : x8;
+    0x1000043d0 asr x8, x8, 9                        |             x8 >>= 9;
+                                                     |         }
+    0x1000043d4 adrp x9, 0x10000c000                 |         x9 = 0x10000c000;
+    0x1000043d8 str x8, [x9, 0xc8]                   |         *((uint32_t*) (x9 + 0xc8)) = x8;
+                                                     |     }
+    0x1000043dc adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x1000043e0 ldrb w10, [x8, 0x100]                |     w10 = *((uint8_t*) (x8 + 0x100));
+    0x1000043e4 ldrb w8, [x28, 0xe4]                 |     w8 = *((uint8_t*) (x28 + 0xe4));
+    0x1000043e8 ldrb w9, [x23, 0xe0]                 |     w9 = *((uint8_t*) (x23 + 0xe0));
+    0x1000043ec orr w8, w8, w9                       |     w8 |= w9;
+    0x1000043f0 eor w11, w8, 1                       |     w11 = w8 ^ 1;
+    0x1000043f4 orr w9, w11, w9                      |     w9 = w11 | w9;
+    0x1000043f8 cmp w10, 1                           |     
+                                                     |     if (w10 == 1) {
+    0x1000043fc b.ne 0x100004484                     |         
+    0x100004400 tst w8, 1                            |         
+    0x100004404 adrp x16, 0x100003000                |         
+    0x100004408 add x16, x16, 0x804                  |         x16 = func.100003804;
+    0x10000440c paciza x16                           |         
+    0x100004410 mov x8, x16                          |         x8 = x16;
+    0x100004414 adrp x16, 0x100003000                |         
+    0x100004418 add x16, x16, 0xa1c                  |         x16 = func.100003a1c;
+    0x10000441c paciza x16                           |         
+    0x100004420 csel x16, x16, x8, ne                |         x16 = ((w8 & 1) != 0) ? x16 : x8;
+                                                     |         if ((w9 & 0) != 0) {
+    0x100004424 tbnz w9, 0, 0x100004508              |             goto label_16;
+                                                     |         }
+    0x100004428 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x10000442c ldr w8, [x8, 0x3c]                   |         w8 = *((uint32_t*) 0x10000c03c);
+    0x100004430 adrp x16, 0x100003000                |         
+    0x100004434 add x16, x16, 0x8ec                  |         x16 = func.1000038ec;
+    0x100004438 paciza x16                           |         
+                                                     |         if (w8 != 0) {
+    0x10000443c cbnz w8, 0x100004508                 |             goto label_16;
+                                                     |         }
+    0x100004440 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x100004444 ldr w8, [x8, 0x40]                   |         w8 = *((uint32_t*) 0x10000c040);
+    0x100004448 adrp x16, 0x100003000                |         
+    0x10000444c add x16, x16, 0x960                  |         x16 = func.100003960;
+    0x100004450 paciza x16                           |         
+                                                     |         if (w8 != 0) {
+    0x100004454 cbnz w8, 0x100004508                 |             goto label_16;
+                                                     |         }
+    0x100004458 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x10000445c ldr w8, [x8, 0x38]                   |         w8 = *((uint32_t*) 0x10000c038);
+    0x100004460 cmp w8, 0                            |         
+    0x100004464 adrp x16, 0x100003000                |         
+    0x100004468 add x16, x16, 0x9d4                  |         x16 = func.1000039d4;
+    0x10000446c paciza x16                           |         
+    0x100004470 mov x8, x16                          |         x8 = x16;
+    0x100004474 adrp x16, 0x100003000                |         
+    0x100004478 add x16, x16, 0x878                  |         x16 = func.100003878;
+    0x10000447c paciza x16                           |         
+    0x100004480 b 0x100004504                        |         
+                                                     |     } else {
+    0x100004484 tst w8, 1                            |         
+    0x100004488 adrp x16, 0x100003000                |         
+    0x10000448c add x16, x16, 0x7f8                  |         x16 = func.1000037f8;
+    0x100004490 paciza x16                           |         
+    0x100004494 mov x8, x16                          |         x8 = x16;
+    0x100004498 adrp x16, 0x100003000                |         
+    0x10000449c add x16, x16, 0x9e4                  |         x16 = func.1000039e4;
+    0x1000044a0 paciza x16                           |         
+    0x1000044a4 csel x16, x16, x8, ne                |         x16 = ((w8 & 1) != 0) ? x16 : x8;
+                                                     |         if ((w9 & 0) != 0) {
+    0x1000044a8 tbnz w9, 0, 0x100004508              |             goto label_16;
+                                                     |         }
+    0x1000044ac adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x1000044b0 ldr w8, [x8, 0x3c]                   |         w8 = *((uint32_t*) 0x10000c03c);
+    0x1000044b4 adrp x16, 0x100003000                |         
+    0x1000044b8 add x16, x16, 0x888                  |         x16 = func.100003888;
+    0x1000044bc paciza x16                           |         
+                                                     |         if (w8 != 0) {
+    0x1000044c0 cbnz w8, 0x100004508                 |             goto label_16;
+                                                     |         }
+    0x1000044c4 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x1000044c8 ldr w8, [x8, 0x40]                   |         w8 = *((uint32_t*) 0x10000c040);
+    0x1000044cc adrp x16, 0x100003000                |         
+    0x1000044d0 add x16, x16, 0x8fc                  |         x16 = func.1000038fc;
+    0x1000044d4 paciza x16                           |         
+                                                     |         if (w8 != 0) {
+    0x1000044d8 cbnz w8, 0x100004508                 |             goto label_16;
+                                                     |         }
+    0x1000044dc adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x1000044e0 ldr w8, [x8, 0x38]                   |         w8 = *((uint32_t*) 0x10000c038);
+    0x1000044e4 cmp w8, 0                            |         
+    0x1000044e8 adrp x16, 0x100003000                |         
+    0x1000044ec add x16, x16, 0x970                  |         x16 = func.100003970;
+    0x1000044f0 paciza x16                           |         
+    0x1000044f4 mov x8, x16                          |         x8 = x16;
+    0x1000044f8 adrp x16, 0x100003000                |         
+    0x1000044fc add x16, x16, 0x814                  |         x16 = func.100003814;
+    0x100004500 paciza x16                           |         
+                                                     |     }
+    0x100004504 csel x16, x16, x8, eq                |     x16 = (w8 == 0) ? x16 : x8;
+                                                     | label_16:
+    0x100004508 adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x10000450c str x16, [x8, 0x108]                 |     *((uint32_t*) (x8 + 0x108)) = x16;
+    0x100004510 ldrb w8, [x24, 0xd0]                 |     w8 = *((uint8_t*) (x24 + 0xd0));
+    0x100004514 adrp x16, 0x100005000                |     
+    0x100004518 add x16, x16, 0x400                  |     x16 = func.100005400;
+    0x10000451c paciza x16                           |     
+                                                     |     if ((w8 & 0) == 0) {
+    0x100004520 tbnz w8, 0, 0x100004564              |         
+    0x100004524 ldr w8, [x27, 0x30]                  |         w8 = *((uint32_t*) (x27 + 0x30));
+    0x100004528 adrp x16, 0x100005000                |         
+    0x10000452c add x16, x16, 0x638                  |         x16 = func.100005638;
+    0x100004530 paciza x16                           |         
+                                                     |         if (w8 != 0) {
+    0x100004534 cbnz w8, 0x100004564                 |             goto label_17;
+                                                     |         }
+    0x100004538 adrp x8, 0x10000c000                 |         x8 = 0x10000c000;
+    0x10000453c ldrb w8, [x8, 0xd4]                  |         w8 = *((uint8_t*) (x8 + 0xd4));
+    0x100004540 cmp w8, 0                            |         
+    0x100004544 adrp x16, 0x100006000                |         
+    0x100004548 add x16, x16, 0x44c                  |         x16 = func.10000644c;
+    0x10000454c paciza x16                           |         
+    0x100004550 mov x8, x16                          |         x8 = x16;
+    0x100004554 adrp x16, 0x100006000                |         
+    0x100004558 add x16, x16, 0x364                  |         x16 = func.100006364;
+    0x10000455c paciza x16                           |         
+    0x100004560 csel x16, x16, x8, ne                |         x16 = (w8 != 0) ? x16 : x8;
+                                                     |     }
+                                                     | label_17:
+    0x100004564 adrp x8, 0x10000c000                 |     x8 = 0x10000c000;
+    0x100004568 str x16, [x8, 0x110]                 |     *((uint32_t*) (x8 + 0x110)) = x16;
+    0x10000456c ldr w8, [x26, 0x88]                  |     w8 = *((uint32_t*) (x26 + 0x88));
+                                                     |     if (w8 != 0) {
+    0x100004570 cbz w8, 0x1000045a8                  |         
+    0x100004574 mov w8, 1                            |         w8 = 1;
+    0x100004578 str w8, [sp, 0x14]                   |         var_14h = w8;
+    0x10000457c adrp x0, 0x100007000                 |         
+    0x100004580 add x0, x0, 0xad3                    |         x0 = "vfs.nspace.prevent_materialization";
+    0x100004584 add x3, sp, 0x14                     |         x3 = sp + 0x14;
+    0x100004588 mov x1, 0                            |         x1 = 0;
+    0x10000458c mov x2, 0                            |         x2 = 0;
+    0x100004590 mov w4, 4                            |         w4 = 4;
+    0x100004594 bl 0x100007848                       |         sysctlbyname ("vfs.nspace.prevent_materialization", x1, x2, x3);
+                                                     |         if ((w0 & 0x1f) != 0) {
+    0x100004598 tbz w0, 0x1f, 0x1000045a8            |             
+    0x10000459c adrp x1, 0x100007000                 |             
+    0x1000045a0 add x1, x1, 0xaf6                    |             x1 = "prevent materialization sysctl failed";
+    0x1000045a4 b 0x10000461c                        |             
+                                                     |         }
+                                                     |     } else {
+    0x1000045a8 ldr x8, [sp, 8]                      |         x8 = var_8h;
+    0x1000045ac cmp w20, w8                          |         
+                                                     |         if (w20 == w8) {
+    0x1000045b0 b.ne 0x1000045c4                     |             
+    0x1000045b4 adrp x1, 0x10000c000                 |             x1 = 0x10000c000;
+    0x1000045b8 add x1, x1, 8                        |             x1 += 8;
+    0x1000045bc mov w0, 1                            |             w0 = 1;
+    0x1000045c0 b 0x1000045cc                        |             
+                                                     |         } else {
+    0x1000045c4 sub w0, w20, w8                      |             w0 = w20 - w8;
+    0x1000045c8 add x1, x19, x8, lsl 3               |             x1 = x19 + (x8 << 3);
+                                                     |         }
+    0x1000045cc mov x2, x21                          |         x2 = x21;
+    0x1000045d0 bl 0x1000047a8                       |         func_1000047a8 (w0, x1, x2);
+    0x1000045d4 adrp x20, 0x10000c000                |         x20 = 0x10000c000;
+    0x1000045d8 ldrb w8, [x20, 0x118]                |         w8 = *((uint8_t*) (x20 + 0x118));
+                                                     |         if ((w8 & 0) != 0) {
+    0x1000045dc tbz w8, 0, 0x1000045e8               |             
+    0x1000045e0 mov w0, 1                            |             w0 = 1;
+    0x1000045e4 bl 0x100007508                       |             exit (w0);
+                                                     |         }
+    0x1000045e8 adrp x8, 0x100008000                 |         x8 = reloc.__assert_rtn;
+    0x1000045ec ldr x8, [x8, 0x2b8]                  |         x8 = *((uint32_t*) (x8 + 0x2b8));
+    0x1000045f0 ldr x19, [x8]                        |         x19 = *((uint32_t*) x8);
+    0x1000045f4 mov x0, x19                          |         x0 = x19;
+    0x1000045f8 bl 0x100007518                       |         w0 = ferror (x0);
+                                                     |         if (w0 == 0) {
+    0x1000045fc cbnz w0, 0x100004614                 |             
+    0x100004600 mov x0, x19                          |             x0 = x19;
+    0x100004604 bl 0x100007538                       |             w0 = fflush (x0);
+                                                     |             if (w0 != 0) {
+    0x100004608 cbnz w0, 0x100004614                 |                 goto label_18;
+                                                     |             }
+    0x10000460c ldrb w0, [x20, 0x118]                |             w0 = *((uint8_t*) (x20 + 0x118));
+    0x100004610 bl 0x100007508                       |             exit (w0);
+                                                     |         }
+                                                     | label_18:
+    0x100004614 adrp x1, 0x100007000                 |         
+    0x100004618 add x1, x1, 0xb1c                    |         x1 = "stdout";
+                                                     |     }
+    0x10000461c mov w0, 1                            |     w0 = 1;
+    0x100004620 bl 0x1000074e8                       |     err (w0, "stdout");
+                                                     | }
