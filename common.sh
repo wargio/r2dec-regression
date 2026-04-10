@@ -12,7 +12,7 @@ build_testsuite() {
 	if [ ! -d "$BUILD" ]; then
 		echo "Info: creating meson build '$BUILD'"
 		cd "$r2dec"
-		meson -Dstandalone=true "build-standalone" || exit 1
+		meson setup -Dstandalone=true "build-standalone" || exit 1
 		ninja -C "build-standalone" || exit 1
 		cd "$WORKDIR"
 	elif [ ! -f "$BIN" ]; then
